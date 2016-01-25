@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>D3 Map Template</title>
+  <meta name="description" content="D3 Map Template">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+
+<style>
+    .republican { color:#A50F16 !important; fill:#A50F16 !important; }
+    .democrat { color:#223C69 !important; fill:#223C69 !important; }
+    .zoom { float:right; }
+</style>
+</head>
+
+<body>
+<div class="chartHeader chartTitle">Minnesota House Legislative Districts</div>
+
+<div class="zoom">Reset View</div> 
+
+<div id="map" class="map"><svg width="320" height="350" viewBox="0 0 500 550" preserveAspectRatio="xMidYMid"></svg></div>
+
+<div id="infobox">Minnesota</div>
+<div class="chartFooter">
+  <div class="sources">Source: Minnesota Secretary of State</div>
+  <div class="branding"><a href="http://startribune.com/datadrop">startribune.com/datadrop</a></div>
+</div>
+<a href="https://docs.google.com/spreadsheets/d/1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script src="http://d3js.org/queue.v1.min.js"></script>
+
+
+<script>
+d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=J7gq0Mug2sgTNcGnn_rqd5m16ku4tlAetdD1wcXteOWwheCFeeZKh-r-H3dzmLZrbaC70jLP1Z_AtWMypGso--y7oZ4tocfLOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOHFFUreli0hhOYpmBjx3ILLKOBPTBeFtzP1qPyR5eY853gQhsRdwb-KjjPLOhaSDCwmp7sOrB5lxIogQQuwV6UDjaqsI7Q_MTc&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, json3) {
+
+var data = json3.mn_house;
+
+var width = 350,
+    height = 400,
+    centered;
+
+var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]);
+// else if (geo=="metro") { var projection = d3.geo.mercator().scale([16800]).center([-92.263184,44.863656]); }
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select("#map svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g");
+
+d3.json("../_common_resources/shapefiles/mnleg.json", function(error, us) {
+
+  g.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+      .data(us.features)
+    .enter().append("path")
+      .attr("d", path)
+      .on("click", clicked)
+      .attr("id", function(d) { var str = d.properties.DISTRICT; return str.replace(new RegExp(" ", "g"),"-"); })
+      .attr("precinctName", function(d){ return d.properties.DISTRICT })
+      .attr("class", function(d){
+        //COLORING LOGIC
+          var gopCount;
+          var dflCount;
+          for (var i = 0; i < data.length; i++) {
+           if (data[i].county_id == d.properties.DISTRICT){
+           if (data[i].party_id == "DFL") { dflCount = data[i].vote_pct; }
+           if (data[i].party_id == "R") { gopCount = data[i].vote_pct; }
+           }
+         }
+
+          if (gopCount > dflCount) { return "republican"; }
+          else if (gopCount < dflCount) { return "democrat"; }
+          else { return "mid"; }
+
+        })
+       .on("mousedown", function(d, i){   
+          //DO CLICKY THINGS HERE
+          $("#infobox").html(d.properties.DISTRICT);
+       })
+      .style("stroke-width", "0")
+      // .style("stroke", "#fff")
+      .call(d3.helper.tooltip(function(d, i){
+        //TOOLTIPS
+        return "<div class='countyName'>" + d.properties.DISTRICT + "</div>";
+      }));
+
+  g.append("path")
+      //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
+      .attr("id", "state-borders")
+      .attr("d", path);
+});
+
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+ 
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("circle")
+            .attr("d", path.projection(projection));
+        g.selectAll("path")  
+            .attr("d", path.projection(projection)); 
+
+  });
+
+$(".zoom").click(function() {
+  clicked2();
+  $("#infobox").html("Minnesota");
+
+});
+
+function clicked(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 4;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 10;
+    centered = null;
+  }
+
+  g.selectAll("path")
+      .classed("faded", true)
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", 1.5 / k + "px");
+}
+
+function clicked2(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 1;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("path")
+      .classed("faded", false)
+      .classed("active", centered && function(d) { return d === centered; });
+
+  g.transition()
+      .duration(750)
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")")
+      .style("stroke-width", 1.5 / k + "px");
+}
+
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute') 
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+});
+</script>
+</html>
