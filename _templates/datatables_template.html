@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Live Google Sheet DataTable</title>
+  	<meta name="description" content="Live Google Sheet DataTable">
+ 	<meta name="author" content="Frey Hargarten - StarTribune">
+	<meta name="generator" content="BBEdit 10.5" />
+	
+	<link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" /> 
+	<link rel="stylesheet" href="//cdn.datatables.net/responsive/1.0.6/css/dataTables.responsive.css" />
+	<link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />	
+</head>
+<body> 
+
+<div id="wrapper">
+
+<div class="chartHeader chartTitle">DataTable example</div>
+
+<table width="100%" cellspacing="0" class="display compact responsive nowrap" id="events"><thead><tr><th>Last</th><th>First</th><th>County</th><th>OT Wages</th><th>OT %</th><th>Organization</th><th>Job Title</th><th>Gross Wages</th></tr></thead></table>
+
+  <div class="sources">Source: Minnesota Secretary of State</div>
+  <div class="branding"><a href="http://startribune.com/datadrop">startribune.com/datadrop</a></div>
+</div>
+<a href="https://docs.google.com/spreadsheets/d/1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
+</div>
+
+</body>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src='//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js'></script>
+<script src="//cdn.datatables.net/responsive/1.0.6/js/dataTables.responsive.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+
+           var eventsTable = $('#events').DataTable( {
+           	    responsive: {
+        details: {
+            type: 'row'
+        }
+    },
+                "bServerSide":false,
+                "bProcessing":true,
+                "sAjaxDataProp": "feed.entry",
+                "order": [[ 3, "desc" ]],
+                "oLanguage": {"sSearch": ""},
+                "sAjaxSource": "https://spreadsheets.google.com/feeds/list/18fLI7k8yU7t9bGGUqGfwm2RJWrVVwKjnm5pg9gtJ0ac/od6/public/values?&alt=json",
+                "aoColumns": [                 
+                    { "mDataProp": "gsx$lastname.$t" },
+                    { "mDataProp": "gsx$restname.$t" },
+                    { "mDataProp": "gsx$source.$t" },
+                    { "mDataProp": "gsx$otgross.$t" },
+                    { "mDataProp": "gsx$pctot.$t" },
+                    { "mDataProp": "gsx$organization.$t" },
+                    { "mDataProp": "gsx$jobtitle.$t" },
+                    { "mDataProp": "gsx$grosswages.$t" },
+                            ]
+            } );
+
+$('.dataTables_filter input').attr("placeholder", "Enter an employee's name or county and click their last name for further information");
+
+        } );
+    </script>
+</html>

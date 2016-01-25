@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mapbox JS Template</title>
+  <meta name="description" content="Mapbox JS Template">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+    
+
+  <style>
+     body { margin:0; padding:0; }
+     #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+
+<div id='map'></div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.0/mapbox.js'></script>
+<script>
+d3.json("https://script.googleusercontent.com/macros/echo?user_content_key=l5_aNeJYpzBLERNvsi086lXDhWdKV_rV-zIYfSJ3Kq-smFJm1GhXPjLjm7pSGJuROJrCDFolUPJJJvQOa15umibMWjlo-U3UOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TuemWiCPnYU3v6YF6IJkSFYyyTJG-HL6oSfmK20SEw86uyLwhxRZulMt4JgiTXzIzGetL3GQdFGtzSS3bVLNjDaoHaP2ix_cb&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoad2011) {
+    
+var chartWind = c3.generate({
+        bindto: '#windChart',
+        padding: padding,
+        data: {
+            json: data2015,
+            keys: {
+                x: 'DATE1',
+                value: ['AvgSpeed',"Max5Speed"]
+            },
+            names: {
+              'AvgSpeed': 'Average Speed',
+              'Max5Speed': 'Max Speed'
+            }
+        },
+        axis: {
+          y: {
+            tick: {
+             values: ['0', '20', '40', '60'],
+             format: d3.format('r')
+            }
+        },
+        x: {
+          type: 'timeseries',
+            tick: {
+                count: 4,
+                format: '%Y-%m-%d'
+            }
+          }
+        },
+      subchart: { show: true },
+        color: { pattern: ['#E7C6A9', '#AA6C38'] },
+    });
+});
+</script>
+
+</body>
+</html>
