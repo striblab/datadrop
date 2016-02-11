@@ -16,7 +16,7 @@
   <style>
     #map { width:100%; height:420px; }
 
-    #nbName { font-family:"Poynter Serif RE"; font-size:1.3em; font-weight:900; }
+    #nbName { margin-top:5px; font-family:"Poynter Serif RE"; font-size:.8em; font-weight:900; height:40px; }
 
     .zoom { text-align:center; float:none !important; padding:15px; }
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
@@ -28,12 +28,12 @@
 
     .num { font-weight:900; }
 
-    #leftSide { float:left; width:48%; }
+    #leftSide { float:left; width:48%; padding-top:15px; }
     #rightSide { float:right; width:48%; }
 
     .source { text-align:center; }
 
-    #chart { height:460px; }
+    #chart { height:400px; }
 
     @media (max-width:850px) {
     #leftSide, #rightSide { width:100%; float:none; text-align:center; }
@@ -45,14 +45,7 @@
 <body>
   <div id="wrapper">
 
-<div id="nbName">Minneapolis</div>
-
 <div id="leftSide">
-    <div id="map"></div>
-
-    <div id="infobox">
-      <div class="zoom">Reset View</div>
-    </div>
 
     <div class="legends">
     <div class="legendContainer">
@@ -71,6 +64,13 @@
     </div>
     <small>No Home Internet Connection</small>
   </div>
+
+    <div id="map"></div>
+
+    <div id="infobox">
+      <div class="zoom">Reset View</div>
+    </div>
+
 </div>
 
 <div id="rightSide">
@@ -79,6 +79,8 @@
 <div class="switch selected" data="house" id="y2014">2014</div>
 <div class="switch" data="senate" id="y2012">2012</div>
 </div>
+
+<div id="nbName">Minneapolis</div>
 
   <div id="chart"><svg></svg></div>
 </div>
@@ -155,7 +157,7 @@ redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#556E7F']; 
+  var colorArray = ['#ccc']; 
   var formatter = d3.format('%');
 
 nv.addGraph(function() {
@@ -183,18 +185,17 @@ nv.addGraph(function() {
 
   nv.utils.windowResize(chart[index].update);
 
-  d3.selectAll("rect.nv-bar")
-    .style("fill", function(d, i){
-        return d.y > 50 ? "red":"blue";
-    });
+
+var rects = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 0 || i == 1; })
+              .style("fill","#556E7F");
 
   return chart[index];
 });
 
-// }
 
 function redrawChart(chart,container,subject,data,county,index){
-  var colorArray = ['#556E7F']; 
+  var colorArray = ['#ccc']; 
   var formatter = d3.format('%');
 
     d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
@@ -252,30 +253,30 @@ for (var i=0; i < dataSource.length; i++){
             "label" : "No Mobile Internet" ,
             "value" : no_mobile
           },
-          { 
-            "label" : "Dialup Internet" ,
-            "value" : dialup
-          },
-          { 
-            "label" : "Cable Internet" ,
-            "value" : cable
-          },
-          { 
-            "label" : "DSL Internet" ,
-            "value" : dsl
-          },
-          { 
-            "label" : "Satellite Internet" ,
-            "value" : satellite
-          },
-          { 
-            "label" : "Cellular Internet" ,
-            "value" : cellular
-          },
-          { 
-            "label" : "WiFi Internet" ,
-            "value" : wifi
-          },
+          // { 
+          //   "label" : "Dialup Internet" ,
+          //   "value" : dialup
+          // },
+          // { 
+          //   "label" : "Cable Internet" ,
+          //   "value" : cable
+          // },
+          // { 
+          //   "label" : "DSL Internet" ,
+          //   "value" : dsl
+          // },
+          // { 
+          //   "label" : "Satellite Internet" ,
+          //   "value" : satellite
+          // },
+          // { 
+          //   "label" : "Cellular Internet" ,
+          //   "value" : cellular
+          // },
+          // { 
+          //   "label" : "WiFi Internet" ,
+          //   "value" : wifi
+          // },
           { 
             "label" : "Own Computer" ,
             "value" : computer
@@ -288,10 +289,10 @@ for (var i=0; i < dataSource.length; i++){
             "label" : "Own Cellphone" ,
             "value" : cell
           },
-          { 
-            "label" : "Own Game Console" ,
-            "value" : gaming
-          },
+          // { 
+          //   "label" : "Own Game Console" ,
+          //   "value" : gaming
+          // },
           { 
             "label" : "High School/Less" ,
             "value" : highschool
@@ -301,12 +302,8 @@ for (var i=0; i < dataSource.length; i++){
             "value" : associates_some
           },
           { 
-            "label" : "Bachelor's Degree" ,
-            "value" : bachelors
-          },
-          { 
-            "label" : "Grad/Prof Degree" ,
-            "value" : graduate
+            "label" : "Bachelor's or More" ,
+            "value" : bachelors + graduate
           },
           { 
             "label" : "$0-$24k" ,
@@ -317,20 +314,12 @@ for (var i=0; i < dataSource.length; i++){
             "value" : i_25k_50k
           },
           { 
-            "label" : "$50k-$99k" ,
-            "value" : i_50k_99k
+            "label" : "$50k+" ,
+            "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "$100k+" ,
-            "value" : i_100k
-          },
-          { 
-            "label" : "Native American" ,
-            "value" : native
-          },
-          { 
-            "label" : "Asian" ,
-            "value" : asian
+            "label" : "Other Race" ,
+            "value" : asian + native
           },
           { 
             "label" : "Black" ,
@@ -341,20 +330,12 @@ for (var i=0; i < dataSource.length; i++){
             "value" : white
           },
           { 
-            "label" : "Age 18-34" ,
-            "value" : y_18_34
+            "label" : "Age 18-54" ,
+            "value" : y_18_34 + y_35_54
           },
           { 
-            "label" : "Age 35-54" ,
-            "value" : y_35_54
-          },
-          { 
-            "label" : "Age 55-64" ,
-            "value" : y_55_64
-          },
-          { 
-            "label" : "Age 65+" ,
-            "value" : y_65
+            "label" : "Age 55+" ,
+            "value" : y_55_64 + y_65
           }
         ]
       }]
