@@ -165,7 +165,7 @@ redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#556E7F']; 
+  var colorArray = ['#ccc','#999']; 
   var formatter = d3.format('%');
 
 nv.addGraph(function() {
@@ -175,8 +175,8 @@ nv.addGraph(function() {
       .margin({top: 30, right: 30, bottom: 20, left: 130})
       .showValues(false)
       .tooltips(true)
-      .stacked(true)
-      .showLegend(false)
+      .stacked(false)
+      .showLegend(true)
       .color(colorArray)
       // .width($(container).width()).height($(container).height())
       .showControls(false);
@@ -193,23 +193,30 @@ nv.addGraph(function() {
 
   nv.utils.windowResize(chart[index].update);
 
-  d3.selectAll("rect.nv-bar")
-    .style("fill", function(d, i){
-        return d.y > 50 ? "red":"blue";
-    });
+
+// var rects = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 0 || i == 1 || i == 15 || i == 16; })
+//               .style("fill","#636363");
 
   return chart[index];
 });
 
-// }
 
 function redrawChart(chart,container,subject,data,county,index){
-  var colorArray = ['#556E7F']; 
+  var colorArray = ['#ccc','#999']; 
   var formatter = d3.format('%');
 
     d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
     // chart[index].yAxistickFormat(formatter);
     nv.utils.windowResize(chart[index].update);
+
+    var rects = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 15 || i == 16; })
+              .style("fill","#252525");
+
+  var rects2 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 0 || i == 1; })
+              .style("fill","#ccc");
 }
 
 function chartData(subject,data,county) {
@@ -219,7 +226,7 @@ var romney, mccain, huckabee, paul, keyes, guiliani, others, obama, clinton, edw
 for (var i=0; i < dataSource.length; i++){
     if (dataSource[i].group == county){
       var no_internet = dataSource[i].no_internet;
-      var no_mobile = dataSource[i].cell_no_internet;
+      var no_mobile = dataSource[i].cell_no_internet + dataSource[i].cell_no;
       var dialup = dataSource[i].dialup;
       var cable = dataSource[i].cable;
       var dsl = dataSource[i].dsl;
@@ -251,8 +258,9 @@ for (var i=0; i < dataSource.length; i++){
   }
 }
 
+if (county == "Overall"){
       return [{
-        "key": "Prevalence",
+        "key": "Citywide Prevalence",
         "values": [
           { 
             "label" : "No Home Internet" ,
@@ -262,29 +270,199 @@ for (var i=0; i < dataSource.length; i++){
             "label" : "No Mobile Internet" ,
             "value" : no_mobile
           },
+          // { 
+          //   "label" : "Dialup Internet" ,
+          //   "value" : dialup
+          // },
+          // { 
+          //   "label" : "Cable Internet" ,
+          //   "value" : cable
+          // },
+          // { 
+          //   "label" : "DSL Internet" ,
+          //   "value" : dsl
+          // },
+          // { 
+          //   "label" : "Satellite Internet" ,
+          //   "value" : satellite
+          // },
+          // { 
+          //   "label" : "Cellular Internet" ,
+          //   "value" : cellular
+          // },
+          // { 
+          //   "label" : "WiFi Internet" ,
+          //   "value" : wifi
+          // },
           { 
-            "label" : "Dialup Internet" ,
-            "value" : dialup
+            "label" : "Own Computer" ,
+            "value" : computer
           },
           { 
-            "label" : "Cable Internet" ,
-            "value" : cable
+            "label" : "Own Tablet" ,
+            "value" : tablet
           },
           { 
-            "label" : "DSL Internet" ,
-            "value" : dsl
+            "label" : "Own Cellphone" ,
+            "value" : cell
+          },
+          // { 
+          //   "label" : "Own Game Console" ,
+          //   "value" : gaming
+          // },
+          { 
+            "label" : "High School/Less" ,
+            "value" : highschool
           },
           { 
-            "label" : "Satellite Internet" ,
-            "value" : satellite
+            "label" : "Some/Associates" ,
+            "value" : associates_some
           },
           { 
-            "label" : "Cellular Internet" ,
-            "value" : cellular
+            "label" : "Bachelor's or More" ,
+            "value" : bachelors + graduate
           },
           { 
-            "label" : "WiFi Internet" ,
-            "value" : wifi
+            "label" : "$0-$24k" ,
+            "value" : i_10k_24k
+          },
+          { 
+            "label" : "$25k-$49k" ,
+            "value" : i_25k_50k
+          },
+          { 
+            "label" : "$50k+" ,
+            "value" : i_50k_99k + i_100k
+          },
+          { 
+            "label" : "Other Race" ,
+            "value" : asian + native
+          },
+          { 
+            "label" : "Black" ,
+            "value" : black
+          },
+          { 
+            "label" : "White" ,
+            "value" : white
+          },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
+          { 
+            "label" : "Age 55+" ,
+            "value" : y_55_64 + y_65
+          }
+        ]
+      }]
+    } else {
+return [{
+        "key": "Citywide Prevalence",
+        "values": [
+          { 
+            "label" : "No Home Internet" ,
+            "value" : .09
+          },
+          { 
+            "label" : "No Mobile Internet" ,
+            "value" : .21
+          },
+          // { 
+          //   "label" : "Dialup Internet" ,
+          //   "value" : dialup
+          // },
+          // { 
+          //   "label" : "Cable Internet" ,
+          //   "value" : cable
+          // },
+          // { 
+          //   "label" : "DSL Internet" ,
+          //   "value" : dsl
+          // },
+          // { 
+          //   "label" : "Satellite Internet" ,
+          //   "value" : satellite
+          // },
+          // { 
+          //   "label" : "Cellular Internet" ,
+          //   "value" : cellular
+          // },
+          // { 
+          //   "label" : "WiFi Internet" ,
+          //   "value" : wifi
+          // },
+          { 
+            "label" : "Own Computer" ,
+            "value" : .88
+          },
+          { 
+            "label" : "Own Tablet" ,
+            "value" : .56
+          },
+          { 
+            "label" : "Own Cellphone" ,
+            "value" : .91
+          },
+          // { 
+          //   "label" : "Own Game Console" ,
+          //   "value" : gaming
+          // },
+          { 
+            "label" : "High School/Less" ,
+            "value" : .04
+          },
+          { 
+            "label" : "Some/Associates" ,
+            "value" : .19
+          },
+          { 
+            "label" : "Bachelor's or More" ,
+            "value" : .61
+          },
+          { 
+            "label" : "$0-$24k" ,
+            "value" : .28
+          },
+          { 
+            "label" : "$25k-$49k" ,
+            "value" : .22
+          },
+          { 
+            "label" : "$50k+" ,
+            "value" : .5
+          },
+          { 
+            "label" : "Other Race" ,
+            "value" : .07
+          },
+          { 
+            "label" : "Black" ,
+            "value" : .17
+          },
+          { 
+            "label" : "White" ,
+            "value" : .75
+          },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
+          { 
+            "label" : "Age 55+" ,
+            "value" : .20
+          }
+        ]
+      },{
+        "key": "Group Prevalence",
+        "values": [
+          { 
+            "label" : "No Home Internet" ,
+            "value" : no_internet
+          },
+          { 
+            "label" : "No Mobile Internet" ,
+            "value" : no_mobile
           },
           { 
             "label" : "Own Computer" ,
@@ -299,10 +477,6 @@ for (var i=0; i < dataSource.length; i++){
             "value" : cell
           },
           { 
-            "label" : "Own Game Console" ,
-            "value" : gaming
-          },
-          { 
             "label" : "High School/Less" ,
             "value" : highschool
           },
@@ -311,12 +485,8 @@ for (var i=0; i < dataSource.length; i++){
             "value" : associates_some
           },
           { 
-            "label" : "Bachelor's Degree" ,
-            "value" : bachelors
-          },
-          { 
-            "label" : "Grad/Prof Degree" ,
-            "value" : graduate
+            "label" : "Bachelor's or More" ,
+            "value" : bachelors + graduate
           },
           { 
             "label" : "$0-$24k" ,
@@ -327,20 +497,12 @@ for (var i=0; i < dataSource.length; i++){
             "value" : i_25k_50k
           },
           { 
-            "label" : "$50k-$99k" ,
-            "value" : i_50k_99k
+            "label" : "$50k+" ,
+            "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "$100k+" ,
-            "value" : i_100k
-          },
-          { 
-            "label" : "Native American" ,
-            "value" : native
-          },
-          { 
-            "label" : "Asian" ,
-            "value" : asian
+            "label" : "Other Race" ,
+            "value" : asian + native
           },
           { 
             "label" : "Black" ,
@@ -350,24 +512,16 @@ for (var i=0; i < dataSource.length; i++){
             "label" : "White" ,
             "value" : white
           },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
           { 
-            "label" : "Age 18-34" ,
-            "value" : y_18_34
-          },
-          { 
-            "label" : "Age 35-54" ,
-            "value" : y_35_54
-          },
-          { 
-            "label" : "Age 55-64" ,
-            "value" : y_55_64
-          },
-          { 
-            "label" : "Age 65+" ,
-            "value" : y_65
-          }
-        ]
+            "label" : "Age 55+" ,
+            "value" : y_55_64 + y_65
+          }]
       }]
+    }
 }
 
 //MAPOCALYPSE
@@ -451,7 +605,8 @@ map.scrollWheelZoom.disable();
 
 for (var i=0; i < dataSource.length; i++){
   if (layer.feature.properties.GrpName == dataSource[i].group){
-    var stat = '<div class="num" style="color:' + getColor(layer.feature.properties.GrpName) + ';">' + d3.format("%")(dataSource[i].no_internet) + ' without home Internet</div>'
+    var stat = '<div class="num" style="color:' + getColor(layer.feature.properties.GrpName) + ';">' + d3.format("%")(dataSource[i].no_internet) + ' without home Internet</div>';
+    //<div class="num">' + d3.format("%")(dataSource[i].cell_no_internet + dataSource[i].cell_no) + ' without mobile Internet</div>
     break;
       }
       else { stat = ""; }
