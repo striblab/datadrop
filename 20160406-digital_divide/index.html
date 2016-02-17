@@ -157,7 +157,7 @@ redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#ccc','#999']; 
+  var colorArray = ['#999','#556E7F']; 
   var formatter = d3.format('%');
 
 nv.addGraph(function() {
@@ -186,29 +186,90 @@ nv.addGraph(function() {
   nv.utils.windowResize(chart[index].update);
 
 
-// var rects = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 0 || i == 1 || i == 15 || i == 16; })
-//               .style("fill","#636363");
+var rects = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 0 || i == 1; })
+              .style("fill","#000");
+
+var rects2 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .style("fill","#777");
+
+var rects3 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
+              .style("fill","#333");
+
+var rects4 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .style("fill","#bbb");
+
+var rects5 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .style("fill","#666");
+
+var rects6 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 14; })
+              .style("fill","#ddd");
 
   return chart[index];
 });
 
 
 function redrawChart(chart,container,subject,data,county,index){
-  var colorArray = ['#ccc','#999']; 
+  var colorArray = ['#999','#556E7F']; 
   var formatter = d3.format('%');
 
     d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
     // chart[index].yAxistickFormat(formatter);
     nv.utils.windowResize(chart[index].update);
 
-    var rects = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 15 || i == 16; })
-              .style("fill","#252525");
-
-  var rects2 = d3.selectAll("rect")
+var rects = d3.selectAll("rect")
               .filter(function(d, i) { return i == 0 || i == 1; })
-              .style("fill","#ccc");
+              .style("fill","#000");
+
+var rects2 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .style("fill","#777");
+
+var rects3 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
+              .style("fill","#333");
+
+var rects4 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .style("fill","#bbb");
+
+var rects5 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .style("fill","#666");
+
+var rects6 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 14; })
+              .style("fill","#ddd");
+
+// var rects7 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 15 || i == 16; })
+//               .style("fill","#2C3942");
+
+// var rects8 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 17 || i == 18 || i == 19; })
+//               .style("fill","#7F98AA");
+
+// var rects9 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 20 || i == 21 || i == 22; })
+//               .style("fill","#556E7F");
+
+// var rects10 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 23 || i == 24 || i == 25; })
+//               .style("fill","#A8B9C5");
+
+// var rects11 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 26 || i == 27 || i == 28; })
+//               .style("fill","#3B576B");
+
+// var rects12 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 29; })
+//               .style("fill","#C6D1D9");
+
 }
 
 function chartData(subject,data,county) {
@@ -252,7 +313,7 @@ for (var i=0; i < dataSource.length; i++){
 
 if (county == "Overall"){
       return [{
-        "key": "Citywide Prevalence",
+        "key": "Citywide Percentage",
         "values": [
           { 
             "label" : "No Home Internet" ,
@@ -350,7 +411,7 @@ if (county == "Overall"){
       }]
     } else {
 return [{
-        "key": "Citywide Prevalence",
+        "key": "Citywide Percentage",
         "values": [
           { 
             "label" : "No Home Internet" ,
@@ -446,7 +507,7 @@ return [{
           }
         ]
       },{
-        "key": "Group Prevalence",
+        "key": "Group Percentage",
         "values": [
           { 
             "label" : "No Home Internet" ,
