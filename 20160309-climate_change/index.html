@@ -14,12 +14,16 @@
   
   <style>
   .zoom { float:right; }
-  .switch { padding:7px; display:inline-block; text-align:center; width:32%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+  .switch { display:inline-block; text-align:center; width:18%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:.8em; }
   .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
   .chatter { padding-left:20px; }
   #viewSwitch { text-align:center; }
 
   #chartMonth .c3-line-statewide-trend, #chartMonth .c3-line-northwest-trend, #chartMonth .c3-line-northeast-trend, #chartMonth .c3-line-southwest-trend, #chartMonth .c3-line-southeast-trend, #chartMonth .c3-line-central-trend, #chartMonth .c3-line-northcentral-trend, #chartMonth .c3-line-south-central-trend, #chartMonth .c3-line-west-central-trend, #chartMonth .c3-line-east-central-trend, #chartColdest .c3-line-downtown-ma { stroke-width: 3px !important; }
+
+    @media (max-width:500px) {
+    .switch { width:30%; } 
+    }
   </style> 
 </head>
 
@@ -27,6 +31,7 @@
   <div id="wrapper">
 
 <div id="viewSwitch">
+<div class="switch selected" data="statewide">Statewide</div>
 <div class="switch" data="northwest">Northwest</div>
 <div class="switch" data="northeast">Northeast</div>
 <div class="switch" data="southwest">Southwest</div>
@@ -36,25 +41,40 @@
 <div class="switch" data="south-central">South Central</div>
 <div class="switch" data="west-central">West Central</div>
 <div class="switch" data="east-central">East Central</div>
-<div class="switch selected" data="statewide">Statewide</div>
 </div>
 
 <div class="chartHeader chartTitle">Three-month average winter minimum temperature</div>
 <div class="chatter">Average minimum winter temperatures across the state have increased steadily since the early 20th Century.</div>
 <div id="chartMonth" class="chart"></div>
-<div class="chartFooter">
+<!-- <div class="chartFooter">
   <div class="sources">Source: MNDNR State Climatology Office</div>
   <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
+</div> -->
+
+<div>
+<div id="viewSwitch">
+<div class="switch selected" data="statewide">Statewide</div>
+<div class="switch" data="northwest">Northwest</div>
+<div class="switch" data="northeast">Northeast</div>
+<div class="switch" data="southwest">Southwest</div>
+<div class="switch" data="southeast">Southeast</div>
+<div class="switch" data="central">Central</div>
+<div class="switch" data="north-central">North Central</div>
+<div class="switch" data="south-central">South Central</div>
+<div class="switch" data="west-central">West Central</div>
+<div class="switch" data="east-central">East Central</div>
 </div>
 
 <div class="chartHeader chartTitle">Average minimum temperatures by decade</div>
 <div class="chatter">Minnesota has been gradually warming the last few decadesas years with a minimum average temp.</div>
 <div id="chartDecade" class="chart"></div>
-<div class="chartFooter">
+<!-- <div class="chartFooter">
   <div class="sources">Source: MNDNR State Climatology Office</div>
   <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
+</div> -->
 </div>
 
+<div>
 <div class="chartHeader chartTitle">Coldest winter temperature</div>
 <div class="chatter">The coldest winter temperature in both Minneapolis and St. Cloud have gradually risen over the years.</div>
 <div id="chartColdest" class="chart"></div>
@@ -65,6 +85,7 @@
 
 <a href="https://docs.google.com/spreadsheets/d/1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
   </div>
+</div>
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

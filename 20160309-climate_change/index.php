@@ -30,7 +30,7 @@
 <body>
   <div id="wrapper">
 
-<div style="display:none;">
+<div>
 <div id="viewSwitch">
 <div class="switch selected" data="statewide">Statewide</div>
 <div class="switch" data="northwest">Northwest</div>
@@ -43,6 +43,7 @@
 <div class="switch" data="west-central">West Central</div>
 <div class="switch" data="east-central">East Central</div>
 </div>
+</div>
 
 <div class="chartHeader chartTitle">Three-month average winter minimum temperature</div>
 <div class="chatter">Average minimum winter temperatures across the state have increased steadily since the early 20th Century.</div>
@@ -51,7 +52,6 @@
   <div class="sources">Source: MNDNR State Climatology Office</div>
   <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
 </div> -->
-</div>
 
 <div>
 <div id="viewSwitch">
@@ -76,7 +76,7 @@
 </div> -->
 </div>
 
-<div style="display:none;">
+<div>
 <div id="viewSwitch">
 <div class="switch selected" data="statewide">Statewide</div>
 <div class="switch" data="northwest">Northwest</div>
@@ -125,18 +125,48 @@
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs&sheet=westcentral_freezing
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs&sheet=coldest_winter_temp
 
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=sAynlThwgR8KyHGh6e8wLhoAkz3N2nlp8Eo_TZ4isiprjKeP40p4p-ivkbwXih7LjN1FQoQoZ0C0bS-tiTiSMoO9ozNGgCXCOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I25X5yNjlRvUCho3stDWMnmU&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoad) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=UuHbVptH2xpgtFdeh1uv5k0eJpf3fjqWJzTjRYS266Px1WEXjNtFV8FMcKbhvXoVGE4YPRv9WGO0bS-tiTiSMuJ8OVCpuiLTOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28GV9U-s-c-Ekxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNW) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qf7RZE1FoJLWeUXyarL97YjKNj6TfuZpY47fuSXTozUltqoeTWp8KALxs0b5ogMsvnGOOnQjpcRAs9lc1ZBdluCi3dY-s4QGOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2yVQ94pjBEWukxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNE) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=pw2cP3rWrFW2yhQhzCBbL9HMRMPJxmedDPdEln6WtYOW0ZFEh9mDYJafk1afT-XcyuE8O5sNXEoyXLS4VlqO4DUhoGccDkxAOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I23WNZXHv7ZlnDs9WyyWRQKAULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadST) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=AzX4RnwAFUj-fRaqfXoibiLoCsGUroRFYUyUIQfegLUbimgYlbmxxLxmbK-nRnlysmyQEAccAJYTb559ht2VfIe9gPC5iO8QOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_Fu-ibX7RhcrPoIPlil-_OcVzS3GHApng&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadCentral) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=V0aQKHrDXZsjjqb9U14npT7Wkvo4Rpl-NqyZxRYxBoP_ZZfXOHxG_PEjLM4UvAhGYkAeqAbUh4MTb559ht2VfIB2HKZtvfC2OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I21owPZezC5FEpW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadECentral) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=GqtBcqMIQQoN1Rlcly9BK36mzvmfmxtZKevUHhjiyuS-tzakigWVzzrCw8cdGOac9Px7IJ60pAQTb559ht2VfEOqC_ZJy8soOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I26qy3G7f6Cct-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNCentral) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qRNfKWTzbfJukken0VkzkrKGZc8j7l4v9G3THMDQ_kouaF5Wl3hPUwwqHmViaZY_ISeYPjmKwHsTb559ht2VfNAKOrzgxORfOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2-rWe3ogulAF-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSCentral) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=D6MPdboaSRTcb_jh0fcxVQKXWpjk89d8bZOjNK-0OGPKkOov1-k3EQEetRTEeS9yknNy7flVQVbHm0TqVxM25G0ekjNkbwGQOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_keAFfiBHLmF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSE) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=VfvJkQkP6OTdzUb7wvlQfytSF1p0TZN3amCCef-4M5LmJV1CsrzpwtLpXowjnuOD4DHiUGSgN67Hm0TqVxM25Esghro5c88yOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_AHfkejeG6xF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSW) {
-d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=gMYmvqh-Q15LH66jdlXUdgnIC3T38vDs0RFZGD6IsVLmwK3PGeNc4x4qwj8UFeKk-AzTR2tbA4bHm0TqVxM25BbXyb37A6EWOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28xaQQ-JG3A6pW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadWCentral) {
-d3.json("https://script.googleusercontent.com/macros/echo?user_content_key=8EtQO2QxWvqwVrM8vaY8hP9E0lYRQ8Z1DGdzJG5OqokJnyA-T0mGRY9SoZ0nGfnTDJ3ZCiLuHpFcj9SFIdhVsqs7KHzOa9WkOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TuemWiCPnYU3v6YF6IJkSFYyyTJG-HL6oSfmK20SEw86uyLwhxRZulMt4JgiTXzIzW0Ar8EAym2_V157Et6E0L1fS_MxquqNUxwOOVrbyt14&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadColdest) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=sAynlThwgR8KyHGh6e8wLhoAkz3N2nlp8Eo_TZ4isiprjKeP40p4p-ivkbwXih7LjN1FQoQoZ0C0bS-tiTiSMoO9ozNGgCXCOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I25X5yNjlRvUCho3stDWMnmU&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoad) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=UuHbVptH2xpgtFdeh1uv5k0eJpf3fjqWJzTjRYS266Px1WEXjNtFV8FMcKbhvXoVGE4YPRv9WGO0bS-tiTiSMuJ8OVCpuiLTOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28GV9U-s-c-Ekxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNW) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qf7RZE1FoJLWeUXyarL97YjKNj6TfuZpY47fuSXTozUltqoeTWp8KALxs0b5ogMsvnGOOnQjpcRAs9lc1ZBdluCi3dY-s4QGOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2yVQ94pjBEWukxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNE) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=pw2cP3rWrFW2yhQhzCBbL9HMRMPJxmedDPdEln6WtYOW0ZFEh9mDYJafk1afT-XcyuE8O5sNXEoyXLS4VlqO4DUhoGccDkxAOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I23WNZXHv7ZlnDs9WyyWRQKAULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadST) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=AzX4RnwAFUj-fRaqfXoibiLoCsGUroRFYUyUIQfegLUbimgYlbmxxLxmbK-nRnlysmyQEAccAJYTb559ht2VfIe9gPC5iO8QOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_Fu-ibX7RhcrPoIPlil-_OcVzS3GHApng&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadCentral) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=V0aQKHrDXZsjjqb9U14npT7Wkvo4Rpl-NqyZxRYxBoP_ZZfXOHxG_PEjLM4UvAhGYkAeqAbUh4MTb559ht2VfIB2HKZtvfC2OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I21owPZezC5FEpW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadECentral) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=GqtBcqMIQQoN1Rlcly9BK36mzvmfmxtZKevUHhjiyuS-tzakigWVzzrCw8cdGOac9Px7IJ60pAQTb559ht2VfEOqC_ZJy8soOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I26qy3G7f6Cct-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadNCentral) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qRNfKWTzbfJukken0VkzkrKGZc8j7l4v9G3THMDQ_kouaF5Wl3hPUwwqHmViaZY_ISeYPjmKwHsTb559ht2VfNAKOrzgxORfOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2-rWe3ogulAF-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSCentral) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=D6MPdboaSRTcb_jh0fcxVQKXWpjk89d8bZOjNK-0OGPKkOov1-k3EQEetRTEeS9yknNy7flVQVbHm0TqVxM25G0ekjNkbwGQOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_keAFfiBHLmF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSE) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=VfvJkQkP6OTdzUb7wvlQfytSF1p0TZN3amCCef-4M5LmJV1CsrzpwtLpXowjnuOD4DHiUGSgN67Hm0TqVxM25Esghro5c88yOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_AHfkejeG6xF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadSW) {
+// d3.json("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=gMYmvqh-Q15LH66jdlXUdgnIC3T38vDs0RFZGD6IsVLmwK3PGeNc4x4qwj8UFeKk-AzTR2tbA4bHm0TqVxM25BbXyb37A6EWOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28xaQQ-JG3A6pW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadWCentral) {
+// d3.json("https://script.googleusercontent.com/macros/echo?user_content_key=8EtQO2QxWvqwVrM8vaY8hP9E0lYRQ8Z1DGdzJG5OqokJnyA-T0mGRY9SoZ0nGfnTDJ3ZCiLuHpFcj9SFIdhVsqs7KHzOa9WkOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TuemWiCPnYU3v6YF6IJkSFYyyTJG-HL6oSfmK20SEw86uyLwhxRZulMt4JgiTXzIzW0Ar8EAym2_V157Et6E0L1fS_MxquqNUxwOOVrbyt14&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, dataLoadColdest) {
+
+<?php 
+
+$jsonData = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=sAynlThwgR8KyHGh6e8wLhoAkz3N2nlp8Eo_TZ4isiprjKeP40p4p-ivkbwXih7LjN1FQoQoZ0C0bS-tiTiSMoO9ozNGgCXCOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I25X5yNjlRvUCho3stDWMnmU&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataNW = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=UuHbVptH2xpgtFdeh1uv5k0eJpf3fjqWJzTjRYS266Px1WEXjNtFV8FMcKbhvXoVGE4YPRv9WGO0bS-tiTiSMuJ8OVCpuiLTOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28GV9U-s-c-Ekxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataNE = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qf7RZE1FoJLWeUXyarL97YjKNj6TfuZpY47fuSXTozUltqoeTWp8KALxs0b5ogMsvnGOOnQjpcRAs9lc1ZBdluCi3dY-s4QGOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2yVQ94pjBEWukxk5E7ctx4s&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataST = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=pw2cP3rWrFW2yhQhzCBbL9HMRMPJxmedDPdEln6WtYOW0ZFEh9mDYJafk1afT-XcyuE8O5sNXEoyXLS4VlqO4DUhoGccDkxAOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I23WNZXHv7ZlnDs9WyyWRQKAULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataCentral = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=AzX4RnwAFUj-fRaqfXoibiLoCsGUroRFYUyUIQfegLUbimgYlbmxxLxmbK-nRnlysmyQEAccAJYTb559ht2VfIe9gPC5iO8QOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_Fu-ibX7RhcrPoIPlil-_OcVzS3GHApng&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataECentral = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=V0aQKHrDXZsjjqb9U14npT7Wkvo4Rpl-NqyZxRYxBoP_ZZfXOHxG_PEjLM4UvAhGYkAeqAbUh4MTb559ht2VfIB2HKZtvfC2OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I21owPZezC5FEpW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataNCentral = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=GqtBcqMIQQoN1Rlcly9BK36mzvmfmxtZKevUHhjiyuS-tzakigWVzzrCw8cdGOac9Px7IJ60pAQTb559ht2VfEOqC_ZJy8soOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I26qy3G7f6Cct-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataSCentral = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=qRNfKWTzbfJukken0VkzkrKGZc8j7l4v9G3THMDQ_kouaF5Wl3hPUwwqHmViaZY_ISeYPjmKwHsTb559ht2VfNAKOrzgxORfOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2-rWe3ogulAF-YkTD-E8lm1m41tgWyMBYw&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataSE = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=D6MPdboaSRTcb_jh0fcxVQKXWpjk89d8bZOjNK-0OGPKkOov1-k3EQEetRTEeS9yknNy7flVQVbHm0TqVxM25G0ekjNkbwGQOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_keAFfiBHLmF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataSW = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=VfvJkQkP6OTdzUb7wvlQfytSF1p0TZN3amCCef-4M5LmJV1CsrzpwtLpXowjnuOD4DHiUGSgN67Hm0TqVxM25Esghro5c88yOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I2_AHfkejeG6xF9_iDrAE3HcULMzMrbWT6A&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataWCentral = file_get_contents("https://script.googleusercontent.com/a/macros/umn.edu/echo?user_content_key=gMYmvqh-Q15LH66jdlXUdgnIC3T38vDs0RFZGD6IsVLmwK3PGeNc4x4qwj8UFeKk-AzTR2tbA4bHm0TqVxM25BbXyb37A6EWOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMi80zadyHLKASbbMAF6orU02DLGwV8tFzI-mtKRf-8plGOUy-lJCxpF2DQLccfmsBGWAyiujVfWxmelbCou2EhfNg1xV69xW9102aPo2dzOFhxAHSsdnCbLgYzs-t-BG_5pX4e2x7SQRqq_eoV-bfPP7roXG_nhaeehRTHAhjVE2BM6mFz96I28xaQQ-JG3A6pW8OvX_vRmSvqnBPmmGKSg&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+$jsonDataColdest = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=8EtQO2QxWvqwVrM8vaY8hP9E0lYRQ8Z1DGdzJG5OqokJnyA-T0mGRY9SoZ0nGfnTDJ3ZCiLuHpFcj9SFIdhVsqs7KHzOa9WkOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TuemWiCPnYU3v6YF6IJkSFYyyTJG-HL6oSfmK20SEw86uyLwhxRZulMt4JgiTXzIzW0Ar8EAym2_V157Et6E0L1fS_MxquqNUxwOOVrbyt14&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+
+?>
+
+var dataLoad = <?php echo $jsonData; ?>;
+var dataLoadNW = <?php echo $jsonDataNW; ?>;
+var dataLoadNE = <?php echo $jsonDataNE; ?>;
+var dataLoadST = <?php echo $jsonDataST; ?>;
+var dataLoadCentral = <?php echo $jsonDataCentral; ?>;
+var dataLoadECentral = <?php echo $jsonDataECentral; ?>;
+var dataLoadNCentral = <?php echo $jsonDataNCentral; ?>;
+var dataLoadSCentral = <?php echo $jsonDataSCentral; ?>;
+var dataLoadSE = <?php echo $jsonDataSE; ?>;
+var dataLoadSW = <?php echo $jsonDataSW; ?>;
+var dataLoadWCentral = <?php echo $jsonDataWCentral; ?>;
+var dataLoadColdest = <?php echo $jsonDataColdest; ?>;
 
 var data = dataLoad.minimum_temps;
 var dataNW = dataLoadNW.nw_freezing;
@@ -685,18 +715,18 @@ d3.select("#chartColdest svg .c3-chart-lines").append("line")          // attach
 
 //     };
 // };
-});
-});
-});
-});
-});
-});
-});
-});
-});
-});
-});
-});
+// });
+// });
+// });
+// });
+// });
+// });
+// });
+// });
+// });
+// });
+// });
+// });
 </script>
 
 </html>
