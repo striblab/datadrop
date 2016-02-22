@@ -68,7 +68,7 @@
 </div>
 
 <div class="chartHeader chartTitle">Average minimum temperatures by decade</div>
-<div class="chatter">Minnesota has been gradually warming the last few decadesas years with a minimum average temp.</div>
+<div class="chatter">Minnesota has been gradually warming the last few decades as years with a minimum average temp.</div>
 <div id="chartDecade" class="chart"></div>
 <!-- <div class="chartFooter">
   <div class="sources">Source: MNDNR State Climatology Office</div>
