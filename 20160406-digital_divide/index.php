@@ -14,9 +14,9 @@
   <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
   
   <style>
-    #map { width:100%; height:420px; }
+    #map { width:100%; height:450px; }
 
-    #nbName { font-family:"Poynter Serif RE"; font-size:1.3em; font-weight:900; }
+    #nbName { margin-top:5px; font-family:"Poynter Serif RE"; font-size:.8em; font-weight:900; height:40px; }
 
     .zoom { text-align:center; float:none !important; padding:15px; }
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
@@ -24,16 +24,16 @@
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
-    .switch:hover, .selected { background-color:#4C4C39; color:#fff !important; cursor:pointer; }
+    .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
 
     .num { font-weight:900; }
 
-    #leftSide { float:left; width:48%; }
+    #leftSide { float:left; width:48%; padding-top:15px; }
     #rightSide { float:right; width:48%; }
 
     .source { text-align:center; }
 
-    #chart { height:460px; }
+    #chart { height:420px; }
 
     @media (max-width:850px) {
     #leftSide, #rightSide { width:100%; float:none; text-align:center; }
@@ -45,32 +45,32 @@
 <body>
   <div id="wrapper">
 
-<div id="nbName">Minneapolis</div>
-
 <div id="leftSide">
-    <div id="map"></div>
-
-    <div id="infobox">
-      <div class="zoom">Reset View</div>
-    </div>
 
     <div class="legends">
     <div class="legendContainer">
       <span class='legend'>
         <nav class='legend clearfix'>
           <span style='background:#fff;'>Less</span>
-          <span class='grayblue1'></span>
-          <span class='grayblue2'></span>
-          <span class='grayblue3'></span>
-          <span class='grayblue4'></span>
-          <span class='grayblue5'></span>
-          <span class='grayblue6'></span>
+          <span class='orange1'></span>
+          <span class='red1'></span>
+          <span class='red2'></span>
+          <span class='red3'></span>
+          <span class='red4'></span>
+          <span class='red5'></span>
           <span style='background:#fff;'>More</span>
         </nav>
       </span>
     </div>
     <small>No Home Internet Connection</small>
   </div>
+
+    <div id="map"></div>
+
+    <div id="infobox">
+      <div class="zoom">Reset View</div>
+    </div>
+
 </div>
 
 <div id="rightSide">
@@ -79,6 +79,8 @@
 <div class="switch selected" data="house" id="y2014">2014</div>
 <div class="switch" data="senate" id="y2012">2012</div>
 </div>
+
+<div id="nbName">Minneapolis</div>
 
   <div id="chart"><svg></svg></div>
 </div>
@@ -165,7 +167,7 @@ redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#999','#556E7F']; 
+  var colorArray = ['#999','#C22A22']; 
   var formatter = d3.format('%');
 
 nv.addGraph(function() {
@@ -223,7 +225,7 @@ var rects6 = d3.selectAll("rect")
 
 
 function redrawChart(chart,container,subject,data,county,index){
-  var colorArray = ['#999','#556E7F']; 
+  var colorArray = ['#999','#C22A22']; 
   var formatter = d3.format('%');
 
     d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
@@ -515,7 +517,7 @@ return [{
           }
         ]
       },{
-        "key": "Group Percentage",
+        "key": "Region Percentage",
         "values": [
           { 
             "label" : "No Home Internet" ,
@@ -638,12 +640,12 @@ map.scrollWheelZoom.disable();
     function getColor(d) {
         for (var i=0; i < dataSource.length; i++){
           if (d == dataSource[i].group){
-           if (dataSource[i].no_internet >= .20) { return "#2C3942"; }
-           if (dataSource[i].no_internet >= .15) { return "#556E7F"; }
-           if (dataSource[i].no_internet >= .10) { return "#7F98AA"; }
-           if (dataSource[i].no_internet >= .5) { return "#A8B9C5"; }
-           if (dataSource[i].no_internet > 0) { return "#C6D1D9"; }
-           if (dataSource[i].no_internet == 0) { return "#DAE1E7"; }
+           if (dataSource[i].no_internet >= .20) { return "#9C0004"; }
+           if (dataSource[i].no_internet >= .15) { return "#C22A22"; }
+           if (dataSource[i].no_internet >= .10) { return "#F2614C"; }
+           if (dataSource[i].no_internet >= .5) { return "#F28670"; }
+           if (dataSource[i].no_internet > 0) { return "#F2AC93"; }
+           if (dataSource[i].no_internet == 0) { return "#F2D2A4"; }
         }
       }
   }
