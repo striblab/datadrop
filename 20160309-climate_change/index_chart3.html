@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Monthly temperature averages</title>
-  <meta name="description" content="Monthly temperature averages">
+  <title>Three-month average winter minimum temperature</title>
+  <meta name="description" content="Three-month average winter minimum temperature">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
@@ -14,10 +14,16 @@
   
   <style>
   .zoom { float:right; }
-  .switch { padding:7px; display:inline-block; text-align:center; width:32%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+  .switch { display:inline-block; text-align:center; width:18%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:.8em; }
   .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
   .chatter { padding-left:20px; }
   #viewSwitch { text-align:center; }
+
+  #chartMonth .c3-line-statewide-trend, #chartMonth .c3-line-northwest-trend, #chartMonth .c3-line-northeast-trend, #chartMonth .c3-line-southwest-trend, #chartMonth .c3-line-southeast-trend, #chartMonth .c3-line-central-trend, #chartMonth .c3-line-northcentral-trend, #chartMonth .c3-line-south-central-trend, #chartMonth .c3-line-west-central-trend, #chartMonth .c3-line-east-central-trend, #chartColdest .c3-line-downtown-ma { stroke-width: 3px !important; }
+
+    @media (max-width:500px) {
+    .switch { width:30%; } 
+    }
   </style> 
 </head>
 
@@ -26,6 +32,7 @@
 
 <div style="display:none;">
 <div id="viewSwitch">
+<div class="switch selected" data="statewide">Statewide</div>
 <div class="switch" data="northwest">Northwest</div>
 <div class="switch" data="northeast">Northeast</div>
 <div class="switch" data="southwest">Southwest</div>
@@ -35,30 +42,41 @@
 <div class="switch" data="south-central">South Central</div>
 <div class="switch" data="west-central">West Central</div>
 <div class="switch" data="east-central">East Central</div>
-<div class="switch selected" data="statewide">Statewide</div>
-</div>
 </div>
 
-<div style="display:none;">
 <div class="chartHeader chartTitle">Three-month average winter minimum temperature</div>
 <div class="chatter">Average minimum winter temperatures across the state have increased steadily since the early 20th Century.</div>
 <div id="chartMonth" class="chart"></div>
-<div class="chartFooter">
+<!-- <div class="chartFooter">
   <div class="sources">Source: MNDNR State Climatology Office</div>
   <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
-</div>
+</div> -->
 </div>
 
 <div style="display:none;">
-<div class="chartHeader chartTitle">Monthly temperature averages</div>
-<div class="chatter">Minnesota has been gradually warming the last few decades as below zero temperatures become more scarce.</div>
-<div id="chartDecade" class="chart"></div>
-<div class="chartFooter">
-  <div class="sources">Source: MNDNR State Climatology Office</div>
-  <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
-</div>
+<div id="viewSwitch">
+<div class="switch selected" data="statewide">Statewide</div>
+<div class="switch" data="northwest">Northwest</div>
+<div class="switch" data="northeast">Northeast</div>
+<div class="switch" data="southwest">Southwest</div>
+<div class="switch" data="southeast">Southeast</div>
+<div class="switch" data="central">Central</div>
+<div class="switch" data="north-central">North Central</div>
+<div class="switch" data="south-central">South Central</div>
+<div class="switch" data="west-central">West Central</div>
+<div class="switch" data="east-central">East Central</div>
 </div>
 
+<div class="chartHeader chartTitle">Average minimum temperatures by decade</div>
+<div class="chatter">Minnesota has been gradually warming the last few decadesas years with a minimum average temp.</div>
+<div id="chartDecade" class="chart"></div>
+<!-- <div class="chartFooter">
+  <div class="sources">Source: MNDNR State Climatology Office</div>
+  <div class="branding"><a href="http://startribune.com/datadrop" target="new_">startribune.com/datadrop</a></div>
+</div> -->
+</div>
+
+<div>
 <div class="chartHeader chartTitle">Coldest winter temperature</div>
 <div class="chatter">The coldest winter temperature in both Minneapolis and St. Cloud have gradually risen over the years.</div>
 <div id="chartColdest" class="chart"></div>
@@ -69,6 +87,7 @@
 
 <a href="https://docs.google.com/spreadsheets/d/1-2zKGGKgPe9Xer1MrRBI74Zy5TUi15HuZShdT-eJFFs/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
   </div>
+</div>
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -116,7 +135,7 @@ var dataNC = dataLoadNCentral.northcentral_freezing;
 var dataSC = dataLoadSCentral.southcentral_freezing;
 var dataSE = dataLoadSE.southeast_freezing;
 var dataSW = dataLoadSW.southwest_freezing;
-var dataNW = dataLoadWCentral.westcentral_freezing;
+var dataWC = dataLoadWCentral.westcentral_freezing;
 var dataColdest = dataLoadColdest.coldest_winter_temp;
 
 $(".switch").click(function() {
@@ -128,9 +147,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['statewide']
+                value: ['statewide','statewide_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataST,
@@ -146,10 +165,10 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['northwest']
+                value: ['northwest','northwest_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
-    });
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
+          });
     chartDecade.load({
             json: dataNW,
             keys: {
@@ -164,9 +183,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['northeast']
+                value: ['northeast','northeast_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataNE,
@@ -182,9 +201,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['southwest']
+                value: ['southwest','southwest_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataSW,
@@ -200,9 +219,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['southeast']
+                value: ['southeast','southeast_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataSE,
@@ -218,9 +237,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['central']
+                value: ['central','central_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataC,
@@ -236,9 +255,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['north-central']
+                value: ['north-central','northcentral_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataNC,
@@ -254,9 +273,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['south-central']
+                value: ['south-central','south-central_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataSC,
@@ -272,9 +291,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['west-central']
+                value: ['west-central','west-central_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataWC,
@@ -290,9 +309,9 @@ $(".switch").click(function() {
             json: data,
             keys: {
                 x: 'year',
-                value: ['east-central']
+                value: ['east-central','east-central_trend']
             },
-          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central']
+          unload: ['statewide','west-central','southwest','southeast','south-central','northwest','northeast','north-central','east-central','central','statewide_trend','northwest_trend','northeast_trend','southwest_trend','southeast_trend','south-central_trend','northcentral_trend','east-central_trend','west-central_trend','central_trend']
     });
     chartDecade.load({
             json: dataEC,
@@ -324,8 +343,8 @@ var chartDecade = c3.generate({
                 value: ['above_zero','below_zero']
             },
             names: {
-              'above_zero': 'Above Zero',
-              'below_zero': 'Below Zero'
+              'above_zero': 'Years Above Zero',
+              'below_zero': 'Years Below Zero'
             },
             types: {
             'above_zero': 'bar',
@@ -366,7 +385,7 @@ var chartMonth = c3.generate({
             json: data,
             keys: {
                 x: 'year',
-                value: ['statewide']
+                value: ['statewide','statewide_trend']
                  // value: ['statewide','northwest','northeast','southwest','southeast','south-central','north-central','east-central','central']
             },
             names: {
@@ -379,10 +398,39 @@ var chartMonth = c3.generate({
               'north-central': 'North Central',
               'east-central': 'East Central',
               'west-central': 'West Central',
-              'central': 'Central'
+              'central': 'Central',
+              'statewide_trend': '7-year Moving Average',
+              'northwest_trend': '7-year Moving Average',
+              'northeast_trend': '7-year Moving Average',
+              'southwest_trend': '7-year Moving Average',
+              'southeast_trend': '7-year Moving Average',
+              'south-central_trend': '7-year Moving Average',
+              'northcentral_trend': '7-year Moving Average',
+              'east-central_trend': '7-year Moving Average',
+              'west-central_trend': '7-year Moving Average',
+              'central_trend': '7-year Moving Average'
             },
             types: {
-            'statewide': 'line'
+              'statewide': 'line',
+              'northwest': 'line',
+              'northeast': 'line',
+              'southwest': 'line',
+              'southeast': 'line',
+              'south-central': 'line',
+              'north-central': 'line',
+              'east-central': 'line',
+              'west-central': 'line',
+              'central': 'line',
+              'statewide_trend': 'spline',
+              'northwest_trend': 'spline',
+              'northeast_trend': 'spline',
+              'southwest_trend': 'spline',
+              'southeast_trend': 'spline',
+              'south-central_trend': 'spline',
+              'northcentral_trend': 'spline',
+              'east-central_trend': 'spline',
+              'west-central_trend': 'spline',
+              'central_trend': 'spline'
             }
         },
        bar: {
@@ -390,6 +438,9 @@ var chartMonth = c3.generate({
             ratio: 0.5 // this makes bar width 50% of length between ticks
         }
       },
+      line: {
+          connectNull: true
+        },
         axis: {
           y: {
             tick: {
@@ -407,7 +458,7 @@ var chartMonth = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#333'] },
+        color: { pattern: ['#333',"#9C0004"] },
     });
 
 //COLDEST TEMPS
@@ -419,22 +470,23 @@ var chartColdest = c3.generate({
             json: dataColdest,
             keys: {
                 x: 'year',
-                value: ['downtown_min','stcloud_min']
+                value: ['downtown_min','stcloud_min','downtown_ma']
                  // value: ['statewide','northwest','northeast','southwest','southeast','south-central','north-central','east-central','central']
             },
             names: {
               'downtown_min': 'Downtown Minneapolis/Airport',
-              'stcloud_min': 'St. Cloud'
+              'stcloud_min': 'St. Cloud',
+              'downtown_ma': '7-year Moving Average'
             },
             types: {
-            'statewide': 'line'
+            'downtown_min': 'line',
+            'stcloud_min': 'line',
+            'downtown_ma': 'spline'
             }
         },
-       bar: {
-        width: {
-            ratio: 0.5 // this makes bar width 50% of length between ticks
-        }
-      },
+        line: {
+          connectNull: true
+        },
         axis: {
           y: {
             tick: {
@@ -443,6 +495,7 @@ var chartColdest = c3.generate({
         },
         x: {
             type: 'category',
+            values: ['1901-1902', '1930-1931', '1959-1960', '1987-1988'],
             tick: {
                 // format: '%Y',
                 count: 6,
@@ -451,8 +504,15 @@ var chartColdest = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#333',"#CCC"] },
+        color: { pattern: ['#333',"#999","#9C0004"] },
     });
+
+d3.select("#chartColdest svg .c3-chart-lines").append("line")          // attach a line
+    .style("stroke", "black")  // colour the line
+    .attr("x1", 0)     // x position of the first end of the line
+    .attr("y1", -31)      // y position of the first end of the line
+    .attr("x2", 300)     // x position of the second end of the line
+    .attr("y2", -14); 
 
 //MAP
 // var width = 350,
