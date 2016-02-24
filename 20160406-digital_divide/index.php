@@ -2,24 +2,29 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
   <title>Minneapolis Digital Divide</title>
-  <meta name="description" content="Minneapolis Digital Divide">
-  <meta name="author" content="Frey Hargarten - StarTribune">
+  <meta name="description" content="Minneapolis Digital Divide" />
+  <meta name="author" content="Frey Hargarten - StarTribune" />
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
+  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css" />
   
   <style>
-    #map { width:100%; height:450px; }
+    #map { width:100%; height:420px;width:350px; }
+    #map path {opacity:  .5!important;
+        stroke:#000;
+        stroke-width:1px;
+        stroke-opacity:0.7;
+      }
 
-    #nbName { margin-top:5px; font-family:"Poynter Serif RE"; font-size:.8em; font-weight:900; height:40px; }
+    #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
 
     .zoom { text-align:center; float:none !important; padding:15px; }
-    .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
+    .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
 
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
@@ -28,13 +33,15 @@
 
     .num { font-weight:900; }
 
-    #leftSide { float:left; width:48%; padding-top:15px; }
-    #rightSide { float:right; width:48%; }
+    #leftSide { float:left; width:68%; padding-top:15px; }
+    #rightSide { float:right; width:28%; }
 
     .source { text-align:center; }
 
     #chart { height:420px; }
-
+#viewSelect {width:300px;
+text-align:center;
+margin:0 auto 20px auto;}
     @media (max-width:850px) {
     #leftSide, #rightSide { width:100%; float:none; text-align:center; }
     #nbName{ text-align:center; }
@@ -44,46 +51,51 @@
 
 <body>
   <div id="wrapper">
+</div>
 
+  <div id="viewSelect">
+    <div class="switch selected" data="house" id="y2014">2014</div>
+    <div class="switch" data="senate" id="y2012">2012</div>
+  </div>
+  <div id="nbName">Minneapolis</div>
 <div id="leftSide">
 
-    <div class="legends">
-    <div class="legendContainer">
-      <span class='legend'>
-        <nav class='legend clearfix'>
-          <span style='background:#fff;'>Less</span>
-          <span class='orange1'></span>
-          <span class='red1'></span>
-          <span class='red2'></span>
-          <span class='red3'></span>
-          <span class='red4'></span>
-          <span class='red5'></span>
-          <span style='background:#fff;'>More</span>
-        </nav>
-      </span>
-    </div>
-    <small>No Home Internet Connection</small>
-  </div>
+
+
+
+
+  <div id="chart"><svg></svg></div>
+
+</div>
+
+
+<div id="rightSide">
+
+   
 
     <div id="map"></div>
-
+     <div class="legends">
+        <div class="legendContainer">
+          <span class='legend'>
+            <nav class='legend clearfix'>
+              <span style='background:#fff;'>Less</span>
+              <span class='orange1'></span>
+              <span class='red1'></span>
+              <span class='red2'></span>
+              <span class='red3'></span>
+              <span class='red4'></span>
+              <span class='red5'></span>
+              <span style='background:#fff;'>More</span>
+            </nav>
+          </span>
+        </div>
+        <small>No Home Internet Connection</small>
+      </div>
     <div id="infobox">
       <div class="zoom">Reset View</div>
     </div>
 
-</div>
 
-<div id="rightSide">
-
- <div id="viewSelect">
-<div class="switch selected" data="house" id="y2014">2014</div>
-<div class="switch" data="senate" id="y2012">2012</div>
-</div>
-
-<div id="nbName">Minneapolis</div>
-
-  <div id="chart"><svg></svg></div>
-</div>
 
 <div class="breaker"></div>
 
