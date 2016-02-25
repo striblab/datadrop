@@ -14,7 +14,8 @@
   <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css" />
   
   <style>
-    #map { width:100%; height:420px;width:350px; }
+    #map {  height:420px;width:350px;margin:0 auto; }
+    
     #map path {opacity:  .5!important;
         stroke:#000;
         stroke-width:1px;
@@ -24,29 +25,39 @@
     #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
 
     .zoom { text-align:center; float:none !important; padding:15px; }
+
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
 
-    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
+    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
 
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
+
     .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
 
     .num { font-weight:900; }
 
-    #leftSide { float:left; width:68%; padding-top:15px; }
-    #rightSide { float:right; width:28%; }
+    #leftSide { float:left; width:58%; padding:15px 0; }
+
+    #rightSide { float:right; width:38%; }
 
     .source { text-align:center; }
 
     #chart { height:420px; }
-#viewSelect {width:300px;
-text-align:center;
-margin:0 auto 20px auto;}
+
+    #viewSelect {width:300px;
+    text-align:center;
+    margin:0 auto 20px auto;}
+
     @media (max-width:850px) {
-    #leftSide, #rightSide { width:100%; float:none; text-align:center; }
-    #nbName{ text-align:center; }
+
+      #leftSide, #rightSide { width:100%; float:none; text-align:center; }
+
+      #nbName{ text-align:center; }
+
     }
-  </style> 
+
+  </style>
+
 </head>
 
 <body>
