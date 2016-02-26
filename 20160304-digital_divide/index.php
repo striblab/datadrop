@@ -2,108 +2,38 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
- 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Minneapolis Digital Divide</title>
-  <meta name="description" content="Minneapolis Digital Divide" />
-  <meta name="author" content="Frey Hargarten - StarTribune" />
+  <meta name="description" content="Minneapolis Digital Divide">
+  <meta name="author" content="Frey Hargarten - StarTribune">
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css" />
+  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
   
   <style>
-<<<<<<< HEAD:20160304-digital_divide/index.php
-<<<<<<< HEAD:20160304-digital_divide/index.php
     #map { height:420px;width:350px;margin:0 auto; }
     #map path { opacity:.5!important; stroke:#000; stroke-width:1px; stroke-opacity:0.7; }
     #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
     .zoom { text-align:center; float:none !important; padding:15px; }
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
-=======
-=======
->>>>>>> gh-pages:20160406-digital_divide/index.php
-    #map {  height:420px;width:350px;margin:0 auto; }
-    
-    #map path {opacity:  .5!important;
-        stroke:#000;
-        stroke-width:1px;
-        stroke-opacity:0.7;
-      }
-
-    #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
-
-    .zoom { text-align:center; float:none !important; padding:15px; }
-
-    .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
-<<<<<<< HEAD:20160304-digital_divide/index.php
-=======
-
-    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
->>>>>>> gh-pages:20160406-digital_divide/index.php
-
-    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
-
->>>>>>> origin/gh-pages:20160406-digital_divide/index.php
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
-<<<<<<< HEAD:20160304-digital_divide/index.php
-=======
-
-    .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
->>>>>>> gh-pages:20160406-digital_divide/index.php
-
     .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
     .num { font-weight:900; }
-<<<<<<< HEAD:20160304-digital_divide/index.php
     #leftSide { float:left; width:58%; padding:15px 0; }
     #rightSide { float:right; width:38%; }
-=======
-
-    #leftSide { float:left; width:58%; padding:15px 0; }
-<<<<<<< HEAD:20160304-digital_divide/index.php
-=======
-
-    #rightSide { float:right; width:38%; }
->>>>>>> gh-pages:20160406-digital_divide/index.php
-
-    #rightSide { float:right; width:38%; }
-
->>>>>>> origin/gh-pages:20160406-digital_divide/index.php
     .source { text-align:center; }
     #chart { height:420px; }
-<<<<<<< HEAD:20160304-digital_divide/index.php
-    #viewSelect {width:300px;
-    text-align:center;
-    margin:0 auto 20px auto;}
+    .breaker { margin:0; }
+    #viewSelect {width:300px; text-align:center; margin:0 auto 20px auto;}
     @media (max-width:850px) {
       #leftSide, #rightSide { width:100%; float:none; text-align:center; }
       #nbName{ text-align:center; }
-=======
-
-    #viewSelect {width:300px;
-    text-align:center;
-    margin:0 auto 20px auto;}
-
-    #viewSelect {width:300px;
-    text-align:center;
-    margin:0 auto 20px auto;}
-
-    @media (max-width:850px) {
-
-      #leftSide, #rightSide { width:100%; float:none; text-align:center; }
-
-      #nbName{ text-align:center; }
-
-<<<<<<< HEAD:20160304-digital_divide/index.php
->>>>>>> origin/gh-pages:20160406-digital_divide/index.php
-=======
->>>>>>> gh-pages:20160406-digital_divide/index.php
     }
-
-  </style>
-
+  </style> 
 </head>
 
 <body>
@@ -115,86 +45,40 @@
     <div class="switch" data="senate" id="y2012">2012</div>
   </div>
   <div id="nbName">Minneapolis</div>
+
+<div id="rightSide">
+    <div id="map"></div>
+     <div class="legends">
+        <div class="legendContainer">
+          <span class='legend'>
+            <nav class='legend clearfix'>
+              <span style='background:#fff;'>Less</span>
+              <span class='orange1'></span>
+              <span class='red1'></span>
+              <span class='red2'></span>
+              <span class='red3'></span>
+              <span class='red4'></span>
+              <span class='red5'></span>
+              <span style='background:#fff;'>More</span>
+            </nav>
+          </span>
+        </div>
+        <small>No Home Internet Connection</small>
+      </div>
+    <div id="infobox">
+      <div class="zoom">Reset View</div>
+    </div>
+</div>
+
 <div id="leftSide">
   <div id="chart"><svg></svg></div>
-</div>
-
-
-<<<<<<< HEAD:20160304-digital_divide/index.php
-<<<<<<< HEAD:20160304-digital_divide/index.php
-<div id="rightSide">
-    <div id="map"></div>
-     <div class="legends">
-        <div class="legendContainer">
-          <span class='legend'>
-            <nav class='legend clearfix'>
-              <span style='background:#fff;'>Less</span>
-              <span class='orange1'></span>
-              <span class='red1'></span>
-              <span class='red2'></span>
-              <span class='red3'></span>
-              <span class='red4'></span>
-              <span class='red5'></span>
-              <span style='background:#fff;'>More</span>
-            </nav>
-          </span>
-        </div>
-        <small>No Home Internet Connection</small>
-      </div>
-    <div id="infobox">
-      <div class="zoom">Reset View</div>
-    </div>
-=======
-
-
-
-  <div id="chart"><svg></svg></div>
->>>>>>> gh-pages:20160406-digital_divide/index.php
-
-=======
-
-
-
-  <div id="chart"><svg></svg></div>
-
-</div>
-
-
-<div id="rightSide">
-
-   
-
-    <div id="map"></div>
-     <div class="legends">
-        <div class="legendContainer">
-          <span class='legend'>
-            <nav class='legend clearfix'>
-              <span style='background:#fff;'>Less</span>
-              <span class='orange1'></span>
-              <span class='red1'></span>
-              <span class='red2'></span>
-              <span class='red3'></span>
-              <span class='red4'></span>
-              <span class='red5'></span>
-              <span style='background:#fff;'>More</span>
-            </nav>
-          </span>
-        </div>
-        <small>No Home Internet Connection</small>
-      </div>
-    <div id="infobox">
-      <div class="zoom">Reset View</div>
-    </div>
-
-
-
->>>>>>> origin/gh-pages:20160406-digital_divide/index.php
 <div class="breaker"></div>
 
   <div class="source"><a href="http://www.minneapolismn.gov/it/inclusion/WCMS1P-118865" target="new_">Source: City of Minneapolis</a></div>
 
 <a href="https://docs.google.com/spreadsheets/d/1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
   </div>
+
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
