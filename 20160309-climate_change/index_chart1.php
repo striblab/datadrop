@@ -22,6 +22,16 @@
 
   #chartMonth .c3-line-statewide-trend, #chartMonth .c3-line-northwest-trend, #chartMonth .c3-line-northeast-trend, #chartMonth .c3-line-southwest-trend, #chartMonth .c3-line-southeast-trend, #chartMonth .c3-line-central-trend, #chartMonth .c3-line-northcentral-trend, #chartMonth .c3-line-south-central-trend, #chartMonth .c3-line-west-central-trend, #chartMonth .c3-line-east-central-trend, #chartColdest .c3-line-downtown-ma { stroke-width: 3px !important; }
 
+  .chartHeader { padding:12px;height:auto;text-align:center;padding-bottom:5px; }
+  .chatter { padding-left:20px;text-align:center;margin-bottom:20px; }
+  .wrapper-dropdown-1 .active { background:#ddd; }
+  .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; }
+  .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+  ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
+  .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+  .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
+  header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
+  .c3-tooltip th { background-color:#aaa;font-size:12px;padding:2px 5px;text-align:left;color:#FFF;font-family:"Benton Sans"; }
   </style> 
 </head>
 
