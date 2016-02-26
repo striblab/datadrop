@@ -27,9 +27,8 @@
     #rightSide { float:right; width:38%; }
     .source { text-align:center; }
     #chart { height:420px; }
-    #viewSelect {width:300px;
-    text-align:center;
-    margin:0 auto 20px auto;}
+    .breaker { margin:0; }
+    #viewSelect {width:300px; text-align:center; margin:0 auto 20px auto;}
     @media (max-width:850px) {
       #leftSide, #rightSide { width:100%; float:none; text-align:center; }
       #nbName{ text-align:center; }
@@ -46,10 +45,6 @@
     <div class="switch" data="senate" id="y2012">2012</div>
   </div>
   <div id="nbName">Minneapolis</div>
-<div id="leftSide">
-  <div id="chart"><svg></svg></div>
-</div>
-
 
 <div id="rightSide">
     <div id="map"></div>
@@ -73,13 +68,17 @@
     <div id="infobox">
       <div class="zoom">Reset View</div>
     </div>
+</div>
 
+<div id="leftSide">
+  <div id="chart"><svg></svg></div>
 <div class="breaker"></div>
 
   <div class="source"><a href="http://www.minneapolismn.gov/it/inclusion/WCMS1P-118865" target="new_">Source: City of Minneapolis</a></div>
 
 <a href="https://docs.google.com/spreadsheets/d/1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
   </div>
+
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
