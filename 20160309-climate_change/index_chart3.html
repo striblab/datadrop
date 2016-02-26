@@ -105,7 +105,7 @@ var  padding = {
 //COLDEST TEMPS
 var chartColdest = c3.generate({
         bindto: '#chartColdest',
-        size: { height: 250 },
+        size: { height: 350 },
         padding: padding,
         data: {
             json: dataColdest,
@@ -136,7 +136,7 @@ var chartColdest = c3.generate({
         },
         x: {
             type: 'category',
-            values: ['1901-1902', '1930-1931', '1959-1960', '1987-1988'],
+            // values: ['1901-1902', '1930-1931', '1959-1960', '1987-1988'],
             tick: {
                 // format: '%Y',
                 count: 6,
@@ -145,7 +145,7 @@ var chartColdest = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#333',"#999","#9C0004"] },
+        color: { pattern: ['#000',"#bbb","#9C0004"] },
     });
 
 d3.select("#chartColdest svg .c3-chart-lines").append("line")          // attach a line
