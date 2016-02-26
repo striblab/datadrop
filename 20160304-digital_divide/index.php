@@ -15,6 +15,7 @@
   
   <style>
 <<<<<<< HEAD:20160304-digital_divide/index.php
+<<<<<<< HEAD:20160304-digital_divide/index.php
     #map { height:420px;width:350px;margin:0 auto; }
     #map path { opacity:.5!important; stroke:#000; stroke-width:1px; stroke-opacity:0.7; }
     #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
@@ -22,6 +23,8 @@
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
 =======
+=======
+>>>>>>> gh-pages:20160406-digital_divide/index.php
     #map {  height:420px;width:350px;margin:0 auto; }
     
     #map path {opacity:  .5!important;
@@ -35,11 +38,21 @@
     .zoom { text-align:center; float:none !important; padding:15px; }
 
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
+<<<<<<< HEAD:20160304-digital_divide/index.php
+=======
+
+    small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
+>>>>>>> gh-pages:20160406-digital_divide/index.php
 
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
 
 >>>>>>> origin/gh-pages:20160406-digital_divide/index.php
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
+<<<<<<< HEAD:20160304-digital_divide/index.php
+=======
+
+    .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
+>>>>>>> gh-pages:20160406-digital_divide/index.php
 
     .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
     .num { font-weight:900; }
@@ -49,6 +62,11 @@
 =======
 
     #leftSide { float:left; width:58%; padding:15px 0; }
+<<<<<<< HEAD:20160304-digital_divide/index.php
+=======
+
+    #rightSide { float:right; width:38%; }
+>>>>>>> gh-pages:20160406-digital_divide/index.php
 
     #rightSide { float:right; width:38%; }
 
@@ -68,13 +86,20 @@
     text-align:center;
     margin:0 auto 20px auto;}
 
+    #viewSelect {width:300px;
+    text-align:center;
+    margin:0 auto 20px auto;}
+
     @media (max-width:850px) {
 
       #leftSide, #rightSide { width:100%; float:none; text-align:center; }
 
       #nbName{ text-align:center; }
 
+<<<<<<< HEAD:20160304-digital_divide/index.php
 >>>>>>> origin/gh-pages:20160406-digital_divide/index.php
+=======
+>>>>>>> gh-pages:20160406-digital_divide/index.php
     }
 
   </style>
@@ -95,6 +120,7 @@
 </div>
 
 
+<<<<<<< HEAD:20160304-digital_divide/index.php
 <<<<<<< HEAD:20160304-digital_divide/index.php
 <div id="rightSide">
     <div id="map"></div>
@@ -118,6 +144,12 @@
     <div id="infobox">
       <div class="zoom">Reset View</div>
     </div>
+=======
+
+
+
+  <div id="chart"><svg></svg></div>
+>>>>>>> gh-pages:20160406-digital_divide/index.php
 
 =======
 
