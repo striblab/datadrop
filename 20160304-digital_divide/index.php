@@ -121,6 +121,7 @@ var data = json.surveyIsolate;
 var data2012 = json2012.surveyIsolate2012;
 
 var dataSource = data;
+var thisYear = 2014;
 
 $(".switch").click(function() {
   $(".switch").removeClass("selected");
@@ -131,23 +132,24 @@ $(".switch").click(function() {
 
 $("#y2012").click(function() {
 dataSource = data2012;
+thisYear = 2012;
 statesLayer.eachLayer(function (layer) {    
         layer.setStyle({          
           fillColor: getColor(layer.feature.properties.GrpName)
         });  
       }); 
-redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
+redrawChart(chart,"#chart","tech",dataSource,"Overall",0,thisYear);
 });
 $("#y2014").click(function() {
 dataSource = data;
+thisYear = 2014;
 statesLayer.eachLayer(function (layer) {    
         layer.setStyle({          
           fillColor: getColor(layer.feature.properties.GrpName)
         });  
       });
-redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
+redrawChart(chart,"#chart","tech",dataSource,"Overall",0,thisYear);
 });
-
 
 //CHARTAGGEDON
 var chart = [];
@@ -175,7 +177,7 @@ nv.addGraph(function() {
       .tickFormat(formatter);
 
   d3.select('#chart svg')
-      .datum(chartData("tech",dataSource,"Overall"))
+      .datum(chartData("tech",dataSource,"Overall",2014))
       .transition().duration(500)
       .call(chart[index]);
 
@@ -183,63 +185,55 @@ nv.addGraph(function() {
 
 
 var rects = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 0 || i == 1; })
+              .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
               .style("fill","#000");
 
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
               .style("fill","#777");
 
-var rects3 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
-              .style("fill","#333");
-
 var rects4 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
               .style("fill","#bbb");
 
 var rects5 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
               .style("fill","#666");
 
 var rects6 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 14; })
+              .filter(function(d, i) { return i == 12; })
               .style("fill","#ddd");
 
   return chart[index];
 });
 
 
-function redrawChart(chart,container,subject,data,county,index){
+function redrawChart(chart,container,subject,data,county,index,year){
   var colorArray = ['#999','#C22A22']; 
   var formatter = d3.format('%');
 
-    d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
+    d3.select(container + ' svg').datum(chartData(subject,data,county,year)).transition().duration(300).call(chart[index].color(colorArray));
     // chart[index].yAxistickFormat(formatter);
     nv.utils.windowResize(chart[index].update);
 
 var rects = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 0 || i == 1; })
+              .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
               .style("fill","#000");
 
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
               .style("fill","#777");
 
-var rects3 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
-              .style("fill","#333");
-
 var rects4 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
               .style("fill","#bbb");
 
 var rects5 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
               .style("fill","#666");
 
 var rects6 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 14; })
+              .filter(function(d, i) { return i == 12; })
               .style("fill","#ddd");
 
 // var rects7 = d3.selectAll("rect")
@@ -268,7 +262,7 @@ var rects6 = d3.selectAll("rect")
 
 }
 
-function chartData(subject,data,county) {
+function chartData(subject,data,county,year) {
 
 var romney, mccain, huckabee, paul, keyes, guiliani, others, obama, clinton, edwards, kucinich, biden, richardson, dodd, uncommitted;
   
@@ -283,9 +277,9 @@ for (var i=0; i < dataSource.length; i++){
       var cellular = dataSource[i].cellular;
       var wifi = dataSource[i].wifi;
       var unsure = dataSource[i].unsure;
-      var computer = dataSource[i].computer_no_internet + dataSource[i].computer_internet;
+      var computer = dataSource[i].computer_no_internet + dataSource[i].computer_no;
       var tablet = dataSource[i].tablet_internet +  dataSource[i].tablet_no_internet;
-      var cell = dataSource[i].cell_internet + dataSource[i].cell_no_internet;
+      var cell = dataSource[i].cell_no;
       var gaming = dataSource[i].gaming_internet + dataSource[i].gaming_no_internet;
       var less_highschool = dataSource[i].less_highschool;
       var highschool = dataSource[i].highschool;
@@ -305,6 +299,36 @@ for (var i=0; i < dataSource.length; i++){
       var y_55_64 = dataSource[i].y_55_64;
       var y_65 = dataSource[i].y_65_74 + dataSource[i].y_75_older;
   }
+}
+
+if (year == 2014) {
+  var allHome = .09;
+  var allMobile = .21;
+  var allComputer = .15;
+  var allHigh = .16;
+  var allSome = .19;
+  var allMore = .61;
+  var allPoor = .28;
+  var allMid = .22;
+  var allRich = .50;
+  var allOther = .07;
+  var allBlack = .17;
+  var allWhite = .75;
+  var allOld = .24;
+} else if (year == 2012) {
+  var allHome = .11;
+  var allMobile = .34;
+  var allComputer = .18;
+  var allHigh = .16;
+  var allSome = .23;
+  var allMore = .56;
+  var allPoor = .30;
+  var allMid = .24;
+  var allRich = .44;
+  var allOther = .08;
+  var allBlack = .19;
+  var allWhite = .71;
+  var allOld = .24;
 }
 
 if (county == "Overall"){
@@ -344,16 +368,8 @@ if (county == "Overall"){
           //   "value" : wifi
           // },
           { 
-            "label" : "Own Computer" ,
+            "label" : "No Internet Computer" ,
             "value" : computer
-          },
-          { 
-            "label" : "Own Tablet" ,
-            "value" : tablet
-          },
-          { 
-            "label" : "Own Cellphone" ,
-            "value" : cell
           },
           // { 
           //   "label" : "Own Game Console" ,
@@ -411,11 +427,11 @@ return [{
         "values": [
           { 
             "label" : "No Home Internet" ,
-            "value" : .09
+            "value" : allHome
           },
           { 
             "label" : "No Mobile Internet" ,
-            "value" : .21
+            "value" : allMobile
           },
           // { 
           //   "label" : "Dialup Internet" ,
@@ -442,16 +458,8 @@ return [{
           //   "value" : wifi
           // },
           { 
-            "label" : "Own Computer" ,
-            "value" : .88
-          },
-          { 
-            "label" : "Own Tablet" ,
-            "value" : .56
-          },
-          { 
-            "label" : "Own Cellphone" ,
-            "value" : .91
+            "label" : "No Internet Computer" ,
+            "value" : allComputer
           },
           // { 
           //   "label" : "Own Game Console" ,
@@ -459,39 +467,39 @@ return [{
           // },
           { 
             "label" : "High School/Less" ,
-            "value" : .04
+            "value" : allHigh
           },
           { 
             "label" : "Some/Associates" ,
-            "value" : .19
+            "value" : allSome
           },
           { 
             "label" : "Bachelor's or More" ,
-            "value" : .61
+            "value" : allMore
           },
           { 
             "label" : "$0-$24k" ,
-            "value" : .28
+            "value" : allPoor
           },
           { 
             "label" : "$25k-$49k" ,
-            "value" : .22
+            "value" : allMid
           },
           { 
             "label" : "$50k+" ,
-            "value" : .5
+            "value" : allRich
           },
           { 
             "label" : "Other Race" ,
-            "value" : .07
+            "value" : allOther
           },
           { 
             "label" : "Black" ,
-            "value" : .17
+            "value" : allBlack
           },
           { 
             "label" : "White" ,
-            "value" : .75
+            "value" : allWhite
           },
           // { 
           //   "label" : "Age 18-54" ,
@@ -499,7 +507,7 @@ return [{
           // },
           { 
             "label" : "Age 55+" ,
-            "value" : .20
+            "value" : allOld
           }
         ]
       },{
@@ -514,16 +522,8 @@ return [{
             "value" : no_mobile
           },
           { 
-            "label" : "Own Computer" ,
+            "label" : "No Internet Computer" ,
             "value" : computer
-          },
-          { 
-            "label" : "Own Tablet" ,
-            "value" : tablet
-          },
-          { 
-            "label" : "Own Cellphone" ,
-            "value" : cell
           },
           { 
             "label" : "High School/Less" ,
@@ -690,7 +690,7 @@ for (var i=0; i < dataSource.length; i++){
     var layer = e.target;
       map.fitBounds(layer.getBounds());
       $('#nbName').html(layer.feature.properties.GrpName);
-      redrawChart(chart,"#chart","tech",dataSource,layer.feature.properties.GrpName,0);
+      redrawChart(chart,"#chart","tech",dataSource,layer.feature.properties.GrpName,0,thisYear);
   }
 
   });
