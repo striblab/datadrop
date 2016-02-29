@@ -14,7 +14,7 @@
   <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
   
   <style>
-    #map { height:420px;width:350px;margin:0 auto; }
+    #map { height:420px;width:100%;margin:0 auto; }
     #map path { opacity:.5!important; stroke:#000; stroke-width:1px; stroke-opacity:0.7; }
     #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
     .zoom { text-align:center; float:none !important; padding:15px; }
@@ -23,8 +23,8 @@
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
     .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
     .num { font-weight:900; }
-    #leftSide { float:left; width:58%; padding:15px 0; }
-    #rightSide { float:right; width:38%; }
+    #leftSide { float:left; width:48%; padding:15px 0; }
+    #rightSide { float:right; width:48%; }
     .source { text-align:center; }
     #chart { height:420px; }
     .breaker { margin:0; }
