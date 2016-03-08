@@ -155,7 +155,7 @@ redrawChart(chart,"#chart","tech",dataSource,"Overall",0,thisYear);
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#999','#C22A22']; 
+  var colorArray = ['#777','#C22A22']; 
   var formatter = d3.format('%');
 
 nv.addGraph(function() {
@@ -184,57 +184,65 @@ nv.addGraph(function() {
   nv.utils.windowResize(chart[index].update);
 
 
-var rects = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
-              .style("fill","#000");
+var rects = d3.selectAll(".nv-axis text")
+              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
+              .style("font-weight","900");
 
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
-              .style("fill","#777");
+              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
+              .style("fill","#fff");
 
-var rects4 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
-              .style("fill","#bbb");
+// var rects4 = d3.selectAll("text")
+//               .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
+//               .style("fill","#bbb");
 
-var rects5 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
-              .style("fill","#666");
+// var rects5 = d3.selectAll("text")
+//               .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
+//               .style("fill","#666");
 
-var rects6 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 12; })
-              .style("fill","#ddd");
+// var rects6 = d3.selectAll("text")
+//               .filter(function(d, i) { return i == 12; })
+//               .style("fill","#ddd");
 
   return chart[index];
 });
 
 
 function redrawChart(chart,container,subject,data,county,index,year){
-  var colorArray = ['#999','#C22A22']; 
+  var colorArray = ['#777','#C22A22']; 
   var formatter = d3.format('%');
 
     d3.select(container + ' svg').datum(chartData(subject,data,county,year)).transition().duration(300).call(chart[index].color(colorArray));
     // chart[index].yAxistickFormat(formatter);
     nv.utils.windowResize(chart[index].update);
 
-var rects = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
-              .style("fill","#000");
+var rects = d3.selectAll(".nv-axis text")
+              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
+              .style("font-weight","900");
 
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
-              .style("fill","#777");
+              .filter(function(d, i) { return i == 18 || i == 22 || i == 26 || i == 30 || i == 34; })
+              .style("fill","#fff");
 
-var rects4 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
-              .style("fill","#bbb");
+// var rects = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
+//               .style("fill","#000");
 
-var rects5 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
-              .style("fill","#666");
+// var rects2 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
+//               .style("fill","#777");
 
-var rects6 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 12; })
-              .style("fill","#ddd");
+// var rects4 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
+//               .style("fill","#bbb");
+
+// var rects5 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
+//               .style("fill","#666");
+
+// var rects6 = d3.selectAll("rect")
+//               .filter(function(d, i) { return i == 12; })
+//               .style("fill","#ddd");
 
 // var rects7 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 15 || i == 16; })
@@ -336,6 +344,10 @@ if (county == "Overall"){
         "key": "Citywide Percentage",
         "values": [
           { 
+            "label" : "Connectivity" ,
+            "value" : null
+          },
+          { 
             "label" : "No Home Internet" ,
             "value" : no_internet
           },
@@ -371,10 +383,10 @@ if (county == "Overall"){
             "label" : "No Internet Computer" ,
             "value" : computer
           },
-          // { 
-          //   "label" : "Own Game Console" ,
-          //   "value" : gaming
-          // },
+          { 
+            "label" : "Education" ,
+            "value" : null
+          },
           { 
             "label" : "High School/Less" ,
             "value" : highschool
@@ -386,6 +398,10 @@ if (county == "Overall"){
           { 
             "label" : "Bachelor's or More" ,
             "value" : bachelors + graduate
+          },
+          { 
+            "label" : "Income" ,
+            "value" : null
           },
           { 
             "label" : "$0-$24k" ,
@@ -400,7 +416,11 @@ if (county == "Overall"){
             "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "Other Race" ,
+            "label" : "Race" ,
+            "value" : null
+          },
+          { 
+            "label" : "Other" ,
             "value" : asian + native
           },
           { 
@@ -411,10 +431,10 @@ if (county == "Overall"){
             "label" : "White" ,
             "value" : white
           },
-          // { 
-          //   "label" : "Age 18-54" ,
-          //   "value" : y_18_34 + y_35_54
-          // },
+          { 
+            "label" : "Age" ,
+            "value" : null
+          },
           { 
             "label" : "Age 55+" ,
             "value" : y_55_64 + y_65
@@ -425,6 +445,10 @@ if (county == "Overall"){
 return [{
         "key": "Citywide Percentage",
         "values": [
+          { 
+            "label" : "Connectivity" ,
+            "value" : null
+          },
           { 
             "label" : "No Home Internet" ,
             "value" : allHome
@@ -461,10 +485,10 @@ return [{
             "label" : "No Internet Computer" ,
             "value" : allComputer
           },
-          // { 
-          //   "label" : "Own Game Console" ,
-          //   "value" : gaming
-          // },
+          { 
+            "label" : "Education" ,
+            "value" : null
+          },
           { 
             "label" : "High School/Less" ,
             "value" : allHigh
@@ -476,6 +500,10 @@ return [{
           { 
             "label" : "Bachelor's or More" ,
             "value" : allMore
+          },
+          { 
+            "label" : "Income" ,
+            "value" : null
           },
           { 
             "label" : "$0-$24k" ,
@@ -490,7 +518,11 @@ return [{
             "value" : allRich
           },
           { 
-            "label" : "Other Race" ,
+            "label" : "Race" ,
+            "value" : null
+          },
+          { 
+            "label" : "Other" ,
             "value" : allOther
           },
           { 
@@ -501,10 +533,10 @@ return [{
             "label" : "White" ,
             "value" : allWhite
           },
-          // { 
-          //   "label" : "Age 18-54" ,
-          //   "value" : y_18_34 + y_35_54
-          // },
+          { 
+            "label" : "Age" ,
+            "value" : null
+          },
           { 
             "label" : "Age 55+" ,
             "value" : allOld
@@ -513,6 +545,10 @@ return [{
       },{
         "key": "Region Percentage",
         "values": [
+          { 
+            "label" : "Connectivity" ,
+            "value" : null
+          },
           { 
             "label" : "No Home Internet" ,
             "value" : no_internet
@@ -524,6 +560,10 @@ return [{
           { 
             "label" : "No Internet Computer" ,
             "value" : computer
+          },
+          { 
+            "label" : "Education" ,
+            "value" : null
           },
           { 
             "label" : "High School/Less" ,
@@ -538,6 +578,10 @@ return [{
             "value" : bachelors + graduate
           },
           { 
+            "label" : "Income" ,
+            "value" : null
+          },
+          { 
             "label" : "$0-$24k" ,
             "value" : i_10k_24k
           },
@@ -550,7 +594,11 @@ return [{
             "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "Other Race" ,
+            "label" : "Race" ,
+            "value" : null
+          },
+          { 
+            "label" : "Other" ,
             "value" : asian + native
           },
           { 
@@ -561,10 +609,10 @@ return [{
             "label" : "White" ,
             "value" : white
           },
-          // { 
-          //   "label" : "Age 18-54" ,
-          //   "value" : y_18_34 + y_35_54
-          // },
+          { 
+            "label" : "Age" ,
+            "value" : null
+          },
           { 
             "label" : "Age 55+" ,
             "value" : y_55_64 + y_65
