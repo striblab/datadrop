@@ -51,9 +51,9 @@
 </div>
 
 <div class="switches">
-<div class="bigNum orange3" data="all">3,216</div>
-<div class="bigNum orange3" data="grant-tows">1,736</div>
-<div class="bigNum orange3" data="polk-tows">1,480</div>
+<div class="bigNum blue3" data="all">3,216</div>
+<div class="bigNum blue3" data="grant-tows">1,736</div>
+<div class="bigNum blue3" data="polk-tows">1,480</div>
 </div>
 
 <div id="stuff"></div>
@@ -160,6 +160,8 @@ map.addControl(new mapboxgl.Navigation());
 map.on('style.load', function () {
 // D3 CHOROPLETH
 
+map.addSource('mpls', sourceObj);
+
     // map.addSource("mpls", sourceObj);
 
     // map.addSource("mpls", {
@@ -191,7 +193,6 @@ map.on('style.load', function () {
 });
 
 map.once('load', function loaded() {
-  map.addSource('mpls', sourceObj);
 
 d3.select("#stuff").selectAll(".card")
 .data(mpls.features).enter().append("div")
@@ -233,7 +234,7 @@ d3.select("#stuff").selectAll(".card")
                 "type": "circle",
                 "source": "grant",
                 "paint": {
-                    "circle-color": 'rgba(224,114,66, 0.45)',
+                    "circle-color": 'rgba(103,180,194, 0.45)',
                     "circle-radius": 4
                 }
     });
@@ -243,7 +244,7 @@ d3.select("#stuff").selectAll(".card")
                 "type": "circle",
                 "source": "polk",
                 "paint": {
-                    "circle-color": 'rgba(224,114,66, 0.45)',
+                    "circle-color": 'rgba(103,180,194, 0.45)',
                     "circle-radius": 4
                 }
     });
