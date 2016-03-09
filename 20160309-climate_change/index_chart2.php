@@ -36,6 +36,11 @@
 <body>
   <div id="wrapper">
 <div>
+
+
+<div class="chartHeader chartTitle">More above-zero winters</div>
+<div class="chatter">The number of years each decade that the average minimum temperature was above zero or at/below zero.</div>
+
 <div id="viewSwitch">
 <div id="selector">
   <section class="main">
@@ -60,8 +65,6 @@
 </div>
 </div>
 
-<div class="chartHeader chartTitle">More above-zero winters</div>
-<div class="chatter">The number of years each decade that the average minimum temperature was above zero or at/below zero.</div>
 <div id="chartDecade" class="chart"></div>
 </div>
 </div>
@@ -300,7 +303,7 @@ var chartDecade = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#636363','#CCC'] },
+        color: { pattern: ['#636363','#00429c'] },
     });
 </script>
 <script type="text/javascript">

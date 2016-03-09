@@ -176,7 +176,7 @@ var chartColdest = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#000',"#bbb","#9C0004"] },
+        color: { pattern: ['#000',"#bbb","#00429c"] },
     });
 
 d3.select("#chartColdest svg .c3-chart-lines").append("line")          // attach a line

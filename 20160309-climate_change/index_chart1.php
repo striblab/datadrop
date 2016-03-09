@@ -38,6 +38,10 @@
 <body>
   <div id="wrapper">
 
+
+
+<div class="chartHeader chartTitle">Winter's average minimum temperature is rising</div>
+<div class="chatter">Averages of the daily low temperatures between December and February each winter.</div>
 <div>
 <div id="viewSwitch">
 <div id="selector">
@@ -64,9 +68,6 @@
 </div>
 
 </div>
-
-<div class="chartHeader chartTitle">Winter's average minimum temperature is rising</div>
-<div class="chatter">Averages of the daily low temperatures between December and February each winter.</div>
 <div id="chartMonth" class="chart"></div>
 
 </div>
@@ -345,7 +346,7 @@ var chartMonth = c3.generate({
           }
         },
       subchart: { show: false },
-        color: { pattern: ['#333',"#9C0004"] },
+        color: { pattern: ['#333',"#00429c"] },
     });
 
 </script>
