@@ -273,8 +273,8 @@ var chartDecade = c3.generate({
                 value: ['above_zero','below_zero']
             },
             names: {
-              'above_zero': 'Years Above Zero',
-              'below_zero': 'Years Below Zero'
+              'above_zero': 'Years above zero',
+              'below_zero': 'Years below zero'
             },
             types: {
             'above_zero': 'bar',

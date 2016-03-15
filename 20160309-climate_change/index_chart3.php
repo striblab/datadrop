@@ -148,7 +148,7 @@ var chartColdest = c3.generate({
             names: {
               'downtown_min': 'Downtown Minneapolis/Airport',
               'stcloud_min': 'St. Cloud',
-              'downtown_ma': '7-year Moving Average'
+              'downtown_ma': '7-year moving average'
             },
             types: {
             'downtown_min': 'line',
