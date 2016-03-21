@@ -153,21 +153,76 @@ var geocoder = new mapboxgl.Geocoder({
 map.addControl(geocoder);
 map.addControl(new mapboxgl.Navigation());
 
-var sourceObj = new mapboxgl.GeoJSONSource({
-   data: mpls
-});
+var facet = 'CarsBlock';
+
+var level = 'isState';
+
+var layers = [
+    ['#723122', 100],
+    ['#8B4225', 90],
+    ['#A25626', 80],
+    ['#B86B25', 70],
+    ['#CA8323', 60],
+    ['#DA9C20', 50],
+    ['#E6B71E', 40],
+    ['#EED322', 30],
+    ['#F2F12D', 0]
+];
+
+function filterBy(type) {
+    // Which value in each layers array
+    // should be used for filtering.
+    var position = type === 'isState' ? 1 : 2;
+
+    layers.forEach(function(layer, i) {
+        var filters = [
+            'all',
+            ['>=', facet, layer[position]],
+            // Does a state or county property (depending on `type`)
+            // Exist in a given feature? Just show those:
+            ['==', type, true]
+        ];
+
+        if (i !== 0) filters.push(['<', facet, layers[i - 1][position]]);
+        map.setFilter('layer-' + i, filters);
+
+    });
+}
+
+function renderChoropleth() {
+    var sourceObj = new mapboxgl.GeoJSONSource({
+     data: mpls
+   });
+
+    map.addSource('mpls', sourceObj);
+
+    // map.addSource('mpls', {
+    //     "type": "geojson",
+    //     "data": mpls
+    // });
+
+    layers.forEach(function(layer, i) {
+      console.log(i);
+        map.addLayer({
+            "id": "layer-" + i,
+            "interactive": true,
+            "type": "fill",
+            "source": "mpls",
+            // "source-layer": "state_county_population_2014_cen",
+            "paint": {
+                'fill-antialias' : true,
+                "fill-color": layer[0],
+                "fill-opacity": 0.75,
+                'fill-outline-color': 'rgba(51, 51, 51, 1)'
+            }
+        });
+
+    });
+
+    filterBy(level);
+}
 
 map.on('style.load', function () {
-// D3 CHOROPLETH
-
-map.addSource('mpls', sourceObj);
-
-    // map.addSource("mpls", sourceObj);
-
-    // map.addSource("mpls", {
-    //     type: "geojson",
-    //     data: mpls
-    // });
 
     map.addSource("grant", {
         type: "geojson",
@@ -194,61 +249,6 @@ map.addSource('mpls', sourceObj);
 
 map.once('load', function loaded() {
 
-// d3.select("#stuff").selectAll(".card")
-// .data(mpls.features).enter().append("div")
-// .attr("class","card")
-// .html(function(d,i){ 
-
-//   var color = "#f7f7f7";
-//   if (d.properties.CarsBlock >= 90) { color = "#118241"; }
-//   else if (d.properties.CarsBlock >= 70) { color = "#3FAA29"; }
-//   else if (d.properties.CarsBlock >= 50) { color = "#82D870"; }
-//   else if (d.properties.CarsBlock >= 30) { color = "#271D42"; }
-//   else if (d.properties.CarsBlock >= 20) { color = "#61538F"; }
-//   else if (d.properties.CarsBlock > 0) { color = "#AFA8C9"; }
-
-//    map.addLayer({
-//         'id': 'states-layer' + i,
-//         'interactive': true,
-//         'type': 'fill',
-//         'source': 'mpls',
-//         "filter": [
-//         "==",
-//         "name",
-//         d.properties.TRACTCE
-//         ],
-//         'paint': {
-//             'fill-antialias' : true,
-//             // 'fill-outline-color ': '#ffffff',
-//             'fill-opacity': 0.3,
-//             'fill-color': color,
-//             'fill-outline-color': 'rgba(51, 51, 51, 1)'
-//         }
-//     });
-
-//    return "";
-   
-// });
-
-   map.addLayer({
-        'id': 'states-layer',
-        'interactive': true,
-        'type': 'fill',
-        'source': 'mpls',
-        // "filter": [
-        // "==",
-        // "name",
-        // d.properties.TRACTCE
-        // ],
-        'paint': {
-            'fill-antialias' : true,
-            // 'fill-outline-color ': '#ffffff',
-            'fill-opacity': 0.3,
-            'fill-color': "#ddd",
-            'fill-outline-color': 'rgba(51, 51, 51, 1)'
-        }
-    });
-
     map.addLayer({
                 "id": "grant-tows",
                 "type": "circle",
@@ -269,7 +269,11 @@ map.once('load', function loaded() {
                 }
     });
 
+    renderChoropleth();
+
 });
+
+// map.on('load', renderChoropleth);
 
 $(".zoom").click(function() {
 map.flyTo({ center: [-93.266667, 44.983333], zoom: 10 });
