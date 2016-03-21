@@ -64,17 +64,17 @@
 <div class="breaker"></div>
 
 <div class="legends">
-  <small>Towing Per Capita</small>
+  <small>Vehicle Density</small>
     <div class="legendContainer">
       <span class='legend'>
         <nav class='legend clearfix'>
           <span style='background:#fff;'>Less</span>
-          <span class='negDark'></span>
-          <span class='negMid'></span>
-          <span class='negLight'></span>
-          <span class='posLight'></span>
-          <span class='posMid'></span>
-          <span class='posDark'></span>
+          <span class='grayblue1'></span>
+          <span class='grayblue2'></span>
+          <span class='grayblue3'></span>
+          <span class='gray3'></span>
+          <span class='gray4'></span>
+          <span class='gray5'></span>
           <span style='background:#fff;'>More</span>
         </nav>
       </span>
@@ -230,24 +230,34 @@ map.once('load', function loaded() {
    
 // });
 
+var layers = [
+['#DAE1E7', 0],
+['#C6D1D9', 20],
+['#A8B9C5', 40],
+['#969696', 60],
+['#636363', 80],
+['#252525', 100]
+];
+
+layers.forEach(function(layer, i) {
    map.addLayer({
-        'id': 'states-layer',
+        'id': 'states-layer-' + i,
         'interactive': true,
         'type': 'fill',
         'source': 'mpls',
-        // "filter": [
-        // "==",
-        // "name",
-        // d.properties.TRACTCE
-        // ],
+        "filter": [
+        ">=",
+        "CarsBlock",
+        layer[1]
+        ],
         'paint': {
-            'fill-antialias' : true,
-            // 'fill-outline-color ': '#ffffff',
-            'fill-opacity': 0.3,
-            'fill-color': "#ddd",
+            // 'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': layer[0],
             'fill-outline-color': 'rgba(51, 51, 51, 1)'
         }
     });
+   });
 
     map.addLayer({
                 "id": "grant-tows",
@@ -255,7 +265,7 @@ map.once('load', function loaded() {
                 "source": "grant",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 4
+                    "circle-radius": 3
                 }
     });
 
@@ -265,7 +275,7 @@ map.once('load', function loaded() {
                 "source": "polk",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 4
+                    "circle-radius": 3
                 }
     });
 
