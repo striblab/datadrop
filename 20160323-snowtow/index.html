@@ -27,7 +27,7 @@
   small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
   .zoom { text-align:center; float:none !important; padding:15px; }
-  .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
+  .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
   .bigNum { display:inline-block; width:32%;  }
 
   #geocoder-container { width:100%; margin-top:10px; }
@@ -64,17 +64,16 @@
 <div class="breaker"></div>
 
 <div class="legends">
-  <small>Towing Per Capita</small>
+  <small>Vehicle Density</small>
     <div class="legendContainer">
       <span class='legend'>
         <nav class='legend clearfix'>
           <span style='background:#fff;'>Less</span>
-          <span class='negDark'></span>
-          <span class='negMid'></span>
-          <span class='negLight'></span>
-          <span class='posLight'></span>
-          <span class='posMid'></span>
-          <span class='posDark'></span>
+          <span class='gray1'></span>
+          <span class='gray2'></span>
+          <span class='gray3'></span>
+          <span class='gray4'></span>
+          <span class='gray5'></span>
           <span style='background:#fff;'>More</span>
         </nav>
       </span>
@@ -230,24 +229,33 @@ map.once('load', function loaded() {
    
 // });
 
+var layers = [
+['#F7F7F7', 0],
+['#CCCCCC', 10],
+['#969696', 30],
+['#636363', 50],
+['#252525', 70]
+];
+
+layers.forEach(function(layer, i) {
    map.addLayer({
-        'id': 'states-layer',
+        'id': 'states-layer-' + i,
         'interactive': true,
         'type': 'fill',
         'source': 'mpls',
-        // "filter": [
-        // "==",
-        // "name",
-        // d.properties.TRACTCE
-        // ],
+        "filter": [
+        ">=",
+        "CarsBlock",
+        layer[1]
+        ],
         'paint': {
-            'fill-antialias' : true,
-            // 'fill-outline-color ': '#ffffff',
-            'fill-opacity': 0.3,
-            'fill-color': "#ddd",
+            // 'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': layer[0],
             'fill-outline-color': 'rgba(51, 51, 51, 1)'
         }
     });
+   });
 
     map.addLayer({
                 "id": "grant-tows",
@@ -255,7 +263,7 @@ map.once('load', function loaded() {
                 "source": "grant",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 4
+                    "circle-radius": 3
                 }
     });
 
@@ -265,7 +273,7 @@ map.once('load', function loaded() {
                 "source": "polk",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 4
+                    "circle-radius": 3
                 }
     });
 
