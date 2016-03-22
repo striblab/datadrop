@@ -27,7 +27,7 @@
   small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
   .zoom { text-align:center; float:none !important; padding:15px; }
-  .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
+  .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
   .bigNum { display:inline-block; width:32%;  }
 
   #geocoder-container { width:100%; margin-top:10px; }
@@ -69,9 +69,8 @@
       <span class='legend'>
         <nav class='legend clearfix'>
           <span style='background:#fff;'>Less</span>
-          <span class='grayblue1'></span>
-          <span class='grayblue2'></span>
-          <span class='grayblue3'></span>
+          <span class='gray1'></span>
+          <span class='gray2'></span>
           <span class='gray3'></span>
           <span class='gray4'></span>
           <span class='gray5'></span>
@@ -231,12 +230,11 @@ map.once('load', function loaded() {
 // });
 
 var layers = [
-['#DAE1E7', 0],
-['#C6D1D9', 20],
-['#A8B9C5', 40],
-['#969696', 60],
-['#636363', 80],
-['#252525', 100]
+['#F7F7F7', 0],
+['#CCCCCC', 10],
+['#969696', 30],
+['#636363', 50],
+['#252525', 70]
 ];
 
 layers.forEach(function(layer, i) {
