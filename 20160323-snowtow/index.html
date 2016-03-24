@@ -20,7 +20,7 @@
    .mapboxgl-ctrl-attrib { display:none; }
 
   .switch { padding:10px; display:inline-block; text-align:center; width:32%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
-  .switch:hover, .precinctR:hover, .precinctD:hover, .selected, .metroSwitch:hover { background-color:#333 !important; color:#fff !important; cursor:pointer; }
+  .switch:hover, .precinctR:hover, .precinctD:hover, .selected, .metroSwitch:hover, .carSwitch:hover { background-color:#333 !important; color:#fff !important; cursor:pointer; }
 
   .switches { text-align:center; }
 
@@ -51,9 +51,9 @@
 </div>
 
 <div class="switches">
-<div class="bigNum blue3" data="all">3,216</div>
-<div class="bigNum blue3" data="grant-tows">1,734</div>
-<div class="bigNum blue3" data="polk-tows">1,482</div>
+<div class="bigNum" data="all">3,216</div>
+<div class="bigNum" data="grant-tows">1,734</div>
+<div class="bigNum" data="polk-tows">1,482</div>
 </div>
 
 <div id="stuff"></div>
@@ -78,11 +78,16 @@
         </nav>
       </span>
     </div>
+    <small class="carSwitch selected">Toggle</small>
 </div>
 
 <div class="breaker"></div>
 
 <div class="zoom">Reset View</div>
+
+<div class="chatter">During the two snow emergencies this winter, areas with higher <span class="gray3">vehicle density</span> tended to have more cars towed by the city, especially in Downtown and university areas.</div>
+<div class="chatter">North Minneapolis bucked this trend by having lower vehicle density, yet seeing disproportionate numbers of cars towed.</div>
+<div class="chatter">Very few cars were towed from South Minneapolis, even though it has comparable vehicle density to the North Side.</div>
   </div>
 </body>
 
@@ -187,6 +192,22 @@ map.addSource('mpls', sourceObj);
         map.setLayoutProperty('grant-tows', 'visibility', 'visible');
         if (value != "all") { map.setLayoutProperty(value, 'visibility', 'none'); }
     });
+    $(".carSwitch").click(function() {
+        $(this).toggleClass("selected");
+        if ($(this).hasClass("selected")){
+        map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+        map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+        map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+        map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+        map.setLayoutProperty('states-layer-4', 'visibility', 'visible');        
+        } else {
+        map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+        map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+        map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+        map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+        map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+        }
+    });
 
 
 });
@@ -263,7 +284,7 @@ layers.forEach(function(layer, i) {
                 "source": "grant",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 3
+                    "circle-radius": 2.5
                 }
     });
 
@@ -273,7 +294,7 @@ layers.forEach(function(layer, i) {
                 "source": "polk",
                 "paint": {
                     "circle-color": 'rgba(103,180,194, 0.45)',
-                    "circle-radius": 3
+                    "circle-radius": 2.5
                 }
     });
 
