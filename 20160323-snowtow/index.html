@@ -26,12 +26,15 @@
 
   small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
+  .chatter { padding:20px; }
+
   .zoom { text-align:center; float:none !important; padding:15px; }
   .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
   .bigNum { display:inline-block; width:32%;  }
 
   #geocoder-container { width:100%; margin-top:10px; }
   #geocoder-container > div { min-width:50%; margin-left:25%; }
+  .chatter span { padding:5px; }
 
   #stuff { display:none; }
 
@@ -78,16 +81,15 @@
         </nav>
       </span>
     </div>
-    <small class="carSwitch selected">Toggle</small>
 </div>
 
 <div class="breaker"></div>
 
 <div class="zoom">Reset View</div>
 
-<div class="chatter">During the two snow emergencies this winter, areas with higher <span class="gray3">vehicle density</span> tended to have more cars towed by the city, especially in Downtown and university areas.</div>
-<div class="chatter">North Minneapolis bucked this trend by having lower vehicle density, yet seeing disproportionate numbers of cars towed.</div>
-<div class="chatter">Very few cars were towed from South Minneapolis, even though it has comparable vehicle density to the North Side.</div>
+<div class="chatter">During the two snow emergencies this winter, areas with higher <span class="carSwitch selected">vehicle density</span> tended to have more <span class="blue3">cars towed</span> by the city, especially in Downtown and University areas.</div>
+<div class="chatter">North Minneapolis bucked this trend by having <span class="gray1">fewer cars</span> yet seeing disproportionate numbers of tows.</div>
+<div class="chatter">Far fewer cars were towed from South Minneapolis than elsewhere, even though it has <span class="gray2">comparable vehicle density</span> to the North Side.</div>
   </div>
 </body>
 
@@ -127,7 +129,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/shadowflare/cilea5110001ra8ktm7409xze',
     center: [-93.266667, 44.983333],
-    zoom: 10,
+    zoom: 10.2,
     minZoom: 10,
     maxBounds: llb
   //   sources: {
@@ -303,6 +305,8 @@ layers.forEach(function(layer, i) {
 $(".zoom").click(function() {
 map.flyTo({ center: [-93.266667, 44.983333], zoom: 10 });
 });
+
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address");
 
 geocoder.on('result', function(ev) {
   map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
