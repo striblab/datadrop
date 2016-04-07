@@ -2,38 +2,45 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+ 
   <title>Minneapolis Digital Divide</title>
-  <meta name="description" content="Minneapolis Digital Divide">
-  <meta name="author" content="Frey Hargarten - StarTribune">
+  <meta name="description" content="Minneapolis Digital Divide" />
+  <meta name="author" content="Frey Hargarten - StarTribune" />
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css">
+  <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css" />
   
   <style>
-    #map { height:420px;width:100%;margin:0 auto; }
-    #map path { opacity:.5!important; stroke:#000; stroke-width:1px; stroke-opacity:0.7; }
-    #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:1.5em; font-weight:900; height:50px; margin:5px auto 10px auto;text-align:center; }
+    #map {  height:420px;width:350px;margin:0 auto; }
+    
+    #map path {opacity:  .5!important;
+        stroke:#000;
+        stroke-width:1px;
+        stroke-opacity:0.7;
+      }
+    #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
     .zoom { text-align:center; float:none !important; padding:15px; }
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
     small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; padding-top:5px; }
     .switch { padding:10px; display:inline-block; text-align:center; width:49%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
     .switch:hover, .selected { background-color:#333; color:#fff !important; cursor:pointer; }
     .num { font-weight:900; }
-    #leftSide { float:left; width:50%; padding:15px 0; }
-    #rightSide { float:right; width:45%; }
+    #leftSide { float:left; width:58%; padding:15px 0; }
+    #rightSide { float:right; width:38%; }
     .source { text-align:center; }
     #chart { height:420px; }
-    .breaker { margin:0; }
-    #viewSelect {width:300px; text-align:center; margin:0 auto 20px auto;}
+    #viewSelect {width:300px;
+    text-align:center;
+    margin:0 auto 20px auto;}
     @media (max-width:850px) {
       #leftSide, #rightSide { width:100%; float:none; text-align:center; }
-      #nbName{ text-align:center; height:75px; }
+      #nbName{ text-align:center; }
     }
-  </style> 
+  </style>
+
 </head>
 
 <body>
@@ -45,8 +52,21 @@
     <div class="switch" data="senate" id="y2012">2012</div>
   </div>
   <div id="nbName">Minneapolis</div>
+<div id="leftSide">
+
+
+
+
+
+  <div id="chart"><svg></svg></div>
+
+</div>
+
 
 <div id="rightSide">
+
+   
+
     <div id="map"></div>
      <div class="legends">
         <div class="legendContainer">
@@ -68,16 +88,16 @@
     <div id="infobox">
       <div class="zoom">Reset View</div>
     </div>
-</div>
 
-<div id="leftSide">
-  <div id="chart"><svg></svg></div>
+
+
 <div class="breaker"></div>
 
   <div class="source"><a href="http://www.minneapolismn.gov/it/inclusion/WCMS1P-118865" target="new_">Source: City of Minneapolis</a></div>
 
 <a href="https://docs.google.com/spreadsheets/d/1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
   </div>
+
 
 </body>
 
@@ -94,60 +114,53 @@
 
 <script>
 // $("#headerDiv").sticky({topSpacing:1});
-
 </script>
 <script>
 //LIVE JSON MAGIC
-
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA&sheet=surveyIsolate
-
-
-d3.json("https://script.googleusercontent.com/macros/echo?user_content_key=S218ArONKeiEz-RTEl53EaGH816h0BB3kYZ0jVrYhx3G0W-toZ_EgLvapvvphJRw-MZjcn2o8wbUygJ6doR4DRmiKO3_m2pgOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TDKmXXMxaxxYwQuY5LYBij5AHEx7MO3NlZ2a6-1TkrF_Oz4qafQOPPWDxbiqlNcUVzd_dgT7OAibyRO9NbpYRtymt8WREOXpG&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, json) {
-d3.json("https://script.googleusercontent.com/macros/echo?user_content_key=xGOPLkfQe4D4nIjoThg4Fn83VyRl1QYzw3bbvxkNTlPFvRQBRNsOFPwGOkGw_V8iYZh_PEg37hJ4qnW1GZT5TLoeuE4A0N21OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TDKmXXMxaxxYwQuY5LYBij5AHEx7MO3NlZ2a6-1TkrF_Oz4qafQOPPWDxbiqlNcUVzd_dgT7OAibyRO9NbpYRt8_pbH_p7GuL&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX", function(error, json2012) {
-
+//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA&sheet=surveyIsolate2012
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA&sheet=surveyIsolate", function(error, json) {
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA&sheet=surveyIsolate2012", function(error, json2012) {
 $.getJSON('shapefiles/minneapolis_groups.json', function(dataMPLS) {
 
+// $jsonData = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=S218ArONKeiEz-RTEl53EaGH816h0BB3kYZ0jVrYhx3G0W-toZ_EgLvapvvphJRw-MZjcn2o8wbUygJ6doR4DRmiKO3_m2pgOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TDKmXXMxaxxYwQuY5LYBij5AHEx7MO3NlZ2a6-1TkrF_Oz4qafQOPPWDxbiqlNcUVzd_dgT7OAibyRO9NbpYRtymt8WREOXpG&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+// $jsonData2012 = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=xGOPLkfQe4D4nIjoThg4Fn83VyRl1QYzw3bbvxkNTlPFvRQBRNsOFPwGOkGw_V8iYZh_PEg37hJ4qnW1GZT5TLoeuE4A0N21OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6TDKmXXMxaxxYwQuY5LYBij5AHEx7MO3NlZ2a6-1TkrF_Oz4qafQOPPWDxbiqlNcUVzd_dgT7OAibyRO9NbpYRt8_pbH_p7GuL&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
+
+// var json = <?php echo $jsonData; ?>;
+// var json2012 = <?php echo $jsonData2012; ?>;
 var data = json.surveyIsolate;
 var data2012 = json2012.surveyIsolate2012;
-
 var dataSource = data;
-var thisYear = 2014;
-
 $(".switch").click(function() {
   $(".switch").removeClass("selected");
   $(this).addClass("selected");
   map.setView([44.974514,-93.268433], zoomification);
   $('#nbName').html("Minneapolis");
 });
-
 $("#y2012").click(function() {
 dataSource = data2012;
-thisYear = 2012;
 statesLayer.eachLayer(function (layer) {    
         layer.setStyle({          
           fillColor: getColor(layer.feature.properties.GrpName)
         });  
       }); 
-redrawChart(chart,"#chart","tech",dataSource,"Overall",0,thisYear);
+redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 });
 $("#y2014").click(function() {
 dataSource = data;
-thisYear = 2014;
 statesLayer.eachLayer(function (layer) {    
         layer.setStyle({          
           fillColor: getColor(layer.feature.properties.GrpName)
         });  
       });
-redrawChart(chart,"#chart","tech",dataSource,"Overall",0,thisYear);
+redrawChart(chart,"#chart","tech",dataSource,"Overall",0);
 });
-
 //CHARTAGGEDON
 var chart = [];
 var index = 0;
 // function chartBuild(container,subject,data,county,index){
-  var colorArray = ['#777','#C22A22']; 
+  var colorArray = ['#999','#C22A22']; 
   var formatter = d3.format('%');
-
 nv.addGraph(function() {
   chart[index] = nv.models.multiBarHorizontalChart()
       .x(function(d) { return d.label })
@@ -160,108 +173,78 @@ nv.addGraph(function() {
       .color(colorArray)
       // .width($(container).width()).height($(container).height())
       .showControls(false);
-
   chart[index].forceY([0,1]);
-
    chart[index].yAxis
       .tickFormat(formatter);
-
   d3.select('#chart svg')
-      .datum(chartData("tech",dataSource,"Overall",2014))
+      .datum(chartData("tech",dataSource,"Overall"))
       .transition().duration(500)
       .call(chart[index]);
-
   nv.utils.windowResize(chart[index].update);
-
-
-var rects = d3.selectAll(".nv-axis text")
-              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
-              .style("font-weight","900");
-
+var rects = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 0 || i == 1; })
+              .style("fill","#000");
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
-              .style("fill","#fff");
-
-// var rects4 = d3.selectAll("text")
-//               .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
-//               .style("fill","#bbb");
-
-// var rects5 = d3.selectAll("text")
-//               .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
-//               .style("fill","#666");
-
-// var rects6 = d3.selectAll("text")
-//               .filter(function(d, i) { return i == 12; })
-//               .style("fill","#ddd");
-
+              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .style("fill","#777");
+var rects3 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
+              .style("fill","#333");
+var rects4 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .style("fill","#bbb");
+var rects5 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .style("fill","#666");
+var rects6 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 14; })
+              .style("fill","#ddd");
   return chart[index];
 });
-
-
-function redrawChart(chart,container,subject,data,county,index,year){
-  var colorArray = ['#777','#C22A22']; 
+function redrawChart(chart,container,subject,data,county,index){
+  var colorArray = ['#999','#C22A22']; 
   var formatter = d3.format('%');
-
-    d3.select(container + ' svg').datum(chartData(subject,data,county,year)).transition().duration(300).call(chart[index].color(colorArray));
+    d3.select(container + ' svg').datum(chartData(subject,data,county)).transition().duration(300).call(chart[index].color(colorArray));
     // chart[index].yAxistickFormat(formatter);
     nv.utils.windowResize(chart[index].update);
-
-var rects = d3.selectAll(".nv-axis text")
-              .filter(function(d, i) { return i == 0 || i == 4 || i == 8 || i == 12 || i == 16; })
-              .style("font-weight","900");
-
+var rects = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 0 || i == 1; })
+              .style("fill","#000");
 var rects2 = d3.selectAll("rect")
-              .filter(function(d, i) { return i == 18 || i == 22 || i == 26 || i == 30 || i == 34; })
-              .style("fill","#fff");
-
-// var rects = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 0 || i == 1 || i == 2; })
-//               .style("fill","#000");
-
-// var rects2 = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 3 || i == 4 || i == 5; })
-//               .style("fill","#777");
-
-// var rects4 = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 6 || i == 7 || i == 8; })
-//               .style("fill","#bbb");
-
-// var rects5 = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 9 || i == 10 || i == 11; })
-//               .style("fill","#666");
-
-// var rects6 = d3.selectAll("rect")
-//               .filter(function(d, i) { return i == 12; })
-//               .style("fill","#ddd");
-
+              .filter(function(d, i) { return i == 2 || i == 3 || i == 4; })
+              .style("fill","#777");
+var rects3 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 5 || i == 6 || i == 7; })
+              .style("fill","#333");
+var rects4 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 8 || i == 9 || i == 10; })
+              .style("fill","#bbb");
+var rects5 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 11 || i == 12 || i == 13; })
+              .style("fill","#666");
+var rects6 = d3.selectAll("rect")
+              .filter(function(d, i) { return i == 14; })
+              .style("fill","#ddd");
 // var rects7 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 15 || i == 16; })
 //               .style("fill","#2C3942");
-
 // var rects8 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 17 || i == 18 || i == 19; })
 //               .style("fill","#7F98AA");
-
 // var rects9 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 20 || i == 21 || i == 22; })
 //               .style("fill","#556E7F");
-
 // var rects10 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 23 || i == 24 || i == 25; })
 //               .style("fill","#A8B9C5");
-
 // var rects11 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 26 || i == 27 || i == 28; })
 //               .style("fill","#3B576B");
-
 // var rects12 = d3.selectAll("rect")
 //               .filter(function(d, i) { return i == 29; })
 //               .style("fill","#C6D1D9");
-
 }
-
-function chartData(subject,data,county,year) {
-
+function chartData(subject,data,county) {
 var romney, mccain, huckabee, paul, keyes, guiliani, others, obama, clinton, edwards, kucinich, biden, richardson, dodd, uncommitted;
   
 for (var i=0; i < dataSource.length; i++){
@@ -275,9 +258,9 @@ for (var i=0; i < dataSource.length; i++){
       var cellular = dataSource[i].cellular;
       var wifi = dataSource[i].wifi;
       var unsure = dataSource[i].unsure;
-      var computer = dataSource[i].computer_no_internet + dataSource[i].computer_no;
+      var computer = dataSource[i].computer_no_internet + dataSource[i].computer_internet;
       var tablet = dataSource[i].tablet_internet +  dataSource[i].tablet_no_internet;
-      var cell = dataSource[i].cell_no;
+      var cell = dataSource[i].cell_internet + dataSource[i].cell_no_internet;
       var gaming = dataSource[i].gaming_internet + dataSource[i].gaming_no_internet;
       var less_highschool = dataSource[i].less_highschool;
       var highschool = dataSource[i].highschool;
@@ -298,45 +281,10 @@ for (var i=0; i < dataSource.length; i++){
       var y_65 = dataSource[i].y_65_74 + dataSource[i].y_75_older;
   }
 }
-
-if (year == 2014) {
-  var allHome = .09;
-  var allMobile = .21;
-  var allComputer = .15;
-  var allHigh = .16;
-  var allSome = .19;
-  var allMore = .61;
-  var allPoor = .28;
-  var allMid = .22;
-  var allRich = .50;
-  var allOther = .07;
-  var allBlack = .17;
-  var allWhite = .75;
-  var allOld = .24;
-} else if (year == 2012) {
-  var allHome = .11;
-  var allMobile = .34;
-  var allComputer = .18;
-  var allHigh = .16;
-  var allSome = .23;
-  var allMore = .56;
-  var allPoor = .30;
-  var allMid = .24;
-  var allRich = .44;
-  var allOther = .08;
-  var allBlack = .19;
-  var allWhite = .71;
-  var allOld = .24;
-}
-
 if (county == "Overall"){
       return [{
         "key": "Citywide Percentage",
         "values": [
-          { 
-            "label" : "Connectivity" ,
-            "value" : null
-          },
           { 
             "label" : "No Home Internet" ,
             "value" : no_internet
@@ -370,13 +318,21 @@ if (county == "Overall"){
           //   "value" : wifi
           // },
           { 
-            "label" : "No Internet Computer" ,
+            "label" : "Own Computer" ,
             "value" : computer
           },
           { 
-            "label" : "Education" ,
-            "value" : null
+            "label" : "Own Tablet" ,
+            "value" : tablet
           },
+          { 
+            "label" : "Own Cellphone" ,
+            "value" : cell
+          },
+          // { 
+          //   "label" : "Own Game Console" ,
+          //   "value" : gaming
+          // },
           { 
             "label" : "High School/Less" ,
             "value" : highschool
@@ -388,10 +344,6 @@ if (county == "Overall"){
           { 
             "label" : "Bachelor's or More" ,
             "value" : bachelors + graduate
-          },
-          { 
-            "label" : "Income" ,
-            "value" : null
           },
           { 
             "label" : "$0-$24k" ,
@@ -406,11 +358,7 @@ if (county == "Overall"){
             "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "Race" ,
-            "value" : null
-          },
-          { 
-            "label" : "Other" ,
+            "label" : "Other Race" ,
             "value" : asian + native
           },
           { 
@@ -421,10 +369,10 @@ if (county == "Overall"){
             "label" : "White" ,
             "value" : white
           },
-          { 
-            "label" : "Age" ,
-            "value" : null
-          },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
           { 
             "label" : "Age 55+" ,
             "value" : y_55_64 + y_65
@@ -436,16 +384,12 @@ return [{
         "key": "Citywide Percentage",
         "values": [
           { 
-            "label" : "Connectivity" ,
-            "value" : null
-          },
-          { 
             "label" : "No Home Internet" ,
-            "value" : allHome
+            "value" : .09
           },
           { 
             "label" : "No Mobile Internet" ,
-            "value" : allMobile
+            "value" : .21
           },
           // { 
           //   "label" : "Dialup Internet" ,
@@ -472,73 +416,69 @@ return [{
           //   "value" : wifi
           // },
           { 
-            "label" : "No Internet Computer" ,
-            "value" : allComputer
+            "label" : "Own Computer" ,
+            "value" : .88
           },
           { 
-            "label" : "Education" ,
-            "value" : null
+            "label" : "Own Tablet" ,
+            "value" : .56
           },
+          { 
+            "label" : "Own Cellphone" ,
+            "value" : .91
+          },
+          // { 
+          //   "label" : "Own Game Console" ,
+          //   "value" : gaming
+          // },
           { 
             "label" : "High School/Less" ,
-            "value" : allHigh
+            "value" : .04
           },
           { 
             "label" : "Some/Associates" ,
-            "value" : allSome
+            "value" : .19
           },
           { 
             "label" : "Bachelor's or More" ,
-            "value" : allMore
-          },
-          { 
-            "label" : "Income" ,
-            "value" : null
+            "value" : .61
           },
           { 
             "label" : "$0-$24k" ,
-            "value" : allPoor
+            "value" : .28
           },
           { 
             "label" : "$25k-$49k" ,
-            "value" : allMid
+            "value" : .22
           },
           { 
             "label" : "$50k+" ,
-            "value" : allRich
+            "value" : .5
           },
           { 
-            "label" : "Race" ,
-            "value" : null
-          },
-          { 
-            "label" : "Other" ,
-            "value" : allOther
+            "label" : "Other Race" ,
+            "value" : .07
           },
           { 
             "label" : "Black" ,
-            "value" : allBlack
+            "value" : .17
           },
           { 
             "label" : "White" ,
-            "value" : allWhite
+            "value" : .75
           },
-          { 
-            "label" : "Age" ,
-            "value" : null
-          },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
           { 
             "label" : "Age 55+" ,
-            "value" : allOld
+            "value" : .20
           }
         ]
       },{
         "key": "Region Percentage",
         "values": [
-          { 
-            "label" : "Connectivity" ,
-            "value" : null
-          },
           { 
             "label" : "No Home Internet" ,
             "value" : no_internet
@@ -548,12 +488,16 @@ return [{
             "value" : no_mobile
           },
           { 
-            "label" : "No Internet Computer" ,
+            "label" : "Own Computer" ,
             "value" : computer
           },
           { 
-            "label" : "Education" ,
-            "value" : null
+            "label" : "Own Tablet" ,
+            "value" : tablet
+          },
+          { 
+            "label" : "Own Cellphone" ,
+            "value" : cell
           },
           { 
             "label" : "High School/Less" ,
@@ -568,10 +512,6 @@ return [{
             "value" : bachelors + graduate
           },
           { 
-            "label" : "Income" ,
-            "value" : null
-          },
-          { 
             "label" : "$0-$24k" ,
             "value" : i_10k_24k
           },
@@ -584,11 +524,7 @@ return [{
             "value" : i_50k_99k + i_100k
           },
           { 
-            "label" : "Race" ,
-            "value" : null
-          },
-          { 
-            "label" : "Other" ,
+            "label" : "Other Race" ,
             "value" : asian + native
           },
           { 
@@ -599,10 +535,10 @@ return [{
             "label" : "White" ,
             "value" : white
           },
-          { 
-            "label" : "Age" ,
-            "value" : null
-          },
+          // { 
+          //   "label" : "Age 18-54" ,
+          //   "value" : y_18_34 + y_35_54
+          // },
           { 
             "label" : "Age 55+" ,
             "value" : y_55_64 + y_65
@@ -610,47 +546,36 @@ return [{
       }]
     }
 }
-
 //MAPOCALYPSE
 var zoomification = 11;
-
 if ($(window).width() <= 845) { zoomification = 10; }
 else { zoomification = 11; }
-
 $(window).on('load resize', function(){
 var width = $(window).width();
-
 if (width <= 845) { zoomification = 10; }
 else { zoomification = 11; }
-
 map.setView([44.974514,-93.268433], zoomification);
 });
-
 $(".zoom").click(function() {
   map.setView([44.974514,-93.268433], zoomification);
   $('#nbName').html("Minneapolis");
   redrawChart(chart,"#chart","tech",data,"Overall",0);
 });
-
 //INITIALIZE MAP
 var mapBounds = new L.LatLngBounds(
               new L.LatLng(39.1982, -128.1445),
               new L.LatLng(50.5414, -68.2031));
-
 L.mapbox.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiODRHdjBSWSJ9.lF4ymp-69zdGvZ5X4Tokzg';
   var map = L.mapbox.map('map', 'mapbox.light', { maxZoom: 17, minZoom: 11, bounds: mapBounds})
     .setView([44.974514,-93.268433], zoomification);
-
 map.dragging.disable();
 map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
-
    statesLayer = L.geoJson(dataMPLS,  {
       style: getStyle,
       onEachFeature: onEachFeature
   }).addTo(map);
-
      function getStyle(feature) {
       return {
           weight: 2,
@@ -660,7 +585,6 @@ map.scrollWheelZoom.disable();
           fillColor: getColor(feature.properties.GrpName)
       };
   }
-
     function getColor(d) {
         for (var i=0; i < dataSource.length; i++){
           if (d == dataSource[i].group){
@@ -673,7 +597,6 @@ map.scrollWheelZoom.disable();
         }
       }
   }
-
     function onEachFeature(feature, layer) {
       layer.on({
           mousemove: mousemove,
@@ -681,15 +604,11 @@ map.scrollWheelZoom.disable();
           click: zoomToFeature
       });
   }
-
   var closeTooltip;
   var popup = new L.Popup({ autoPan: false });
-
   function mousemove(e) {
       var layer = e.target;
-
       popup.setLatLng(e.latlng);
-
 for (var i=0; i < dataSource.length; i++){
   if (layer.feature.properties.GrpName == dataSource[i].group){
     var stat = '<div class="num" style="color:' + getColor(layer.feature.properties.GrpName) + ';">' + d3.format("%")(dataSource[i].no_internet) + ' without home Internet</div>';
@@ -698,22 +617,17 @@ for (var i=0; i < dataSource.length; i++){
       }
       else { stat = ""; }
     }
-
     popup.setContent('<div class="marker-title">' + layer.feature.properties.GrpName + '</div>' + stat);
-
       if (!popup._map) popup.openOn(map);
       window.clearTimeout(closeTooltip);
-
       // highlight feature
       layer.setStyle({
           color: '#fff'
       });
-
       if (!L.Browser.ie && !L.Browser.opera) {
           layer.bringToFront();
       }
   }
-
   function mouseout(e) {
       var layer = e.target;
        layer.setStyle({
@@ -723,14 +637,12 @@ for (var i=0; i < dataSource.length; i++){
           map.closePopup();
       }, 100);
   }
-
   function zoomToFeature(e) {
     var layer = e.target;
       map.fitBounds(layer.getBounds());
       $('#nbName').html(layer.feature.properties.GrpName);
-      redrawChart(chart,"#chart","tech",dataSource,layer.feature.properties.GrpName,0,thisYear);
+      redrawChart(chart,"#chart","tech",dataSource,layer.feature.properties.GrpName,0);
   }
-
   });
  });
 });

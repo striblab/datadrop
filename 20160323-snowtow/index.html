@@ -1,68 +1,61 @@
-<!doctype html>
-
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Jamar Clarke Reaction Map</title>
+    <meta name="description" content="Jamar Clarke Reaction Map">
+    <meta name="author" content="Frey Hargarten - StarTribune">
 
-  <title>Minneapolis Snow Emergency Towings Winter 2016</title>
-  <meta name="description" content="Minneapolis Snow Emergency Towings Winter 2016">
-  <meta name="author" content="Frey Hargarten - StarTribune">
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
 
-  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.css' rel='stylesheet' />
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+</head>
+<style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
+    .map-overlay { font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
+    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
+    .mapboxgl-ctrl-attrib { display:none; }
+    .play { background-color:#fff !important; color:#000; }
+    .pause { background-color:#333 !important; color:#fff; }
+    #diverse { color:#299129; }
+ 
+    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
+    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
+    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
+    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
+    .previous { float:left; }
+    .next { float:right; }
 
-  <style>
-   #wrapper { width:100%; }
-   #map { height:450px; width:100%; }
-   .mapboxgl-ctrl-attrib { display:none; }
-
-  .switch { padding:10px; display:inline-block; text-align:center; width:32%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; }
-  .switch:hover, .precinctR:hover, .precinctD:hover, .selected, .metroSwitch:hover, .carSwitch:hover { background-color:#333 !important; color:#fff !important; cursor:pointer; }
-
-  .switches { text-align:center; }
 
   small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
   .chatter { padding:20px; }
 
+  p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+
   .zoom { text-align:center; float:none !important; padding:15px; }
   .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
   .bigNum { display:inline-block; width:32%;  }
 
-  #geocoder-container { width:100%; margin-top:10px; }
-  #geocoder-container > div { min-width:50%; margin-left:25%; }
-  .chatter span { padding:5px; }
+    @media (max-width:500px) {
+      #map { position:static; height:400px; }
+      .map-overlay-container { width:100%; position:static; }
 
-  #stuff { display:none; }
-
-   @media (max-width:500px) {
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .bigNum { font-size:1.3em; }
-   }
-  </style> 
-</head>
+    }
+</style>
 
 <body>
-  <div id="wrapper">
-<div class="switches">
-<div class="switch selected" data="all">All Tows</div>
-<div class="switch" data="grant-tows">Dec. Tows</div>
-<div class="switch" data="polk-tows">Feb. Tows</div>
-</div>
 
-<div class="switches">
-<div class="bigNum" data="all">3,216</div>
-<div class="bigNum" data="grant-tows">1,734</div>
-<div class="bigNum" data="polk-tows">1,482</div>
-</div>
+<div id='map'></div>
 
-<div id="stuff"></div>
-
-<div id="map"></div>
-<div id='geocoder-container'></div>
+<div class='map-overlay-container'>
+  <div class='map-overlay'>
+    <div>
+<button class="previous navButtons"><<</button><button class="next navButtons">>></button><button class="play myButton2" id="toggle">&#9658;</button>
 
 <div class="breaker"></div>
 
@@ -85,172 +78,261 @@
 
 <div class="breaker"></div>
 
-<div class="zoom">Reset View</div>
+    </div>
+    <h2 id='location-title'></h2>
+    <p id='location-description'></p>
 
-<div class="chatter">During the two snow emergencies this winter, areas with higher <span class="carSwitch selected">vehicle density</span> tended to have more <span class="blue3">cars towed</span> by the city, especially in Downtown and University areas.</div>
-<div class="chatter">North Minneapolis bucked this trend by having <span class="gray1">fewer cars</span> yet seeing disproportionate numbers of tows.</div>
-<div class="chatter">Far fewer cars were towed from South Minneapolis than elsewhere, even though it has <span class="gray2">comparable vehicle density</span> to the North Side.</div>
   </div>
-</body>
-
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.js'></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
-
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
 <script>
-// $("#headerDiv").sticky({topSpacing:1});
 
-</script>
-<script>
-//LIVE JSON MAGIC
+// $json = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=wHQQVJTPNqSo-g2oS-WTXE_J_vhA_rJd-zNBajQIamNwirkTNZqSVaMsNgm0a-cFD8KwWFZeFgg7GTtcKh6o4QgdzaSB7odaOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6T-rGw4-uQPhtbXMEb_L25zTuTw3-CSg1dB2Ol9vDs5w5TzSnLXrnciyoBjnjDDrq1GFMHuQvceYyp1w9teQfukQ&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
 
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=10tdXdsFANvW4dtOYJrRxRwb6NYLxaWHSmr7mTNZ8px0&sheet=snowtow2016
+// var dataLoad = <?php echo $json; ?>;
+
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1RiNtORVIispxDGDxtdDljvs0CEDP94EaV2B3wbcMkXk&sheet=events", function(error, dataLoad) {
+  //http://bl.ocks.org/hrecht/82b6440ed3b982a6f594
+
+var data = dataLoad.events;
 
 d3.json("./data/grant.geojson", function(error, json) {
 d3.json("./data/polk.geojson", function(error, json2) {
+d3.json("./data/grant_tickets.json", function(error, json3) {
+d3.json("./data/polk_tickets.json", function(error, json4) {
+d3.json("./data/vehicle_tracts.json", function(error, json5) {
 d3.json('./shapefiles/vehicleblocks.json', function(error, mpls) {
-
-  //http://bl.ocks.org/hrecht/82b6440ed3b982a6f594
-
+d3.json('./shapefiles/minneapolis_shape.json', function(error, shape) {
 
 var dataTowGrant = json;
 var dataTowPolk = json2;
+var dataTicketsGrant = json3;
+var dataTicketsPolk = json4;
 
 var sw = new mapboxgl.LngLat(-93.716125, 44.643254);
 var ne = new mapboxgl.LngLat(-92.763062, 45.350215);
 var llb = new mapboxgl.LngLatBounds(sw, ne);
 
-
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/shadowflare/cilea5110001ra8ktm7409xze',
+    style: 'mapbox://styles/shadowflare/cimdyoofx00iv9qkpdj7o0izi',
     center: [-93.266667, 44.983333],
     zoom: 10.2,
     minZoom: 10,
     maxBounds: llb
-  //   sources: {
-  //     "tracts":{
-  //       "type": "geojson",
-  //       "data": sourceObj
-  //     }
-  //   },
-  //   layers: [{
-  //     "id": "layer1",
-  //     "source": "tracts",
-  //     "type": "fill",
-  //     "interactive": true,
-  //     "paint": {
-  //           'fill-color': '#333',
-  //           'fill-outline-color': 'rgba(51, 51, 51, 1)'
-  //     }
-  // }]
 });
 
 
-//ADD CONTROLS
-var geocoder = new mapboxgl.Geocoder({
-    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
-});
-
-map.addControl(geocoder);
 map.addControl(new mapboxgl.Navigation());
 
-var sourceObj = new mapboxgl.GeoJSONSource({
-   data: mpls
+var title = document.getElementById('location-title');
+var description = document.getElementById('location-description');
+
+var timer = [];
+
+function playback(index,stream) {
+    title.textContent = data[index].title;
+    // description.textContent = data[index].description;
+
+    $("#location-description").html(data[index].description);
+    $(".legends small").html(data[index].location);
+
+    // highlightBorough(data[index].id ? data[index].id : '');
+
+    if (index == 0){
+    map.setLayoutProperty('polk-tows', 'visibility', 'visible');
+    map.setLayoutProperty('grant-tows', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+    }
+    else if (index == 1){
+    map.setLayoutProperty('grant-tickets', 'visibility', 'visible');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+
+    }
+    else if (index == 2){
+    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    }
+    else if (index == 3){
+    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    }
+    else if (index == 4){
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'visible');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'visible');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'visible');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'visible');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+    }
+    else if (index == 5){
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'visible');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'visible');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'visible');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'visible');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+    }
+
+    // Animate the map position based on camera properties
+   if ($(window).width() > 500) { map.flyTo({center:[data[index].longitude,data[index].latitude],zoom:data[index].zoom,bearing:data[index].bearing,pitch:data[index].pitch}); }
+
+    // map.once('moveend', function() {
+
+    // });
+}
+
+function play(j,timeout){
+ timer[j] = window.setTimeout(function() { playback(j); }, timeout); 
+}
+
+function stop(){
+  for (var i=0; i<data.length; i++){
+     clearTimeout(timer[i]);
+  }
+}
+
+// Display the last title/description first
+title.textContent = data[data.length - 1].title;
+description.textContent = data[data.length - 1].description;
+
+
+map.on('load', function() {
+
+  var shapeObj = new mapboxgl.GeoJSONSource({
+   data: shape
 });
 
-map.on('style.load', function () {
-// D3 CHOROPLETH
+  map.addSource('shape', shapeObj);
 
-map.addSource('mpls', sourceObj);
-
-    // map.addSource("mpls", sourceObj);
-
-    // map.addSource("mpls", {
-    //     type: "geojson",
-    //     data: mpls
-    // });
-
-    map.addSource("grant", {
-        type: "geojson",
-        data: dataTowGrant
-    });
-
-    map.addSource("polk", {
-        type: "geojson",
-        data: dataTowPolk
-    });
-
-
-    $(".switch").click(function() {
-        $(".switch").removeClass("selected");
-        $(this).addClass("selected");
-        var value = $(this).attr("data");
-        map.setLayoutProperty('polk-tows', 'visibility', 'visible');
-        map.setLayoutProperty('grant-tows', 'visibility', 'visible');
-        if (value != "all") { map.setLayoutProperty(value, 'visibility', 'none'); }
-    });
-    $(".carSwitch").click(function() {
-        $(this).toggleClass("selected");
-        if ($(this).hasClass("selected")){
-        map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
-        map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
-        map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
-        map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
-        map.setLayoutProperty('states-layer-4', 'visibility', 'visible');        
-        } else {
-        map.setLayoutProperty('states-layer-0', 'visibility', 'none');
-        map.setLayoutProperty('states-layer-1', 'visibility', 'none');
-        map.setLayoutProperty('states-layer-2', 'visibility', 'none');
-        map.setLayoutProperty('states-layer-3', 'visibility', 'none');
-        map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+  map.addLayer({
+        'id': 'shape-layer',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'shape',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.1,
+            'fill-color': "#888",
+            'fill-outline-color': 'rgba(51, 51, 51, 1)'
         }
     });
 
-
+  var sourceObj = new mapboxgl.GeoJSONSource({
+   data: mpls
 });
 
-map.once('load', function loaded() {
+  map.addSource('mpls', sourceObj);
 
-// d3.select("#stuff").selectAll(".card")
-// .data(mpls.features).enter().append("div")
-// .attr("class","card")
-// .html(function(d,i){ 
+  var sourceObj2 = new mapboxgl.GeoJSONSource({
+   data: json5
+});
 
-//   var color = "#f7f7f7";
-//   if (d.properties.CarsBlock >= 90) { color = "#118241"; }
-//   else if (d.properties.CarsBlock >= 70) { color = "#3FAA29"; }
-//   else if (d.properties.CarsBlock >= 50) { color = "#82D870"; }
-//   else if (d.properties.CarsBlock >= 30) { color = "#271D42"; }
-//   else if (d.properties.CarsBlock >= 20) { color = "#61538F"; }
-//   else if (d.properties.CarsBlock > 0) { color = "#AFA8C9"; }
-
-//    map.addLayer({
-//         'id': 'states-layer' + i,
-//         'interactive': true,
-//         'type': 'fill',
-//         'source': 'mpls',
-//         "filter": [
-//         "==",
-//         "name",
-//         d.properties.TRACTCE
-//         ],
-//         'paint': {
-//             'fill-antialias' : true,
-//             // 'fill-outline-color ': '#ffffff',
-//             'fill-opacity': 0.3,
-//             'fill-color': color,
-//             'fill-outline-color': 'rgba(51, 51, 51, 1)'
-//         }
-//     });
-
-//    return "";
-   
-// });
+  map.addSource('tracts', sourceObj2);
 
 var layers = [
 ['#F7F7F7', 0],
@@ -259,6 +341,7 @@ var layers = [
 ['#636363', 50],
 ['#252525', 70]
 ];
+
 
 layers.forEach(function(layer, i) {
    map.addLayer({
@@ -280,6 +363,79 @@ layers.forEach(function(layer, i) {
     });
    });
 
+
+
+
+var layers2 = [
+['#F7F7F7', 0],
+['#CCCCCC', 10],
+['#969696', 30],
+['#636363', 50],
+['#252525', 70]
+];
+
+
+layers2.forEach(function(layer, i) {
+   map.addLayer({
+        'id': 'ticketing-rate-' + i,
+        'interactive': true,
+        'type': 'fill',
+        'source': 'tracts',
+        "filter": [
+        ">=",
+        "TagsPer1k",
+        layer[1]
+        ],
+        'paint': {
+            // 'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': layer[0],
+            'fill-outline-color': 'rgba(51, 51, 51, 1)'
+        }
+    });
+   });
+
+var layers3 = [
+['#F7F7F7', 0],
+['#CCCCCC', 5],
+['#969696', 15],
+['#636363', 25],
+['#252525', 30]
+];
+
+
+layers3.forEach(function(layer, i) {
+   map.addLayer({
+        'id': 'towing-rate-' + i,
+        'interactive': true,
+        'type': 'fill',
+        'source': 'tracts',
+        "filter": [
+        ">=",
+        "TowsPer1k",
+        layer[1]
+        ],
+        'paint': {
+            // 'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': layer[0],
+            'fill-outline-color': 'rgba(51, 51, 51, 1)'
+        }
+    });
+   });
+
+
+
+    map.addSource("grant", {
+        type: "geojson",
+        data: dataTowGrant
+    });
+
+    map.addSource("polk", {
+        type: "geojson",
+        data: dataTowPolk
+    });
+
     map.addLayer({
                 "id": "grant-tows",
                 "type": "circle",
@@ -300,21 +456,88 @@ layers.forEach(function(layer, i) {
                 }
     });
 
-});
+    map.addSource("grantTickets", {
+        type: "geojson",
+        data: dataTicketsGrant
+    });
 
-$(".zoom").click(function() {
-map.flyTo({ center: [-93.266667, 44.983333], zoom: 10 });
-});
+    map.addSource("polkTickets", {
+        type: "geojson",
+        data: dataTicketsPolk
+    });
 
-$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address");
+    map.addLayer({
+                "id": "grant-tickets",
+                "type": "circle",
+                "source": "grantTickets",
+                "paint": {
+                    "circle-color": 'rgba(194,42,34, 0.45)',
+                    "circle-radius": 2.5
+                }
+    });
 
-geocoder.on('result', function(ev) {
-  map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
+    map.addLayer({
+                "id": "polk-tickets",
+                "type": "circle",
+                "source": "polkTickets",
+                "paint": {
+                    "circle-color": 'rgba(194,42,34, 0.45)',
+                    "circle-radius": 2.5
+                }
+    });
+
+
+  playback(0);
+
+var index = 0;
+$(document).ready(function() {
+        $('#toggle').bind("click", function() {
+          if ($(this).attr("class") == "play myButton2") {
+             $(this).attr("class", "pause myButton2");
+             $(this).html("&#9724;");
+             for (var j=0; j<data.length; j++){ play(j,j*5000); if (index < data.length) { index++; } }
+         }
+          else {
+             $(this).attr("class", "play myButton2");
+             $(this).html("&#9658;");
+             stop();
+           }
+        });
+      });
+
+$(".previous").click(function() {
+  if (index > 0) {
+  index--;
+  stop();
+  playback(index);
+}
+  });
+
+$(".next").click(function() {
+  if (index < data.length-1) {
+  stop();
+  index++;
+  playback(index);
+}
+  });
+
+    if ($(window).width() <= 500) { map.flyTo({ center: [-93.266667, 44.983333], zoom: 5 }); }
+    else { map.flyTo({ center: [-93.332291, 44.960911], zoom: 11 }); }
+    $(window).resize(function() {
+    if ($(window).width() <= 500) { map.flyTo({ center: [-93.266667, 44.983333], zoom: 5 }); }
+    else { map.flyTo({ center: [-93.332291, 44.960911], zoom: 11 }); }
     });
 
 });
 });
 });
+});
+});
+});
+});
+});
+});
 </script>
 
+</body>
 </html>
