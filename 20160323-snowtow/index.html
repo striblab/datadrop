@@ -4,12 +4,13 @@
     <meta charset='utf-8' />
     <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <title>Jamar Clarke Reaction Map</title>
-    <meta name="description" content="Jamar Clarke Reaction Map">
+    <title>Snow Emergency Towing</title>
+    <meta name="description" content="Snow Emergency Towing">
     <meta name="author" content="Frey Hargarten - StarTribune">
 
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
 
 </head>
 <style>
@@ -30,16 +31,27 @@
     .previous { float:left; }
     .next { float:right; }
 
+    #tracker { padding-top:10px; text-align:center; }
+    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
+    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
+    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
+    .legendContainer { text-align:center; }
 
-  small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
+      #geocoder-container { width:100%; margin-top:10px; }
+       #geocoder-container > div { min-width:100%; margin-left:0; }
+      .chatter span { padding:5px; }
 
-  .chatter { padding:20px; }
+      small { font-family:"Benton Sans",Helvetica,Arial,sans-serif; color:#808080; clear:both; display:block; }
 
-  p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+      .chatter { padding:20px; }
 
-  .zoom { text-align:center; float:none !important; padding:15px; }
-  .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
-  .bigNum { display:inline-block; width:32%;  }
+      p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+
+      #info { display:none; }
+
+      .zoom { text-align:center; float:none !important; }
+      .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
+      .bigNum { display:inline-block; width:32%;  }
 
     @media (max-width:500px) {
       #map { position:static; height:400px; }
@@ -54,13 +66,44 @@
 
 <div class='map-overlay-container'>
   <div class='map-overlay'>
+<div id='geocoder-container'></div>
+<div class="breaker"></div>
     <div>
 <button class="previous navButtons"><<</button><button class="next navButtons">>></button><button class="play myButton2" id="toggle">&#9658;</button>
 
+<div id="tracker">
+<div class="trackDot" id="d0" index="0"></div>
+<div class="trackDot" id="d1" index="1"></div>
+<div class="trackDot" id="d2" index="2"></div>
+<div class="trackDot" id="d3" index="3"></div>
+<div class="trackDot" id="d4" index="4"></div>
+<div class="trackDot" id="d5" index="5"></div>
+<div class="trackDot" id="d6" index="6"></div>
+<div class="trackDot" id="d7" index="7"></div>
+<div class="trackDot" id="d8" index="8"></div>
+<div class="trackDot" id="d9" index="9"></div>
+</div>
+
 <div class="breaker"></div>
 
-<div class="legends">
-  <small>Vehicle Density</small>
+<div class="legends" id="tows">
+  <small class='stat'></small>
+    <div class="legendContainer">
+   <div class='blue3 dot'></div>
+    </div>
+<div class="zoom">Reset View</div>
+</div>
+
+<div class="legends" id="tickets">
+  <small class='stat'></small>
+    <div class="legendContainer">
+<div class='red4 dot'></div>
+    </div>
+<div class="zoom">Reset View</div>
+</div>
+
+<div class="legends" id="scale">
+  <small class='stat'></small>
     <div class="legendContainer">
       <span class='legend'>
         <nav class='legend clearfix'>
@@ -74,13 +117,16 @@
         </nav>
       </span>
     </div>
+<div class="zoom">Reset View</div>
 </div>
 
 <div class="breaker"></div>
+</div>
 
-    </div>
+<div id="info">
     <h2 id='location-title'></h2>
     <p id='location-description'></p>
+</div>
 
   </div>
 </div>
@@ -88,6 +134,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
 <script>
 
 // $json = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=wHQQVJTPNqSo-g2oS-WTXE_J_vhA_rJd-zNBajQIamNwirkTNZqSVaMsNgm0a-cFD8KwWFZeFgg7GTtcKh6o4QgdzaSB7odaOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6T-rGw4-uQPhtbXMEb_L25zTuTw3-CSg1dB2Ol9vDs5w5TzSnLXrnciyoBjnjDDrq1GFMHuQvceYyp1w9teQfukQ&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
@@ -126,7 +173,11 @@ var map = new mapboxgl.Map({
     maxBounds: llb
 });
 
+var geocoder = new mapboxgl.Geocoder({
+    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
+});
 
+map.addControl(geocoder);
 map.addControl(new mapboxgl.Navigation());
 
 var title = document.getElementById('location-title');
@@ -139,9 +190,12 @@ function playback(index,stream) {
     // description.textContent = data[index].description;
 
     $("#location-description").html(data[index].description);
-    $(".legends small").html(data[index].location);
+    $(".stat").html(data[index].stat);
 
     // highlightBorough(data[index].id ? data[index].id : '');
+
+    $(".trackDot").removeClass("current");
+    $("#d" + index).addClass("current");
 
     if (index == 0){
     map.setLayoutProperty('polk-tows', 'visibility', 'visible');
@@ -164,8 +218,61 @@ function playback(index,stream) {
     map.setLayoutProperty('states-layer-2', 'visibility', 'none');
     map.setLayoutProperty('states-layer-3', 'visibility', 'none');
     map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#tows").show();
     }
-    else if (index == 1){
+    if (index == 1){
+    map.setLayoutProperty('grant-tows', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#tows").show();
+    }
+    if (index == 2){
+    map.setLayoutProperty('polk-tows', 'visibility', 'visible');
+
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#tows").show();
+    }
+    else if (index == 3){
     map.setLayoutProperty('grant-tickets', 'visibility', 'visible');
     map.setLayoutProperty('polk-tickets', 'visibility', 'visible');
 
@@ -187,53 +294,111 @@ function playback(index,stream) {
     map.setLayoutProperty('states-layer-3', 'visibility', 'none');
     map.setLayoutProperty('states-layer-4', 'visibility', 'none');
 
-
-    }
-    else if (index == 2){
-    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
-
-    map.setLayoutProperty('polk-tows', 'visibility', 'none');
-    map.setLayoutProperty('grant-tows', 'visibility', 'none');
-    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
-    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
-    }
-    else if (index == 3){
-    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
-    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
-
-    map.setLayoutProperty('polk-tows', 'visibility', 'none');
-    map.setLayoutProperty('grant-tows', 'visibility', 'none');
-    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
-    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
-    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
-    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    $(".legends").hide();
+    $("#tickets").show();
     }
     else if (index == 4){
+    map.setLayoutProperty('grant-tickets', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#tickets").show();
+    }
+    else if (index == 5){
+    map.setLayoutProperty('polk-tickets', 'visibility', 'visible');
+
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-0', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'none');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#tickets").show();
+    }
+    else if (index == 6){
+    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#scale").show();
+    }
+    else if (index == 7){
+    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'visible');
+    map.setLayoutProperty('grant-tows', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#scale").show();
+    }
+    else if (index == 8){
     map.setLayoutProperty('ticketing-rate-0', 'visibility', 'visible');
     map.setLayoutProperty('ticketing-rate-1', 'visibility', 'visible');
     map.setLayoutProperty('ticketing-rate-2', 'visibility', 'visible');
@@ -254,8 +419,11 @@ function playback(index,stream) {
     map.setLayoutProperty('states-layer-2', 'visibility', 'none');
     map.setLayoutProperty('states-layer-3', 'visibility', 'none');
     map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#scale").show();
     }
-    else if (index == 5){
+    else if (index == 9){
     map.setLayoutProperty('towing-rate-0', 'visibility', 'visible');
     map.setLayoutProperty('towing-rate-1', 'visibility', 'visible');
     map.setLayoutProperty('towing-rate-2', 'visibility', 'visible');
@@ -276,6 +444,12 @@ function playback(index,stream) {
     map.setLayoutProperty('states-layer-2', 'visibility', 'none');
     map.setLayoutProperty('states-layer-3', 'visibility', 'none');
     map.setLayoutProperty('states-layer-4', 'visibility', 'none');
+
+    $("#toggle").attr("class", "play myButton2");
+    $("#toggle").html("&#9658;");
+
+    $(".legends").hide();
+    $("#scale").show();
     }
 
     // Animate the map position based on camera properties
@@ -489,6 +663,8 @@ layers3.forEach(function(layer, i) {
 
   playback(0);
 
+  $("#info").show();
+
 var index = 0;
 $(document).ready(function() {
         $('#toggle').bind("click", function() {
@@ -521,11 +697,31 @@ $(".next").click(function() {
 }
   });
 
+$(".trackDot").click(function() {
+  $("#toggle").attr("class", "play myButton2");
+  $("#toggle").html("&#9658;");
+  $(".trackDot").removeClass("current");
+  $(this).addClass("current");
+  stop();
+  index = Number($(this).attr("index"));
+  playback(Number($(this).attr("index")));
+});
+
     if ($(window).width() <= 500) { map.flyTo({ center: [-93.266667, 44.983333], zoom: 5 }); }
     else { map.flyTo({ center: [-93.332291, 44.960911], zoom: 11 }); }
     $(window).resize(function() {
     if ($(window).width() <= 500) { map.flyTo({ center: [-93.266667, 44.983333], zoom: 5 }); }
     else { map.flyTo({ center: [-93.332291, 44.960911], zoom: 11 }); }
+    });
+
+$(".zoom").click(function() {
+map.flyTo({ center: [-93.266667, 44.983333], zoom: 10 });
+});
+
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address");
+
+geocoder.on('result', function(ev) {
+  map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
     });
 
 });
