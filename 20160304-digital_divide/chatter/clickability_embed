@@ -1,7 +1,7 @@
 <p><style type="text/css">
 .l-article-body { width:100%; }
-.frame { height:1170px; }
-@media (max-width:500px) { .frame { height:636px; } }
+.frame { height:770px; }
+@media (max-width:500px) { .frame { height:800px; } }
 </style></p>
 
-<p><iframe class="frame" width="100%" frameborder="0" scrolling="no" src="http://apps.startribune.com/news/20160304-digital_divide/index.php?dfgd"></iframe></p>
+<p><iframe class="frame" width="100%" frameborder="0" scrolling="no" src="http://striblab.github.io/20160323-snowtow"></iframe></p>
