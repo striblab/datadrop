@@ -82,6 +82,7 @@
 <div class="trackDot" id="d7" index="7"></div>
 <div class="trackDot" id="d8" index="8"></div>
 <div class="trackDot" id="d9" index="9"></div>
+<div class="trackDot" id="d9" index="10"></div>
 </div>
 
 <div class="breaker"></div>
@@ -372,7 +373,32 @@ function playback(index,stream) {
     $(".legends").hide();
     $("#scale").show();
     }
-    else if (index == 7){
+    else if (index == 6){
+    map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-3', 'visibility', 'visible');
+    map.setLayoutProperty('states-layer-4', 'visibility', 'visible');
+
+    map.setLayoutProperty('polk-tows', 'visibility', 'none');
+    map.setLayoutProperty('grant-tows', 'visibility', 'none');
+    map.setLayoutProperty('polk-tickets', 'visibility', 'none');
+    map.setLayoutProperty('grant-tickets', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('towing-rate-4', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-0', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-1', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-2', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-3', 'visibility', 'none');
+    map.setLayoutProperty('ticketing-rate-4', 'visibility', 'none');
+
+    $(".legends").hide();
+    $("#scale").show();
+    }
+    else if (index == 8){
     map.setLayoutProperty('states-layer-0', 'visibility', 'visible');
     map.setLayoutProperty('states-layer-1', 'visibility', 'visible');
     map.setLayoutProperty('states-layer-2', 'visibility', 'visible');
@@ -398,7 +424,7 @@ function playback(index,stream) {
     $(".legends").hide();
     $("#scale").show();
     }
-    else if (index == 8){
+    else if (index == 9){
     map.setLayoutProperty('ticketing-rate-0', 'visibility', 'visible');
     map.setLayoutProperty('ticketing-rate-1', 'visibility', 'visible');
     map.setLayoutProperty('ticketing-rate-2', 'visibility', 'visible');
@@ -423,7 +449,7 @@ function playback(index,stream) {
     $(".legends").hide();
     $("#scale").show();
     }
-    else if (index == 9){
+    else if (index == 10){
     map.setLayoutProperty('towing-rate-0', 'visibility', 'visible');
     map.setLayoutProperty('towing-rate-1', 'visibility', 'visible');
     map.setLayoutProperty('towing-rate-2', 'visibility', 'visible');
