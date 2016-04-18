@@ -53,6 +53,9 @@
       .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
       .bigNum { display:inline-block; width:32%;  }
 
+    .mapboxgl-popup { max-width:400px; font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; }
+    .marker-title { font-weight: 700; }
+
     @media (max-width:500px) {
       #map { position:static; height:400px; }
       .map-overlay-container { width:100%; position:static; }
@@ -82,7 +85,7 @@
 <div class="trackDot" id="d7" index="7"></div>
 <div class="trackDot" id="d8" index="8"></div>
 <div class="trackDot" id="d9" index="9"></div>
-<div class="trackDot" id="d9" index="10"></div>
+<div class="trackDot" id="d10" index="10"></div>
 </div>
 
 <div class="breaker"></div>
@@ -90,7 +93,7 @@
 <div class="legends" id="tows">
   <small class='stat'></small>
     <div class="legendContainer">
-   <div class='blue3 dot'></div>
+   <div class='gray5 dot'></div>
     </div>
 <div class="zoom">Reset View</div>
 </div>
@@ -154,6 +157,7 @@ d3.json("./data/polk_tickets.json", function(error, json4) {
 d3.json("./data/vehicle_tracts.json", function(error, json5) {
 d3.json('./shapefiles/vehicleblocks.json', function(error, mpls) {
 d3.json('./shapefiles/minneapolis_shape.json', function(error, shape) {
+d3.json('./shapefiles/minneapolis_neighborhoods.json', function(error, nb) {
 
 var dataTowGrant = json;
 var dataTowPolk = json2;
@@ -503,25 +507,6 @@ description.textContent = data[data.length - 1].description;
 
 map.on('load', function() {
 
-  var shapeObj = new mapboxgl.GeoJSONSource({
-   data: shape
-});
-
-  map.addSource('shape', shapeObj);
-
-  map.addLayer({
-        'id': 'shape-layer',
-        'interactive': true,
-        'type': 'fill',
-        'source': 'shape',
-        'paint': {
-            'fill-antialias' : true,
-            'fill-opacity': 0.1,
-            'fill-color': "#888",
-            'fill-outline-color': 'rgba(51, 51, 51, 1)'
-        }
-    });
-
   var sourceObj = new mapboxgl.GeoJSONSource({
    data: mpls
 });
@@ -641,7 +626,7 @@ layers3.forEach(function(layer, i) {
                 "type": "circle",
                 "source": "grant",
                 "paint": {
-                    "circle-color": 'rgba(103,180,194, 0.45)',
+                    "circle-color": 'rgba(37,37,37, 0.45)',
                     "circle-radius": 2.5
                 }
     });
@@ -651,7 +636,7 @@ layers3.forEach(function(layer, i) {
                 "type": "circle",
                 "source": "polk",
                 "paint": {
-                    "circle-color": 'rgba(103,180,194, 0.45)',
+                    "circle-color": 'rgba(37,37,37, 0.45)',
                     "circle-radius": 2.5
                 }
     });
@@ -686,6 +671,49 @@ layers3.forEach(function(layer, i) {
                 }
     });
 
+  var shapeObj = new mapboxgl.GeoJSONSource({
+   data: nb
+});
+
+  map.addSource('mplsnb', shapeObj);
+
+  map.addLayer({
+        'id': 'shape-layer',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'mplsnb',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.1,
+            'fill-color': "#888",
+            'fill-outline-color': 'rgba(51, 51, 51, 1)'
+        }
+    });
+
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['shape-layer'] });
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(e.lngLat)
+        .setHTML(feature.properties.Name)
+        .addTo(map);
+});
 
   playback(0);
 
@@ -750,6 +778,7 @@ geocoder.on('result', function(ev) {
   map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
     });
 
+});
 });
 });
 });
