@@ -16,10 +16,12 @@
        body { margin:0; padding:0; }
        #viewSwitch { text-align:center; width:100%; margin-left:auto; margin-right:auto; }
       .chartHeader { padding:12px;height:auto;text-align:center;padding-bottom:5px; }
-      .chatter { padding-left:20px; text-align:center; margin-bottom:20px; height:120px; display:none; text-align:left; }
+      .chatter { padding:15px; text-align:center; margin-bottom:20px; text-align:left; }
       .wrapper-dropdown-1 .active { background:#ddd; }
 
       #chart .c3-line { stroke-width:6px !important; }
+
+      p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
 
       .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; width:250px; }
       .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
@@ -41,9 +43,9 @@
   <section class="main">
         <div class="wrapper-demo">
           <div id="dd" class="wrapper-dropdown-1" tabindex="1">
-            <span>All</span>
+            <span>All Materials</span>
               <ul class="dropdown months" tabindex="1">
-        <li class="switch"><a href="#" data="total" fields="total">All</a></li>
+        <li class="switch"><a href="#" data="total" fields="total">All Materials</a></li>
         <li class="switch"><a href="#" data="alum_bev" fields="alum_bev">Aluminum Beverage Cans</a></li>
         <li class="switch"><a href="#" data="film_plastic" fields="film_plastic">Plastic Film</a></li>
         <li class="switch"><a href="#" data="glass" fields="glass_bev_containers,other_glass_containers">Glass</a></li>
@@ -58,20 +60,16 @@
 </div>
 </div>
 
-<div id="total" class="chatter">1</div>
-<div id="alum_bev" class="chatter">2</div>
-<div id="film_plastic" class="chatter">3</div>
-<div id="glass" class="chatter">4</div>
-<div id="other_alum" class="chatter">5</div>
-<div id="paper" class="chatter">6</div>
-<div id="plastic" class="chatter">7</div>
-<div id="steel_cans" class="chatter">8</div>
-
 <div class="chartTitle">Pounds Per Person</div>
 
-<div class="chatter"></div>
+<div class="chatter">Explore the state's data on recyclable materials that ended up in landfills between 1996 and 2013. The Star Tribune converted the tonnage estimates provided by the MPCA into pounds, then divided that by the state population each year to express it as pounds per person.</div>
 
 <div id="chart"></div>
+
+<div class="chatter">Note: Prior to 1999, glass beverage containers were counted as part of the "other glass containers" category.
+<p>Definitions: PET = Includes water and soda bottles | HDPE = Includes milk jugs, shampoo bottles | Uncoated old corrugated containers = cardboard boxes | Paper boxboard = Includes cereal boxes | Plastic film = Includes plastic grocery bags, garbage bags, plastic wrapping
+</p></div>
+
 
 <a href="https://docs.google.com/spreadsheets/d/1P_ETaDTSnWw4iPN81dnnGG4jZRvDXd7qDwLbpIUjfjs/pub?output=xlsx" target="new_"><button class="downloadButton">&#9660; Download Data</button></a>
 
@@ -88,7 +86,7 @@
 d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1P_ETaDTSnWw4iPN81dnnGG4jZRvDXd7qDwLbpIUjfjs&sheet=chart", function(error, dataLoad) {
 
 $(".switch a").click(function() {
-  $(".chatter").hide();
+  // $(".chatter").hide();
   // $("#" + $(this).attr("data")).show();
   console.log($(this).attr("fields"));
   var chartValue = String($(this).attr("fields")).split(",");
