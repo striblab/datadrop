@@ -43,7 +43,7 @@
           <div id="dd" class="wrapper-dropdown-1" tabindex="1">
             <span>All Recycling</span>
               <ul class="dropdown months" tabindex="1">
-        <li class="switch"><a href="#" data="total" fields="total">All Recycling</a></li>
+        <li class="switch"><a href="#" data="total" fields="total">All</a></li>
         <li class="switch"><a href="#" data="alum_bev" fields="alum_bev">Aluminum Beverage Cans</a></li>
         <li class="switch"><a href="#" data="film_plastic" fields="film_plastic">Plastic Film</a></li>
         <li class="switch"><a href="#" data="glass" fields="glass_bev_containers,other_glass_containers">Glass</a></li>
@@ -68,6 +68,8 @@
 <div id="steel_cans" class="chatter">8</div>
 
 <div class="chartTitle">Pounds Per Person</div>
+
+<div class="chatter"></div>
 
 <div id="chart"></div>
 
@@ -139,7 +141,7 @@ var  padding = {
         top: 20,
         right: 40,
         bottom: 20,
-        left: 80,
+        left: 60,
     };
 
 var chartR = c3.generate({
@@ -224,9 +226,9 @@ var chartR = c3.generate({
             }
         },
         x: {
-            type: 'category',
+            // type: 'timeseries',
             tick: {
-                // values: ['1996', '2001', '2007', '2013'],
+                values: ['1996', '2001', '2007', '2013'],
                 count: 4,
                 multiline: false
             }
