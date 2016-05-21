@@ -1,4 +1,4 @@
-Star Tribune Data Drop - What Minnesotans are throwing away, but could be recycling
+Star Tribune Data Drop - How has the popularity of your name in Minnesota changed in 100 years?
 ================
 
 by Frey Hargarten
@@ -7,4 +7,4 @@ Built using Mike Bostock's [C3](https://github.com/masayuki0812/c3) and [jQuery]
 
 The files can be run in any live server setup. Just open the index.html file in your browser.
 
-http://www.startribune.com/what-you-ve-been-throwing-away-but-could-be-recycling/376382471/
+http://www.startribune.com/how-has-the-popularity-of-your-name-in-minnesota-changed-in-100-years/379215161/
