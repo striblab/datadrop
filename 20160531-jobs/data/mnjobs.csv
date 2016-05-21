@@ -1,0 +1,728 @@
+SOCCode,Title,OccupationGroup,Education,SkillLevel,MNMedianHourly,EstimateYearEmployment,ProjectedYearEmployment,PercentChange,TotalChange,GrowthHires,ReplacementHires,TotalHires,PctGrowth,PctReplace
+251064,"Geography Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,86,90,4.7,4,0,10,10,0%,100%
+192031,Chemists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,35.77,1963,2065,5.2,102,100,510,610,16%,84%
+251061,"Anthropology and Archeology Teachers, Postsecondar","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,97,102,5.2,5,0,20,20,0%,100%
+251063,"Economics Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,277,291,5.1,14,10,40,50,20%,80%
+119121,Natural Sciences Managers,Management Occupations,Bachelor's degree,high,49.57,1030,1083,5.1,53,50,210,260,19%,81%
+251121,"Art, Drama, and Music Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,1770,1858,5,88,90,270,360,25%,75%
+251065,"Political Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,244,256,4.9,12,10,40,50,20%,80%
+172041,Chemical Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,37.73,494,518,4.9,24,20,120,140,14%,86%
+251067,"Sociology Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,374,392,4.8,18,20,60,80,25%,75%
+251199,"Postsecondary Teachers, All Other","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,3310,3468,4.8,158,160,500,660,24%,76%
+172011,Aerospace Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,46.74,292,306,4.8,14,10,70,80,13%,88%
+251193,"Recreation and Fitness Studies Teachers, Postsecon","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,298,311,4.4,13,10,40,50,20%,80%
+172112,Industrial Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,40.42,7792,8161,4.7,369,370,2280,2650,14%,86%
+251126,"Philosophy and Religion Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,826,870,5.3,44,40,120,160,25%,75%
+251122,"Communications Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,455,476,4.6,21,20,70,90,22%,78%
+251052,"Chemistry Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,307,321,4.6,14,10,50,60,17%,83%
+251011,"Business Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,1466,1533,4.6,67,70,220,290,24%,76%
+119033,"Education Administrators, Postsecondary",Management Occupations,Master's degree,high,37.58,3262,3411,4.6,149,150,870,1020,15%,85%
+191041,Epidemiologists,"Life, Physical, and Social Science Occupations",Master's degree,high,35.49,134,140,4.5,6,10,30,40,25%,75%
+419031,Sales Engineers,Sales and Related Occupations,Bachelor's degree,high,44.39,2004,2094,4.5,90,90,350,440,20%,80%
+251066,"Psychology Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,531,555,4.5,24,20,80,100,20%,80%
+273042,Technical Writers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,31.83,1083,1132,4.5,49,50,330,380,13%,87%
+212021,"Directors, Religious Activities and Education",Community and Social Service Occupations,Bachelor's degree,high,20.93,2921,3052,4.5,131,130,990,1120,12%,88%
+113061,Purchasing Managers,Management Occupations,Bachelor's degree,high,49.57,2507,2552,1.8,45,40,550,590,7%,93%
+251125,"History Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,363,380,4.7,17,20,60,80,25%,75%
+251112,"Law Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,426,450,5.6,24,20,60,80,25%,75%
+413031,"Securities, Commodities, and Financial Services Sa",Sales and Related Occupations,Bachelor's degree,high,35.68,8505,9024,6.1,519,520,1990,2510,21%,79%
+254012,Curators,"Education, Training, and Library Occupations",Master's degree,high,22.79,250,265,6,15,20,60,80,25%,75%
+259031,Instructional Coordinators,"Education, Training, and Library Occupations",Master's degree,high,28.03,1864,1976,6,112,110,160,270,41%,59%
+251072,"Nursing Instructors and Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,893,947,6,54,50,130,180,28%,72%
+212011,Clergy,Community and Social Service Occupations,Bachelor's degree,high,22.02,5427,5753,6,326,330,1110,1440,23%,77%
+254013,Museum Technicians and Conservators,"Education, Training, and Library Occupations",Bachelor's degree,high,16.24,136,144,5.9,8,10,30,40,25%,75%
+291199,"Health Diagnosing and Treating Practitioners, All",Healthcare Practitioners and Technical Occupations,Master's degree,high,32.72,448,474,5.8,26,30,90,120,25%,75%
+231022,"Arbitrators, Mediators, and Conciliators",Legal Occupations,Bachelor's degree,high,35.85,208,220,5.8,12,10,30,40,25%,75%
+191032,Foresters,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,28.23,718,760,5.8,42,40,210,250,16%,84%
+251113,"Social Work Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,212,224,5.7,12,10,30,40,25%,75%
+252059,"Special Education Teachers, All Other","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,174,183,5.2,9,10,30,40,25%,75%
+251041,"Agricultural Sciences Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,322,340,5.6,18,20,50,70,29%,71%
+299099,"Healthcare Practitioners and Technical Workers, Al",Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,30.15,547,576,5.3,29,30,150,180,17%,83%
+113031,Financial Managers,Management Occupations,Bachelor's degree,high,56.64,14179,14968,5.6,789,790,2660,3450,23%,77%
+112031,Public Relations and Fundraising Managers,Management Occupations,Bachelor's degree,high,47.53,1563,1650,5.6,87,90,340,430,21%,79%
+291029,"Dentists, All Other Specialists",Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,81.05,109,115,5.5,6,10,30,40,25%,75%
+171012,Landscape Architects,Architecture and Engineering Occupations,Bachelor's degree,high,27,613,647,5.5,34,30,140,170,18%,82%
+251191,Graduate Teaching Assistants,"Education, Training, and Library Occupations",Bachelor's degree,high,22.41,1252,1320,5.4,68,70,190,260,27%,73%
+251032,"Engineering Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,727,766,5.4,39,40,110,150,27%,73%
+211021,"Child, Family, and School Social Workers",Community and Social Service Occupations,Bachelor's degree,high,27.04,6382,6728,5.4,346,350,1350,1700,21%,79%
+271025,Interior Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,21.57,965,1017,5.4,52,50,260,310,16%,84%
+272022,Coaches and Scouts,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,22.31,4615,4862,5.4,247,250,1370,1620,15%,85%
+251081,"Education Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,1144,1205,5.3,61,60,170,230,26%,74%
+251042,"Biological Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,663,692,4.4,29,30,100,130,23%,77%
+112011,Advertising and Promotions Managers,Management Occupations,Bachelor's degree,high,52.97,854,903,5.7,49,50,260,310,16%,84%
+252023,"Career/Technical Education Teachers, Middle School","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,309,316,2.3,7,10,70,80,13%,88%
+111011,Chief Executives,Management Occupations,Bachelor's degree,high,78.83,9000,9270,3,270,270,1920,2190,12%,88%
+254021,Librarians,"Education, Training, and Library Occupations",Master's degree,high,26.01,2275,2344,3,69,70,510,580,12%,88%
+272041,Music Directors and Composers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,27.36,1718,1767,2.9,49,50,460,510,10%,90%
+271014,Multimedia Artists and Animators,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,30.58,959,986,2.8,27,30,230,260,12%,88%
+252051,"Special Education Teachers, Preschool","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,640,657,2.7,17,20,110,130,15%,85%
+192043,Hydrologists,"Life, Physical, and Social Science Occupations",Master's degree,high,35.78,293,301,2.7,8,10,90,100,10%,90%
+271027,Set and Exhibit Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,26.65,266,273,2.6,7,10,70,80,13%,88%
+111031,Legislators,Management Occupations,Bachelor's degree,high,47.7,812,833,2.6,21,20,180,200,10%,90%
+172199,"Engineers, All Other",Architecture and Engineering Occupations,Bachelor's degree,high,47.32,2647,2713,2.5,66,70,490,560,13%,88%
+194092,Forensic Science Technicians,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,27.17,120,123,2.5,3,0,50,50,0%,100%
+192032,Materials Scientists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,54.15,22,23,4.5,1,0,10,10,0%,100%
+259011,Audio-Visual and Multimedia Collections Specialist,"Education, Training, and Library Occupations",Bachelor's degree,high,30.57,301,308,2.3,7,10,30,40,25%,75%
+132021,Appraisers and Assessors of Real Estate,Business and Financial Operations Occupations,Bachelor's degree,high,28.76,2448,2526,3.2,78,80,220,300,27%,73%
+119041,Architectural and Engineering Managers,Management Occupations,Bachelor's degree,high,64.3,5103,5220,2.3,117,120,1250,1370,9%,91%
+252054,"Special Education Teachers, Secondary School","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,3260,3327,2.1,67,70,560,630,11%,89%
+252053,"Special Education Teachers, Middle School","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,2103,2147,2.1,44,40,360,400,10%,90%
+253011,Adult Basic and Secondary Education and Literacy T,"Education, Training, and Library Occupations",Bachelor's degree,high,21.15,1425,1454,2,29,30,240,270,11%,89%
+252052,"Special Education Teachers, Kindergarten and Eleme","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,5074,5176,2,102,100,870,970,10%,90%
+414011,"Sales Representatives, Wholesale and Manufacturing",Sales and Related Occupations,Bachelor's degree,high,50.42,7927,8086,2,159,160,1540,1700,9%,91%
+252021,"Elementary School Teachers, Except Special Educati","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,26325,26850,2,525,520,5790,6310,8%,92%
+271024,Graphic Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,23.12,6596,6725,2,129,130,1740,1870,7%,93%
+252031,"Secondary School Teachers, Except Special and Care","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,15071,15369,2,298,300,4100,4400,7%,93%
+252022,"Middle School Teachers, Except Special and Career/","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,8879,9050,1.9,171,170,1950,2120,8%,92%
+193051,Urban and Regional Planners,"Life, Physical, and Social Science Occupations",Master's degree,high,33.34,958,981,2.4,23,20,430,450,4%,96%
+251021,"Computer Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,370,384,3.8,14,10,60,70,14%,86%
+191013,Soil and Plant Scientists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,29.49,364,380,4.4,16,20,120,140,14%,86%
+251031,"Architecture Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,68,71,4.4,3,0,10,10,0%,100%
+151142,Network and Computer Systems Administrators,Computer and Mathematical Occupations,Bachelor's degree,high,38.21,8683,9054,4.3,371,370,1360,1730,21%,79%
+231011,Lawyers,Legal Occupations,Doctoral or professional degree,high,53.07,12548,13083,4.3,535,540,2010,2550,21%,79%
+251111,"Criminal Justice and Law Enforcement Teachers, Pos","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,117,122,4.3,5,0,20,20,0%,100%
+251054,"Physics Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,166,173,4.2,7,10,20,30,33%,67%
+131141,"Compensation, Benefits, and Job Analysis Specialis",Business and Financial Operations Occupations,Bachelor's degree,high,30.98,2281,2377,4.2,96,100,420,520,19%,81%
+251022,"Mathematical Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,653,679,4,26,30,100,130,23%,77%
+291021,"Dentists, General",Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,80.08,1829,1902,4,73,70,450,520,13%,87%
+172111,"Health and Safety Engineers, Except Mining Safety",Architecture and Engineering Occupations,Bachelor's degree,high,37.75,278,289,4,11,10,80,90,11%,89%
+172071,Electrical Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,42.83,4131,4260,3.1,129,130,900,1030,13%,87%
+112022,Sales Managers,Management Occupations,Bachelor's degree,high,54.41,12312,12790,3.9,478,480,2640,3120,15%,85%
+152099,"Mathematical Science Occupations, All Other",Computer and Mathematical Occupations,Bachelor's degree,high,34.37,31,32,3.2,1,0,10,10,0%,100%
+273031,Public Relations Specialists,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,26.95,3782,3924,3.8,142,140,520,660,21%,79%
+439081,Proofreaders and Copy Markers,Office and Administrative Support Occupations,Bachelor's degree,high,14.84,506,525,3.8,19,20,90,110,18%,82%
+119161,Emergency Management Directors,Management Occupations,Bachelor's degree,high,36.79,191,198,3.7,7,10,30,40,25%,75%
+274031,"Camera Operators, Television, Video, and Motion Pi","Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,17.45,253,262,3.6,9,10,20,30,33%,67%
+131071,Human Resources Specialists,Business and Financial Operations Occupations,Bachelor's degree,high,27.73,10521,10904,3.6,383,380,1920,2300,17%,83%
+251082,"Library Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,56,58,3.6,2,0,10,10,0%,100%
+131041,Compliance Officers,Business and Financial Operations Occupations,Bachelor's degree,high,33.65,4263,4414,3.5,151,150,790,940,16%,84%
+252012,"Kindergarten Teachers, Except Special Education","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,3024,3128,3.4,104,100,850,950,11%,89%
+172141,Mechanical Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,37.22,6152,6361,3.4,209,210,2100,2310,9%,91%
+132099,"Financial Specialists, All Other",Business and Financial Operations Occupations,Bachelor's degree,high,29.71,2732,2822,3.3,90,90,290,380,24%,76%
+259099,"Education, Training, and Library Workers, All Othe","Education, Training, and Library Occupations",Bachelor's degree,high,21.37,681,724,6.3,43,40,60,100,40%,60%
+251123,"English Language and Literature Teachers, Postseco","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,1099,1142,3.9,43,40,160,200,20%,80%
+211023,Mental Health and Substance Abuse Social Workers,Community and Social Service Occupations,Bachelor's degree,high,22.32,2280,2632,15.4,352,350,480,830,42%,58%
+131051,Cost Estimators,Business and Financial Operations Occupations,Bachelor's degree,high,28.17,3796,4516,19,720,720,1220,1940,37%,63%
+291066,Psychiatrists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,307,364,18.6,57,60,80,140,43%,57%
+211013,Marriage and Family Therapists,Community and Social Service Occupations,Master's degree,high,23.41,842,996,18.3,154,150,180,330,45%,55%
+291069,"Physicians and Surgeons, All Other",Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,2961,3484,17.7,523,520,740,1260,41%,59%
+119111,Medical and Health Services Managers,Management Occupations,Bachelor's degree,high,45.05,6071,7126,17.4,1055,1060,1470,2530,42%,58%
+132052,Personal Financial Advisors,Business and Financial Operations Occupations,Bachelor's degree,high,41.64,5745,6737,17.3,992,990,930,1920,52%,48%
+292011,Medical and Clinical Laboratory Technologists,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,31.08,3508,4116,17.3,608,610,920,1530,40%,60%
+299091,Athletic Trainers,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,31.4,508,595,17.1,87,90,140,230,39%,61%
+151121,Computer Systems Analysts,Computer and Mathematical Occupations,Bachelor's degree,high,42.43,13085,15312,17,2227,2230,2060,4290,52%,48%
+119151,Social and Community Service Managers,Management Occupations,Bachelor's degree,high,33.82,3101,3624,16.9,523,520,640,1160,45%,55%
+151143,Computer Network Architects,Computer and Mathematical Occupations,Bachelor's degree,high,49.09,3748,3977,6.1,229,230,590,820,28%,72%
+171011,"Architects, Except Landscape and Naval",Architecture and Engineering Occupations,Bachelor's degree,high,41.04,1447,1676,15.8,229,230,340,570,40%,60%
+291181,Audiologists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,35.8,379,453,19.5,74,70,80,150,47%,53%
+172051,Civil Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,39.71,3599,4152,15.4,553,550,880,1430,38%,62%
+291122,Occupational Therapists,Healthcare Practitioners and Technical Occupations,Master's degree,high,34.39,2324,2679,15.3,355,360,320,680,53%,47%
+119021,Construction Managers,Management Occupations,Bachelor's degree,high,40.88,5279,6023,14.1,744,740,830,1570,47%,53%
+151111,Computer and Information Research Scientists,Computer and Mathematical Occupations,Doctoral or professional degree,high,55.27,320,363,13.4,43,40,50,90,44%,56%
+291041,Optometrists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,52.48,818,927,13.3,109,110,240,350,31%,69%
+291064,Obstetricians and Gynecologists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,369,418,13.3,49,50,90,140,36%,64%
+291031,Dietitians and Nutritionists,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,28.09,1690,1909,13,219,220,200,420,52%,48%
+211015,Rehabilitation Counselors,Community and Social Service Occupations,Master's degree,high,16.28,2640,2980,12.9,340,340,560,900,38%,62%
+291062,Family and General Practitioners,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,86.49,2813,3174,12.8,361,360,700,1060,34%,66%
+191022,Microbiologists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,29.99,368,415,12.8,47,50,100,150,33%,67%
+211022,Healthcare Social Workers,Community and Social Service Occupations,Master's degree,high,26.45,2673,3105,16.2,432,430,570,1000,43%,57%
+291129,"Therapists, All Other",Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,22.44,335,415,23.9,80,80,40,120,67%,33%
+193032,Industrial-Organizational Psychologists,"Life, Physical, and Social Science Occupations",Master's degree,high,49.05,106,148,39.6,42,40,30,70,57%,43%
+291071,Physician Assistants,Healthcare Practitioners and Technical Occupations,Master's degree,high,50.81,1653,2224,34.5,571,570,300,870,66%,34%
+273091,Interpreters and Translators,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,22.31,1492,1960,31.4,468,470,200,670,70%,30%
+299092,Genetic Counselors,Healthcare Practitioners and Technical Occupations,Master's degree,high,35.54,62,81,30.6,19,20,20,40,50%,50%
+131121,"Meeting, Convention, and Event Planners",Business and Financial Operations Occupations,Bachelor's degree,high,23.19,1954,2536,29.8,582,580,270,850,68%,32%
+291161,Nurse Midwives,Healthcare Practitioners and Technical Occupations,Master's degree,high,52.85,160,204,27.5,44,40,30,70,57%,43%
+292091,Orthotists and Prosthetists,Healthcare Practitioners and Technical Occupations,Master's degree,high,33.96,195,247,26.7,52,50,20,70,71%,29%
+152041,Statisticians,Computer and Mathematical Occupations,Master's degree,high,39.75,694,876,26.2,182,180,220,400,45%,55%
+291171,Nurse Practitioners,Healthcare Practitioners and Technical Occupations,Master's degree,high,50.38,2760,3481,26.1,721,720,540,1260,57%,43%
+152011,Actuaries,Computer and Mathematical Occupations,Bachelor's degree,high,45.91,814,1022,25.6,208,210,230,440,48%,52%
+291151,Nurse Anesthetists,Healthcare Practitioners and Technical Occupations,Master's degree,high,83.45,1208,1438,19,230,230,230,460,50%,50%
+291081,Podiatrists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,81.84,172,214,24.4,42,40,40,80,50%,50%
+211014,Mental Health Counselors,Community and Social Service Occupations,Master's degree,high,21.48,2252,2682,19.1,430,430,480,910,47%,53%
+192042,"Geoscientists, Except Hydrologists and Geographers","Life, Physical, and Social Science Occupations",Bachelor's degree,high,34.44,118,145,22.9,27,30,40,70,43%,57%
+291123,Physical Therapists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,37.15,3440,4219,22.6,779,780,850,1630,48%,52%
+131161,Market Research Analysts and Marketing Specialists,Business and Financial Operations Occupations,Bachelor's degree,high,29.94,11349,13860,22.1,2511,2510,1560,4070,62%,38%
+172151,"Mining and Geological Engineers, Including Mining",Architecture and Engineering Occupations,Bachelor's degree,high,43.17,115,140,21.7,25,20,30,50,40%,60%
+291061,Anesthesiologists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,1322,1607,21.6,285,280,330,610,46%,54%
+291067,Surgeons,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,988,1197,21.2,209,210,250,460,46%,54%
+152031,Operations Research Analysts,Computer and Mathematical Occupations,Bachelor's degree,high,38.77,1609,1934,20.2,325,320,360,680,47%,53%
+192012,Physicists,"Life, Physical, and Social Science Occupations",Doctoral or professional degree,high,44.22,124,149,20.2,25,20,30,50,40%,60%
+151122,Information Security Analysts,Computer and Mathematical Occupations,Bachelor's degree,high,42.64,1322,1583,19.7,261,260,210,470,55%,45%
+131081,Logisticians,Business and Financial Operations Occupations,Bachelor's degree,high,33.73,2543,3041,19.6,498,500,290,790,63%,37%
+271029,"Designers, All Other","Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,25.46,846,951,12.4,105,100,220,320,31%,69%
+191021,Biochemists and Biophysicists,"Life, Physical, and Social Science Occupations",Doctoral or professional degree,high,34.01,564,706,25.2,142,140,160,300,47%,53%
+193031,"Clinical, Counseling, and School Psychologists","Life, Physical, and Social Science Occupations",Doctoral or professional degree,high,33.42,3877,4149,7,272,270,1060,1330,20%,80%
+191012,Food Scientists and Technologists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,38.11,1447,1631,12.7,184,180,480,660,27%,73%
+291051,Pharmacists,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,61.09,5390,5805,7.7,415,420,1290,1710,25%,75%
+131151,Training and Development Specialists,Business and Financial Operations Occupations,Bachelor's degree,high,28.14,5019,5402,7.6,383,380,920,1300,29%,71%
+291131,Veterinarians,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,39.15,1302,1401,7.6,99,100,420,520,19%,81%
+253099,"Teachers and Instructors, All Other","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,3317,3561,7.4,244,240,570,810,30%,70%
+211091,Health Educators,Community and Social Service Occupations,Bachelor's degree,high,23.11,1063,1141,7.3,78,80,280,360,22%,78%
+251053,"Environmental Science Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,41,44,7.3,3,0,10,10,0%,100%
+251071,"Health Specialties Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,2711,2906,7.2,195,200,410,610,33%,67%
+132011,Accountants and Auditors,Business and Financial Operations Occupations,Bachelor's degree,high,30.6,25753,27607,7.2,1854,1850,7620,9470,20%,80%
+112021,Marketing Managers,Management Occupations,Bachelor's degree,high,58.4,7633,8177,7.1,544,540,1640,2180,25%,75%
+113011,Administrative Services Managers,Management Occupations,Bachelor's degree,high,40.92,7867,8470,7.7,603,600,1280,1880,32%,68%
+212099,"Religious Workers, All Other",Community and Social Service Occupations,Bachelor's degree,high,15.5,1595,1707,7,112,110,360,470,23%,77%
+291125,Recreational Therapists,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,21.16,377,406,7.7,29,30,80,110,27%,73%
+131131,Fundraisers,Business and Financial Operations Occupations,Bachelor's degree,high,29.79,1656,1771,6.9,115,120,320,440,27%,73%
+299011,Occupational Health and Safety Specialists,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,35.68,1464,1563,6.8,99,100,400,500,20%,80%
+171021,Cartographers and Photogrammetrists,Architecture and Engineering Occupations,Bachelor's degree,high,28.6,191,204,6.8,13,10,40,50,20%,80%
+251124,"Foreign Language and Literature Teachers, Postseco","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,511,545,6.7,34,30,80,110,27%,73%
+211012,"Educational, Guidance, School, and Vocational Coun",Community and Social Service Occupations,Master's degree,high,24.43,4171,4450,6.7,279,280,890,1170,24%,76%
+132051,Financial Analysts,Business and Financial Operations Occupations,Bachelor's degree,high,38.43,5858,6249,6.7,391,390,1420,1810,22%,78%
+131011,"Agents and Business Managers of Artists, Performer",Business and Financial Operations Occupations,Bachelor's degree,high,27.74,243,259,6.6,16,20,50,70,29%,71%
+191011,Animal Scientists,"Life, Physical, and Social Science Occupations",Doctoral or professional degree,high,26.16,182,194,6.6,12,10,60,70,14%,86%
+151133,"Software Developers, Systems Software",Computer and Mathematical Occupations,Bachelor's degree,high,50.43,8677,9228,6.4,551,550,1110,1660,33%,67%
+119039,"Education Administrators, All Other",Management Occupations,Bachelor's degree,high,39.64,939,999,6.4,60,60,250,310,19%,81%
+132072,Loan Officers,Business and Financial Operations Occupations,Bachelor's degree,high,33.78,7009,7374,5.2,365,360,1280,1640,22%,78%
+193039,"Psychologists, All Other","Life, Physical, and Social Science Occupations",Master's degree,high,49.1,325,348,7.1,23,20,90,110,18%,82%
+151132,"Software Developers, Applications",Computer and Mathematical Occupations,Bachelor's degree,high,43.48,12865,14244,10.7,1379,1380,1650,3030,46%,54%
+251051,"Atmospheric, Earth, Marine, and Space Sciences Tea","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,81,86,6.2,5,0,10,10,0%,100%
+172031,Biomedical Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,46.3,1115,1251,12.2,136,140,280,420,33%,67%
+291127,Speech-Language Pathologists,Healthcare Practitioners and Technical Occupations,Master's degree,high,32.57,2259,2521,11.6,262,260,340,600,43%,57%
+151141,Database Administrators,Computer and Mathematical Occupations,Bachelor's degree,high,43.96,2560,2858,11.6,298,300,480,780,38%,62%
+172081,Environmental Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,36.22,511,570,11.5,59,60,120,180,33%,67%
+291063,"Internists, General",Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,766,854,11.5,88,90,190,280,32%,68%
+439111,Statistical Assistants,Office and Administrative Support Occupations,Bachelor's degree,high,25.71,26,29,11.5,3,0,10,10,0%,100%
+191042,"Medical Scientists, Except Epidemiologists","Life, Physical, and Social Science Occupations",Doctoral or professional degree,high,28.28,2590,2880,11.2,290,290,550,840,35%,65%
+211099,"Community and Social Service Specialists, All Othe",Community and Social Service Occupations,Master's degree,high,20.32,5427,6035,11.2,608,610,1420,2030,30%,70%
+119031,"Education Administrators, Preschool and Childcare",Management Occupations,Bachelor's degree,high,24.85,1196,1330,11.2,134,130,320,450,29%,71%
+111021,General and Operations Managers,Management Occupations,Bachelor's degree,high,41.1,36862,39698,7.7,2836,2840,6900,9740,29%,71%
+113121,Human Resources Managers,Management Occupations,Bachelor's degree,high,50.34,3341,3702,10.8,361,360,880,1240,29%,71%
+291065,"Pediatricians, General",Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,31.4,393,442,12.5,49,50,100,150,33%,67%
+132041,Credit Analysts,Business and Financial Operations Occupations,Bachelor's degree,high,34.25,1804,1978,9.6,174,170,450,620,27%,73%
+291128,Exercise Physiologists,Healthcare Practitioners and Technical Occupations,Bachelor's degree,high,27.85,220,241,9.5,21,20,30,50,40%,60%
+113021,Computer and Information Systems Managers,Management Occupations,Bachelor's degree,high,60.3,9582,10491,9.5,909,910,1330,2240,41%,59%
+151199,"Computer Occupations, All Other",Computer and Mathematical Occupations,Bachelor's degree,high,35.68,7260,7949,9.5,689,690,1140,1830,38%,62%
+192041,"Environmental Scientists and Specialists, Includin","Life, Physical, and Social Science Occupations",Bachelor's degree,high,31.04,1473,1610,9.3,137,140,430,570,25%,75%
+152091,Mathematical Technicians,Computer and Mathematical Occupations,Bachelor's degree,high,38.62,292,319,9.2,27,30,70,100,30%,70%
+191099,"Life Scientists, All Other","Life, Physical, and Social Science Occupations",Bachelor's degree,high,31.29,1013,1101,8.7,88,90,210,300,30%,70%
+171022,Surveyors,Architecture and Engineering Occupations,Bachelor's degree,high,31.69,689,747,8.4,58,60,150,210,29%,71%
+194021,Biological Technicians,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,23.43,1118,1212,8.4,94,90,340,430,21%,79%
+535021,"Captains, Mates, and Pilots of Water Vessels",Transportation and Material Moving Occupations,Bachelor's degree,high,28.21,132,143,8.3,11,10,60,70,14%,86%
+113131,Training and Development Managers,Management Occupations,Bachelor's degree,high,54.87,935,1009,7.9,74,70,250,320,22%,78%
+254011,Archivists,"Education, Training, and Library Occupations",Master's degree,high,16.83,128,142,10.9,14,10,30,40,25%,75%
+273011,Radio and Television Announcers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,16.06,826,766,-7.3,-60,0,170,170,0%,100%
+193011,Economists,"Life, Physical, and Social Science Occupations",Master's degree,high,28.34,218,219,0.5,1,0,60,60,0%,100%
+231021,"Administrative Law Judges, Adjudicators, and Heari",Legal Occupations,Doctoral or professional degree,high,49.61,128,122,-4.7,-6,0,20,20,0%,100%
+271011,Art Directors,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,34.28,1498,1480,-1.2,-18,0,360,360,0%,100%
+274032,Film and Video Editors,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,20.03,407,411,1,4,0,30,30,0%,100%
+271021,Commercial and Industrial Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,27.49,653,661,1.2,8,10,170,180,6%,94%
+532011,"Airline Pilots, Copilots, and Flight Engineers",Transportation and Material Moving Occupations,Bachelor's degree,high,16.22,2425,2250,-7.2,-175,0,700,700,0%,100%
+273041,Editors,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,25.63,4025,3730,-7.3,-295,0,980,980,0%,100%
+191023,Zoologists and Wildlife Biologists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,27.48,674,682,1.2,8,10,190,200,5%,95%
+132031,Budget Analysts,Business and Financial Operations Occupations,Bachelor's degree,high,29.56,500,492,-1.6,-8,0,200,200,0%,100%
+172061,Computer Hardware Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,49.61,1570,1504,-4.2,-66,0,340,340,0%,100%
+271022,Fashion Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,22.49,172,173,0.6,1,0,50,50,0%,100%
+132053,Insurance Underwriters,Business and Financial Operations Occupations,Bachelor's degree,high,29.53,1964,1832,-6.7,-132,0,530,530,0%,100%
+193091,Anthropologists and Archeologists,"Life, Physical, and Social Science Occupations",Master's degree,high,30.97,25,24,-4,-1,0,0,0,,
+251062,"Area, Ethnic, and Cultural Studies Teachers, Posts","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,173,182,5.2,9,10,30,40,25%,75%
+132081,"Tax Examiners and Collectors, and Revenue Agents",Business and Financial Operations Occupations,Bachelor's degree,high,26.96,1293,1271,-1.7,-22,0,440,440,0%,100%
+131075,Labor Relations Specialists,Business and Financial Operations Occupations,Bachelor's degree,high,32.95,1807,1750,-3.2,-57,0,330,330,0%,100%
+172021,Agricultural Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,34.86,37,36,-2.7,-1,0,10,10,0%,100%
+259021,Farm and Home Management Advisors,"Education, Training, and Library Occupations",Master's degree,high,28.79,110,108,-1.8,-2,0,10,10,0%,100%
+273043,Writers and Authors,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,27.96,2706,2732,1,26,30,590,620,5%,95%
+172131,Materials Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,44.98,221,221,0,0,0,70,70,0%,100%
+252032,"Career/Technical Education Teachers, Secondary Sch","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,685,691,0.9,6,10,190,200,5%,95%
+211092,Probation Officers and Correctional Treatment Spec,Community and Social Service Occupations,Bachelor's degree,high,28.9,1677,1634,-2.6,-43,0,440,440,0%,100%
+191029,"Biological Scientists, All Other","Life, Physical, and Social Science Occupations",Bachelor's degree,high,32.41,573,578,0.9,5,0,160,160,0%,100%
+151131,Computer Programmers,Computer and Mathematical Occupations,Bachelor's degree,high,37.41,6283,6143,-2.2,-140,0,1640,1640,0%,100%
+273021,Broadcast News Analysts,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,20.79,137,134,-2.2,-3,0,50,50,0%,100%
+273022,Reporters and Correspondents,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,18.42,1480,1354,-8.5,-126,0,500,500,0%,100%
+172072,"Electronics Engineers, Except Computer",Architecture and Engineering Occupations,Bachelor's degree,high,42.54,1966,1822,-7.3,-144,0,430,430,0%,100%
+272012,Producers and Directors,"Arts, Design, Entertainment, Sports, and Media Occupations",Bachelor's degree,high,29.97,1309,1313,0.3,4,0,440,440,0%,100%
+191031,Conservation Scientists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,31.26,808,810,0.2,2,0,240,240,0%,100%
+251194,"Vocational Education Teachers, Postsecondary","Education, Training, and Library Occupations",Bachelor's degree,high,23.2,2108,1881,-10.8,-227,0,320,320,0%,100%
+231012,Judicial Law Clerks,Legal Occupations,Doctoral or professional degree,high,23.21,372,378,1.6,6,10,60,70,14%,86%
+452011,Agricultural Inspectors,"Farming, Fishing, and Forestry Occupations",Bachelor's degree,high,20.45,257,244,-5.1,-13,0,80,80,0%,100%
+113111,Compensation and Benefits Managers,Management Occupations,Bachelor's degree,high,61.4,701,695,-0.9,-6,0,180,180,0%,100%
+132061,Financial Examiners,Business and Financial Operations Occupations,Bachelor's degree,high,39.12,676,677,0.1,1,0,170,170,0%,100%
+291011,Chiropractors,Healthcare Practitioners and Technical Occupations,Doctoral or professional degree,high,26.6,1580,1582,0.1,2,0,310,310,0%,100%
+193099,"Social Scientists and Related Workers, All Other","Life, Physical, and Social Science Occupations",Bachelor's degree,high,34.57,383,384,0.3,1,0,60,60,0%,100%
+119032,"Education Administrators, Elementary and Secondary",Management Occupations,Master's degree,high,47.7,2833,2885,1.8,52,50,750,800,6%,94%
+192021,Atmospheric and Space Scientists,"Life, Physical, and Social Science Occupations",Bachelor's degree,high,23.28,60,61,1.7,1,0,20,20,0%,100%
+172161,Nuclear Engineers,Architecture and Engineering Occupations,Bachelor's degree,high,34.86,316,316,0,0,0,80,80,0%,100%
+113051,Industrial Production Managers,Management Occupations,Bachelor's degree,high,44.32,5170,5186,0.3,16,20,940,960,2%,98%
+251069,"Social Sciences Teachers, Postsecondary, All Other","Education, Training, and Library Occupations",Bachelor's degree,high,22.41,66,67,1.5,1,0,10,10,0%,100%
+536031,Automotive and Watercraft Service Attendants,Transportation and Material Moving Occupations,Less than high school,low,11.33,1769,2046,15.7,277,280,510,790,35%,65%
+537011,Conveyor Operators and Tenders,Transportation and Material Moving Occupations,Less than high school,Low,17.45,985,1033,4.9,48,50,280,330,15%,85%
+452093,"Farmworkers, Farm, Ranch, and Aquacultural Animals","Farming, Fishing, and Forestry Occupations",Less than high school,low,10.97,1571,1660,5.7,89,90,480,570,16%,84%
+533011,"Ambulance Drivers and Attendants, Except Emergency",Transportation and Material Moving Occupations,High school diploma or equivalent,low,11.74,64,74,15.6,10,10,10,20,50%,50%
+472141,"Painters, Construction and Maintenance",Construction and Extraction Occupations,Less than high school,Low,18.56,6617,7811,18,1194,1190,1000,2190,54%,46%
+513092,Food Batchmakers,Production Occupations,High school diploma or equivalent,low,14.63,2385,2342,-1.8,-43,0,780,780,0%,100%
+312022,Physical Therapist Aides,Healthcare Support Occupations,High school diploma or equivalent,low,15.55,263,311,18.3,48,50,60,110,45%,55%
+311015,Orderlies,Healthcare Support Occupations,High school diploma or equivalent,low,16.08,434,501,15.4,67,70,80,150,47%,53%
+395012,"Hairdressers, Hairstylists, and Cosmetologists",Personal Care and Service Occupations,Postsecondary non-degree award,low,11.36,15340,16236,5.8,896,900,3590,4490,20%,80%
+399099,"Personal Care and Service Workers, All Other",Personal Care and Service Occupations,High school diploma or equivalent,low,10.74,2300,2407,4.7,107,110,640,750,15%,85%
+399041,Residential Advisors,Personal Care and Service Occupations,High school diploma or equivalent,low,16.2,1660,1963,18.3,303,300,720,1020,29%,71%
+519111,Packaging and Filling Machine Operators and Tender,Production Occupations,High school diploma or equivalent,low,14.05,9201,9008,-2.1,-193,0,2170,2170,0%,100%
+432011,"Switchboard Operators, Including Answering Service",Office and Administrative Support Occupations,High school diploma or equivalent,low,14.79,1394,1256,-9.9,-138,0,260,260,0%,100%
+519031,"Cutters and Trimmers, Hand",Production Occupations,Less than high school,low,14.57,251,251,0,0,0,40,40,0%,100%
+536021,Parking Lot Attendants,Transportation and Material Moving Occupations,Less than high school,low,10.39,1814,1919,5.8,105,100,870,970,10%,90%
+434171,Receptionists and Information Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,low,13.9,20892,22027,5.4,1135,1140,5620,6760,17%,83%
+412022,Parts Salespersons,Sales and Related Occupations,Less than high school,Low,14.9,4899,5161,5.3,262,260,1240,1500,17%,83%
+472061,Construction Laborers,Construction and Extraction Occupations,Less than high school,Low,19.09,11107,12969,16.8,1862,1860,2380,4240,44%,56%
+452092,"Farmworkers and Laborers, Crop, Nursery, and Green","Farming, Fishing, and Forestry Occupations",Less than high school,low,11.73,9616,9501,-1.2,-115,0,2920,2920,0%,100%
+353041,"Food Servers, Nonrestaurant",Food Preparation and Serving Related Occupations,Less than high school,low,11.07,6442,7518,16.7,1076,1080,1880,2960,36%,64%
+352012,"Cooks, Institution and Cafeteria",Food Preparation and Serving Related Occupations,Less than high school,low,13.53,8389,9197,9.6,808,810,1660,2470,33%,67%
+359011,Dining Room and Cafeteria Attendants and Bartender,Food Preparation and Serving Related Occupations,Less than high school,low,9.1,7735,8147,5.3,412,410,3390,3800,11%,89%
+412021,Counter and Rental Clerks,Sales and Related Occupations,Less than high school,low,10.89,7428,7811,5.2,383,380,1900,2280,17%,83%
+311013,Psychiatric Aides,Healthcare Support Occupations,High school diploma or equivalent,low,13.82,186,216,16.1,30,30,40,70,43%,57%
+516021,"Pressers, Textile, Garment, and Related Materials",Production Occupations,Less than high school,low,11.46,1391,1377,-1,-14,0,140,140,0%,100%
+452099,"Agricultural Workers, All Other","Farming, Fishing, and Forestry Occupations",Less than high school,low,17.16,1105,1009,-8.7,-96,0,340,340,0%,100%
+516062,"Textile Cutting Machine Setters, Operators, and Te",Production Occupations,High school diploma or equivalent,low,13.67,165,163,-1.2,-2,0,30,30,0%,100%
+513021,Butchers and Meat Cutters,Production Occupations,Less than high school,Low,16.37,2404,2367,-1.5,-37,0,590,590,0%,100%
+397011,Tour Guides and Escorts,Personal Care and Service Occupations,High school diploma or equivalent,low,12.52,496,522,5.2,26,30,240,270,11%,89%
+452091,Agricultural Equipment Operators,"Farming, Fishing, and Forestry Occupations",Less than high school,low,15.93,1320,1392,5.5,72,70,400,470,15%,85%
+352015,"Cooks, Short Order",Food Preparation and Serving Related Occupations,Less than high school,low,10.2,2183,2160,-1.1,-23,0,430,430,0%,100%
+339092,"Lifeguards, Ski Patrol, and Other Recreational Pro",Protective Service Occupations,High school diploma or equivalent,low,9.81,2449,2573,5.1,124,120,1680,1800,7%,93%
+319096,Veterinary Assistants and Laboratory Animal Careta,Healthcare Support Occupations,High school diploma or equivalent,low,13.47,853,895,4.9,42,40,160,200,20%,80%
+412011,Cashiers,Sales and Related Occupations,Less than high school,low,9.34,59434,58374,-1.8,-1060,0,25700,25700,0%,100%
+373019,"Grounds Maintenance Workers, All Other",Building and Grounds Cleaning and Maintenance Occupations,Less than high school,Low,21.49,512,542,5.9,30,30,130,160,19%,81%
+472082,Tapers,Construction and Extraction Occupations,Less than high school,Low,32.6,698,760,8.9,62,60,70,130,46%,54%
+392011,Animal Trainers,Personal Care and Service Occupations,High school diploma or equivalent,low,22.04,641,732,14.2,91,90,280,370,24%,76%
+393091,Amusement and Recreation Attendants,Personal Care and Service Occupations,Less than high school,low,9.29,5808,6286,8.2,478,480,2910,3390,14%,86%
+372011,"Janitors and Cleaners, Except Maids and Housekeepi",Building and Grounds Cleaning and Maintenance Occupations,Less than high school,low,12.38,46139,49916,8.2,3777,3780,8680,12460,30%,70%
+353022,"Counter Attendants, Cafeteria, Food Concession, an",Food Preparation and Serving Related Occupations,Less than high school,low,9.02,12056,11443,-5.1,-613,0,7350,7350,0%,100%
+373011,Landscaping and Groundskeeping Workers,Building and Grounds Cleaning and Maintenance Occupations,Less than high school,low,12.41,16807,18197,8.3,1390,1390,4240,5630,25%,75%
+537063,Machine Feeders and Offbearers,Transportation and Material Moving Occupations,Less than high school,Low,16.44,1588,1488,-6.3,-100,0,320,320,0%,100%
+434121,"Library Assistants, Clerical",Office and Administrative Support Occupations,High school diploma or equivalent,low,13.26,1429,1580,10.6,151,150,620,770,19%,81%
+434081,"Hotel, Motel, and Resort Desk Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,low,10.14,4410,4875,10.5,465,460,2090,2550,18%,82%
+435081,Stock Clerks and Order Fillers,Office and Administrative Support Occupations,Less than high school,low,11.84,34562,32635,-5.6,-1927,0,10440,10440,0%,100%
+519198,Helpers--Production Workers,Production Occupations,Less than high school,low,10.93,11452,12463,8.8,1011,1010,1980,2990,34%,66%
+394021,Funeral Attendants,Personal Care and Service Occupations,High school diploma or equivalent,low,12.95,462,431,-6.7,-31,0,100,100,0%,100%
+339032,Security Guards,Protective Service Occupations,High school diploma or equivalent,low,14.39,11525,12556,8.9,1031,1030,1770,2800,37%,63%
+393011,Gaming Dealers,Personal Care and Service Occupations,High school diploma or equivalent,low,8.88,3249,3502,7.8,253,250,560,810,31%,69%
+472081,Drywall and Ceiling Tile Installers,Construction and Extraction Occupations,Less than high school,Low,25.38,1022,1113,8.9,91,90,100,190,47%,53%
+472044,Tile and Marble Setters,Construction and Extraction Occupations,Less than high school,Low,20.88,715,779,9,64,60,130,190,32%,68%
+533041,Taxi Drivers and Chauffeurs,Transportation and Material Moving Occupations,Less than high school,low,11.91,4125,4495,9,370,370,490,860,43%,57%
+311014,Nursing Assistants,Healthcare Support Occupations,Postsecondary non-degree award,low,13.39,30184,32926,9.1,2742,2740,5740,8480,32%,68%
+372012,Maids and Housekeeping Cleaners,Building and Grounds Cleaning and Maintenance Occupations,Less than high school,low,10.54,27449,30191,10,2742,2740,5440,8180,33%,67%
+352014,"Cooks, Restaurant",Food Preparation and Serving Related Occupations,Less than high school,low,11.6,24770,27041,9.2,2271,2270,4880,7150,32%,68%
+419011,Demonstrators and Product Promoters,Sales and Related Occupations,High school diploma or equivalent,low,10.44,1977,2160,9.3,183,180,560,740,24%,76%
+399032,Recreation Workers,Personal Care and Service Occupations,Bachelor's degree,low,11.62,6032,6602,9.4,570,570,710,1280,45%,55%
+535011,Sailors and Marine Oilers,Transportation and Material Moving Occupations,Less than high school,Low,16.22,201,220,9.5,19,20,90,110,18%,82%
+396011,Baggage Porters and Bellhops,Personal Care and Service Occupations,High school diploma or equivalent,low,9.14,445,489,9.9,44,40,110,150,27%,73%
+353021,"Combined Food Preparation and Serving Workers, Inc",Food Preparation and Serving Related Occupations,Less than high school,low,9,56119,61584,9.7,5465,5460,21430,26890,20%,80%
+512099,"Assemblers and Fabricators, All Other",Production Occupations,High school diploma or equivalent,low,15.53,16468,17922,8.8,1454,1450,2600,4050,36%,64%
+399011,Childcare Workers,Personal Care and Service Occupations,High school diploma or equivalent,low,10.81,30865,34871,13,4006,4010,9070,13080,31%,69%
+472151,Pipelayers,Construction and Extraction Occupations,Less than high school,Low,28.52,667,767,15,100,100,80,180,56%,44%
+513022,"Meat, Poultry, and Fish Cutters and Trimmers",Production Occupations,Less than high school,low,13.25,1912,2028,6.1,116,120,470,590,20%,80%
+472181,Roofers,Construction and Extraction Occupations,Less than high school,Low,28.7,1976,2259,14.3,283,280,410,690,41%,59%
+359099,"Food Preparation and Serving Related Workers, All",Food Preparation and Serving Related Occupations,Less than high school,low,11.26,1023,1087,6.3,64,60,550,610,10%,90%
+513023,Slaughterers and Meat Packers,Production Occupations,Less than high school,low,13.48,7838,7629,-2.7,-209,0,1930,1930,0%,100%
+271026,Merchandise Displayers and Window Trimmers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,low,12.9,1794,1908,6.4,114,110,480,590,19%,81%
+393093,"Locker Room, Coatroom, and Dressing Room Attendant",Personal Care and Service Occupations,High school diploma or equivalent,low,9.35,338,356,5.3,18,20,170,190,11%,89%
+537061,Cleaners of Vehicles and Equipment,Transportation and Material Moving Occupations,Less than high school,low,10.95,7281,7748,6.4,467,470,2020,2490,19%,81%
+519199,"Production Workers, All Other",Production Occupations,High school diploma or equivalent,low,15.37,8081,8618,6.6,537,540,2110,2650,20%,80%
+472041,Carpet Installers,Construction and Extraction Occupations,Less than high school,Low,23.48,785,837,6.6,52,50,140,190,26%,74%
+352019,"Cooks, All Other",Food Preparation and Serving Related Occupations,Less than high school,low,10.74,655,708,8.1,53,50,130,180,28%,72%
+516011,Laundry and Dry-Cleaning Workers,Production Occupations,Less than high school,low,11.98,3128,3337,6.7,209,210,930,1140,18%,82%
+434071,File Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,low,14.88,2972,2906,-2.2,-66,0,680,680,0%,100%
+395011,Barbers,Personal Care and Service Occupations,Postsecondary non-degree award,low,20.87,1751,1872,6.9,121,120,460,580,21%,79%
+499098,"Helpers--Installation, Maintenance, and Repair Wor","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,low,12.55,2028,2173,7.1,145,140,610,750,19%,81%
+517041,"Sawing Machine Setters, Operators, and Tenders, Wo",Production Occupations,High school diploma or equivalent,low,14.24,1024,1148,12.1,124,120,280,400,30%,70%
+272023,"Umpires, Referees, and Other Sports Officials","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,low,22.31,453,486,7.3,33,30,130,160,19%,81%
+493093,Tire Repairers and Changers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,low,13.42,1157,1243,7.4,86,90,400,490,18%,82%
+537121,"Tank Car, Truck, and Ship Loaders",Transportation and Material Moving Occupations,Less than high school,Low,11.95,234,262,12,28,30,70,100,30%,70%
+392021,Nonfarm Animal Caretakers,Personal Care and Service Occupations,Less than high school,low,10.51,2834,3164,11.6,330,330,340,670,49%,51%
+537199,"Material Moving Workers, All Other",Transportation and Material Moving Occupations,Less than high school,Low,14.85,324,349,7.7,25,20,90,110,18%,82%
+537051,Industrial Truck and Tractor Operators,Transportation and Material Moving Occupations,Less than high school,Low,17.44,8850,8214,-7.2,-636,0,2030,2030,0%,100%
+395092,Manicurists and Pedicurists,Personal Care and Service Occupations,Postsecondary non-degree award,low,11.06,2524,2718,7.7,194,190,210,400,48%,53%
+412031,Retail Salespersons,Sales and Related Occupations,Less than high school,low,10.21,85797,92452,7.8,6655,6660,29350,36010,18%,82%
+519151,Photographic Process Workers and Processing Machin,Production Occupations,High school diploma or equivalent,low,12.37,1118,1030,-7.9,-88,0,330,330,0%,100%
+433071,Tellers,Office and Administrative Support Occupations,High school diploma or equivalent,low,12.2,9477,9531,0.6,54,50,4420,4470,1%,99%
+513099,"Food Processing Workers, All Other",Production Occupations,Less than high school,low,13.32,3855,3867,0.3,12,10,1000,1010,1%,99%
+519123,"Painting, Coating, and Decorating Workers",Production Occupations,Less than high school,Low,15.79,530,534,0.8,4,0,100,100,0%,100%
+474071,Septic Tank Servicers and Sewer Pipe Cleaners,Construction and Extraction Occupations,Less than high school,Low,20.83,537,643,19.7,106,110,110,220,50%,50%
+537041,Hoist and Winch Operators,Transportation and Material Moving Occupations,Less than high school,Low,35.66,106,92,-13.2,-14,0,30,30,0%,100%
+311011,Home Health Aides,Healthcare Support Occupations,Less than high school,low,11.87,34524,44655,29.3,10131,10130,6570,16700,61%,39%
+537062,"Laborers and Freight, Stock, and Material Movers,",Transportation and Material Moving Occupations,Less than high school,low,13.84,32938,34301,4.1,1363,1360,10200,11560,12%,88%
+473019,"Helpers, Construction Trades, All Other",Construction and Extraction Occupations,Less than high school,low,12.95,257,315,22.6,58,60,40,100,60%,40%
+519022,"Grinding and Polishing Workers, Hand",Production Occupations,Less than high school,Low,16.22,693,721,4,28,30,200,230,13%,87%
+473014,"Helpers--Painters, Paperhangers, Plasterers, and S",Construction and Extraction Occupations,Less than high school,low,25.13,99,125,26.3,26,30,20,50,60%,40%
+393099,"Entertainment Attendants and Related Workers, All",Personal Care and Service Occupations,High school diploma or equivalent,low,10.8,249,257,3.2,8,10,120,130,8%,92%
+537081,Refuse and Recyclable Material Collectors,Transportation and Material Moving Occupations,Less than high school,Low,19.72,2682,3281,22.3,599,600,560,1160,52%,48%
+433041,Gaming Cage Workers,Office and Administrative Support Occupations,High school diploma or equivalent,low,12.09,465,479,3,14,10,90,100,10%,90%
+472131,"Insulation Workers, Floor, Ceiling, and Wall",Construction and Extraction Occupations,Less than high school,Low,18.7,400,480,20,80,80,50,130,62%,38%
+472161,Plasterers and Stucco Masons,Construction and Extraction Occupations,Less than high school,Low,26.36,793,1032,30.1,239,240,40,280,86%,14%
+393012,Gaming and Sports Book Writers and Runners,Personal Care and Service Occupations,High school diploma or equivalent,low,9.09,1112,1139,2.4,27,30,190,220,14%,86%
+393021,Motion Picture Projectionists,Personal Care and Service Occupations,Less than high school,low,9.28,158,129,-18.4,-29,0,60,60,0%,100%
+513011,Bakers,Production Occupations,Less than high school,low,14.07,2494,2579,3.4,85,80,600,680,12%,88%
+259041,Teacher Assistants,"Education, Training, and Library Occupations","Some college, no degree",low,22.41,33233,34492,3.8,1259,1260,7540,8800,14%,86%
+439051,"Mail Clerks and Mail Machine Operators, Except Pos",Office and Administrative Support Occupations,High school diploma or equivalent,low,13.91,2349,2040,-13.2,-309,0,540,540,0%,100%
+516051,"Sewers, Hand",Production Occupations,Less than high school,low,11.2,79,80,1.3,1,0,10,10,0%,100%
+533031,Driver/Sales Workers,Transportation and Material Moving Occupations,High school diploma or equivalent,low,10.16,8740,9037,3.4,297,300,1400,1700,18%,82%
+419041,Telemarketers,Sales and Related Occupations,Less than high school,low,11.97,4479,4514,0.8,35,40,930,970,4%,96%
+271023,Floral Designers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,low,11.78,985,853,-13.4,-132,0,260,260,0%,100%
+435021,Couriers and Messengers,Office and Administrative Support Occupations,High school diploma or equivalent,low,15.3,1567,1358,-13.3,-209,0,200,200,0%,100%
+516052,"Tailors, Dressmakers, and Custom Sewers",Production Occupations,Less than high school,low,15.42,677,685,1.2,8,10,70,80,13%,88%
+452041,"Graders and Sorters, Agricultural Products","Farming, Fishing, and Forestry Occupations",Less than high school,low,13.99,336,339,0.9,3,0,60,60,0%,100%
+513091,"Food and Tobacco Roasting, Baking, and Drying Mach",Production Occupations,Less than high school,Low,16.55,845,850,0.6,5,0,220,220,0%,100%
+473012,Helpers--Carpenters,Construction and Extraction Occupations,Less than high school,low,16.81,513,682,32.9,169,170,80,250,68%,32%
+393031,"Ushers, Lobby Attendants, and Ticket Takers",Personal Care and Service Occupations,Less than high school,low,9.11,1185,1186,0.1,1,0,620,620,0%,100%
+353011,Bartenders,Food Preparation and Serving Related Occupations,Less than high school,low,9.1,15734,16022,1.8,288,290,5820,6110,5%,95%
+472051,Cement Masons and Concrete Finishers,Construction and Extraction Occupations,Less than high school,Low,22.35,2930,3830,30.7,900,900,340,1240,73%,27%
+537064,"Packers and Packagers, Hand",Transportation and Material Moving Occupations,Less than high school,low,10.93,11248,11470,2,222,220,2950,3170,7%,93%
+419091,"Door-to-Door Sales Workers, News and Street Vendor",Sales and Related Occupations,High school diploma or equivalent,low,9.01,1382,1149,-16.9,-233,0,140,140,0%,100%
+339091,Crossing Guards,Protective Service Occupations,High school diploma or equivalent,low,15.11,170,172,1.2,2,0,30,30,0%,100%
+473011,"Helpers--Brickmasons, Blockmasons, Stonemasons, an",Construction and Extraction Occupations,Less than high school,Low,16.24,218,297,36.2,79,80,30,110,73%,27%
+412012,Gaming Change Persons and Booth Cashiers,Sales and Related Occupations,High school diploma or equivalent,low,11.12,834,749,-10.2,-85,0,360,360,0%,100%
+359021,Dishwashers,Food Preparation and Serving Related Occupations,Less than high school,low,9.19,8969,9151,2,182,180,3950,4130,4%,96%
+359031,"Hosts and Hostesses, Restaurant, Lounge, and Coffe",Food Preparation and Serving Related Occupations,Less than high school,low,9.1,5903,5971,1.2,68,70,4440,4510,2%,98%
+399021,Personal Care Aides,Personal Care and Service Occupations,Less than high school,low,11.15,50552,73147,44.7,22595,22600,3620,26220,86%,14%
+519192,"Cleaning, Washing, and Metal Pickling Equipment Op",Production Occupations,Less than high school,low,16.62,337,343,1.8,6,10,80,90,11%,89%
+353031,Waiters and Waitresses,Food Preparation and Serving Related Occupations,Less than high school,low,8.95,48624,49139,1.1,515,520,23390,23910,2%,98%
+473015,"Helpers--Pipelayers, Plumbers, Pipefitters, and St",Construction and Extraction Occupations,High school diploma or equivalent,low,16.82,281,345,22.8,64,60,40,100,60%,40%
+516031,Sewing Machine Operators,Production Occupations,Less than high school,low,13.21,2149,2151,0.1,2,0,100,100,0%,100%
+352021,Food Preparation Workers,Food Preparation and Serving Related Occupations,Less than high school,low,11.21,8919,9078,1.8,159,160,2560,2720,6%,94%
+475021,"Earth Drillers, Except Oil and Gas",Construction and Extraction Occupations,High school diploma or equivalent,middle,20.59,354,398,12.4,44,40,100,140,29%,71%
+292056,Veterinary Technologists and Technicians,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,15.7,1731,2143,23.8,412,410,170,580,71%,29%
+151134,Web Developers,Computer and Mathematical Occupations,Associate's degree,middle,30.35,2500,2788,11.5,288,290,390,680,43%,57%
+253021,Self-Enrichment Education Teachers,"Education, Training, and Library Occupations",High school diploma or equivalent,middle,15.15,7614,8549,12.3,935,940,1300,2240,42%,58%
+434111,"Interviewers, Except Eligibility and Loan",Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.54,2845,3194,12.3,349,350,540,890,39%,61%
+493022,Automotive Glass Installers and Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,20.19,340,382,12.4,42,40,80,120,33%,67%
+292035,Magnetic Resonance Imaging Technologists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,34.05,833,1032,23.9,199,200,120,320,63%,38%
+514122,"Welding, Soldering, and Brazing Machine Setters, O",Production Occupations,High school diploma or equivalent,middle,18.46,1589,1989,25.2,400,400,390,790,51%,49%
+472072,Pile-Driver Operators,Construction and Extraction Occupations,High school diploma or equivalent,middle,34.34,24,30,25,6,10,0,10,100%,0%
+434181,Reservation and Transportation Ticket Agents and T,Office and Administrative Support Occupations,High school diploma or equivalent,middle,24.52,3530,2902,-17.8,-628,0,470,470,0%,100%
+472043,Floor Sanders and Finishers,Construction and Extraction Occupations,High school diploma or equivalent,middle,17.43,453,508,12.1,55,60,80,140,43%,57%
+119141,"Property, Real Estate, and Community Association M",Management Occupations,High school diploma or equivalent,middle,27.1,4939,5511,11.6,572,570,1120,1690,34%,66%
+211011,Substance Abuse and Behavioral Disorder Counselors,Community and Social Service Occupations,High school diploma or equivalent,middle,21.86,1956,2445,25,489,490,420,910,54%,46%
+537021,Crane and Tower Operators,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,31.99,898,1120,24.7,222,220,310,530,42%,58%
+472071,"Paving, Surfacing, and Tamping Equipment Operators",Construction and Extraction Occupations,High school diploma or equivalent,middle,22.92,1290,1605,24.4,315,320,190,510,63%,37%
+312021,Physical Therapist Assistants,Healthcare Support Occupations,Associate's degree,middle,24.5,1086,1351,24.4,265,260,240,500,52%,48%
+514041,Machinists,Production Occupations,High school diploma or equivalent,middle,21.89,10841,12105,11.7,1264,1260,2480,3740,34%,66%
+173025,Environmental Engineering Technicians,Architecture and Engineering Occupations,Associate's degree,middle,22.16,182,204,12.1,22,20,40,60,33%,67%
+395094,Skincare Specialists,Personal Care and Service Occupations,Postsecondary non-degree award,middle,14.91,1136,1408,23.9,272,270,90,360,75%,25%
+436013,Medical Secretaries,Office and Administrative Support Occupations,High school diploma or equivalent,middle,18.79,7893,9807,24.2,1914,1910,950,2860,67%,33%
+194031,Chemical Technicians,"Life, Physical, and Social Science Occupations",Associate's degree,middle,23.62,1045,1170,12,125,120,260,380,32%,68%
+454021,Fallers,"Farming, Fishing, and Forestry Occupations",High school diploma or equivalent,middle,21.04,29,24,-17.2,-5,0,0,0,,
+419021,Real Estate Brokers,Sales and Related Occupations,High school diploma or equivalent,middle,31.1,693,777,12.1,84,80,60,140,57%,43%
+435052,Postal Service Mail Carriers,Office and Administrative Support Occupations,High school diploma or equivalent,middle,27.09,5960,4378,-26.5,-1582,0,2080,2080,0%,100%
+194099,"Life, Physical, and Social Science Technicians, Al","Life, Physical, and Social Science Occupations",Associate's degree,middle,21.5,1481,1636,10.5,155,160,580,740,22%,78%
+119131,Postmasters and Mail Superintendents,Management Occupations,High school diploma or equivalent,middle,32.48,637,484,-24,-153,0,140,140,0%,100%
+232011,Paralegals and Legal Assistants,Legal Occupations,Associate's degree,middle,25.31,4607,5088,10.4,481,480,750,1230,39%,61%
+436014,"Secretaries and Administrative Assistants, Except",Office and Administrative Support Occupations,High school diploma or equivalent,middle,18.22,24274,26737,10.1,2463,2460,2920,5380,46%,54%
+292032,Diagnostic Medical Sonographers,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,36.22,1383,1813,31.1,430,430,200,630,68%,32%
+439021,Data Entry Keyers,Office and Administrative Support Occupations,High school diploma or equivalent,middle,14.96,4767,3623,-24,-1144,0,570,570,0%,100%
+252011,"Preschool Teachers, Except Special Education","Education, Training, and Library Occupations",Associate's degree,middle,15.45,8120,8944,10.1,824,820,2280,3100,26%,74%
+514032,"Drilling and Boring Machine Tool Setters, Operator",Production Occupations,High school diploma or equivalent,middle,15.42,509,404,-20.6,-105,0,100,100,0%,100%
+514012,Computer Numerically Controlled Machine Tool Progr,Production Occupations,High school diploma or equivalent,middle,25.72,811,1081,33.3,270,270,230,500,54%,46%
+533099,"Motor Vehicle Operators, All Other",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,15.59,2292,2537,10.7,245,240,640,880,27%,73%
+516099,"Textile, Apparel, and Furnishings Workers, All Oth",Production Occupations,High school diploma or equivalent,middle,13.86,350,385,10,35,40,20,60,67%,33%
+514061,"Model Makers, Metal and Plastic",Production Occupations,High school diploma or equivalent,middle,19.07,249,274,10,25,20,50,70,29%,71%
+435053,"Postal Service Mail Sorters, Processors, and Proce",Office and Administrative Support Occupations,High school diploma or equivalent,middle,27.3,2738,1931,-29.5,-807,0,200,200,0%,100%
+419022,Real Estate Sales Agents,Sales and Related Occupations,High school diploma or equivalent,middle,17.99,5350,5880,9.9,530,530,500,1030,51%,49%
+472132,"Insulation Workers, Mechanical",Construction and Extraction Occupations,High school diploma or equivalent,middle,29.89,466,655,40.6,189,190,60,250,76%,24%
+499043,"Maintenance Workers, Machinery","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,19.62,920,1011,9.9,91,90,120,210,43%,57%
+475051,"Rock Splitters, Quarry",Construction and Extraction Occupations,High school diploma or equivalent,middle,18.05,82,90,9.8,8,10,10,20,50%,50%
+319094,Medical Transcriptionists,Healthcare Support Occupations,Postsecondary non-degree award,middle,18.61,3086,3383,9.6,297,300,590,890,34%,66%
+472021,Brickmasons and Blockmasons,Construction and Extraction Occupations,High school diploma or equivalent,middle,31.73,1370,1807,31.9,437,440,150,590,75%,25%
+292081,"Opticians, Dispensing",Healthcare Practitioners and Technical Occupations,High school diploma or equivalent,middle,17.11,1654,1835,10.9,181,180,480,660,27%,73%
+439022,Word Processors and Typists,Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.59,1376,1114,-19,-262,0,50,50,0%,100%
+292021,Dental Hygienists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,34.58,4601,5131,11.5,530,530,1180,1710,31%,69%
+515112,Printing Press Operators,Production Occupations,High school diploma or equivalent,middle,19.73,5831,5432,-6.8,-399,0,1020,1020,0%,100%
+433021,Billing and Posting Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.66,9667,10763,11.3,1096,1100,1780,2880,38%,62%
+472171,Reinforcing Iron and Rebar Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,24.1,342,431,26,89,90,60,150,60%,40%
+514035,"Milling and Planing Machine Setters, Operators, an",Production Occupations,High school diploma or equivalent,middle,17.36,836,780,-6.7,-56,0,160,160,0%,100%
+292012,Medical and Clinical Laboratory Technicians,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,21.34,3277,4044,23.4,767,770,860,1630,47%,53%
+151151,Computer User Support Specialists,Computer and Mathematical Occupations,"Some college, no degree",middle,24.37,10872,12070,11,1198,1200,1710,2910,41%,59%
+292051,Dietetic Technicians,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,13.19,276,305,10.5,29,30,30,60,50%,50%
+413099,"Sales Representatives, Services, All Other",Sales and Related Occupations,High school diploma or equivalent,middle,25.67,15337,17013,10.9,1676,1680,4190,5870,29%,71%
+454023,Log Graders and Scalers,"Farming, Fishing, and Forestry Occupations",High school diploma or equivalent,middle,17.7,79,61,-22.8,-18,0,10,10,0%,100%
+499091,"Coin, Vending, and Amusement Machine Servicers and","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,18.58,756,706,-6.6,-50,0,80,80,0%,100%
+435041,"Meter Readers, Utilities",Office and Administrative Support Occupations,High school diploma or equivalent,middle,23.84,440,347,-21.1,-93,0,110,110,0%,100%
+519122,"Painters, Transportation Equipment",Production Occupations,High school diploma or equivalent,middle,20.84,1089,1207,10.8,118,120,200,320,38%,63%
+413041,Travel Agents,Sales and Related Occupations,High school diploma or equivalent,middle,14.75,1155,906,-21.6,-249,0,180,180,0%,100%
+499062,Medical Equipment Repairers,"Installation, Maintenance, and Repair Occupations",Associate's degree,middle,27.14,1310,1661,26.8,351,350,360,710,49%,51%
+394011,Embalmers,Personal Care and Service Occupations,Postsecondary non-degree award,middle,11.18,73,57,-21.9,-16,0,20,20,0%,100%
+514193,"Plating and Coating Machine Setters, Operators, an",Production Occupations,High school diploma or equivalent,middle,14.7,1205,1127,-6.5,-78,0,230,230,0%,100%
+532031,Flight Attendants,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,16.22,2500,2324,-7,-176,0,410,410,0%,100%
+518013,Power Plant Operators,Production Occupations,High school diploma or equivalent,middle,34.55,1060,976,-7.9,-84,0,330,330,0%,100%
+292071,Medical Records and Health Information Technicians,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,21.24,3501,4089,16.8,588,590,920,1510,39%,61%
+472152,"Plumbers, Pipefitters, and Steamfitters",Construction and Extraction Occupations,High school diploma or equivalent,middle,32.78,7955,9475,19.1,1520,1520,990,2510,61%,39%
+292092,Hearing Aid Specialists,Healthcare Practitioners and Technical Occupations,High school diploma or equivalent,middle,34.7,47,56,19.1,9,10,0,10,100%,0%
+514072,"Molding, Coremaking, and Casting Machine Setters,",Production Occupations,High school diploma or equivalent,middle,16.87,2883,2562,-11.1,-321,0,350,350,0%,100%
+291141,Registered Nurses,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,34.68,55953,65430,16.9,9477,9480,10850,20330,47%,53%
+514021,"Extruding and Drawing Machine Setters, Operators,",Production Occupations,High school diploma or equivalent,middle,17.78,1523,1385,-9.1,-138,0,290,290,0%,100%
+493043,Rail Car Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,27.85,396,379,-4.3,-17,0,110,110,0%,100%
+312011,Occupational Therapy Assistants,Healthcare Support Occupations,Associate's degree,middle,21.64,583,697,19.6,114,110,150,260,42%,58%
+499021,"Heating, Air Conditioning, and Refrigeration Mecha","Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,24.98,2387,2700,13.1,313,310,600,910,34%,66%
+531011,Aircraft Cargo Handling Supervisors,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,19.74,27,24,-11.1,-3,0,10,10,0%,100%
+514081,"Multiple Machine Tool Setters, Operators, and Tend",Production Occupations,High school diploma or equivalent,middle,17.74,1634,1468,-10.2,-166,0,320,320,0%,100%
+319092,Medical Assistants,Healthcare Support Occupations,Postsecondary non-degree award,middle,17.27,8591,10284,19.7,1693,1690,1640,3330,51%,49%
+312012,Occupational Therapy Aides,Healthcare Support Occupations,High school diploma or equivalent,middle,16.22,48,56,16.7,8,10,10,20,50%,50%
+512021,"Coil Winders, Tapers, and Finishers",Production Occupations,High school diploma or equivalent,middle,14.93,434,385,-11.3,-49,0,50,50,0%,100%
+173019,"Drafters, All Other",Architecture and Engineering Occupations,Associate's degree,middle,22.75,607,708,16.6,101,100,80,180,56%,44%
+319093,Medical Equipment Preparers,Healthcare Support Occupations,High school diploma or equivalent,middle,18.29,1703,2040,19.8,337,340,320,660,52%,48%
+499044,Millwrights,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,24.18,1023,1190,16.3,167,170,160,330,52%,48%
+472221,Structural Iron and Steel Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,32.94,552,662,19.9,110,110,180,290,38%,62%
+472121,Glaziers,Construction and Extraction Occupations,High school diploma or equivalent,middle,27.38,549,659,20,110,110,130,240,46%,54%
+499052,Telecommunications Line Installers and Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,18.74,1654,1979,19.6,325,320,410,730,44%,56%
+514011,"Computer-Controlled Machine Tool Operators, Metal",Production Occupations,High school diploma or equivalent,middle,18.07,3989,4691,17.6,702,700,1120,1820,38%,62%
+292053,Psychiatric Technicians,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,16.42,167,198,18.6,31,30,20,50,60%,40%
+514022,"Forging Machine Setters, Operators, and Tenders, M",Production Occupations,High school diploma or equivalent,middle,16.27,347,313,-9.8,-34,0,70,70,0%,100%
+292055,Surgical Technologists,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,24.38,1795,2130,18.7,335,340,180,520,65%,35%
+291124,Radiation Therapists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,37.78,407,484,18.9,77,80,80,160,50%,50%
+499011,Mechanical Door Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,21.38,768,913,18.9,145,140,260,400,35%,65%
+499041,Industrial Machinery Mechanics,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,25.07,6385,7537,18,1152,1150,1840,2990,38%,62%
+291126,Respiratory Therapists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,31.57,1626,1915,17.8,289,290,240,530,55%,45%
+292054,Respiratory Therapy Technicians,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,25.12,96,113,17.7,17,20,10,30,67%,33%
+514034,"Lathe and Turning Machine Tool Setters, Operators,",Production Occupations,High school diploma or equivalent,middle,19.05,927,843,-9.1,-84,0,180,180,0%,100%
+514071,Foundry Mold and Coremakers,Production Occupations,High school diploma or equivalent,middle,20.22,144,130,-9.7,-14,0,20,20,0%,100%
+434199,"Information and Record Clerks, All Other",Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.53,3347,3039,-9.2,-308,0,720,720,0%,100%
+319011,Massage Therapists,Healthcare Support Occupations,Postsecondary non-degree award,middle,19.7,3577,4202,17.5,625,620,380,1000,62%,38%
+319099,"Healthcare Support Workers, All Other",Healthcare Support Occupations,High school diploma or equivalent,middle,15.89,2965,3524,18.9,559,560,570,1130,50%,50%
+537032,Excavating and Loading Machine and Dragline Operat,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,22.23,1353,1589,17.4,236,240,110,350,69%,31%
+516092,Fabric and Apparel Patternmakers,Production Occupations,High school diploma or equivalent,middle,14.85,668,784,17.4,116,120,110,230,52%,48%
+519196,"Paper Goods Machine Setters, Operators, and Tender",Production Occupations,High school diploma or equivalent,middle,18.32,2613,2369,-9.3,-244,0,230,230,0%,100%
+536011,Bridge and Lock Tenders,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,27.17,120,109,-9.2,-11,0,50,50,0%,100%
+436012,Legal Secretaries,Office and Administrative Support Occupations,High school diploma or equivalent,middle,23.51,4405,4000,-9.2,-405,0,530,530,0%,100%
+472111,Electricians,Construction and Extraction Occupations,High school diploma or equivalent,middle,28.91,10857,12597,16,1740,1740,2050,3790,46%,54%
+471011,First-Line Supervisors of Construction Trades and,Construction and Extraction Occupations,High school diploma or equivalent,middle,33.35,7256,8542,17.7,1286,1290,780,2070,62%,38%
+514033,"Grinding, Lapping, Polishing, and Buffing Machine",Production Occupations,High school diploma or equivalent,middle,16.94,1742,1606,-7.8,-136,0,390,390,0%,100%
+432099,"Communications Equipment Operators, All Other",Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.45,23,21,-8.7,-2,0,0,0,,
+292052,Pharmacy Technicians,Healthcare Practitioners and Technical Occupations,High school diploma or equivalent,middle,15.94,6869,7814,13.8,945,940,680,1620,58%,42%
+474099,"Construction and Related Workers, All Other",Construction and Extraction Occupations,High school diploma or equivalent,middle,21.37,678,770,13.6,92,90,120,210,43%,57%
+514062,"Patternmakers, Metal and Plastic",Production Occupations,High school diploma or equivalent,middle,21.79,89,101,13.5,12,10,20,30,33%,67%
+512011,"Aircraft Structure, Surfaces, Rigging, and Systems",Production Occupations,High school diploma or equivalent,middle,22.49,22,27,22.7,5,0,0,0,,
+518099,"Plant and System Operators, All Other",Production Occupations,High school diploma or equivalent,middle,27.26,296,272,-8.1,-24,0,110,110,0%,100%
+292061,Licensed Practical and Licensed Vocational Nurses,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,20.51,17422,20661,18.6,3239,3240,4250,7490,43%,57%
+492098,Security and Fire Alarm Systems Installers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,23.41,841,951,13.1,110,110,170,280,39%,61%
+515111,Prepress Technicians and Workers,Production Occupations,Postsecondary non-degree award,middle,21.93,1733,1470,-15.2,-263,0,440,440,0%,100%
+517042,"Woodworking Machine Setters, Operators, and Tender",Production Occupations,High school diploma or equivalent,middle,14.48,1575,1779,13,204,200,80,280,71%,29%
+396012,Concierges,Personal Care and Service Occupations,High school diploma or equivalent,middle,13.02,288,353,22.6,65,60,70,130,46%,54%
+472031,Carpenters,Construction and Extraction Occupations,High school diploma or equivalent,middle,22.47,19609,24100,22.9,4491,4490,2420,6910,65%,35%
+434151,Order Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.4,3839,3547,-7.6,-292,0,1010,1010,0%,100%
+292031,Cardiovascular Technologists and Technicians,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,31.71,919,1132,23.2,213,210,130,340,62%,38%
+131032,"Insurance Appraisers, Auto Damage",Business and Financial Operations Occupations,Postsecondary non-degree award,middle,30.57,107,99,-7.5,-8,0,20,20,0%,100%
+211094,Community Health Workers,Community and Social Service Occupations,High school diploma or equivalent,middle,17.55,674,760,12.8,86,90,180,270,33%,67%
+534031,Railroad Conductors and Yardmasters,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,29.76,771,713,-7.5,-58,0,230,230,0%,100%
+515113,Print Binding and Finishing Workers,Production Occupations,High school diploma or equivalent,middle,17.7,2275,2107,-7.4,-168,0,400,400,0%,100%
+173023,Electrical and Electronics Engineering Technicians,Architecture and Engineering Occupations,Associate's degree,middle,27.69,2912,2696,-7.4,-216,0,600,600,0%,100%
+472073,Operating Engineers and Other Construction Equipme,Construction and Extraction Occupations,High school diploma or equivalent,middle,27.3,8351,9759,16.9,1408,1410,1850,3260,43%,57%
+292057,Ophthalmic Medical Technicians,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,19.82,676,820,21.3,144,140,70,210,67%,33%
+272032,Choreographers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,24.04,168,189,12.5,21,20,50,70,29%,71%
+474021,Elevator Installers and Repairers,Construction and Extraction Occupations,High school diploma or equivalent,middle,40.56,398,478,20.1,80,80,60,140,57%,43%
+373013,Tree Trimmers and Pruners,Building and Grounds Cleaning and Maintenance Occupations,High school diploma or equivalent,middle,18.44,1161,1345,15.8,184,180,290,470,38%,62%
+439071,"Office Machine Operators, Except Computer",Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.03,1451,1277,-12,-174,0,340,340,0%,100%
+292033,Nuclear Medicine Technologists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,37.53,311,374,20.3,63,60,40,100,60%,40%
+292034,Radiologic Technologists,Healthcare Practitioners and Technical Occupations,Associate's degree,middle,30.23,3841,4637,20.7,796,800,540,1340,60%,40%
+211093,Social and Human Service Assistants,Community and Social Service Occupations,High school diploma or equivalent,middle,15.57,18093,20918,15.6,2825,2820,4730,7550,37%,63%
+499081,Wind Turbine Service Technicians,"Installation, Maintenance, and Repair Occupations","Some college, no degree",middle,26.44,251,303,20.7,52,50,40,90,56%,44%
+194091,"Environmental Science and Protection Technicians,","Life, Physical, and Social Science Occupations",Associate's degree,middle,22.53,504,574,13.9,70,70,200,270,26%,74%
+292099,"Health Technologists and Technicians, All Other",Healthcare Practitioners and Technical Occupations,High school diploma or equivalent,middle,26,1512,1826,20.8,314,310,150,460,67%,33%
+473013,Helpers--Electricians,Construction and Extraction Occupations,High school diploma or equivalent,middle,12.82,215,258,20,43,40,30,70,57%,43%
+514052,"Pourers and Casters, Metal",Production Occupations,High school diploma or equivalent,middle,16.9,349,319,-8.6,-30,0,40,40,0%,100%
+292041,Emergency Medical Technicians and Paramedics,Healthcare Practitioners and Technical Occupations,Postsecondary non-degree award,middle,17.14,4404,5053,14.7,649,650,1200,1850,35%,65%
+372021,Pest Control Workers,Building and Grounds Cleaning and Maintenance Occupations,High school diploma or equivalent,middle,18.2,254,291,14.6,37,40,70,110,36%,64%
+472211,Sheet Metal Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,30.13,2405,2750,14.3,345,340,450,790,43%,57%
+475081,Helpers--Extraction Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,17.31,104,127,22.1,23,20,30,50,40%,60%
+439011,Computer Operators,Office and Administrative Support Occupations,High school diploma or equivalent,middle,20.5,909,784,-13.8,-125,0,90,90,0%,100%
+319097,Phlebotomists,Healthcare Support Occupations,Postsecondary non-degree award,middle,16.37,2449,3000,22.5,551,550,470,1020,54%,46%
+493011,Aircraft Mechanics and Service Technicians,"Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,26.57,1269,1164,-8.3,-105,0,340,340,0%,100%
+519032,"Cutting and Slicing Machine Setters, Operators, an",Production Occupations,High school diploma or equivalent,middle,19.45,2102,1920,-8.7,-182,0,350,350,0%,100%
+491011,"First-Line Supervisors of Mechanics, Installers, a","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,29.71,7336,7620,3.9,284,280,1980,2260,12%,88%
+394031,"Morticians, Undertakers, and Funeral Directors",Personal Care and Service Occupations,Associate's degree,middle,28.76,296,306,3.4,10,10,60,70,14%,86%
+516093,Upholsterers,Production Occupations,High school diploma or equivalent,middle,16.59,723,725,0.3,2,0,190,190,0%,100%
+173011,Architectural and Civil Drafters,Architecture and Engineering Occupations,Associate's degree,middle,25.02,1590,1595,0.3,5,0,210,210,0%,100%
+274099,"Media and Communication Equipment Workers, All Oth","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,22.87,235,236,0.4,1,0,30,30,0%,100%
+232091,Court Reporters,Legal Occupations,Postsecondary non-degree award,middle,32.17,385,401,4.2,16,20,60,80,25%,75%
+271013,"Fine Artists, Including Painters, Sculptors, and I","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,24.98,192,193,0.5,1,0,50,50,0%,100%
+411011,First-Line Supervisors of Retail Sales Workers,Sales and Related Occupations,High school diploma or equivalent,middle,18.37,24804,25841,4.2,1037,1040,5400,6440,16%,84%
+434061,"Eligibility Interviewers, Government Programs",Office and Administrative Support Occupations,High school diploma or equivalent,middle,22.2,3183,3311,4,128,130,640,770,17%,83%
+173026,Industrial Engineering Technicians,Architecture and Engineering Occupations,Associate's degree,middle,24.31,2951,2965,0.5,14,10,610,620,2%,98%
+435031,"Police, Fire, and Ambulance Dispatchers",Office and Administrative Support Occupations,High school diploma or equivalent,middle,23.39,1526,1587,4,61,60,440,500,12%,88%
+511011,First-Line Supervisors of Production and Operating,Production Occupations,Postsecondary non-degree award,middle,27.24,13141,13167,0.2,26,30,1850,1880,2%,98%
+512092,Team Assemblers,Production Occupations,High school diploma or equivalent,middle,14.3,17381,18057,3.9,676,680,2750,3430,20%,80%
+119061,Funeral Service Managers,Management Occupations,Associate's degree,middle,46.94,110,115,4.5,5,0,20,20,0%,100%
+333021,Detectives and Criminal Investigators,Protective Service Occupations,High school diploma or equivalent,middle,33.65,1284,1294,0.8,10,10,280,290,3%,97%
+254031,Library Technicians,"Education, Training, and Library Occupations",Postsecondary non-degree award,middle,18.31,1952,2026,3.8,74,70,1050,1120,6%,94%
+393092,Costume Attendants,Personal Care and Service Occupations,High school diploma or equivalent,middle,21.87,26,27,3.8,1,0,10,10,0%,100%
+113071,"Transportation, Storage, and Distribution Managers",Management Occupations,High school diploma or equivalent,middle,42.12,2375,2393,0.8,18,20,540,560,4%,96%
+493051,Motorboat Mechanics and Service Technicians,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,18.44,565,586,3.7,21,20,120,140,14%,86%
+517011,Cabinetmakers and Bench Carpenters,Production Occupations,High school diploma or equivalent,middle,18.21,2523,2614,3.6,91,90,200,290,31%,69%
+119051,Food Service Managers,Management Occupations,High school diploma or equivalent,middle,22.77,5824,5873,0.8,49,50,1040,1090,5%,95%
+512093,Timing Device Assemblers and Adjusters,Production Occupations,High school diploma or equivalent,middle,15.18,55,57,3.6,2,0,10,10,0%,100%
+499069,"Precision Instrument and Equipment Repairers, All","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,26.06,343,346,0.9,3,0,100,100,0%,100%
+413011,Advertising Sales Agents,Sales and Related Occupations,High school diploma or equivalent,middle,23.51,3070,2934,-4.4,-136,0,940,940,0%,100%
+492093,Electrical and Electronics Installers and Repairer,"Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,28.03,156,157,0.6,1,0,30,30,0%,100%
+514191,"Heat Treating Equipment Setters, Operators, and Te",Production Occupations,High school diploma or equivalent,middle,17.93,156,156,0,0,0,30,30,0%,100%
+434021,Correspondence Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.45,39,41,5.1,2,0,10,10,0%,100%
+173012,Electrical and Electronics Drafters,Architecture and Engineering Occupations,Associate's degree,middle,23.85,631,626,-0.8,-5,0,80,80,0%,100%
+411012,First-Line Supervisors of Non-Retail Sales Workers,Sales and Related Occupations,High school diploma or equivalent,middle,33.47,6390,6341,-0.8,-49,0,820,820,0%,100%
+514199,"Metal Workers and Plastic Workers, All Other",Production Occupations,High school diploma or equivalent,middle,14.47,680,676,-0.6,-4,0,70,70,0%,100%
+499031,Home Appliance Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,21.81,892,887,-0.6,-5,0,280,280,0%,100%
+519121,"Coating, Painting, and Spraying Machine Setters, O",Production Occupations,High school diploma or equivalent,middle,17.11,2485,2475,-0.4,-10,0,450,450,0%,100%
+232093,"Title Examiners, Abstractors, and Searchers",Legal Occupations,High school diploma or equivalent,middle,21.81,1110,1163,4.8,53,50,180,230,22%,78%
+414012,"Sales Representatives, Wholesale and Manufacturing",Sales and Related Occupations,High school diploma or equivalent,middle,29.66,31386,32885,4.8,1499,1500,6120,7620,20%,80%
+492094,"Electrical and Electronics Repairers, Commercial a","Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,28.92,599,598,-0.2,-1,0,120,120,0%,100%
+333031,Fish and Game Wardens,Protective Service Occupations,High school diploma or equivalent,middle,19.66,13,13,0,0,0,0,0,,
+493023,Automotive Service Technicians and Mechanics,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,18.95,12622,13179,4.4,557,560,3190,3750,15%,85%
+493031,Bus and Truck Mechanics and Diesel Engine Speciali,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,22.11,5896,6171,4.7,275,280,1260,1540,18%,82%
+194011,Agricultural and Food Science Technicians,"Life, Physical, and Social Science Occupations",Associate's degree,middle,18.54,823,830,0.9,7,10,300,310,3%,97%
+518021,Stationary Engineers and Boiler Operators,Production Occupations,High school diploma or equivalent,middle,27.29,1791,1875,4.7,84,80,540,620,13%,87%
+534013,"Rail Yard Engineers, Dinkey Operators, and Hostler",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,16.22,107,112,4.7,5,0,30,30,0%,100%
+499094,Locksmiths and Safe Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,18.49,419,419,0,0,0,140,140,0%,100%
+519051,"Furnace, Kiln, Oven, Drier, and Kettle Operators a",Production Occupations,High school diploma or equivalent,middle,19.62,605,633,4.6,28,30,140,170,18%,82%
+373012,"Pesticide Handlers, Sprayers, and Applicators, Veg",Building and Grounds Cleaning and Maintenance Occupations,High school diploma or equivalent,middle,15.65,1398,1462,4.6,64,60,350,410,15%,85%
+531031,First-Line Supervisors of Transportation and Mater,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,26.29,3688,3857,4.6,169,170,1010,1180,14%,86%
+339099,"Protective Service Workers, All Other",Protective Service Occupations,High school diploma or equivalent,middle,15.36,3234,3382,4.6,148,150,2210,2360,6%,94%
+435071,"Shipping, Receiving, and Traffic Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.01,13551,13563,0.1,12,10,3560,3570,0%,100%
+272011,Actors,"Arts, Design, Entertainment, Sports, and Media Occupations","Some college, no degree",middle,9.39,905,946,4.5,41,40,290,330,12%,88%
+533033,Light Truck or Delivery Services Drivers,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,15.91,14787,14795,0.1,8,10,2360,2370,0%,100%
+319091,Dental Assistants,Healthcare Support Occupations,Postsecondary non-degree award,middle,21.17,5149,5390,4.7,241,240,1070,1310,18%,82%
+514111,Tool and Die Makers,Production Occupations,High school diploma or equivalent,middle,26.19,1786,1821,2,35,40,110,150,27%,73%
+272099,"Entertainers and Performers, Sports and Related Wo","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,9.48,353,365,3.4,12,10,40,50,20%,80%
+493092,Recreational Vehicle Service Technicians,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,16.61,478,484,1.3,6,10,170,180,6%,94%
+274021,Photographers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,18.11,2617,2676,2.3,59,60,280,340,18%,82%
+474051,Highway Maintenance Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,22.86,4845,4957,2.3,112,110,720,830,13%,87%
+536051,Transportation Inspectors,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,46.77,213,216,1.4,3,0,70,70,0%,100%
+331012,First-Line Supervisors of Police and Detectives,Protective Service Occupations,High school diploma or equivalent,middle,41.17,2434,2489,2.3,55,60,720,780,8%,92%
+351011,Chefs and Head Cooks,Food Preparation and Serving Related Occupations,High school diploma or equivalent,middle,19.96,1680,1716,2.1,36,40,270,310,13%,87%
+331011,First-Line Supervisors of Correctional Officers,Protective Service Occupations,High school diploma or equivalent,middle,34.7,708,718,1.4,10,10,240,250,4%,96%
+173027,Mechanical Engineering Technicians,Architecture and Engineering Occupations,Associate's degree,middle,26.02,1748,1784,2.1,36,40,360,400,10%,90%
+439061,"Office Clerks, General",Office and Administrative Support Occupations,High school diploma or equivalent,middle,15.7,58107,59326,2.1,1219,1220,12210,13430,9%,91%
+451011,"First-Line Supervisors of Farming, Fishing, and Fo","Farming, Fishing, and Forestry Occupations",High school diploma or equivalent,middle,23.86,584,598,2.4,14,10,120,130,8%,92%
+519194,Etchers and Engravers,Production Occupations,High school diploma or equivalent,middle,16.53,96,98,2.1,2,0,20,20,0%,100%
+519041,"Extruding, Forming, Pressing, and Compacting Machi",Production Occupations,High school diploma or equivalent,middle,16.96,1254,1284,2.4,30,30,340,370,8%,92%
+272042,Musicians and Singers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,23.75,3452,3505,1.5,53,50,930,980,5%,95%
+131031,"Claims Adjusters, Examiners, and Investigators",Business and Financial Operations Occupations,High school diploma or equivalent,middle,30.14,4245,4315,1.6,70,70,980,1050,7%,93%
+131023,"Purchasing Agents, Except Wholesale, Retail, and F",Business and Financial Operations Occupations,High school diploma or equivalent,middle,28.82,5902,6020,2,118,120,1070,1190,10%,90%
+132082,Tax Preparers,Business and Financial Operations Occupations,High school diploma or equivalent,middle,19.5,1526,1556,2,30,30,310,340,9%,91%
+339011,Animal Control Workers,Protective Service Occupations,High school diploma or equivalent,middle,17.81,121,123,1.7,2,0,30,30,0%,100%
+151152,Computer Network Support Specialists,Computer and Mathematical Occupations,Associate's degree,middle,29.36,3326,3381,1.7,55,60,520,580,10%,90%
+274013,Radio Operators,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,24.01,148,151,2,3,0,30,30,0%,100%
+173029,"Engineering Technicians, Except Drafters, All Othe",Architecture and Engineering Occupations,Associate's degree,middle,27.56,1148,1170,1.9,22,20,240,260,8%,92%
+531021,"First-Line Supervisors of Helpers, Laborers, and M",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,24.19,2936,2993,1.9,57,60,810,870,7%,93%
+519193,Cooling and Freezing Equipment Operators and Tende,Production Occupations,High school diploma or equivalent,middle,16.43,156,159,1.9,3,0,40,40,0%,100%
+271012,Craft Artists,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,23.05,96,98,2.1,2,0,20,20,0%,100%
+518091,Chemical Plant and System Operators,Production Occupations,High school diploma or equivalent,middle,22.21,106,109,2.8,3,0,40,40,0%,100%
+519081,Dental Laboratory Technicians,Production Occupations,High school diploma or equivalent,middle,16.84,780,787,0.9,7,10,260,270,4%,96%
+499045,"Refractory Materials Repairers, Except Brickmasons","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,21.84,60,62,3.3,2,0,20,20,0%,100%
+518012,Power Distributors and Dispatchers,Production Occupations,High school diploma or equivalent,middle,41.78,299,302,1,3,0,90,90,0%,100%
+519082,Medical Appliance Technicians,Production Occupations,High school diploma or equivalent,middle,17.21,456,470,3.1,14,10,150,160,6%,94%
+493052,Motorcycle Mechanics,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,15.12,358,362,1.1,4,0,80,80,0%,100%
+391011,Gaming Supervisors,Personal Care and Service Occupations,High school diploma or equivalent,middle,14.5,771,794,3,23,20,160,180,11%,89%
+339093,Transportation Security Screeners* (federal only),Protective Service Occupations,High school diploma or equivalent,middle,18.44,827,852,3,25,20,190,210,10%,90%
+517099,"Woodworkers, All Other",Production Occupations,High school diploma or equivalent,middle,12.02,433,446,3,13,10,140,150,7%,93%
+492095,"Electrical and Electronics Repairers, Powerhouse,","Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,35.29,321,330,2.8,9,10,60,70,14%,86%
+492022,Telecommunications Equipment Installers and Repair,"Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,29.38,3701,3803,2.8,102,100,510,610,16%,84%
+119071,Gaming Managers,Management Occupations,High school diploma or equivalent,middle,34.86,123,126,2.4,3,0,30,30,0%,100%
+519021,"Crushing, Grinding, and Polishing Machine Setters,",Production Occupations,High school diploma or equivalent,middle,19.2,1102,1133,2.8,31,30,310,340,9%,91%
+119081,Lodging Managers,Management Occupations,High school diploma or equivalent,middle,19.16,1246,1234,-1,-12,0,380,380,0%,100%
+332021,Fire Inspectors and Investigators,Protective Service Occupations,High school diploma or equivalent,middle,31.75,168,170,1.2,2,0,50,50,0%,100%
+333012,Correctional Officers and Jailers,Protective Service Occupations,High school diploma or equivalent,middle,22.54,5186,5247,1.2,61,60,1380,1440,4%,96%
+518031,Water and Wastewater Treatment Plant and System Op,Production Occupations,High school diploma or equivalent,middle,24.14,3140,3221,2.6,81,80,1100,1180,7%,93%
+333011,Bailiffs,Protective Service Occupations,High school diploma or equivalent,middle,17.05,155,159,2.6,4,0,40,40,0%,100%
+339031,Gaming Surveillance Officers and Gaming Investigat,Protective Service Occupations,High school diploma or equivalent,middle,14.9,277,284,2.5,7,10,40,50,20%,80%
+517021,Furniture Finishers,Production Occupations,High school diploma or equivalent,middle,15.68,482,494,2.5,12,10,80,90,11%,89%
+332011,Firefighters,Protective Service Occupations,Postsecondary non-degree award,middle,14.29,5252,5382,2.5,130,130,1430,1560,8%,92%
+333051,Police and Sheriff's Patrol Officers,Protective Service Occupations,High school diploma or equivalent,middle,29.49,9375,9610,2.5,235,240,2940,3180,8%,92%
+331021,First-Line Supervisors of Fire Fighting and Preven,Protective Service Occupations,Postsecondary non-degree award,middle,33.03,836,857,2.5,21,20,360,380,5%,95%
+274014,Sound Engineering Technicians,"Arts, Design, Entertainment, Sports, and Media Occupations",Postsecondary non-degree award,middle,24.1,202,207,2.5,5,0,40,40,0%,100%
+492011,"Computer, Automated Teller, and Office Machine Rep","Installation, Maintenance, and Repair Occupations","Some college, no degree",middle,20.01,2317,2342,1.1,25,20,480,500,4%,96%
+493042,"Mobile Heavy Equipment Mechanics, Except Engines","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,26.27,3522,3783,7.4,261,260,1020,1280,20%,80%
+532012,Commercial Pilots,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,16.22,390,410,5.1,20,20,110,130,15%,85%
+536099,"Transportation Workers, All Other",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,12.18,368,397,7.9,29,30,140,170,18%,82%
+533021,"Bus Drivers, Transit and Intercity",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,16.22,3217,3468,7.8,251,250,590,840,30%,70%
+433051,Payroll and Timekeeping Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,20.84,4379,4722,7.8,343,340,960,1300,26%,74%
+371011,First-Line Supervisors of Housekeeping and Janitor,Building and Grounds Cleaning and Maintenance Occupations,High school diploma or equivalent,middle,18.94,3999,4309,7.8,310,310,960,1270,24%,76%
+534011,Locomotive Engineers,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,27.19,849,807,-4.9,-42,0,260,260,0%,100%
+519011,Chemical Equipment Operators and Tenders,Production Occupations,High school diploma or equivalent,middle,20.24,311,296,-4.8,-15,0,110,110,0%,100%
+119013,"Farmers, Ranchers, and Other Agricultural Managers",Management Occupations,High school diploma or equivalent,middle,34.87,46489,44279,-4.8,-2210,0,7500,7500,0%,100%
+351012,First-Line Supervisors of Food Preparation and Ser,Food Preparation and Serving Related Occupations,High school diploma or equivalent,middle,14.17,14541,15642,7.6,1101,1100,4100,5200,21%,79%
+274011,Audio and Video Equipment Technicians,"Arts, Design, Entertainment, Sports, and Media Occupations",Postsecondary non-degree award,middle,19.3,832,894,7.5,62,60,150,210,29%,71%
+419099,"Sales and Related Workers, All Other",Sales and Related Occupations,High school diploma or equivalent,middle,18.33,8641,9325,7.9,684,680,1690,2370,29%,71%
+173021,Aerospace Engineering and Operations Technicians,Architecture and Engineering Occupations,Associate's degree,middle,29.4,24,23,-4.2,-1,0,0,0,,
+454022,Logging Equipment Operators,"Farming, Fishing, and Forestry Occupations",High school diploma or equivalent,middle,17.19,1060,1145,8,85,80,160,240,33%,67%
+433099,"Financial Clerks, All Other",Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.64,611,656,7.4,45,40,170,210,19%,81%
+434141,New Accounts Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.61,1219,1168,-4.2,-51,0,320,320,0%,100%
+519071,Jewelers and Precious Stone and Metal Workers,Production Occupations,High school diploma or equivalent,middle,19.19,437,419,-4.1,-18,0,90,90,0%,100%
+493021,Automotive Body and Related Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,20.94,2707,2902,7.2,195,200,520,720,28%,72%
+439031,Desktop Publishers,Office and Administrative Support Occupations,Associate's degree,middle,22.75,592,568,-4.1,-24,0,110,110,0%,100%
+433031,"Bookkeeping, Accounting, and Auditing Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,middle,18.39,39125,41904,7.1,2779,2780,3590,6370,44%,56%
+273099,"Media and Communication Workers, All Other","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,24.99,2055,2200,7.1,145,140,280,420,33%,67%
+533032,Heavy and Tractor-Trailer Truck Drivers,Transportation and Material Moving Occupations,Postsecondary non-degree award,middle,19.97,35935,38478,7.1,2543,2540,5750,8290,31%,69%
+514031,"Cutting, Punching, and Press Machine Setters, Oper",Production Occupations,High school diploma or equivalent,middle,15.53,6262,6006,-4.1,-256,0,530,530,0%,100%
+536041,Traffic Technicians,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,22.59,98,105,7.1,7,10,40,50,20%,80%
+434031,"Court, Municipal, and License Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,middle,20.89,2794,3001,7.4,207,210,430,640,33%,67%
+371012,"First-Line Supervisors of Landscaping, Lawn Servic",Building and Grounds Cleaning and Maintenance Occupations,High school diploma or equivalent,middle,21.5,1715,1862,8.6,147,150,200,350,43%,57%
+472042,"Floor Layers, Except Carpet, Wood, and Hard Tiles",Construction and Extraction Occupations,High school diploma or equivalent,middle,18.03,146,160,9.6,14,10,30,40,25%,75%
+518092,Gas Plant Operators,Production Occupations,High school diploma or equivalent,middle,28.28,248,233,-6,-15,0,90,90,0%,100%
+514023,"Rolling Machine Setters, Operators, and Tenders, M",Production Occupations,High school diploma or equivalent,middle,15.67,834,784,-6,-50,0,160,160,0%,100%
+532022,Airfield Operations Specialists,Transportation and Material Moving Occupations,High school diploma or equivalent,middle,25.93,69,65,-5.8,-4,0,30,30,0%,100%
+514192,"Layout Workers, Metal and Plastic",Production Occupations,High school diploma or equivalent,middle,21.72,42,46,9.5,4,0,10,10,0%,100%
+512022,Electrical and Electronic Equipment Assemblers,Production Occupations,High school diploma or equivalent,middle,15.43,5230,4925,-5.8,-305,0,630,630,0%,100%
+435011,Cargo and Freight Agents,Office and Administrative Support Occupations,High school diploma or equivalent,middle,20.44,1144,1249,9.2,105,100,310,410,24%,76%
+194093,Forest and Conservation Technicians,"Life, Physical, and Social Science Occupations",Associate's degree,middle,20.41,594,560,-5.7,-34,0,230,230,0%,100%
+299012,Occupational Health and Safety Technicians,Healthcare Practitioners and Technical Occupations,High school diploma or equivalent,middle,24.05,99,108,9.1,9,10,30,40,25%,75%
+514194,"Tool Grinders, Filers, and Sharpeners",Production Occupations,High school diploma or equivalent,middle,19.42,158,172,8.9,14,10,30,40,25%,75%
+272031,Dancers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,17.5,554,527,-4.9,-27,0,160,160,0%,100%
+519191,Adhesive Bonding Machine Operators and Tenders,Production Occupations,High school diploma or equivalent,middle,15.84,449,488,8.7,39,40,110,150,27%,73%
+533022,"Bus Drivers, School or Special Client",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,16.16,13048,13959,7,911,910,2390,3300,28%,72%
+519195,"Molders, Shapers, and Casters, Except Metal and Pl",Production Occupations,High school diploma or equivalent,middle,16.12,467,507,8.6,40,40,150,190,21%,79%
+474011,Construction and Building Inspectors,Construction and Extraction Occupations,High school diploma or equivalent,middle,31.26,1749,1898,8.5,149,150,410,560,27%,73%
+399031,Fitness Trainers and Aerobics Instructors,Personal Care and Service Occupations,High school diploma or equivalent,middle,17.2,4464,4840,8.4,376,380,530,910,42%,58%
+173022,Civil Engineering Technicians,Architecture and Engineering Occupations,Associate's degree,middle,28.58,2282,2165,-5.1,-117,0,470,470,0%,100%
+173031,Surveying and Mapping Technicians,Architecture and Engineering Occupations,High school diploma or equivalent,middle,24.53,695,753,8.3,58,60,120,180,33%,67%
+413021,Insurance Sales Agents,Sales and Related Occupations,High school diploma or equivalent,middle,29.11,7540,8165,8.3,625,620,1770,2390,26%,74%
+433011,Bill and Account Collectors,Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.12,6520,7055,8.2,535,540,1830,2370,23%,77%
+493041,Farm Equipment Mechanics and Service Technicians,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,19.41,2299,2486,8.1,187,190,660,850,22%,78%
+272021,Athletes and Sports Competitors,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,22.31,593,641,8.1,48,50,180,230,22%,78%
+512091,Fiberglass Laminators and Fabricators,Production Occupations,High school diploma or equivalent,middle,14.98,75,81,8,6,10,10,20,50%,50%
+391021,First-Line Supervisors of Personal Service Workers,Personal Care and Service Occupations,High school diploma or equivalent,middle,16.72,3907,4249,8.8,342,340,720,1060,32%,68%
+331099,First-Line Supervisors of Protective Service Worke,Protective Service Occupations,High school diploma or equivalent,middle,23.66,1155,1217,5.4,62,60,260,320,19%,81%
+435111,"Weighers, Measurers, Checkers, and Samplers, Recor",Office and Administrative Support Occupations,High school diploma or equivalent,middle,16.95,899,953,6,54,50,200,250,20%,80%
+439041,Insurance Claims and Policy Processing Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.95,2741,2906,6,165,160,730,890,18%,82%
+499071,"Maintenance and Repair Workers, General","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,19.96,19740,20889,5.8,1149,1150,3790,4940,23%,77%
+439199,"Office and Administrative Support Workers, All Oth",Office and Administrative Support Occupations,High school diploma or equivalent,middle,15.27,6109,6466,5.8,357,360,1710,2070,17%,83%
+474041,Hazardous Materials Removal Workers,Construction and Extraction Occupations,High school diploma or equivalent,middle,25.62,454,445,-2,-9,0,100,100,0%,100%
+534099,"Rail Transportation Workers, All Other",Transportation and Material Moving Occupations,High school diploma or equivalent,middle,17.87,52,55,5.8,3,0,20,20,0%,100%
+273012,Public Address System and Other Announcers,"Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,13.84,741,727,-1.9,-14,0,150,150,0%,100%
+391012,Slot Supervisors,Personal Care and Service Occupations,High school diploma or equivalent,middle,17.28,273,268,-1.8,-5,0,60,60,0%,100%
+435061,"Production, Planning, and Expediting Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,middle,22.23,5583,5485,-1.8,-98,0,1390,1390,0%,100%
+433061,Procurement Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,18.27,1936,2045,5.6,109,110,700,810,14%,86%
+475031,"Explosives Workers, Ordnance Handling Experts, and",Construction and Extraction Occupations,High school diploma or equivalent,middle,26.13,14,15,7.1,1,0,0,0,,
+492021,"Radio, Cellular, and Tower Equipment Installers an","Installation, Maintenance, and Repair Occupations",Associate's degree,middle,28.22,148,156,5.4,8,10,20,30,33%,67%
+519023,"Mixing and Blending Machine Setters, Operators, an",Production Occupations,High school diploma or equivalent,middle,18.36,1983,1933,-2.5,-50,0,560,560,0%,100%
+173024,Electro-Mechanical Technicians,Architecture and Engineering Occupations,Associate's degree,middle,27.09,333,329,-1.2,-4,0,70,70,0%,100%
+512041,Structural Metal Fabricators and Fitters,Production Occupations,High school diploma or equivalent,middle,19.89,1621,1709,5.4,88,90,650,740,12%,88%
+131021,"Buyers and Purchasing Agents, Farm Products",Business and Financial Operations Occupations,High school diploma or equivalent,middle,28.48,357,376,5.3,19,20,70,90,22%,78%
+512031,Engine and Other Machine Assemblers,Production Occupations,High school diploma or equivalent,middle,17.58,183,181,-1.1,-2,0,30,30,0%,100%
+519061,"Inspectors, Testers, Sorters, Samplers, and Weighe",Production Occupations,High school diploma or equivalent,middle,18.04,8295,8732,5.3,437,440,1820,2260,19%,81%
+472022,Stonemasons,Construction and Extraction Occupations,High school diploma or equivalent,middle,15.7,13,19,46.2,6,10,0,10,100%,0%
+434161,"Human Resources Assistants, Except Payroll and Tim",Office and Administrative Support Occupations,High school diploma or equivalent,middle,18.66,3489,3452,-1.1,-37,0,880,880,0%,100%
+435051,Postal Service Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,27.01,1048,716,-31.7,-332,0,160,160,0%,100%
+194061,Social Science Research Assistants,"Life, Physical, and Social Science Occupations",Associate's degree,middle,21.56,77,81,5.2,4,0,30,30,0%,100%
+434041,"Credit Authorizers, Checkers, and Clerks",Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.58,742,696,-6.2,-46,0,90,90,0%,100%
+499096,Riggers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,29.63,63,62,-1.6,-1,0,20,20,0%,100%
+434051,Customer Service Representatives,Office and Administrative Support Occupations,High school diploma or equivalent,middle,17.53,47996,51214,6.7,3218,3220,13060,16280,20%,80%
+513093,Food Cooking Machine Operators and Tenders,Production Occupations,High school diploma or equivalent,middle,14.04,1448,1435,-0.9,-13,0,380,380,0%,100%
+173013,Mechanical Drafters,Architecture and Engineering Occupations,Associate's degree,middle,27.01,2835,2721,-4,-114,0,380,380,0%,100%
+499012,"Control and Valve Installers and Repairers, Except","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,32.66,580,558,-3.8,-22,0,200,200,0%,100%
+271019,"Artists and Related Workers, All Other","Arts, Design, Entertainment, Sports, and Media Occupations",High school diploma or equivalent,middle,24.44,136,131,-3.7,-5,0,30,30,0%,100%
+493053,Outdoor Power Equipment and Other Small Engine Mec,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,14.59,569,608,6.9,39,40,120,160,25%,75%
+474061,Rail-Track Laying and Maintenance Equipment Operat,Construction and Extraction Occupations,High school diploma or equivalent,middle,28.73,788,842,6.9,54,50,160,210,24%,76%
+434131,Loan Interviewers and Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.06,5553,5930,6.8,377,380,370,750,51%,49%
+436011,Executive Secretaries and Executive Administrative,Office and Administrative Support Occupations,High school diploma or equivalent,middle,23.95,22898,22079,-3.6,-819,0,2760,2760,0%,100%
+499051,Electrical Power-Line Installers and Repairers,"Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,36.53,3156,3372,6.8,216,220,1090,1310,17%,83%
+492097,Electronic Home Entertainment Equipment Installers,"Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,18.85,318,307,-3.5,-11,0,110,110,0%,100%
+492096,"Electronic Equipment Installers and Repairers, Mot","Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,16.04,306,299,-2.3,-7,0,30,30,0%,100%
+397012,Travel Guides,Personal Care and Service Occupations,High school diploma or equivalent,middle,13.88,34,33,-2.9,-1,0,20,20,0%,100%
+512023,Electromechanical Equipment Assemblers,Production Occupations,High school diploma or equivalent,middle,16.15,2336,2279,-2.4,-57,0,280,280,0%,100%
+274012,Broadcast Technicians,"Arts, Design, Entertainment, Sports, and Media Occupations",Associate's degree,middle,15.61,584,567,-2.9,-17,0,110,110,0%,100%
+514121,"Welders, Cutters, Solderers, and Brazers",Production Occupations,High school diploma or equivalent,middle,19.47,8167,8707,6.6,540,540,2000,2540,21%,79%
+532021,Air Traffic Controllers,Transportation and Material Moving Occupations,Associate's degree,middle,68.05,653,634,-2.9,-19,0,290,290,0%,100%
+499099,"Installation, Maintenance, and Repair Workers, All","Installation, Maintenance, and Repair Occupations",High school diploma or equivalent,middle,19.94,4559,4856,6.5,297,300,760,1060,28%,72%
+492092,"Electric Motor, Power Tool, and Related Repairers","Installation, Maintenance, and Repair Occupations",Postsecondary non-degree award,middle,18.91,432,420,-2.8,-12,0,80,80,0%,100%
+431011,First-Line Supervisors of Office and Administrativ,Office and Administrative Support Occupations,High school diploma or equivalent,middle,26.31,23905,25433,6.4,1528,1530,5670,7200,21%,79%
+435032,"Dispatchers, Except Police, Fire, and Ambulance",Office and Administrative Support Occupations,High school diploma or equivalent,middle,19.13,3833,4078,6.4,245,240,1110,1350,18%,82%
+519083,Ophthalmic Laboratory Technicians,Production Occupations,High school diploma or equivalent,middle,14.38,1095,1165,6.4,70,70,370,440,16%,84%
+333041,Parking Enforcement Workers,Protective Service Occupations,High school diploma or equivalent,middle,16.6,78,76,-2.6,-2,0,20,20,0%,100%
+434011,Brokerage Clerks,Office and Administrative Support Occupations,High school diploma or equivalent,middle,21.58,1874,1828,-2.5,-46,0,480,480,0%,100%
+492091,Avionics Technicians,"Installation, Maintenance, and Repair Occupations",Associate's degree,middle,27.16,143,153,7,10,10,30,40,25%,75%
+514051,Metal-Refining Furnace Operators and Tenders,Production Occupations,High school diploma or equivalent,middle,20.24,131,127,-3.1,-4,0,20,20,0%,100%
