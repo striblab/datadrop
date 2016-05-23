@@ -13,7 +13,7 @@
   <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
   
   <style>
-     body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; overflow-y:hidden; }
+     body, #filter, #filter input:focus, p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; overflow-y:hidden; }
      #wrapper { text-align:center; margin-left:auto; margin-right:auto; }
      #chart .c3-line { stroke-width:6px !important; }
      #leftSide { float:left; width:100%; position:relative; margin-right:auto; margin-left:auto; text-align:center; }
@@ -21,7 +21,7 @@
      .switch { padding:10px; display:inline-block; text-align:center; width:32.5%; background-color:#fff; font-weight:900; font-size:0.8em; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; margin:0 !important; }
      .switch:hover, .selected { background-color:#333 !important; color:#fff !important; cursor:pointer; margin:0 !important;  }
      #filter input:focus { width: 100% !important; }
-     #filter input { width: 100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+     #filter input { font-size:.85em; width:100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
      .scrollToTop { color:steelblue !important; text-align:center; }
      .scrollToTop:hover { color:#333 !important; cursor:pointer; }
 
@@ -75,15 +75,15 @@
 
 <body>
   <div id="wrapper">
-
+<div><strong>Filter by skill level</strong></div>
 <button class="switch highSwatch" data="high">High Skill</button><button class="switch middleSwatch" data="middle">Medium Skill</button><button class="switch lowSwatch" data="low">Low Skill</button>
 <div class="breaker"></div>
 <span class="scrollToTop">Return to Top</span> | <span class="zoom">Reset View</span>
 <div class="breaker"></div>
 
-<div id="filter"><input type="search" id="filter_box" placeholder="Search table by keyword"></input></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Search table by occupation or industry, then scroll through list"></input></div>
 
-<div id="heading"><div class='tableHead partyBar hSort' data="title">Job Title</div><div class='tableHead hSort' data="group">Industry</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
+<div id="heading"><div class='tableHead partyBar hSort' data="title">Occupation</div><div class='tableHead hSort' data="group">Industry</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
 <div id="jobsList" class="table" data="finance">
 </div>
 
