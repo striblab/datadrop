@@ -35,7 +35,7 @@
      .tableCell { display:table-cell; padding:9px; border-bottom:1px solid #ddd; width:25%; font-family:"Benton Sans"; height:60px !important; vertical-align:middle;} 
      .pct { font-size:1.5em; font-weight:900; }
      .tableBreak { clear:both; display:block; }
-     .table { text-align:center; width:100%; overflow-x:hidden; overflow-y:auto; height:670px; }
+     .table { text-align:center; width:100%; overflow-x:hidden; overflow-y:auto; height:400px; }
      .hSort:hover { background-color:#333; cursor:pointer; color:#fff !important; } 
 
      .card { width:100% !important; height:auto !important; /*min-height:100% !important;*/ display:table-row; }
@@ -56,6 +56,7 @@
 
      @media (max-width:450px) { 
       .tableCell { padding:9px; } 
+      .pct { font-size:1.2em; }
       .switch { width:33%; }
       #jobsList, #heading { font-size:.58em !important; }
       #heading { margin-left:0px; }
@@ -73,7 +74,7 @@
 
 <div id="filter"><input type="search" id="filter_box" placeholder="Search table by keyword"></input></div>
 
-<div id="heading"><div class='tableHead partyBar hSort selected' data="title">Job Title</div><div class='tableHead hSort' data="group">Industry</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort' data="pct">% Change</div></div>
+<div id="heading"><div class='tableHead partyBar hSort' data="title">Job Title</div><div class='tableHead hSort' data="group">Industry</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
 <div id="jobsList" class="table" data="finance">
 </div>
 
@@ -124,8 +125,8 @@ function tableSort(container,party,data,candidate,sorted){
         if (sorted == "ascend") { return d3.ascending(a.PercentChange, b.PercentChange); }
      }
            if (candidate == "title") { 
-        if (sorted == "descend") { return d3.descending(a.Title, b.Title); }
-        if (sorted == "ascend") { return d3.ascending(a.Title, b.Title); }
+        if (sorted == "descend") { return d3.ascending(a.Title, b.Title); }
+        if (sorted == "ascend") { return d3.descending(a.Title, b.Title); }
      }
     })
     .transition().duration(500);
@@ -133,7 +134,7 @@ function tableSort(container,party,data,candidate,sorted){
 
 function tableBuild() {
 d3.select("#jobsList").selectAll(".card")
-.data(data).enter().append("div")
+.data(data.sort(function (a,b) { return d3.descending(a.PercentChange, b.PercentChange); })).enter().append("div")
 .attr("class",function (d) { return "card " + d.SkillLevel; })
 .html(function (d){ 
   var color_scale = d3.scale.linear().domain([-32, 0, 46]).range(['#CC4C02', '#ECF9B9', '#31A354']);
