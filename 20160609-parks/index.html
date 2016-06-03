@@ -213,7 +213,10 @@ map.on('mousemove', function(e) {
         .addTo(map);
 });
 
-var axis = [];
+
+function switchChart(name){
+
+  var axis = [];
 var dataStream = [];
 axis[0] = 'x';
 var indexYear = 1;
@@ -223,8 +226,6 @@ for (var j=1930; j<2016; j++){
   dataStream[indexYear] = 0;
   indexYear++;
 }
-
-function switchChart(name){
 
   $("#parkname").html(name);
 
