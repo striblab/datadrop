@@ -161,6 +161,12 @@ $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address");
 $(".zoom").click(function() {
 map.flyTo({ center: [-95.689444, 39.055833], zoom: 2 });
 $(".switch").removeClass("selected");
+$('.switch').show();
+$('.switch').first().addClass("selected");
+switchChart("Abraham Lincoln Birthplace");
+$("#filter input").text("");
+$('#parksList').animate({scrollTop : 0},800);
+return false;
 });
 
 geocoder.on('result', function(ev) {
@@ -253,7 +259,7 @@ for (var j=1930; j<2016; j++){
 
 if (found == true){
 
-  console.log(dataStream);
+// console.log(dataStream);
 
 var  padding = {
         top: 20,
@@ -264,7 +270,7 @@ var  padding = {
 
 var share = "#B0BEC5";
 
-console.log(axis);
+// console.log(axis);
 
 var chart = c3.generate({
         bindto: '#chart',
@@ -345,6 +351,7 @@ var chart = c3.generate({
 }
   
 switchChart("Abraham Lincoln Birthplace");
+$('.switch').first().addClass("selected");
 
 });
 });
