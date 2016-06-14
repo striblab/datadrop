@@ -29,7 +29,12 @@
         margin-bottom: 15px;
        }
 
-       #score{text-align: center;}
+       #score, .title{text-align: center;}
+
+       .title{
+        font-size: 1.9em;
+        font-family:"Poynter Serif RE",Georgia,Times,serif;
+      }
 
        .year{font-size: 1.3em;}
 
@@ -143,7 +148,8 @@
 
 <body>
 <div id="wrapper">
-  <div id="filter"><input type="search" id="filter_box" placeholder="Search for a hospital"></input></div>
+  <h2 class="title">How did your hospital fare?<br>Get its scorecard.</h2>
+  <div id="filter"><input type="search" id="filter_box" placeholder="Search for a Minnesota hospital"></input></div>
   <div id="hospitalsList">
   <!--Database list of hospitals that are clickable to scorecard-->
   </div>
