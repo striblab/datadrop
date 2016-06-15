@@ -46,7 +46,7 @@
 
        .category{
           width: 33%;
-          min-height: 480px;
+          min-height: 490px;
           float: left;
           border-right: 1px dotted #3e3e3e;
           padding: 2%;
@@ -159,30 +159,30 @@
     <p id="name" class="hospital"></p>
     <div>
     <div class="category">
-      <p>will have to pay</p>
+      <p>is expected to lose</p>
       <p id="readpay"></p>
       <p>for too many <strong>readmissions</strong>.</p>
       <p>Its score was <span id="readscAvg"></span> than the 2016 state average and <span id="readComp"></span> than its score in 2015.</p>
       <p class="expl">That amount represents <span id="percent"><span id="readscore"></span>%</span> of inpatient Medicare revenues, roughly reflecting how many more patients than expected had to be readmitted.</p>
-      <button class="more" data="readmMore">Read more about this</button> 
+      <button class="more" data="readmMore">Want to learn more?</button> 
     </div>
 
     <div class="category">
-      <p>will have to pay</p>
+      <p>is expected to lose</p>
       <p id="hacPay"></p>
       <p>for <strong>hospital-acquired conditions</strong>.</p>
       <p>Its score was <span id="hacAvg"></span> than the 2016 state average and <span id="hacComp"></span> than its score in 2015.</p>
       <p class="expl">This hospital had a score of <span id="hacSc"></span>. Hospitals in the bottom 25th percentile, with scores roughly 7 or higher, lose 1% of their Medicare revenues.</p>
-      <button class="more" data="hacMore">Read more about this</button>
+      <button class="more" data="hacMore">Want to learn more?</button>
     </div>
 
     <div class="category">
-      <p>will <span id="valReward"></span></p>
+      <p><span id="valReward"></span></p>
       <p id="valPay"></p>
       <p>for <strong>quality of care</strong> ratings.</p>
       <p>Its score was <span id="vbAvg"></span> than the 2016 state average and <span id="vbComp"></span> than its score in 2015.</p>
       <p class="expl">That amount represents <span id="vbScPct"><span id="vbSc"></span>%</span> of inpatient Medicare revenues, based on scores for things like patient outcomes, satisfaction and cost efficiency.</p>
-      <button class="more" data="vbMore">Read more about this</button>
+      <button class="more" data="vbMore">Want to learn more?</button>
     </div>
     </div>
     <div>
@@ -332,9 +332,9 @@ var currentHospital = "";
 
     $("#valReward").html( function (){
       if (d.vbReward == true){
-        return "be rewarded";
+        return "will be rewarded";
       } else {
-        return "have to pay";
+        return "is expected to lose";
       }
     });
 
