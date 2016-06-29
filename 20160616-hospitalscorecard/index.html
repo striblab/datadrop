@@ -1,0 +1,436 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Hospital Scorecard</title>
+  <meta name="description" content="Hospital Scorecard">
+  <meta name="author" content="CJ Sinner - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  
+  <style>
+       .button { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border: none; border-bottom: 1px solid black; }
+       .button:hover, .selected { background-color:#eee !important; cursor:pointer;  }
+       .button { float:left; }
+       #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
+       #filter input { width: 100% !important; padding: 0 10px 0 10px; font-family:"Benton Sans"; border-radius:0 !important; margin:0; width:100%; height:30px; line-height:120%; font-size: 1em; -webkit-appearance: none;
+         -webkit-border-radius:0; border-radius:0; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); color: rgba(0,0,0,0.75);  -webkit-transition: all 0.30s ease-in-out; -moz-transition: all 0.30s ease-in-out; -ms-transition: all 0.30s ease-in-out; -o-transition: all 0.30s ease-in-out; background-color: #fff !important; font-family: inherit; border: 1px solid #eee !important; 
+         background-size: 14px 14px;
+         background-repeat: no-repeat; 
+         background-position: 98% 50%; }
+       #filter input:focus { width: 100% !important; font-family:"Benton Sans"; box-shadow: 0 0 5px #999; padding: 1px 10px 1px 10px; border: 1px solid #61bd1a ; }
+
+       #hospitalsList{
+        height: 195px;
+        overflow: auto;
+        margin-bottom: 15px;
+       }
+
+       #score, .title{text-align: center;}
+
+       .title{
+        font-size: 1.9em;
+        font-family:"Poynter Serif RE",Georgia,Times,serif;
+      }
+
+       .year{font-size: 1.3em;}
+
+       .hospital{font-size: 2em;}
+
+       .expl{font-size: .8em;}
+
+       #readpay, #hacPay, #valPay{font-size: 1.7em;}
+
+       .category{
+          width: 33%;
+          min-height: 490px;
+          float: left;
+          border-right: 1px dotted #3e3e3e;
+          padding: 2%;
+       }
+       .category:last-child{
+          border-right: none;
+       }
+
+       .red{color: #C22A22; font-weight: bold;}
+       .green{color: #299E3D; font-weight: bold;}
+      
+       .more{
+          background-color: white;
+          border: 1px solid #eee;
+          border-radius: 5px;
+          width: 75%;
+          padding: 10px;
+          font-size: .8em;
+       }
+
+      .close{
+        background-color: white;
+        color: navy;
+        border: none;
+        font-size: 1em;
+        float:right;
+        margin-left: 15px;
+       }
+
+       .more:hover, .close:hover{
+          background-color: #eee;
+          cursor: pointer;
+       }
+
+       #readmMore, #hacMore, #vbMore{
+          display: none;
+       }
+
+      .catMore{
+        padding: 6%;
+        clear: left;
+      }
+
+      .catMore p, .catMore li{
+          font-size: .8em; 
+          text-align: left;
+          font-family:"Benton Sans",Helvetica,Arial,sans-serif;
+      }
+
+      .catMore ul{
+        margin-bottom: 10px;
+        margin-left: 35px;
+      }
+
+      .resources{clear: both; padding-top: 60px;}
+
+      .resources p{
+        line-height: .5em;
+      }
+
+      .resources a{
+        color: black;
+      }
+
+      .resources a:hover{
+        color: grey;
+      }
+
+      @media (max-width: 475px){
+        .category{
+          width: 33%;
+          min-height: 520px;
+         } 
+         .year{font-size: 1em;}
+
+        .hospital{font-size: 1.3em;}
+
+       p, .expl{font-size: .8em;}
+
+       #readpay, #hacPay, #valPay{font-size: 1em;}
+      }
+
+      @media (max-width:370px) { 
+        .category{
+          width: 33%;
+          min-height: 620px;
+         } 
+        .year{font-size: 1em;}
+
+        .hospital{font-size: 1.3em;}
+
+       p, .expl{font-size: .8em;}
+
+       #readpay, #hacPay, #valPay{font-size: 1em;}
+    }
+
+  </style> 
+</head>
+
+<body>
+<div id="wrapper">
+  <h2 class="title">Find your hospital's scorecard</h2>
+  <div id="filter"><input type="search" id="filter_box" placeholder="Search for a Minnesota hospital"></input></div>
+  <div id="hospitalsList">
+  <!--Database list of hospitals that are clickable to scorecard-->
+  </div>
+
+  <div id="score">
+    <p class="year">In 2016,</p>
+    <p id="name" class="hospital"></p>
+    <div>
+    <div class="category">
+      <p>is expected to lose</p>
+      <p id="readpay"></p>
+      <p>for too many <strong>readmissions</strong>.</p>
+      <p>Its score was <span id="readscAvg"></span> than the 2016 state average and <span id="readComp"></span> than its score in 2015.</p>
+      <p class="expl">That amount represents <span id="percent"><span id="readscore"></span>%</span> of inpatient Medicare revenues, roughly reflecting how many more patients than expected had to be readmitted.</p>
+      <button class="more" data="readmMore">Want to learn more?</button> 
+    </div>
+
+    <div class="category">
+      <p>is expected to lose</p>
+      <p id="hacPay"></p>
+      <p>for <strong>hospital-acquired conditions</strong>.</p>
+      <p>Its score was <span id="hacAvg"></span> than the 2016 state average and <span id="hacComp"></span> than its score in 2015.</p>
+      <p class="expl">This hospital had a score of <span id="hacSc"></span>. Hospitals in the bottom 25th percentile, with scores roughly 7 or higher, lose 1% of their Medicare revenues.</p>
+      <button class="more" data="hacMore">Want to learn more?</button>
+    </div>
+
+    <div class="category">
+      <p><span id="valReward"></span></p>
+      <p id="valPay"></p>
+      <p>for <strong>quality of care</strong> ratings.</p>
+      <p>Its score was <span id="vbAvg"></span> than the 2016 state average and <span id="vbComp"></span> than its score in 2015.</p>
+      <p class="expl">That amount represents <span id="vbScPct"><span id="vbSc"></span>%</span> of inpatient Medicare revenues, based on scores for things like patient outcomes, satisfaction and cost efficiency.</p>
+      <button class="more" data="vbMore">Want to learn more?</button>
+    </div>
+    </div>
+    <div>
+    <div class="catMore" id="readmMore">
+        <button class="close">x</button>
+        <p>Medicare's readmission reduction program tries to motivate hospitals to reduce avoidable hospital readmissions by financial penalties only rather than rewards. The penalty reduces the amount hospitals receive from Medicare for inpatient care by up to 3 percent. For 2016, it is based on whether the hospitals had more readmissions than expected among patients treated for heart failure, heart attack, pneumonia, chronic lung problems, and elective hip and knee replacements.</p>
+        <p>The orthopedic procedures were added to the measure for 2016, and some hospitals have struggled to reduce readmissions in that patient population -- hence some of the increases in penalties.</p>
+    </div>
+
+    <div class="catMore" id="hacMore">
+        <button class="close">x</button>
+        <p>The penalties are greater for hospitals with excessive rates of patients suffering healthcare-acquired infections or other conditions. Medicare uses a 10-point scoring system for hospitals, with a lower score being better, that accounts for preventive postoperative problems such as sepis infections or bed sores, and for central line associated bloodstream infections and catheter associated urinary tract infections.</p>
+        <p>Hospitals in the bottom 25 percent for these scores each year are assessed a 1 percent penalty. The penalty amounts are greater because the deduction is based off Medicare payments for inpatient care but also off payments to hospital for their capital, medical education and other expenses.</p>
+    </div>
+
+    <div class="catMore" id="vbMore">
+        <button class="close">x</button>
+        <p>The federal Medicare Value Based Purchasing Program rewards or penalizes hospitals based on data reflecting the following:</p>
+        <ul>
+          <li>Following proper care procedures (10 percent of score in 2016)</li>
+          <li>Patient satisfaction surveys (25 percent)</li>
+          <li>Patient outcomes for select conditions (40 percent)</li>
+          <li>Hospital cost efficiency (25 percent)</li>
+        </ul>
+        <p>Hospitals can be rewarded for scoring highly on these measures or for making substantial improvement on them.</p>
+        <p>The reward program is funded by a reduction in the base rates that hospitals receive from Medicare for inpatient care. While individual hospitals in the state have gained or lost, the overall program has worked to Minnesota's advantage. In aggregate, Minnesota hospitals are expected to gain $5.9 million in rewards from Medicare for their good value in federal fiscal year 2016.</p>  
+    </div>
+    </div>
+    <div class="resources">
+      <p><small><a href="https://github.com/striblab/datadrop/tree/gh-pages/20160616-hospitalscorecard" target="_blank">View on Github</a> | <a href='https://docs.google.com/spreadsheets/d/1oQFh7AIdrYaPk7KQIDdgnqAemCSCQpzGxLclA_x9PAA/pub?output=xlsx' target='new_'>Download the Data</a></small></p>
+      <p><small><em>Source: Minnesota Hospital Association, Medicare</em></small></p>
+      <p><small><em>Scorecard by C.J. Sinner, Star Tribune</em></small></p>
+    </div>
+  </div>
+  </div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+// $("#headerDiv").sticky({topSpacing:1});
+
+</script>
+<script>
+//LIVE JSON MAGIC
+
+//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
+//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
+
+d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1oQFh7AIdrYaPk7KQIDdgnqAemCSCQpzGxLclA_x9PAA&sheet=allhosp", function(error, dataLoad) {
+
+var data = dataLoad.allhosp;
+
+var currentHospital = "";
+
+ d3.select("#hospitalsList").selectAll(".list")
+  .data(data).enter().append("div")
+  .attr("class","list")
+  .attr("data",function(d){ return d.id; })
+  .on("click", function(d, i){
+    $("#name").html(d.hospital);
+    // $("#readpay").html(d3.format("$,")(d.readmImpact));
+
+    $("#readpay").html( function (){
+      if (d.readmImpact > 0){
+        return "<span class='red'>" + (d3.format("$,")(d.readmImpact)) + "</span>";
+      } else {
+        return "<span class='green'>" + (d3.format("$,")(d.readmImpact)) + "</span>";
+      }
+    });
+
+    $("#readscore").html( function (){
+      if (d.readmScore > 0){
+        return "<span class='red'>" + (d3.format(".2f")(d.readmScore)) + "</span>";
+      } else {
+        return "<span class='green'>" + (d3.format(".2f")(d.readmScore)) + "</span>";
+      }
+    });
+
+    $("#percent").html( function (){
+      $(this).removeClass("green");
+      $(this).removeClass("red");
+      if (d.readmScore > 0){
+        $(this).addClass("red");
+      } else {
+        $(this).addClass("green");
+      }
+    });
+
+    $("#readscAvg").html( function (){
+      if (d.readmScore > 0.0029){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+    
+    $("#readComp").html( function (){
+      if (d.readComp == true){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+    // $("#hacYN").html( function (){
+    //   // console.log (d.hacReduct);
+    //   if (d.hacReduct == "Yes"){
+    //     return "will also have to pay";
+    //   } else {
+    //     return "will not have to pay anything";
+    //   }
+    // });
+
+    // $("#hacPay").html(d3.format("$,")(d.hacImpact));
+    $("#hacPay").html( function (){
+      if (d.hacImpact > 0){
+        return "<span class='red'>" + (d3.format("$,")(d.hacImpact)) + "</span>";
+      } else {
+        return "<span class='green'>" + (d3.format("$,")(d.hacImpact)) + "</span>";
+      }
+    });
+
+    $("#hacSc").html(d.hacScore);
+
+    $("#hacSc").html( function (){
+      if (d.hacScore <= 7){
+        return "<span class='green'>" + d.hacScore + "</span>";
+      } else {
+        return "<span class='red'>" + d.hacScore + "</span>";
+      }
+    });
+
+    $("#hacAvg").html( function (){
+      if (d.hacScore > 6.072){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+    $("#hacComp").html( function (){
+      if (d.hacComp == true){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+
+    $("#valReward").html( function (){
+      if (d.vbReward == true){
+        return "will be rewarded";
+      } else {
+        return "is expected to lose";
+      }
+    });
+
+    $("#valPay").html( function (){
+      if (d.vbReward == true){
+        return "<span class='green'>" + (d3.format("$,")(d.vbImpact)) + "</span>";
+      } else {
+        return "<span class='red'>" + (d3.format("$,")(d.vbImpact)) + "</span>"
+      }
+    });
+
+    $("#vbAvg").html( function (){
+      if (d.valueBasedScoreRaw < 0.0063){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+    $("#vbComp").html( function (){
+      if (d.vbComp == false){
+        return "<span class='red'>worse</span>";
+      } else {
+        return "<span class='green'>better</span>";
+      }
+    });
+
+    $("#vbSc").html( function (){
+      if (d.vbReward == true){
+        return "<span class='green'>" + (d3.format(".2f")(d.valueBasedScore)) + "</span>";
+      } else {
+        return "<span class='red'>" + (d3.format(".2f")(d.valueBasedScore)) + "</span>";
+      }
+    });
+
+    $("#vbScPct").html( function (){
+      $(this).removeClass("green");
+      $(this).removeClass("red");
+      if (d.vbReward == true){
+        $(this).addClass("green");
+      } else {
+        $(this).addClass("red");
+      }
+    });
+
+    // for (var i=0; i<data.length; i++){
+    //   if (data[i].hospital==d.hospital){
+    //     $("#score").append(data[i].year);
+    //   }
+    // }
+    })
+  .html(function(d){ 
+    if (currentHospital != d.hospital){
+      currentHospital=d.hospital;
+      return "<button class='button'>" + d.hospital + "</button>";
+    } else {
+      return null;
+    }
+    });
+
+  $( ".button:first" ).click();
+
+  $(".button:first").addClass("selected");
+
+  $(".button").click(function() {
+  $(".button").removeClass("selected");
+  $(this).addClass("selected");
+  });
+
+
+  $(".more").click(function() {
+    $(".catMore").hide();
+    $("#" + $(this).attr("data")).show();
+  });
+
+  $(".close").click(function() {
+    $(".catMore").hide();
+  });
+
+   $( document ).ready(function() {
+
+    $('#filter_box').keyup(function(i){
+       $('.button').hide();
+       $(".button").removeClass("selected");
+       var txt = String($('#filter_box').val());
+       $('.button').each(function(){
+          if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+              $(this).show();
+          }
+       });
+   });
+});
+
+
+
+});
+
+
+</script>
+</html>
