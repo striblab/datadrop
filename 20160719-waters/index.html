@@ -1,0 +1,221 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota's Impaired Waters</title>
+  <meta name="description" content="Minnesota's Impaired Waters">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+  
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+  
+  <style>
+      body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+      #chart .c3-line { stroke-width:6px !important; }
+
+      #map { width:100%; height:570px; }
+      .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
+      .map-overlay { font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
+      .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
+      .mapboxgl-ctrl-attrib { display:none; }
+
+      #wrapper { text-align:center; width:100%; }
+
+      #viewSwitch, #current { padding:10px; }
+      .stat { font-weight:900; }
+
+      #filter { padding:12px; }
+
+      #chart { height:250px; }
+
+      .source { font-size:0.8em; }
+
+      #blurb { text-align:center; padding:15px; }
+      #visitors { font-weight:900; color:#66AF50; }
+      #parkname { font-weight:900; }
+
+      #filter input { border-radius:0 !important; width:100% !important; }
+      #filter { padding:0px !important; }
+
+      p { text-align:center; margin-right:auto; margin-left:auto; padding:15px; }
+
+      #geocoder-container { width:100%; margin-top:10px; }
+      #geocoder-container > div { min-width:100%; margin-left:0; }
+
+      #parksList { height:164px; overflow:auto; }
+      .zoom { float:none !important; text-align:center; padding:15px; }
+
+      .switch { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; margin:0 !important; }
+      .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
+
+      @media (max-width:500px) {
+
+
+      }
+  </style> 
+</head>
+
+<body>
+<div id="map"></div>
+<div id='geocoder-container'></div>
+<div class="zoom">Reset View</div>
+
+<p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+
+<script>
+d3.json('./shapefiles/beaches.json', function(error, beaches) {
+d3.json('./shapefiles/streams.json', function(error, streams) {
+d3.json('./shapefiles/wetlands.json', function(error, wetlands) {
+d3.json('./shapefiles/lakes.json', function(error, lakes) {
+
+//MAPPAGE
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/shadowflare/cilea5110001ra8ktm7409xze',
+    center: [-94.6859, 46.729553],
+    zoom: 5.4,
+    minZoom: 2
+});
+
+var geocoder = new mapboxgl.Geocoder({
+    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
+});
+
+map.scrollZoom.disable();
+map.addControl(geocoder);
+map.addControl(new mapboxgl.Navigation());
+
+map.on('load', function() {
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address");
+
+$(".zoom").click(function() {
+map.flyTo({ center: [-94.6859, 46.729553], zoom: 5.4 });
+});
+
+geocoder.on('result', function(ev) {
+  map.flyTo({ center: ev.result.geometry.coordinates, zoom: 12 });
+    });
+
+
+var sourceObj = new mapboxgl.GeoJSONSource({
+   data: beaches
+});
+
+map.addSource('beaches', sourceObj);
+
+map.addLayer({
+        'id': 'shape-layer-beaches',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'beaches',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': "#904E55",
+            'fill-outline-color': '#904E55'
+        }
+});
+
+var sourceObj2 = new mapboxgl.GeoJSONSource({
+   data: beaches
+});
+
+map.addSource('streams', sourceObj2);
+
+map.addLayer({
+        'id': 'shape-layer-streams',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'streams',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': "#904E55",
+            'fill-outline-color': '#904E55'
+        }
+});
+
+var sourceObj3 = new mapboxgl.GeoJSONSource({
+   data: wetlands
+});
+
+map.addSource('wetlands', sourceObj3);
+
+map.addLayer({
+        'id': 'shape-layer-wetlands',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'wetlands',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': "#904E55",
+            'fill-outline-color': '#904E55'
+        }
+});
+
+var sourceObj4 = new mapboxgl.GeoJSONSource({
+   data: lakes
+});
+
+map.addSource('lakes', sourceObj4);
+
+map.addLayer({
+        'id': 'shape-layer-lakes',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'lakes',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.5,
+            'fill-color': "#904E55",
+            'fill-outline-color': '#904E55'
+        }
+});
+
+});
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['shape-layer-lakes','shape-layer-streams','shape-layer-beaches','shape-layer-wetlands'] });
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(e.lngLat)
+        .setHTML("<div>" + feature.properties.NAME + "</div><div>Impairment: " + feature.properties.IMPAIR_PAR + "</div>")
+        .addTo(map);
+});
+
+
+});
+});
+});
+});
+</script>
+</html>
