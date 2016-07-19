@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<metadata><idinfo><citation><citeinfo><origin>Minnesota Pollution Control Agency</origin><title>Impaired Streams, Minnesota, 2016 (Draft)</title><pubinfo><publish>Minnesota Pollution Control Agency</publish></pubinfo><pubdate>20160706</pubdate></citeinfo></citation><descript><abstract>This is a draft set of the impaired streams as determined by MPCA's surface water quality assessment process in 2014 and 2015 for the 2016 reporting cycling to US Environmental Protection Agency (EPA).  Streams declared impaired prior to 2014 are also included in this dataset unless they have been delisted. The waterbodies included in the dataset will be reported to EPA in 2016 as part of the impaired waters list. EPA evaluates the list and either approves it as-is or modifies it, which may result in changes to this spatial data.
+
+These streams are a subset and enhancement of the 1:24,000 scale National Hydrography Dataset (NHD). In cases where the NHD does not include a stream reach that MPCA has assessed, a feature is added by MPCA. Since the impaired streams are a small subset of the NHD, only that subset is included in the dataset.  This dataset includes impaired streams which have not yet had a TMDL plan approved by the US EPA, those that have a US EPA approved TMDL plan as well as those waters that do not need a TMDL plan.</abstract><purpose>These data are intended to be used for planning, informational, and cartographic purposes related to surface water quality in Minnesota.</purpose><supplinf>State of Minnesota</supplinf></descript><crossref><citeinfo><title>Detailed information regarding the impaired waterbodies is available in spreadsheet form here: http://www.pca.state.mn.us/index.php/view-document.html?gid=20205</title></citeinfo></crossref><timeperd><current>These data reflect the state of the MPCA's surface water assessment database as of the dataset publication date.</current><timeinfo><sngdate><caldate>20160706</caldate></sngdate></timeinfo></timeperd><status><progress>Planned</progress><update>As needed</update></status><keywords><theme><themekt>ISO 19115</themekt><themekey>inlandWaters, surface water, water chemistry, water quality</themekey></theme><place><placekey>Minnesota</placekey></place></keywords><accconst>None</accconst><spdom><bounding><westbc>189777.15</westbc><eastbc>727255.82</eastbc><northbc>5436176.49</northbc><southbc>4816310.34</southbc></bounding></spdom><ptcontac><cntinfo><cntperp><cntorg>Minnesota Pollution Control Agency</cntorg><cntper>Kristofor Parson</cntper></cntperp><cntpos>Info Tech Spec III</cntpos><cntaddr><addrtype>Mailing and Physical</addrtype><address>525 S. Lake Ave.</address><city>Duluth</city><state>MN</state><postal>55802</postal></cntaddr><cntvoice>218-302-6622</cntvoice><cntemail>kristofor.parson@state.mn.us</cntemail></cntinfo></ptcontac></idinfo><eainfo><overview><eaover>All streams contained in this shapefile are on the draft 2016 Impaired Waters List prepared by the Minnesota Pollution Control Agency.
+
+AUID:  Assessment Unit ID, a waterbody identifer that is the WBD eight digit watershed code and the three digit reach number. This AUID constitutes a unique identifer for each reach in the dataset.
+
+CAT: EPA Consolidation Assessment and Listing Methodology [CALM] category, which integrates the 305(b) Report with the 303(d) TMDL List. 
+   The five categories in CALM are as follows: 
+   Category 1: all designated uses are meeting water quality standards 
+   Category 2: some uses are meeting water quality standards and there are insufficient data to assess other uses 
+   Category 3: there are insufficient data to assess any uses 
+   Category 4: at least one use is impaired, but a TMDL is not required 
+   Category 5: at least one use is impaired and a TMDL is required. These become the List of impaired waters. 
+
+A reach can only be placed into one Category. For example, if a reach is impaired for one pollutant but the other uses are being  met, and a TMDL is required, that reach would be placed into Category 5. Furthermore, if the reach is impaired for more than one pollutant, the reach must stay in Category 5 until ALL pollutants have EPA-approved TMDL plans. 
+
+For 'bookkeeping' purposes, these Categories can be sub-divided. Category 4 has the following four sub-categories: 
+   4A: Impaired, but a TMDL study has been approved by EPA 
+   4B: Impaired, but a TMDL study is not required because water quality standards are expected to be met in the near future 
+   4C: Impaired, but a TMDL study is not required because the impairment is not caused by a pollutant 
+   4D: An assessment unit is impaired or threatened but doesn't require a TMDL because the impairment is due to natural conditions with only insignificant anthropogenic influence. To be considered 'insignificant', the elimination of the anthropogenic influence would not lead to the attainment of water quality standards and it would not be included in formal pollution reduction goal-setting  activities. A reach-specific water quality standard based on local natural conditions has yet to be determined. Upon determination,    the assessment unit will be considered non-impaired for the natural conditions and re-categorized to an appropriate category. 
+   4E: Impaired or threatened but existing data indicates a TMDL is not required because impairment is solely a result of natural    sources; a final determination of Category 4D will be made in the next assessment cycle pending confirmation from additional information (i.e. water quality or land use). 
+
+Category 5 has the following three sub-categories: 
+   5A: Impaired by multiple pollutants and no TMDL study plans are approved by EPA 
+   5B: Impaired by multiple pollutants and at least one TMDL study plan is approved by EPA 
+   5C: Impaired by one pollutant and no TMDL study plan is approved by EPA
+
+NAME: Name of the stream associated with the AUID.
+
+REACH_DESC: The description of the stream reach's location.
+
+USE_CLASS: Use class per MN Statute 7050.0470.
+
+LENGTH_MILES: The length, in miles of the reach (assessment unit).
+
+AFFECTED_U(SE):  Impaired Use(s)
+   Possible Values: 
+     AQL: Aquatic Life
+     AQR: Aquatic Recreation
+     AQC: Aquatic Consumption
+     DW: Drinking Water
+     LRV: Limited Resource Value
+
+Impairment Fields
+       The TMDL_xxxx fields contain parameters for which the waterbody is impaired. A complete list of parameter abreviations and their associated pollutants can be found below, in the Target Start Years portion of the metadata document.
+
+TMDL_NOT_R(EQUIRED): The parameter(s) for which no TMDL plans is required.
+
+TMDL_APPRO(VED): The parameter(s) for which TMDL plans have been approved.
+
+TMDL_NEEDE(D): The pollutant(s) for which TMDL plans must be developed and approved.
+
+IMPAIR_PAR(AMETERS): Parameters listed in TMDL_APPROVED and TMDL_NEEDED that cause the stream to be impaired.
+
+NEW_IMPAIR(MENTS): Parameters proposed to be listed for the first time in the reporting cycle of the dataset.
+    
+    
+HUC_8: The numeric code of the 8 digit Watershed Boundary Dataset (WBD) polygon that this waterbody is primarily associated with.
+
+HUC_8_NAME: The name of the DNR major watershed that this waterbody is primarily associated with.
+
+HUC_4: The numeric code of the 4 digit Watershed Boundary Dataset (WBD) polygon that this waterbody is primarily associated with.
+
+BASIN: The name of the basin (HUC4) in which this waterbody is located.
+
+COUNTY: The name of the county that the majority of this waterbody, or the sampling sites, intersects.
+
+Target start year fields:
+     These fields indicate the target start year for a TMDL addressing their respective pollutants:
+
+ Fields:
+          ACE: Acetechlor
+          AMMONIA: Unionized Ammonia
+          ARSENIC
+          CHLORIDE
+          CLPYR: Chlorpyrifos
+          DO: Dissolved Oxygen
+          DDT
+          DIELDRIN
+          DIOXIN
+          E_COLI: Escherichia coli
+          FC: Fecal Coliform
+          FISHESBIO: Fish Index of Biological Integrity
+          HG_F: Mercury in Fish Tissue
+          HG_W: Mercury in the Water Column
+          INVERT_BIO: Macroinvertebrate  Index of Biological Integrity
+          LCWA: Lack of a Cold Water Assemblage
+          NITRATES
+          NUTRIENTS: Nutrient/eutrophication biological indicators
+          PCB_F: PCB in Fish Tissue
+          PCB_W: PCB in Water Column
+          PFOS_F: Perfluorooctane Sulfonate (PFOS) in Fish Tissue
+          PFOS_W: Perfluorooctane Sulfonate (PFOS) in Water Column
+          PH: pH
+          TURBIDITY
+          TSS: Total Suspended Solids
+          TEMP: Temperature
+          TOXAPHENE
+</eaover></overview></eainfo><dataqual><logic>These data have been audited to ensure every waterbody included in the draft 2016 list of impaired waters has a corresponding feature within this spatial dataset. Date of test:7/6/2016</logic><complete>These data contain a feature for every waterbody in the draft impaired waters dataset. High-resolution NHD is the primary dataset from which these features are drawn. If no feature exists in the NHD, then a feature is digitized and added to NHD as a special feature.</complete><posacc><horizpa><horizpar>Statements of horizontal positional accuracy are based on accuracy statements made for U.S. Geological Survey topographic quadrangle maps.  These maps were compiled to meet National Map Accuracy Standards.  For horizontal accuracy, this standard is met if at least 90 percent of points tested are within 0.02 inch (at map scale) of the true position.  Additional offsets to positions may have been introduced where feature density is high to improve the legibility of map symbols.  In addition, the digitizing of maps is estimated to contain a horizontal positional error of less than or equal to 0.003 inch standard error (at map scale) in the two component directions relative to the source maps.  Visual comparison between the map graphic (including digital scans of the graphic) and plots or digital displays of points, lines, and areas, is used as control to assess the positional accuracy of digital data.  Digital map elements along the adjoining edges of data sets are aligned if they are within a 0.02 inch tolerance (at map scale).  Features with like dimensionality (for example, features that all are delineated with lines), with or without like characteristics, that are within the tolerance are aligned by moving the features equally to a common point. Features outside the tolerance are not moved; instead, a feature of type connector is added to join the features.
+This statement is generally true for the most common sources of NHD data.  Other sources and methods may have been used to create or update NHD data.  In some cases, additional information may be available from the data provider upon request.</horizpar></horizpa></posacc><lineage><procstep><procdesc>The processes used to create and maintain high-resolution NHD data can be requested from MPCA. Because NHD data can be downloaded using several user-defined areas, the process descriptions can vary for each download.  The NHDMetadata table contains a list of all the process descriptions that apply to a particular download, and those descriptions can be associated with the impaired waters reaches by MPCA staff upon request. </procdesc></procstep></lineage></dataqual><distinfo><resdesc>Draft 2016 Impaired Streams</resdesc><distliab>NOTICE: The Geographic Information System (GIS) Data to which this notice is attached are made available pursuant to the Minnesota Government Data Practices Act (Minnesota Statutes Chapter 13). THE GIS DATA ARE PROVIDED TO YOU AS IS AND WITHOUT ANY WARRANTY AS TO THEIR PERFORMANCE, MERCHANTABILITY, OR FITNESS FOR ANY PARTICULAR PURPOSE. The GIS Data were developed by the Minnesota Pollution Control Agnecy for its own internal business purposes. The Minnesota Pollution Control Agency does not represent or warrant that the GIS Data or the data documentation are error-free, complete, current, or accurate. You are responsible for any consequences resulting from your use of the GIS Data or your reliance on the GIS Data. You should consult the data documentation for this particular GIS Data to determine the limitations of the GIS Data and the precision with which the GIS Data may depict distance, direction, location, or other geographic features. If you transmit or provide the GIS Data (or any portion of it) to another user, the GIS Data must include a copy of this disclaimer.</distliab><stdorder><ordering>These data may be requested from Kristofor Parson, Minnesota Pollution Control Agency.  </ordering></stdorder><distrib><cntinfo><cntperp><cntorg>Minnesota Pollution Control Agency</cntorg><cntper>Kristofor Parson</cntper></cntperp><cntpos>Info Tech Spec III</cntpos><cntaddr><addrtype>mailing and physical</addrtype><address>525 S. Lake Ave.</address><city>Duluth</city><state>MN</state><postal>55802</postal></cntaddr><cntvoice>218-302-6622</cntvoice><cntemail>kristofor.parson@state.mn.us</cntemail></cntinfo></distrib></distinfo><metainfo><metd>20160706</metd><metstdn>Minnesota Geographic Metadata Guidelines</metstdn><metstdv>1.2</metstdv><metextns><onlink>http://www.gis.state.mn.us/stds/metadata.htm</onlink></metextns><metc><cntinfo><cntperp><cntorg>Minnesota Pollution Control Agency</cntorg><cntper>Kristofor Parson</cntper></cntperp><cntpos>Info Tech Spec III</cntpos><cntaddr><addrtype>mailing and physical</addrtype><address>525 S. Lake Ave.</address><city>Duluth</city><state>MN</state><postal>55802</postal></cntaddr><cntvoice>218-302-6622</cntvoice><cntemail>kristofor.parson@state.mn.us</cntemail></cntinfo></metc></metainfo><Esri><CreaDate>20160706</CreaDate><CreaTime>13593700</CreaTime><ArcGISstyle>FGDC CSDGM Metadata</ArcGISstyle><SyncOnce>TRUE</SyncOnce><DataProperties><itemProps><itemLocation><linkage Sync="TRUE">file://\\X1600-1\GISlib\Projects\KParson\data\mpca\impairedWaters\impaired_2016_streams_draft</linkage><protocol Sync="TRUE">Local Area Network</protocol></itemLocation></itemProps><copyHistory><copy source="C:\workspace\impairedWaters\impaired_2016_streams_draft" dest="\\X1600-1\GISlib\Projects\KParson\data\mpca\impairedWaters\impaired_2016_streams_draft" date="20160706" time="13593700"></copy></copyHistory></DataProperties></Esri><spref><horizsys><planar><gridsys><gridsysn>Universal Transverse Mercator</gridsysn><utm><utmzone>15</utmzone></utm></gridsys><planci><plandu>meters</plandu></planci></planar><geodetic><horizdn>NAD83</horizdn><ellips>GRS80</ellips></geodetic></horizsys></spref></metadata>
