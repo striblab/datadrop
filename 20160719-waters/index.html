@@ -204,11 +204,20 @@ map.on('mousemove', function(e) {
     }
 
     var feature = features[0];
+    var reason = "";
+
+    if (feature.properties.IMPAIR_PAR == "Hg-F") { reason = "Mercury in fish tissue"; }
+    else if (feature.properties.IMPAIR_PAR == "Hg-W") { reason = "Mercury in the water column"; }
+    else if (feature.properties.IMPAIR_PAR == "CHLORIDE") { reason = "Chloride"; }
+    else if (feature.properties.IMPAIR_PAR == "NUTRIENTS") { reason = "Nutrient/Eutrophication biological indicators"; }
+    else if (feature.properties.IMPAIR_PAR == "PFO-S") { reason = "Perfluorooctane sulfonate"; }
+    else if (feature.properties.IMPAIR_PAR == "PCB-F") { reason = "Polychlorinated biphenyl"; }
+    else { reason = feature.properties.IMPAIR_PAR; }
 
     // Populate the popup and set its coordinates
     // based on the feature found.
     popup.setLngLat(e.lngLat)
-        .setHTML("<div>" + feature.properties.NAME + "</div><div>Impairment: " + feature.properties.IMPAIR_PAR + "</div>")
+        .setHTML("<div>" + feature.properties.NAME + "</div><div>Impairment: " + reason + "</div>")
         .addTo(map);
 });
 
