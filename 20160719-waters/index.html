@@ -79,6 +79,7 @@ d3.json('./shapefiles/beaches.json', function(error, beaches) {
 d3.json('./shapefiles/streams.json', function(error, streams) {
 d3.json('./shapefiles/wetlands.json', function(error, wetlands) {
 d3.json('./shapefiles/lakes.json', function(error, lakes) {
+d3.json('./shapefiles/counties.json', function(error, counties) {
 
 //MAPPAGE
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
@@ -110,6 +111,25 @@ geocoder.on('result', function(ev) {
     });
 
 
+var sourceObj0 = new mapboxgl.GeoJSONSource({
+   data: counties
+});
+
+map.addSource('counties', sourceObj0);
+
+map.addLayer({
+        'id': 'shape-layer-counties',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'counties',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.3,
+            'fill-color': "#ddd",
+            'fill-outline-color': '#333'
+        }
+});
+
 var sourceObj = new mapboxgl.GeoJSONSource({
    data: beaches
 });
@@ -130,7 +150,7 @@ map.addLayer({
 });
 
 var sourceObj2 = new mapboxgl.GeoJSONSource({
-   data: beaches
+   data: streams
 });
 
 map.addSource('streams', sourceObj2);
@@ -206,13 +226,23 @@ map.on('mousemove', function(e) {
     var feature = features[0];
     var reason = "";
 
-    if (feature.properties.IMPAIR_PAR == "Hg-F") { reason = "Mercury in fish tissue"; }
-    else if (feature.properties.IMPAIR_PAR == "Hg-W") { reason = "Mercury in the water column"; }
-    else if (feature.properties.IMPAIR_PAR == "CHLORIDE") { reason = "Chloride"; }
-    else if (feature.properties.IMPAIR_PAR == "NUTRIENTS") { reason = "Nutrient/Eutrophication biological indicators"; }
-    else if (feature.properties.IMPAIR_PAR == "PFO-S") { reason = "Perfluorooctane sulfonate"; }
-    else if (feature.properties.IMPAIR_PAR == "PCB-F") { reason = "Polychlorinated biphenyl"; }
-    else { reason = feature.properties.IMPAIR_PAR; }
+
+
+    if (String(feature.properties.IMPAIR_PAR).search("Hg-F") != -1) { reason += "Mercury in fish tissue; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("Hg-W") != -1) { reason += "Mercury in the water column; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("CHLORIDE") != -1) { reason += "Chloride; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("NUTRIENTS") != -1) { reason += "Nutrient/Eutrophication biological indicators; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("PFO-S") != -1) { reason += "Perfluorooctane sulfonate; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("FC") != -1) { reason += "FC; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("T") != -1) { reason += "T; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("DO") != -1) { reason += "DO; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("ColdWater") != -1) { reason += "ColdWater; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("Nitrates") != -1) { reason += "Nitrates; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("InvertBio") != -1) { reason += "InvertBio; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("FishesBio") != -1) { reason += "FishesBio; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("E.coli") != -1) { reason += "E.coli; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("PCB-F") != -1) { reason += "Polychlorinated biphenyl; "; }
+    // if (String(feature.properties.IMPAIR_PAR).search("") != -1) { reason += feature.properties.IMPAIR_PAR; }
 
     // Populate the popup and set its coordinates
     // based on the feature found.
@@ -221,7 +251,7 @@ map.on('mousemove', function(e) {
         .addTo(map);
 });
 
-
+});
 });
 });
 });
