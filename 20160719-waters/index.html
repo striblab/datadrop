@@ -158,13 +158,13 @@ map.addSource('streams', sourceObj2);
 map.addLayer({
         'id': 'shape-layer-streams',
         'interactive': true,
-        'type': 'fill',
+        'type': 'line',
         'source': 'streams',
         'paint': {
-            'fill-antialias' : true,
-            'fill-opacity': 0.5,
-            'fill-color': "#904E55",
-            'fill-outline-color': '#904E55'
+            // 'fill-antialias' : true,
+            // 'fill-opacity': 0.1,
+            'line-color': "#904E55"
+            // 'fill-outline-color': '#904E55'
         }
 });
 
@@ -234,12 +234,12 @@ map.on('mousemove', function(e) {
     if (String(feature.properties.IMPAIR_PAR).search("NUTRIENTS") != -1) { reason += "Nutrient/Eutrophication biological indicators; "; }
     if (String(feature.properties.IMPAIR_PAR).search("PFO-S") != -1) { reason += "Perfluorooctane sulfonate; "; }
     if (String(feature.properties.IMPAIR_PAR).search("FC") != -1) { reason += "FC; "; }
-    if (String(feature.properties.IMPAIR_PAR).search("T") != -1) { reason += "T; "; }
-    if (String(feature.properties.IMPAIR_PAR).search("DO") != -1) { reason += "DO; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("T") != -1) { reason += "Turbidity; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("DO") != -1) { reason += "Dissolved oxygen; "; }
     if (String(feature.properties.IMPAIR_PAR).search("ColdWater") != -1) { reason += "ColdWater; "; }
     if (String(feature.properties.IMPAIR_PAR).search("Nitrates") != -1) { reason += "Nitrates; "; }
-    if (String(feature.properties.IMPAIR_PAR).search("InvertBio") != -1) { reason += "InvertBio; "; }
-    if (String(feature.properties.IMPAIR_PAR).search("FishesBio") != -1) { reason += "FishesBio; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("InvertBio") != -1) { reason += "Aquatic macroinvertebrate bioassessments; "; }
+    if (String(feature.properties.IMPAIR_PAR).search("FishesBio") != -1) { reason += "Fishes bioassessments; "; }
     if (String(feature.properties.IMPAIR_PAR).search("E.coli") != -1) { reason += "E.coli; "; }
     if (String(feature.properties.IMPAIR_PAR).search("PCB-F") != -1) { reason += "Polychlorinated biphenyl; "; }
     // if (String(feature.properties.IMPAIR_PAR).search("") != -1) { reason += feature.properties.IMPAIR_PAR; }
