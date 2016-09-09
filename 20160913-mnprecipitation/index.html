@@ -99,7 +99,7 @@
   <nav class='legend clearfix'>
     <h4>Precipitation recorded by station</h4>
     <span style='background:#fff;'>Less</span>
-    <span style='background:#f7f7f7;'></span>
+    <span style='background:#ADD6F0;'></span>
     <span style='background:#7FB9DE;'></span>
     <span style='background:#25516E'></span>
     <span style='background:#fff;'>More</span>
@@ -130,7 +130,7 @@ d3.json('./shapefiles/stations.geojson', function(error, spots) {
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 var map2 = new mapboxgl.Map({
     container: 'map_blocks',
-    style: 'mapbox://styles/shadowflare/ciqznymjs0009btm891qyu49n',
+    style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
     center: [-94.6859, 46.729553],
     zoom: 5.4,
     minZoom: 2
@@ -187,7 +187,7 @@ geocoder2.on('result', function(ev) {
                 "circle-color": {
                 property: 'PRECIP',
                 stops: [
-                [0, '#f7f7f7'],
+                [0, '#ADD6F0'],
                 [15, '#7FB9DE'],
                 [20, '#25516E']]
                 },
