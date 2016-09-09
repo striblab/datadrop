@@ -1,4 +1,4 @@
-Star Tribune - Irish immigration to Minnesota, and where their descendants live today
+Star Tribune - Redoing Rochester: Where has investment for the DMC gone so far?
 ================
 
 by CJ Sinner
@@ -7,5 +7,4 @@ Built using [DataWrapper](https://github.com/datawrapper/datawrapper) and [CARTO
 
 The files can be run in any live server setup. Just open the index.html file in your browser.
 
-http://www.startribune.com/is-st-paul-really-the-greenest-we-map-where-minnesota-s-irish-live/371323261/
-
+http://www.startribune.com/redoing-rochester-where-has-destination-medical-center-money-gone-so-far/389537791/
