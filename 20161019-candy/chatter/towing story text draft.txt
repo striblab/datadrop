@@ -1,0 +1,87 @@
+
+
+
+
+
+
+Now that winter is over (we hope), we thought it would be a good time to look at where cars were ticketed and towed from during the two snow emergencies in Minneapolis.
+
+The city posted this snow emergency towing data to its open data portal, which makes it easily accessible to those of us who like to analyze data. The city's goal is to get the data on the data portal within 24 hours after a snow emergency ends because they get so many public records requests for this data, said Mike Kennedy, the city’s transportation maintenance director.
+
+After the Star Tribune started analyzing this year's batch of data, the city also posted files showing where vehicles were ticketed by public works department ticket writers for violating snow emergency parking restrictions. That data, however, doesn't include all of the tickets written on the first day of each snow emergency. Most of those tickets are written by Minneapolis Police and that data is stored separately. 
+
+About 250,000 cars are parked on city streets at any given time. During a snow emergency, about one-third of the parking spaces are restricted during each of the three phases.
+
+This winter, just over 7,000 tickets were written during the first snow emergency, declared December 29th, and nearly 6,000 were written during the second storm, declared Feb. 2nd. (Keep in mind that this is missing about 3,800 tickets written by Minneapolis Police).
+
+About 3,200 vehicles were towed (about 20 percent of those ticketed), with heavy concentrations in areas, such as the University of Minnesota, Uptown and Loring Park, that also have heavy concentrations of cars and lack of off-street parking.
+
+It's in areas like this that the snow plows only get one shot at clearing the street, Kennedy said. He said they have to be extra vigilant in these dense areas because it's not uncommon for people to try to park in spaces immediately after they've towed out a car, but before the plow has made it through.
+
+"We have places we have to go to all the time because of parking demand and non-compliance," Kennedy said. "If we don't do it, we'll never get our plows down the streets."
+
+Kennedy said the city could finish its plowing in about two-thirds the time, and at significantly less cost to taxpayers, if they didn't have to tow cars.
+
+The lack of compliance puzzles Kennedy because his office sends out 144,000 emails, 70,000 phone calls and a barrage of other attempts to reach the public in seven different languages.
+
+"We do just about everything except go up and knock on their door," Kennedy said.
+
+
+
+
+
+INTRO -- with dot map of tows:
+
+<p>A map showing where vehicles were towed from during this past winter's two Minneapolis snow emergencies makes it appear that tow trucks aren't doing much work in the southern part of the city.</p>
+
+<p>In fact, the map doesn't look all that different from one the Star Tribune analyzed two years ago for a story that raised the question of inequitable towing.</p>
+
+<p>At the time, Mike Kennedy, the city's transportation maintenance director, said there had been some miscommunication in the past between a supervisor in his office and the towing company responsible for the southwest part of the city, but that the routes designated by the city send trucks to that area.</p>
+
+<p>This year, Kennedy said they continue to send ticket writers and tow trucks to that region, but just not as often as other parts of the city because the need isn’t as great.</p>
+
+
+
+SLIDE TWO -- with dot map of tickets:
+
+<p>A map of where tickets were issued shows ticket writers spend a lot of time in certain areas, but that they are finding violations in all corners of the city. (Note: this doesn’t include about 3,800 tickets written by Minneapolis Police).</p>
+
+
+
+
+SLIDE THREE -- average cars per block map
+
+<p>There are a variety of factors that play into why there are heavy concentrations of tickets and tows in some parts of the city. One of them is simply that some areas have heavier concentrations of people and cars. Using U.S. Census data, we estimated the average number of cars per block. Keep in mind this is just counting the vehicles belonging to people who live in that area. A related factor, that’s not readily available via data, is whether there is sufficient off-street parking for those cars.</p>
+
+
+
+SLIDE FOUR -- same map, zoom to southwest corner
+<p>Low population density and low rate of vehicles per block help explain why there aren't many vehicles towed out of southwest. This part of the city consists of more single-family housing that is more likely to have off-street parking, as well. Kennedy said they get complaints from this area, but often when the tow trucks get there, they find the offending vehicles have been moved.</p>
+
+<p>The city's goal, Kennedy said, is "equitable plowing, not equitable towing" and, as a result, they need to focus the limited tow truck resources on areas that are more problematic.</p>
+
+
+
+
+
+
+SLIDE FIVE- TICKETS PER 1,000 CARS
+
+<p>Since more cars means more opportunities for tickets or tows, we wanted to level the playing field to be able to more fairly compare different parts of the city.</p>
+
+<p>We calculated this ticketing rate by dividing the number of tickets issued (both storms combined) by the number of vehicles in each U.S. Census tract, then multiplied that by 1,000 to get a whole number. This rate shows that the central part of the city – particularly the stretch from Uptown north to Loring Park – and the area around the University of Minnesota have unusually high ticketing rates. Also parts of north Minneapolis are surprisingly high.</p>
+
+
+SLIDE SIX – Tows per 1,000 cars
+
+<p>We calculated a similar rate for tows, and it shows the areas around the University of Minnesota continue to have a high rate, like it did for ticketing. But the central part of the city has a lower rate, an indication that offending vehicles are likely being moved before the tow trucks arrive.</p>
+
+<p>Another interesting finding is that parts of north Minneapolis, which have a low density of vehicles, have unusually high towing rates.</p>
+
+
+
+
+
+
+
+
