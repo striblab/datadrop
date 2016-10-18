@@ -54,7 +54,7 @@
 
     p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
 
-    #info { display:none; }
+    #info { display:none; height:150px; }
 
     .zoom { text-align:center; float:none !important; }
     .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; }
@@ -73,30 +73,11 @@
 
 <body>
 
-<div class='map-overlay-container'>
-  <div class='map-overlay'>
-<div id='geocoder-container'></div>
-<div class="breaker"></div>
-    <div>
-<button class="previous navButtons"><<</button><button class="next navButtons">>></button><button class="play myButton2" id="toggle">&#9658;</button>
-
-<div id="tracker">
-<div class="trackDot" id="d0" index="0"></div>
-<div class="trackDot" id="d1" index="1"></div>
-<div class="trackDot" id="d2" index="2"></div>
-<div class="trackDot" id="d3" index="3"></div>
-<div class="trackDot" id="d4" index="4"></div>
-</div>
-
-</div>
-
-  </div>
-</div>
-
 <div id='map'></div>
 
-<div class="breaker"></div>
-
+<div class='map-overlay-container'>
+  <div class='map-overlay'>
+ <div>
 <div class="legends" id="scale">
   <small class='stat'></small>
     <div class="legendContainer">
@@ -121,10 +102,27 @@
     <h2 id='location-title'></h2>
     <p id='location-description'></p>
 </div>
+</div> 
 
-<!-- <div class="bottom"><p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p>
-<a href='./data/_raw/mpls2015tows.xls' target='new_'><button class='downloadButton'>&#9660; Download Data</button></a></div> -->
+    <div>
+<button class="previous navButtons"><<</button><button class="next navButtons">>></button><button class="play myButton2" id="toggle">&#9658;</button>
 
+<div id="tracker">
+<div class="trackDot" id="d0" index="0"></div>
+<div class="trackDot" id="d1" index="1"></div>
+<div class="trackDot" id="d2" index="2"></div>
+<div class="trackDot" id="d3" index="3"></div>
+<div class="trackDot" id="d4" index="4"></div>
+</div>
+
+</div>
+
+<div class="breaker"></div>
+
+<div id='geocoder-container'></div>
+
+  </div>
+</div>
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
