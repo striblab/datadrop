@@ -374,7 +374,7 @@ $(".zoom").click(function() {
 map.flyTo({ center: [-93.924866, 44.995883], zoom: 8.5 });
 });
 
-$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address");
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by full address, city name, street name or zip code");
 
 geocoder.on('result', function(ev) {
   map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
