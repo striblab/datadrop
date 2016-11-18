@@ -151,7 +151,7 @@ var chartT = c3.generate({
 
 function spitLegend() {
 
-var names = ["All","Arkansas","California","Indiana","Iowa","Minnesota","Missouri","North Carolina","Ohio","Pennsylvania","South Carolina","Utah","Virginia","Other"];
+var names = ["All","Arkansas","California","Indiana","Iowa","Minnesota","Missouri","North Carolina","Ohio","Pennsylvania","South Carolina","Utah","Virginia","Other States"];
 
 d3.select('#dd ul').selectAll('li')
     .data(["All","AR","CA","IN","IA","MN","MO","NC","OH","PA","SC","UT","VA","Other"])
@@ -174,8 +174,10 @@ d3.select('#dd ul').selectAll('li')
     	chartT.hide();
         chartT.show(id);
 
-        if (id == "All"){ chartT.show(); }
+        if (id == "All"){ chartT.show(); chartT.hide("Other"); }
     });
+
+    chartT.hide("Other");
 }
 
 spitLegend();
