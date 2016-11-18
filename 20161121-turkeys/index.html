@@ -13,17 +13,21 @@
 
 </head>
 <style type="text/css">
-  #chart .c3-line { stroke-width:3px !important; }
-  #wrapper { text-align:center; }
-  .wrapper-dropdown-1 .active { background:#ddd; }
-  .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; }
-  .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-  ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
-  .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
-  .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
-  header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
-  .c3-tooltip th { background-color:#aaa;font-size:12px;padding:2px 5px;text-align:left;color:#FFF;font-family:"Benton Sans"; }
-  #chart { height:700px; }
+    #chart .c3-line { stroke-width:3px !important; }
+    #wrapper { text-align:center; }
+    .wrapper-dropdown-1 .active { background:#ddd; }
+    .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; }
+    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+    ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
+    .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+    .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
+    header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
+    .c3-tooltip th { background-color:#aaa;font-size:12px;padding:2px 5px;text-align:left;color:#FFF;font-family:"Benton Sans"; }
+    #chart { height:400px; }
+
+    @media (max-width:500px) {
+        #chart { height:400px; }
+    }
 </style>
 <body>
 <div id="wrapper">
@@ -32,7 +36,7 @@
   <section class="main">
         <div class="wrapper-demo">
           <div id="dd" class="wrapper-dropdown-1" tabindex="1">
-            <span>All</span>
+            <span>Top Producers</span>
               <ul class="dropdown months" tabindex="1">
               </ul>
           </div>
@@ -151,7 +155,7 @@ var chartT = c3.generate({
 
 function spitLegend() {
 
-var names = ["All","Arkansas","California","Indiana","Iowa","Minnesota","Missouri","North Carolina","Ohio","Pennsylvania","South Carolina","Utah","Virginia","Other States"];
+var names = ["Top Producers","Arkansas","California","Indiana","Iowa","Minnesota","Missouri","North Carolina","Ohio","Pennsylvania","South Carolina","Utah","Virginia","Other States"];
 
 d3.select('#dd ul').selectAll('li')
     .data(["All","AR","CA","IN","IA","MN","MO","NC","OH","PA","SC","UT","VA","Other"])
@@ -174,10 +178,10 @@ d3.select('#dd ul').selectAll('li')
     	chartT.hide();
         chartT.show(id);
 
-        if (id == "All"){ chartT.show(); chartT.hide("Other"); }
+        if (id == "All"){ chartT.hide(); chartT.show("MN"); chartT.show("NC"); chartT.show("AR"); chartT.show("IN"); chartT.show("MO"); chartT.show("VA"); }
     });
 
-    chartT.hide("Other");
+    chartT.hide(); chartT.show("MN"); chartT.show("NC"); chartT.show("AR"); chartT.show("IN"); chartT.show("MO"); chartT.show("VA");
 }
 
 spitLegend();
