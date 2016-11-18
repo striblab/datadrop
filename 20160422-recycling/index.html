@@ -49,14 +49,14 @@
           <div id="dd" class="wrapper-dropdown-1" tabindex="1">
             <span>All Materials</span>
               <ul class="dropdown months" tabindex="1">
-        <li class="switch"><a href="#" data="total" fields="total">All Materials</a></li>
-        <li class="switch"><a href="#" data="alum_bev" fields="alum_bev">Aluminum Beverage Cans</a></li>
-        <li class="switch"><a href="#" data="film_plastic" fields="film_plastic">Plastic Film</a></li>
-        <li class="switch"><a href="#" data="glass" fields="glass_bev_containers,other_glass_containers">Glass</a></li>
-        <li class="switch"><a href="#" data="other_alum" fields="other_alum">Other Aluminum</a></li>
-        <li class="switch"><a href="#" data="paper" fields="cartons,high_grade_office,magazines,mixed_paper,newsprint,paper_boxboard,uncoated_old_corrugated_containers">Paper</a></li>
-        <li class="switch"><a href="#" data="plastic" fields="hdpe,pet,other_plastic_containers,polystyrene">Plastic</a></li>
-        <li class="switch"><a href="#" data="steel_cans" fields="other_metal,steel_tin_containers">Steel Cans + Other Metals</a></li>
+        <li class="thisSwitch"><a href="#" data="total" fields="total">All Materials</a></li>
+        <li class="thisSwitch"><a href="#" data="alum_bev" fields="alum_bev">Aluminum Beverage Cans</a></li>
+        <li class="thisSwitch"><a href="#" data="film_plastic" fields="film_plastic">Plastic Film</a></li>
+        <li class="thisSwitch"><a href="#" data="glass" fields="glass_bev_containers,other_glass_containers">Glass</a></li>
+        <li class="thisSwitch"><a href="#" data="other_alum" fields="other_alum">Other Aluminum</a></li>
+        <li class="thisSwitch"><a href="#" data="paper" fields="cartons,high_grade_office,magazines,mixed_paper,newsprint,paper_boxboard,uncoated_old_corrugated_containers">Paper</a></li>
+        <li class="thisSwitch"><a href="#" data="plastic" fields="hdpe,pet,other_plastic_containers,polystyrene">Plastic</a></li>
+        <li class="thisSwitch"><a href="#" data="steel_cans" fields="other_metal,steel_tin_containers">Steel Cans + Other Metals</a></li>
               </ul>
           </div>
         ​</div>
@@ -85,9 +85,11 @@
 <script>
 // $("#total").show();
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1P_ETaDTSnWw4iPN81dnnGG4jZRvDXd7qDwLbpIUjfjs&sheet=chart", function(error, dataLoad) {
+// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1P_ETaDTSnWw4iPN81dnnGG4jZRvDXd7qDwLbpIUjfjs&sheet=chart", function(error, dataLoad) {
 
-$(".switch a").click(function() {
+d3.json("./data/recycling.json", function(error, dataLoad) {
+
+$(".thisSwitch a").click(function() {
   // $(".chatter").hide();
   // $("#" + $(this).attr("data")).show();
   console.log($(this).attr("fields"));

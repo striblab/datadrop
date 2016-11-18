@@ -107,7 +107,9 @@ $('.scrollToTop').click(function(){
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=13e-y0nRwb0QG0mCRdyJ_vfg1ZfBlO0GQxt6fWQ7485U&sheet=growth", function(error, dataLoad) {
+// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=13e-y0nRwb0QG0mCRdyJ_vfg1ZfBlO0GQxt6fWQ7485U&sheet=growth", function(error, dataLoad) {
+
+d3.json("./data/growth.json", function(error, dataLoad) {
 
 var data = dataLoad.growth;
 

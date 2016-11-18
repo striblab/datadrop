@@ -13,7 +13,7 @@
   
   <style>
        .button { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border: none; border-bottom: 1px solid black; }
-       .button:hover, .selected { background-color:#eee !important; cursor:pointer;  }
+       .button:hover, .selected { background-color:#eee !important; cursor:pointer; color:#000 !important; margin:0 !important;  }
        .button { float:left; }
        #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
        #filter input { width: 100% !important; padding: 0 10px 0 10px; font-family:"Benton Sans"; border-radius:0 !important; margin:0; width:100%; height:30px; line-height:120%; font-size: 1em; -webkit-appearance: none;
@@ -232,7 +232,9 @@
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
 //https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
 
-d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1oQFh7AIdrYaPk7KQIDdgnqAemCSCQpzGxLclA_x9PAA&sheet=allhosp", function(error, dataLoad) {
+// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1oQFh7AIdrYaPk7KQIDdgnqAemCSCQpzGxLclA_x9PAA&sheet=allhosp", function(error, dataLoad) {
+
+d3.json("./data/hospitals.json", function(error, dataLoad) {
 
 var data = dataLoad.allhosp;
 
