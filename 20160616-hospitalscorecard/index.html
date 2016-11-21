@@ -12,137 +12,46 @@
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   
   <style>
-       .button { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border: none; border-bottom: 1px solid black; }
-       .button:hover, .selected { background-color:#eee !important; cursor:pointer; color:#000 !important; margin:0 !important;  }
-       .button { float:left; }
-       #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
-       #filter input { width: 100% !important; padding: 0 10px 0 10px; font-family:"Benton Sans"; border-radius:0 !important; margin:0; width:100%; height:30px; line-height:120%; font-size: 1em; -webkit-appearance: none;
-         -webkit-border-radius:0; border-radius:0; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); color: rgba(0,0,0,0.75);  -webkit-transition: all 0.30s ease-in-out; -moz-transition: all 0.30s ease-in-out; -ms-transition: all 0.30s ease-in-out; -o-transition: all 0.30s ease-in-out; background-color: #fff !important; font-family: inherit; border: 1px solid #eee !important; 
-         background-size: 14px 14px;
-         background-repeat: no-repeat; 
-         background-position: 98% 50%; }
-       #filter input:focus { width: 100% !important; font-family:"Benton Sans"; box-shadow: 0 0 5px #999; padding: 1px 10px 1px 10px; border: 1px solid #61bd1a ; }
-
-       #hospitalsList{
-        height: 195px;
-        overflow: auto;
-        margin-bottom: 15px;
-       }
-
-       #score, .title{text-align: center;}
-
-       .title{
-        font-size: 1.9em;
-        font-family:"Poynter Serif RE",Georgia,Times,serif;
-      }
-
-       .year{font-size: 1.3em;}
-
-       .hospital{font-size: 2em;}
-
-       .expl{font-size: .8em;}
-
-       #readpay, #hacPay, #valPay{font-size: 1.7em;}
-
-       .category{
-          width: 33%;
-          min-height: 490px;
-          float: left;
-          border-right: 1px dotted #3e3e3e;
-          padding: 2%;
-       }
-       .category:last-child{
-          border-right: none;
-       }
-
-       .red{color: #C22A22; font-weight: bold;}
-       .green{color: #299E3D; font-weight: bold;}
-      
-       .more{
-          background-color: white;
-          border: 1px solid #eee;
-          border-radius: 5px;
-          width: 75%;
-          padding: 10px;
-          font-size: .8em;
-       }
-
-      .close{
-        background-color: white;
-        color: navy;
-        border: none;
-        font-size: 1em;
-        float:right;
-        margin-left: 15px;
-       }
-
-       .more:hover, .close:hover{
-          background-color: #eee;
-          cursor: pointer;
-       }
-
-       #readmMore, #hacMore, #vbMore{
-          display: none;
-       }
-
-      .catMore{
-        padding: 6%;
-        clear: left;
-      }
-
-      .catMore p, .catMore li{
-          font-size: .8em; 
-          text-align: left;
-          font-family:"Benton Sans",Helvetica,Arial,sans-serif;
-      }
-
-      .catMore ul{
-        margin-bottom: 10px;
-        margin-left: 35px;
-      }
-
-      .resources{clear: both; padding-top: 60px;}
-
-      .resources p{
-        line-height: .5em;
-      }
-
-      .resources a{
-        color: black;
-      }
-
-      .resources a:hover{
-        color: grey;
-      }
-
-      @media (max-width: 475px){
-        .category{
-          width: 33%;
-          min-height: 520px;
-         } 
-         .year{font-size: 1em;}
-
-        .hospital{font-size: 1.3em;}
-
-       p, .expl{font-size: .8em;}
-
-       #readpay, #hacPay, #valPay{font-size: 1em;}
-      }
-
-      @media (max-width:370px) { 
-        .category{
-          width: 33%;
-          min-height: 620px;
-         } 
-        .year{font-size: 1em;}
-
-        .hospital{font-size: 1.3em;}
-
-       p, .expl{font-size: .8em;}
-
-       #readpay, #hacPay, #valPay{font-size: 1em;}
+    .button { background-color:#fff; border:none; border-bottom:1px solid black; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-weight:900; padding:10px; text-align:center; width:100%; }
+    .button:hover, .selected { background-color:#eee !important; color:#000 !important; cursor:pointer; margin:0 !important; }
+    .button { float:left; }
+    #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
+    #filter input { background-color:#fff !important; background-position:98% 50%; background-repeat:no-repeat; background-size:14px 14px; border:1px solid #eee !important; border-radius:0 !important; border-radius:0; box-shadow:inset 0 1px 2px rgba(0,0,0,0.1); color:rgba(0,0,0,0.75); font-family:"Benton Sans"; font-family:inherit; font-size:1em; height:30px; line-height:120%; margin:0; moz-transition:all 0.30s ease-in-out; ms-transition:all 0.30s ease-in-out; o-transition:all 0.30s ease-in-out; padding:0 10px 0 10px; webkit-appearance:none; webkit-border-radius:0; webkit-transition:all 0.30s ease-in-out; width:100% !important; width:100%; }
+    #filter input:focus { border:1px solid #61bd1a; box-shadow:0 0 5px #999; font-family:"Benton Sans"; padding:1px 10px 1px 10px; width:100% !important; }
+    #hospitalsList { height:195px; margin-bottom:15px; overflow:auto; }
+    #score, .title { text-align:center; }
+    .title { font-family:"Poynter Serif RE",Georgia,Times,serif; font-size:1.9em; }
+    .year { font-size:1.3em; }
+    .hospital { font-size:2em; }
+    .expl { font-size:.8em; }
+    #readpay, #hacPay, #valPay { font-size:1.7em; }
+    .category { border-right:1px dotted #3e3e3e; float:left; min-height:490px; padding:2%; width:33%; }
+    .category:last-child { border-right:none; }
+    .red { color:#C22A22; font-weight:bold; }
+    .green { color:#299E3D; font-weight:bold; }
+    .more { background-color:white; border:1px solid #eee; border-radius:5px; font-size:.8em; padding:10px; width:75%; }
+    .close { background-color:white; border:none; color:navy; float:right; font-size:1em; margin-left:15px; }
+    .more:hover, .close:hover { background-color:#eee; cursor:pointer; }
+    #readmMore, #hacMore, #vbMore { display:none; }
+    .catMore { clear:left; padding:6%; }
+    .catMore p, .catMore li { font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:.8em; text-align:left; }
+    .catMore ul { margin-bottom:10px; margin-left:35px; }
+    .resources { clear:both; padding-top:60px; }
+    .resources p { line-height:.5em; }
+    .resources a { color:black; }
+    .resources a:hover { color:grey; }
+    @media (max-width: 475px) { .category { min-height:520px; width:33%; }
+    .year { font-size:1em; }
+    .hospital { font-size:1.3em; }
+    p, .expl { font-size:.8em; }
+    #readpay, #hacPay, #valPay { font-size:1em; }
     }
-
+    @media (max-width:370px) { .category { min-height:620px; width:33%; }
+    .year { font-size:1em; }
+    .hospital { font-size:1.3em; }
+    p, .expl { font-size:.8em; }
+    #readpay, #hacPay, #valPay { font-size:1em; }
+    }
   </style> 
 </head>
 
@@ -218,22 +127,10 @@
     </div>
   </div>
   </div>
-</body>
 
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script>
-// $("#headerDiv").sticky({topSpacing:1});
-
-</script>
-<script>
-//LIVE JSON MAGIC
-
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1oQFh7AIdrYaPk7KQIDdgnqAemCSCQpzGxLclA_x9PAA&sheet=allhosp", function(error, dataLoad) {
-
 d3.json("./data/hospitals.json", function(error, dataLoad) {
 
 var data = dataLoad.allhosp;
@@ -289,16 +186,7 @@ var currentHospital = "";
         return "<span class='green'>better</span>";
       }
     });
-    // $("#hacYN").html( function (){
-    //   // console.log (d.hacReduct);
-    //   if (d.hacReduct == "Yes"){
-    //     return "will also have to pay";
-    //   } else {
-    //     return "will not have to pay anything";
-    //   }
-    // });
 
-    // $("#hacPay").html(d3.format("$,")(d.hacImpact));
     $("#hacPay").html( function (){
       if (d.hacImpact > 0){
         return "<span class='red'>" + (d3.format("$,")(d.hacImpact)) + "</span>";
@@ -381,11 +269,6 @@ var currentHospital = "";
       }
     });
 
-    // for (var i=0; i<data.length; i++){
-    //   if (data[i].hospital==d.hospital){
-    //     $("#score").append(data[i].year);
-    //   }
-    // }
     })
   .html(function(d){ 
     if (currentHospital != d.hospital){
@@ -429,10 +312,7 @@ var currentHospital = "";
    });
 });
 
-
-
 });
-
-
 </script>
+</body>
 </html>

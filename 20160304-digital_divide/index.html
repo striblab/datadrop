@@ -10,17 +10,12 @@
   <meta name="author" content="Frey Hargarten - StarTribune" />
 
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
-  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+  <link href='../_common_resources/js/mapbox-master/mapbox.css' rel='stylesheet' />
   <link href="../_common_resources/charts/nvd3-master/build/nv.d3.css" rel="stylesheet" type="text/css" />
   
   <style>
     #map {  height:420px;width:350px;margin:0 auto; }
-    
-    #map path {opacity:  .5!important;
-        stroke:#000;
-        stroke-width:1px;
-        stroke-opacity:0.7;
-      }
+    #map path {opacity:.5 !important; stroke:#000; stroke-width:1px; stroke-opacity:0.7; }
     #nbName {font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:2em; font-weight:900; height:40px;margin:5px auto 10px auto;text-align:center; }
     .zoom { text-align:center; float:none !important; padding:15px; }
     .legends { width:280px; height:auto; text-align:center; margin-right:auto; margin-left:auto; margin-top:20px; }
@@ -83,16 +78,16 @@
 
   <div class="source"><a href="http://www.minneapolismn.gov/it/inclusion/WCMS1P-118865" target="new_">Source: City of Minneapolis</a></div>
 
-<a href="https://docs.google.com/spreadsheets/d/1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a>
+<!-- <a href="https://docs.google.com/spreadsheets/d/1J8ZCg7kqs89l2JDt2052cZsrF2yoA7bYj15n0ma8DhA/pub?output=xlsx" target="new_"><button class="downloadButton">&nbsp;Download data</button></a> -->
   </div>
 
 
 </body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src='../_common_resources/js/mapbox-master/mapbox.js'></script>
+<script src='../_common_resources/js/mapbox-master/leaflet-omnivore.min.js'></script>
 <script src="../_common_resources/charts/nvd3-master/build/nv.d3.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/utils.js"></script>
 <script src="../_common_resources/charts/nvd3-master/src/tooltip.js"></script>
@@ -100,9 +95,6 @@
 <script src="../_common_resources/charts/nvd3-master/src/models/axis.js"></script>
 <script src="../_common_resources/charts/nvd3-master/test/stream_layers.js"></script>
 
-<script>
-// $("#headerDiv").sticky({topSpacing:1});
-</script>
 <script>
 d3.json("./data/surveyIsolate.json", function(error, json) {
 d3.json("./data/surveyIsolate2012.json", function(error, json2012) {

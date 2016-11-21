@@ -52,11 +52,6 @@
 
       .switch { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; margin:0 !important; }
       .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
-
-      @media (max-width:500px) {
-
-
-      }
   </style> 
 </head>
 
@@ -65,11 +60,10 @@
 <div id='geocoder-container'></div>
 <div class="zoom">Reset View</div>
 
-<p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p>
-</body>
+<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
 
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
@@ -257,4 +251,5 @@ map.on('mousemove', function(e) {
 });
 });
 </script>
+</body>
 </html>
