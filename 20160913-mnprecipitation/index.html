@@ -103,6 +103,7 @@
     <span style='background:#7FB9DE;'></span>
     <span style='background:#03253B'></span>
     <span style='background:#fff;'>More</span>
+  </nav>
 </span>
 </div>
 
@@ -111,14 +112,8 @@
 <div class="zoom">Reset View</div>
 </div>
 
-</div>
-
-</div>
-<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
-</body>
-
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
@@ -137,7 +132,7 @@ var map2 = new mapboxgl.Map({
 });
 
 var geocoder2 = new mapboxgl.Geocoder({
-    container: 'geocoder-container2' // Optional. Specify a unique container for the control to be added to.
+    container: 'geocoder-container2'
 });
 
 
@@ -156,29 +151,11 @@ geocoder2.on('result', function(ev) {
   map2.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
     });
 
-
-    // map2.addSource("spots", {
-    //     type: "geojson",
-    //     data: spots
-    // });
-
     map2.addSource("spots", {
         type: "geojson",
-        // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
-        // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
         data: "./shapefiles/stations.geojson"
-        // cluster: true,
-        // clusterMaxZoom: 15, // Max zoom to cluster points on
-        // clusterRadius: 20 // Use small cluster radius for the heatmap look
     });
 
- // var layers = [
- //        [0, '#D3F0F9'],
- //        [20, '#00BFFF'],
- //        [40, '#0084B0']
- //    ];
-
- //    layers.forEach(function (layer, i) {
         map2.addLayer({
             "id": "cluster",
             "type": "circle",
@@ -192,53 +169,12 @@ geocoder2.on('result', function(ev) {
                 [20, '#03253B']]
                 },
                 "circle-radius": 4,
-                // {
-                // property: 'PRECIP',
-                // stops: [
-                // [0, 5],
-                // [5, 10],
-                // [10, 15],
-                // [15, 20],
-                // [20, 25]]
-                // },
                 "circle-opacity": 1,
                 "circle-blur": 0 
             }
-            // "filter": i === layers.length - 1 ?
-            //     [">=", "point_count", layer[0]] :
-            //     ["all",
-            //         [">=", "point_count", layer[0]],
-            //         ["<", "point_count", layers[i + 1][0]]]
         }, 'waterway-label');
-    // });
-
-//2010
-    // map2.addLayer({
-    //             "id": "blocks-layer2010",
-    //             "type": "circle",
-    //             "source": "spots",
-    //             "paint": {
-    //               'circle-radius': 3,
-    //               'circle-color': '#00BFFF'
-    //         //     'fill-antialias' : true,
-    //         //     'fill-opacity': 1,
-    //         //     'fill-outline-color': 'rgba(51, 51, 51, 1)',
-    //         //     "fill-color": {
-    //         //     property: 'A2010',
-    //         //     // type: 'categorical',
-    //         //     stops: [
-    //         //         [0, '#D3F0F9'],
-    //         //         [50, '#33CAFC'],
-    //         //         [55, '#00BFFF'],
-    //         //         [65, '#006384'],
-    //         //         [69, '#001319']]
-    //         // }
-    //             }
-    // });
-
-
 });
 });
-
 </script>
+</body>
 </html>

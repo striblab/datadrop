@@ -83,31 +83,23 @@
 <span class="scrollToTop">Return to Top</span> | <span class="zoom">Reset View</span>
 <div class="breaker"></div>
 
-<div id="filter"><input type="search" id="filter_box" placeholder="Search table by occupation or industry, then scroll through list"></input></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Search table by occupation or industry, then scroll through list" /></div>
 
 <div id="heading"><div class='tableHead partyBar hSort' data="title">Occupation</div><div class='tableHead hSort' data="group">Group</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
 <div id="jobsList" class="table" data="finance">
 </div>
 
-<p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p>
+<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
   </div>
-</body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script>
 $('.scrollToTop').click(function(){
     $('#jobsList').animate({scrollTop : 0},800);
     return false;
   });
-
-//LIVE JSON MAGIC
-
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=13e-y0nRwb0QG0mCRdyJ_vfg1ZfBlO0GQxt6fWQ7485U&sheet=growth", function(error, dataLoad) {
 
 d3.json("./data/growth.json", function(error, dataLoad) {
 
@@ -246,6 +238,6 @@ tableBuild();
         });
 
       });
-
 </script>
+</body>
 </html>

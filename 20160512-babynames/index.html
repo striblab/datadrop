@@ -26,10 +26,7 @@
       .source { font-size:0.8em; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
-      .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; }
-
-      @media (max-width:500px) {
-      }
+      .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
   </style> 
 </head>
 
@@ -41,7 +38,7 @@
 </div>
 
 <h3>2.) Enter name:</h3>
-<div id="filter"><input type="search" id="filter_box" placeholder="Type name and press enter"></input></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Type name and press enter" /></div>
 
   <div id="wrapper">
 
@@ -55,12 +52,11 @@
 <small class="source">Result reflects the last year when the name's rate reached above zero.</small>
 <div></div>
 <small class="source">Data includes years when five babies received a certain name, so no births on the chart could mean between 0 and 4.</small>
-<p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p>
+<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
   </div>
-</body>
 
 <script src="//code.jquery.com/jquery-latest.js"></script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
 d3.csv("./data/names.csv", function(d) {
@@ -109,18 +105,6 @@ function switchChart(name,gender,colors){
       // break;
     }
   }
-
-  // for (var i=0; i < data.length; i++){
-  //   if (name == data[i].name || gender == data[i].gender){
-  //     found = true;
-  //     var push = i;
-  //   for (var k=1; k <= 106; k++){
-  //     if (data[push].name != name){ break; }
-  //     else if (data[push].year == axis[k]) { dataStream[k] = data[push].rate; push++; }
-  //     else { dataStream[k] = 0; }
-  //    }
-  //   }
-  // }
 
 if (found == true){
 
@@ -259,4 +243,5 @@ if ($.urlParam('name') != 0 ) {
 
 });
 </script>
+</body>
 </html>

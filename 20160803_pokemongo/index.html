@@ -59,26 +59,15 @@
   <div id='geocoder-container'></div>
   <div class="breaker" id="midbreak"></div>
  
-<!--   <div class="zoom">Reset View</div> -->
 </div>
-</body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
 <script>
-//LIVE JSON MAGIC
-
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
-
-//https://github.com/AHAAAAAAA/PokemonGo-Map/wiki
-//https://www.ingress.com/intel
-
 d3.json("./data/portalsmn.geojson", function(error, portals) {
 d3.json('./shapefiles/counties.json', function(error, counties) {
-
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 var map = new mapboxgl.Map({
@@ -90,7 +79,7 @@ var map = new mapboxgl.Map({
 });
 
 var geocoder = new mapboxgl.Geocoder({
-    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
+    container: 'geocoder-container'
 });
 
 map.addControl(geocoder);
@@ -161,25 +150,12 @@ $(".fly").click(function() {
 });
 
 map.on('mousemove', function(e) {
-    // var features = map.queryRenderedFeatures(e.point, { layers: ['shape-layer-counties'] });
-    // // Change the cursor style as a UI indicator.
-    // map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-
-    // if (!features.length) {
-    //     popup.remove();
-    //     return;
-    // }
-
-    // var feature = features[0];
-
-    // popup.setLngLat(e.lngLat)
-    //     .setHTML("<div>" + feature.properties.COUNTYNAME + "</div>")
-    //     .addTo(map);
+    .addTo(map);
 });
 
 });
 });
 });
 </script>
-
+</body>
 </html>

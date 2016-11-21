@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <title>Turkey production rankings</title>
     <meta name="description" content="Turkey production rankings">
@@ -10,8 +9,7 @@
 
     <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
     <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-
-</head>
+    
 <style type="text/css">
     #chart .c3-line { stroke-width:3px !important; }
     #wrapper { text-align:center; }
@@ -30,6 +28,8 @@
         #chart { height:350px; }
     }
 </style>
+</head>
+
 <body>
 <div id="wrapper">
 <div class="chartTitle">Turkey production by state 1984-2016</div>
@@ -50,10 +50,9 @@
 
 <div id="chart"></div>
 </div>
-</body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src="../_common_resources/charts/c3-master/c3.min.js"></script>
 <script>
 var turkeys = [];
@@ -293,6 +292,6 @@ spitLegend();
         });
 
       });
-
 </script>
+</body>
 </html>

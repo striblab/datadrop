@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title></title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <title>Where are the best places for trick-or-treating in the metro?</title>
     <meta name="description" content="Where are the best places for trick-or-treating in the metro?">
@@ -12,7 +11,6 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
 
-</head>
 <style>
     body { margin:0; padding:0; font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -70,9 +68,9 @@
 
     }
 </style>
+</head>
 
 <body>
-
 <div id='map'></div>
 
 <div class='map-overlay-container'>
@@ -122,20 +120,13 @@
 
   </div>
 </div>
-</body>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
 <script>
-
-// $json = file_get_contents("https://script.googleusercontent.com/macros/echo?user_content_key=wHQQVJTPNqSo-g2oS-WTXE_J_vhA_rJd-zNBajQIamNwirkTNZqSVaMsNgm0a-cFD8KwWFZeFgg7GTtcKh6o4QgdzaSB7odaOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHaxCoMjMSmZWLp6XAShvjQj50JtCfh4yP7n1RnEoDeOH7XqmOXgX8RYIyMAhIAtjnF9UDzNXGLr6T-rGw4-uQPhtbXMEb_L25zTuTw3-CSg1dB2Ol9vDs5w5TzSnLXrnciyoBjnjDDrq1GFMHuQvceYyp1w9teQfukQ&lib=MVcLnEUipyThKZcpmQKyqT_CoSfd4egCX");
-
-// var dataLoad = <?php echo $json; ?>;
-
 d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1RiNtORVIispxDGDxtdDljvs0CEDP94EaV2B3wbcMkXk&sheet=candy", function(error, dataLoad) {
-  //http://bl.ocks.org/hrecht/82b6440ed3b982a6f594
 
 var data = dataLoad.candy;
 
@@ -154,11 +145,10 @@ var map = new mapboxgl.Map({
     center: [-93.924866, 44.995883],
     zoom: 8,
     minZoom: 7.5
-    // maxBounds: llb
 });
 
 var geocoder = new mapboxgl.Geocoder({
-    container: 'geocoder-container' // Optional. Specify a unique container for the control to be added to.
+    container: 'geocoder-container'
 });
 
 map.addControl(geocoder);
@@ -171,12 +161,9 @@ var timer = [];
 
 function playback(index,stream) {
     title.textContent = data[index].title;
-    // description.textContent = data[index].description;
 
     $("#location-description").html(data[index].description);
     $(".stat").html(data[index].stat);
-
-    // highlightBorough(data[index].id ? data[index].id : '');
 
     $(".trackDot").removeClass("current");
     $("#d" + index).addClass("current");
@@ -386,6 +373,5 @@ geocoder.on('result', function(ev) {
 });
 });
 </script>
-
 </body>
 </html>

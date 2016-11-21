@@ -12,132 +12,31 @@
   <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
   
   <style>
-       .button { padding:10px; display:inline-block; text-align:center; width:100%; background-color:#fff; font-weight:500; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border: none; border-bottom: 1px solid #999; }
-       .button:hover, .selected { background-color:#eee !important; cursor:pointer; color:#000 !important; margin:0 !important; }
-       .button { float:left; }
-       #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
-       #filter input { width: 100% !important; padding: 0 10px 0 10px; font-family:"Benton Sans"; border-radius:0 !important; margin:0; width:100%; height:30px; line-height:120%; font-size: 1em; -webkit-appearance: none;
-         -webkit-border-radius:0; border-radius:0; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1); color: rgba(0,0,0,0.75);  -webkit-transition: all 0.30s ease-in-out; -moz-transition: all 0.30s ease-in-out; -ms-transition: all 0.30s ease-in-out; -o-transition: all 0.30s ease-in-out; background-color: #fff !important; font-family: inherit; border: 1px solid #eee !important; 
-         background-size: 14px 14px;
-         background-repeat: no-repeat; 
-         background-position: 98% 50%; }
-       #filter input:focus { width: 100% !important; font-family:"Benton Sans"; box-shadow: 0 0 5px #999; padding: 1px 10px 1px 10px; border: 1px solid #61bd1a ; }
-
-      .title{
-        font-size: 1.9em;
-        font-family:"Poynter Serif RE",Georgia,Times,serif;
-      }
-
-      .descrip{
-        width: 95%;
-        margin: auto;
-        margin-top: 25px;
-        margin-bottom: 35px;
-        line-height: 1em;
-      }
-
-
-       #info, .title{
-        text-align: center;
-        margin: auto;
-      }
-
-      .filters p{
-        font-family:"Poynter Serif RE",Georgia,Times,serif;
-        margin-top: 20px;
-        width: 95%;
-        margin: auto;
-      }
-
-       .filters ul li {
-          float: left;
-          list-style: none;
-          padding: 10px 16px;
-       }
-
-       .filters button{
-        font-family: "Benton Sans",Helvetica,Arial,sans-serif;
-        background-color: white;
-        padding: 7px 10px;
-        text-decoration: none;
-        text-align: center;
-        border-radius: 8px;
-        border: 1px solid #eee;
-       }
-
-       .filters button:hover, .reset:hover{
-        background-color: #f2f2f2;
-       }
-
-       .clearfix{
-        clear: both;
-        text-align: right;
-       }
-
-      .reset{
-        margin-top: 40px;
-        font-family: "Benton Sans",Helvetica,Arial,sans-serif;
-        font-size: .7em;
-        background-color: white;
-        padding: 5px 7px;
-        text-decoration: none;
-        text-align: center;
-        border-radius: 5px;
-        border: 1px solid #eee;
-      }
-
-       #deviceList{
-        height: 195px;
-        overflow: auto;
-        margin-bottom: 35px;
-       }
-
-      #info{
-        width: 70%;
-      }
-
-       .num{
-        font-size: 1.9em;
-        font-family:"Poynter Serif RE",Georgia,Times,serif;
-        color: #C22A22;
-       }
-
-       #lag, #device{
-        font-weight: bold;
-       }
-
-       a#FDA{
-        text-decoration: underline;
-        color: black;
-       }
-
-       a#FDA:hover{
-        text-decoration: underline;
-        color: #ccc;
-       }
-
-      .resources{clear: both; padding-top: 60px;}
-
-      .resources p{
-        line-height: .8em;
-      }
-
-      .resources a{
-        color: black;
-      }
-
-      .resources a:hover{
-        color: grey;
-      }
-
-      @media (max-width: 475px){
-
-      }
-
-      @media (max-width:370px) { 
-
-    }
-
+    .button { background-color:#fff; border:none; border-bottom:1px solid #999; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-weight:500; padding:10px; text-align:center; width:100%; }
+    .button:hover, .selected { background-color:#eee !important; color:#000 !important; cursor:pointer; margin:0 !important; }
+    .button { float:left; }
+    #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
+    #filter input { background-color:#fff !important; background-position:98% 50%; background-repeat:no-repeat; background-size:14px 14px; border:1px solid #eee !important; border-radius:0 !important; border-radius:0; box-shadow:inset 0 1px 2px rgba(0,0,0,0.1); color:rgba(0,0,0,0.75); font-family:"Benton Sans"; font-family:inherit; font-size:1em; height:30px; line-height:120%; margin:0; moz-transition:all 0.30s ease-in-out; ms-transition:all 0.30s ease-in-out; o-transition:all 0.30s ease-in-out; padding:0 10px 0 10px; webkit-appearance:none; webkit-border-radius:0; webkit-transition:all 0.30s ease-in-out; width:100% !important; width:100%; }
+    #filter input:focus { border:1px solid #61bd1a; box-shadow:0 0 5px #999; font-family:"Benton Sans"; padding:1px 10px 1px 10px; width:100% !important; }
+    .title { font-family:"Poynter Serif RE",Georgia,Times,serif; font-size:1.9em; }
+    .descrip { line-height:1em; margin:auto; margin-bottom:35px; margin-top:25px; width:95%; }
+    #info, .title { margin:auto; text-align:center; }
+    .filters p { font-family:"Poynter Serif RE",Georgia,Times,serif; margin:auto; margin-top:20px; width:95%; }
+    .filters ul li { float:left; list-style:none; padding:10px 16px; }
+    .filters button { background-color:white; border:1px solid #eee; border-radius:8px; font-family:"Benton Sans",Helvetica,Arial,sans-serif; padding:7px 10px; text-align:center; text-decoration:none; }
+    .filters button:hover, .reset:hover { background-color:#f2f2f2; }
+    .clearfix { clear:both; text-align:right; }
+    .reset { background-color:white; border:1px solid #eee; border-radius:5px; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:.7em; margin-top:40px; padding:5px 7px; text-align:center; text-decoration:none; }
+    #deviceList { height:195px; margin-bottom:35px; overflow:auto; }
+    #info { width:70%; }
+    .num { color:#C22A22; font-family:"Poynter Serif RE",Georgia,Times,serif; font-size:1.9em; }
+    #lag, #device { font-weight:bold; }
+    a#FDA { color:black; text-decoration:underline; }
+    a#FDA:hover { color:#ccc; text-decoration:underline; }
+    .resources { clear:both; padding-top:60px; }
+    .resources p { line-height:.8em; }
+    .resources a { color:black; }
+    .resources a:hover { color:grey; }
   </style> 
 </head>
 
@@ -159,20 +58,11 @@
       <li><button class="company" company="Zimmer">Zimmer</button></li>
     </ul>
   </div>
-<!--   <div class="filters clearfix sortfloat">
-    <p>Devices with the largest number of events reported:</p>
-    <button class="sort" id="eventSort" sortBy="numEvents">Sort</button>
-  </div>
-  <div class="filters sortfloat">
-    <p>Devices with longest lag time before reporting to FDA:</p>
-    <button class="sort" id="lagSort" sortBy="lag">Sort</button>
-  </div>
- --><div class="clearfix">
+<div class="clearfix">
     <button class="reset">Reset</button>
   </div>
   <div id="filter"><input type="search" id="filter_box" placeholder="Search a company or medical device"></input></div>
   <div id="deviceList">
-  <!--Database list of device manufacturers and device names that are clickable to scorecard-->
   </div>
 
   <div id="info">
@@ -195,23 +85,14 @@
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
-// $("#headerDiv").sticky({topSpacing:1});
 
 </script>
 <script>
-//LIVE JSON MAGIC
-
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=strikes
-//https://script.google.com/macros/s/AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu/exec?id=1cJMavlb8PBBlbRngyzmZaG5A0yjltFwhGw0KDOC91vA&sheet=airports
-
-// d3.json("http://googlescript.startribune.com/?macro=AKfycbwG7mX6qPZaIhkwY2AJ2lU7kNarbm6OWIkWVfnmYZGYruIl40cu&id=1RlvqHMyepBysg8EEWg7veUQdOiLmLh8l3nYhhSVgNYY&sheet=rsr", function(error, dataLoad) {
-
 d3.json("./data/rsr.json", function(error, dataLoad) {
 
 var data = dataLoad.rsr;
 
 var currentDevice = "";
-
 
  d3.select("#deviceList").selectAll(".list")
   .data(data).enter().append("div")
@@ -224,17 +105,6 @@ var currentDevice = "";
     $("#lag").html(d3.format(",")(d.lag));
     $("#date").html(d3.time.format("%B %e, %Y")(new Date(d.receiveDate)));
     $("#FDA").attr("href",d.maudeLink);
-    // $("#readpay").html(d3.format("$,")(d.readmImpact));
-
-    // $("#readpay").html( function (){
-    //   if (d.readmImpact > 0){
-    //     return "<span class='red'>" + (d3.format("$,")(d.readmImpact)) + "</span>";
-    //   } else {
-    //     return "<span class='green'>" + (d3.format("$,")(d.readmImpact)) + "</span>";
-    //   }
-    // });
-
-
     })
   .html(function(d){ 
     if (currentDevice != d.combinedName){
@@ -290,7 +160,5 @@ var currentDevice = "";
 });
 
 });
-
-
 </script>
 </html>
