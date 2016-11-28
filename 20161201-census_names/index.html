@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Census Surnames</title>
+  <meta name="description" content="Census Surnames">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+  
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  
+  <style>
+      body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+      #chart .c3-line { stroke-width:6px !important; }
+
+      #wrapper { text-align:center; }
+
+      #viewSwitch, #current { padding:10px; }
+      .stat { font-weight:900; }
+
+      #filter { padding:12px; }
+      #namePick { height:457px; overflow-x:hidden; overflow-y:scroll; }
+
+      .source { font-size:0.8em; }
+
+      .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
+      .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
+  </style> 
+</head>
+
+<body>
+<div id="wrapper">
+
+<h3>Search surnames</h3>
+<div id="filter"><input type="search" id="filter_box" placeholder="Search for last name and press enter" /></div>
+
+<div class="chartTitle">How common is the last name <span id="named"></span> in Minnesota?</div>
+<div class="chatter">A breakdown by race</div>
+
+<div id="chart"></div>
+
+<div id="current" class="chatter"><span class="stat" id="rate"></span> people per 100,000 in Minnesota had the last name of <span class="stat" id="name"></span>, numbering <span class="stat" id="count"></span> in all and ranking <span class="stat" id="rank"></span> among surnames.</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script>
+d3.csv("./data/surnames.csv", function(d) {
+  return {
+    name: d.surname,
+    rank: +d.rank,
+    count: +d.count,
+    prop100k: +d.prop100k,
+    cum_prop100k: +d.cum_prop100k,
+    pctwhite: +d.pctwhite,
+    pctblack: +d.pctblack,
+    pctapi: +d.pctapi,
+    pctaian: +d.pctaian,
+    pct2prace: +d.pct2prace,
+    pcthispanic: +d.pcthispanic    
+  };
+}, function(error, rows) {
+
+var data = rows;
+
+// d3.select("#namePick").selectAll(".switch")
+//   .data(data).enter().append("div")
+//   .attr("class",function(d) { return "switch"; })
+//   .attr("id",function(d) { return d.name; })
+//   .on("click",function(d){ switchChart(d.rank); })
+//   .html(function(d){ return d.name; });
+
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if (results != null) { return results[1]; }
+  else { return 0; }
+}
+
+if ($.urlParam('name') != 0 ) { 
+  var name = $.urlParam('name'); 
+  switchChart(name.toUpperCase());
+}
+
+function switchChart(name){
+
+var prevalence = [];
+var prop100k = 0;
+var cum_prop100k = 0;
+var count = 0;
+var rank = 0;
+var index = 0;
+
+prevalence[0] = "Percentage";
+// black[0] = "Black";
+// pacific[0] = "Pacific Islander";
+// asian[0] = "Asian";
+// multi[0] = "Multiracial";
+// hispanic[0] = "Hispanic";
+
+console.log(name + " " + data[0].name)
+
+for (var i=0; i<data.length; i++){
+  if (name == data[i].name){
+  prevalence[1] = data[i].pctwhite / 100;
+  prevalence[2] = data[i].pctblack / 100;
+  prevalence[3] = data[i].pctapi / 100;
+  prevalence[4] = data[i].pctaian / 100;
+  prevalence[5] = data[i].pct2prace / 100;
+  prevalence[6] = data[i].pcthispanic / 100;
+  name = data[i].name;
+  prop100k = data[i].prop100k;
+  cum_prop100k = data[i].cum_prop100k;
+  count = data[i].count;
+  rank = data[i].rank;
+  break;   
+  }
+}
+
+$("#rate").html(d3.format(",")(prop100k));
+$("#name, #named").html(name);
+$("#count").html(d3.format(",")(count));
+$("#rank").html("#" + d3.format(",")(rank));
+
+var  padding = {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 60,
+    };
+
+var share = "#B0BEC5";
+
+var chart = c3.generate({
+        bindto: '#chart',
+        padding: padding,
+    data: {
+        columns: [
+            prevalence
+        ],
+        type: 'bar'
+    },
+    // color:  {  pattern: ["#333"] },
+    axis: {
+      y: {
+            max: 1,
+            min: 0,
+            padding: {bottom: 0, top:0},
+            tick: {
+             count: 4,
+             format: d3.format('%')
+            }
+        },
+        x: {
+            type: 'category',
+            categories: ['White', 'Black', 'Pacific Islander', 'Asian', 'Multiracial', 'Hispanic']
+        }
+      }
+});
+
+}
+
+  $( document ).ready(function() {
+    $(".switch").click(function()  { 
+       $(".switch").removeClass("selected");
+       $(this).addClass("selected");
+    });
+
+    $('#filter_box').keyup(function(e){
+        if(e.keyCode == 13)
+        {
+          window.location.href = './?name=' + $('#filter_box').val();
+        }
+    });
+});  
+
+});
+</script>
+</body>
+</html>
