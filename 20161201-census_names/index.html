@@ -15,16 +15,13 @@
   <style>
       body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
       #chart .c3-line { stroke-width:6px !important; }
-
+      text { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
       #wrapper { text-align:center; }
-
       #viewSwitch, #current { padding:10px; }
       .stat { font-weight:900; color:#0B4F6C;  }
-
       #filter { padding:12px; }
-      #namePick { height:457px; overflow-x:hidden; overflow-y:scroll; }
-
-      .source { font-size:0.8em; }
+      h3 { text-align:left; }
+      .source { font-size:0.8em; color:#bbbbbb; text-align:left; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
       .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
@@ -35,7 +32,7 @@
 <div id="wrapper">
 
 <h3>Search surnames</h3>
-<div id="filter"><input type="search" id="filter_box" placeholder="Search for last name and press enter" /></div>
+<div id="filter"><input type="search" id="filter_box" placeholder="Type a last name and press enter" /></div>
 
 <div class="chartTitle">How common is the last name <span id="named"></span> in the United States?</div>
 <div class="chatter">A breakdown by race</div>
@@ -43,6 +40,8 @@
 <div id="chart"></div>
 
 <div id="current" class="chatter"><span class="stat" id="rate"></span> people per 100,000 nationwide had the last name of <span class="stat" id="name"></span>, numbering <span class="stat" id="count"></span> in all and ranking <span class="stat" id="rank"></span> among surnames.</div>
+
+<div class="source">Source: <a href="http://www.census.gov/topics/population/genealogy/data/2000_surnames.html" target="new_">U.S. Census Bureau</a> | Dataviz: Jeff Hargarten</div>
 
 </div>
 
@@ -110,8 +109,8 @@ for (var i=0; i<data.length; i++){
   prevalence[2] = data[i].pctblack / 100;
   prevalence[3] = data[i].pctapi / 100;
   prevalence[4] = data[i].pctaian / 100;
-  prevalence[5] = data[i].pct2prace / 100;
-  prevalence[6] = data[i].pcthispanic / 100;
+  prevalence[5] = data[i].pcthispanic / 100;
+  prevalence[6] = data[i].pct2prace / 100;
   name = data[i].name;
   prop100k = data[i].prop100k;
   cum_prop100k = data[i].cum_prop100k;
@@ -157,7 +156,7 @@ var chart = c3.generate({
         },
         x: {
             type: 'category',
-            categories: ['White', 'Black', 'Pacific Islander', 'Asian', 'Multiracial', 'Hispanic']
+            categories: ['White', 'Black', 'Pacific', 'Asian', 'Hispanic', 'Other']
         }
       }
 });
