@@ -21,6 +21,8 @@
       #viewSwitch, #current { padding:10px; }
       .stat { font-weight:900; }
 
+      h3 { text-align:left; }
+
       #filter { padding:12px; }
 
       .source { font-size:0.8em; }
@@ -31,6 +33,7 @@
 </head>
 
 <body>
+  <div id="wrapper">
 <h3>1.) Select gender:</h3>
 <div id="viewSwitch">
 <li class="switch" id="M" data="M">Male</li>
@@ -39,8 +42,6 @@
 
 <h3>2.) Enter name:</h3>
 <div id="filter"><input type="search" id="filter_box" placeholder="Type name and press enter" /></div>
-
-  <div id="wrapper">
 
 <div class="chartTitle">How popular is the name <span id="named"></span> in Minnesota?</div>
 <div class="chatter">Rate per 10,000 <span class="stat sex"></span> births by year</div>
