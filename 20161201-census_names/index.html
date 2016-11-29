@@ -22,6 +22,7 @@
       #filter { padding:12px; }
       h3 { text-align:left; }
       .source { font-size:0.8em; color:#bbbbbb; text-align:left; }
+      .error { font-size:1.5em; color:#AB290A; font-weight:bold; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
       .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
@@ -124,10 +125,12 @@ for (var i=0; i<data.length; i++){
   }
 }
 
+if (prop100k != 0){
 $("#rate").html(d3.format(",")(prop100k));
 $("#name, #named").html(name);
 $("#count").html(d3.format(",")(count));
 $("#rank").html("#" + d3.format(",")(rank));
+} else { $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
 
 var  padding = {
         top: 20,
