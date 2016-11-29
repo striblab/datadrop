@@ -130,7 +130,7 @@ $("#rate").html(d3.format(",")(prop100k));
 $("#name, #named").html(name);
 $("#count").html(d3.format(",")(count));
 $("#rank").html("#" + d3.format(",")(rank));
-} else { $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
+} else { $("#name, #named").html(name); $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
 
 var  padding = {
         top: 20,
