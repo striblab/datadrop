@@ -18,12 +18,12 @@
       text { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
       #wrapper { text-align:center; }
       #viewSwitch, #current { padding:10px; }
-      .stat { font-weight:900; color:#0B4F6C;  }
+      .stat { font-weight:900; color:#7C98B3;  }
       #filter { padding:12px; }
       h3 { text-align:left; }
       .source { font-size:0.8em; color:#bbbbbb; text-align:left; }
       .source a { font-weight:bold; color:#aaaaaa; }
-      .error { color:#AB290A; font-weight:bold; }
+      .error { color:#A24936; font-weight:bold; }
       #current { font-size:1.3em; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
@@ -47,7 +47,7 @@
 
 <div id="chart"></div>
 
-<div class="chatter">Note: data only reflects surnames occurring 100 or more times</div>
+<div class="chatter">Note: data only reflects surnames occurring 100 or more times. If a name doesn't pop up, it's likely not as common.</div>
 
 <div class="breaker"></div>
 
@@ -155,7 +155,7 @@ var chart = c3.generate({
         ],
         type: 'bar'
     },
-    color:  {  pattern: ["#0B4F6C"] },
+    color:  {  pattern: ["#7C98B3"] },
     axis: {
       y: {
             max: 1,
