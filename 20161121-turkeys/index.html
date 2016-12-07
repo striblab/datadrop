@@ -242,6 +242,18 @@ d3.select('#dd ul').selectAll('li')
     });
 
     chartT.hide(); chartT.show("MN"); chartT.show("NC"); chartT.show("AR"); chartT.show("IN"); chartT.show("MO"); chartT.show("VA");
+
+        path = d3.selectAll("#chart path");
+
+      var totalLength = path.node().getTotalLength();
+
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .transition()
+        .duration(2000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
 }
 
 spitLegend();
