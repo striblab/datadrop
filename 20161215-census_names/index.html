@@ -16,7 +16,7 @@
       body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
       #chart .c3-line { stroke-width:6px !important; }
       text { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
-      #wrapper { text-align:center; }
+      #wrapper { text-align:left; }
       #viewSwitch, #current { padding:10px; }
       .stat { font-weight:900; color:#7C98B3;  }
       #filter { padding:12px; }
@@ -25,6 +25,7 @@
       .source a { font-weight:bold; color:#aaaaaa; }
       .error { color:#A24936; font-weight:bold; }
       #current { font-size:1.2em; }
+      .chartTitle { text-align:center; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
       .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
@@ -37,9 +38,13 @@
 <h3>Search surnames</h3>
 <div id="filter"><input type="search" id="filter_box" placeholder="Type a last name and press enter" /></div>
 
-<div class="chartTitle">How common is the surname <span id="named"></span> in the United States?</div>
+<div class="chartTitle">How common is the surname <span class="stat" id="named"></span> in the United States?</div>
 
-<div id="current" class="chatter"><span class="stat" id="rate"></span> people per 100,000 nationwide had the last name of <span class="stat" id="name"></span>, numbering <span class="stat" id="count"></span> in all and ranking <span class="stat" id="rank"></span> among surnames.</div>
+<div id="current" class="chatter">
+<div>2010 Rank: <span class="stat" id="rank"></div>
+<div>Rate: <span class="stat" id="rate"></span> per 100,000</div>
+<div>Number: <span class="stat" id="count"></span> people
+<div>2000 Rank: <span class="stat" id="rank2000"></span>
 
 <div class="breaker"></div>
 
@@ -47,7 +52,7 @@
 
 <div id="chart"></div>
 
-<div class="chatter">Note: data only reflects surnames occurring 100 or more times. If a name doesn't pop up, it's likely not as common.</div>
+<div class="chatter">Note: data only reflects surnames reported 100 or more times. If a name doesn't pop up, it's likely not as common.</div>
 
 <div class="breaker"></div>
 
@@ -135,6 +140,7 @@ $("#rate").html(d3.format(",")(prop100k));
 $("#name, #named").html(name);
 $("#count").html(d3.format(",")(count));
 $("#rank").html("#" + d3.format(",")(rank));
+$("#rank2000").html("#" + d3.format(",")(rank));
 } else { $("#name, #named").html(name); $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
 
 var  padding = {
