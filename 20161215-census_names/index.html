@@ -16,7 +16,7 @@
       body, #filter, #filter input:focus { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
       #chart .c3-line { stroke-width:6px !important; }
       text { font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
-      #wrapper { text-align:left; }
+      #wrapper { text-align:left; width:525px; margin-right:auto; margin-left:auto; }
       #viewSwitch, #current { padding:10px; }
       .stat { font-weight:900; color:#7C98B3;  }
       #filter { padding:12px; }
@@ -25,10 +25,22 @@
       .source a { font-weight:bold; color:#aaaaaa; }
       .error { color:#A24936; font-weight:bold; }
       #current { font-size:1.2em; }
-      .chartTitle { text-align:center; }
+      .chartTitle { text-align:left; }
+
+      .pos { color:#8A87BD; }
+      .neg { color:#E8860C; } 
+
+      .left { float:left; }
+      .right { float:right; }
+      .row { clear:both; }
+      #infobox { margin-right:auto; margin-left:auto; width:100%; }
 
       .switch { padding:10px; display:inline-block; text-align:center; width:48.5%; background-color:#fff; font-weight:900; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; color:#000 !important; }
       .switch:hover, .selected, .step:hover { background-color:#4C4C39 !important; color:#fff !important; cursor:pointer; margin:0 !important; }
+
+      @media (max-width:500px) {
+        #wrapper { width:100%; }
+      }
   </style> 
 </head>
 
@@ -41,10 +53,13 @@
 <div class="chartTitle">How common is the surname <span class="stat" id="named"></span> in the United States?</div>
 
 <div id="current" class="chatter">
-<div>2010 Rank: <span class="stat" id="rank"></div>
-<div>Rate: <span class="stat" id="rate"></span> per 100,000</div>
-<div>Number: <span class="stat" id="count"></span> people
-<div>2000 Rank: <span class="stat" id="rank2000"></span>
+
+<div id="infobox">
+<div class="row"><div class="left">2010 Rank <span id="updown"></span></div><div class="right"><span class="stat" id="rank"></span></div></div>
+<div class="row"><div class="left">Rate per 100,000</div><div class="right"><span class="stat" id="rate"></span></div></div>
+<div class="row"><div class="left">Number of people</div><div class="right"><span class="stat" id="count"></span></div></div>
+<div class="row" id="oldRank"><div class="left">2000 Rank</div><div class="right"><span class="stat" id="rank2000"></span></div></div>
+</div>
 
 <div class="breaker"></div>
 
@@ -68,6 +83,7 @@ d3.csv("./data/surnames.csv", function(d) {
   return {
     name: d.surname,
     rank: +d.rank,
+    rank2000: +d.rank2000,
     count: +d.count,
     prop100k: +d.prop100k,
     cum_prop100k: +d.cum_prop100k,
@@ -131,6 +147,7 @@ for (var i=0; i<data.length; i++){
   cum_prop100k = data[i].cum_prop100k;
   count = data[i].count;
   rank = data[i].rank;
+  rank2000 = data[i].rank2000;
   break;   
   }
 }
@@ -140,7 +157,23 @@ $("#rate").html(d3.format(",")(prop100k));
 $("#name, #named").html(name);
 $("#count").html(d3.format(",")(count));
 $("#rank").html("#" + d3.format(",")(rank));
-$("#rank2000").html("#" + d3.format(",")(rank));
+
+if (!isNaN(rank2000) && rank2000 != 0){ 
+  $("#updown").removeClass("pos");
+  $("#updown").removeClass("neg");
+  $("#rank2000").html("#" + d3.format(",")(rank2000));
+
+  if (rank2000 > rank){
+  $("#updown").addClass("pos");
+  $("#updown").html("&#x25B2;");
+  } else if (rank2000 < rank){
+  $("#updown").addClass("neg");
+  $("#updown").html("&#x25BC;");
+  } else { $("#updown").html(""); }
+} else { 
+  $("#oldRank").hide();
+}
+
 } else { $("#name, #named").html(name); $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
 
 var  padding = {
@@ -161,6 +194,9 @@ var chart = c3.generate({
         ],
         type: 'bar'
     },
+    legend: {
+        show: false
+    },
     color:  {  pattern: ["#7C98B3"] },
     axis: {
       y: {
@@ -174,7 +210,7 @@ var chart = c3.generate({
         },
         x: {
             type: 'category',
-            categories: ['White', 'Black', 'Asian', 'Native', 'Hispnc', 'Other']
+            categories: ['White', 'Black', 'Asian', 'Native', 'Hisp', 'Other']
         }
       }
 });
