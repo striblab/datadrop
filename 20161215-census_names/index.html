@@ -177,7 +177,7 @@ if (!isNaN(rank2000) && rank2000 != 0){
   $("#oldRank").hide();
 }
 
-} else { $("#name, #named").html(name); $("#current").html("No data. Surname not found."); $("#current").addClass("error"); }
+} else { $("#name, #named").html(name); $("#current").html("No data. Surname not found.<div class='chatter'>Note: data only reflects surnames reported 100 or more times. If a name doesn't pop up, it's likely not as common.</div>"); $("#current").addClass("error"); }
 
 var  padding = {
         top: 20,
