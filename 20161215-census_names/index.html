@@ -213,7 +213,11 @@ var chart = c3.generate({
         },
         x: {
             type: 'category',
-            categories: ['White', 'Black', 'Asian', 'Native', 'Hisp', 'Other']
+            categories: ['White', 'Black', 'Asian', 'Native', 'Hispanic', 'Other'],
+            tick: {
+                              rotate: 60,
+                multiline: false
+            },
         }
       }
 });
