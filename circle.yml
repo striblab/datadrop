@@ -6,9 +6,6 @@ machine:
     America/Chicago
   hosts:
     testing.app: 127.0.0.1
-checkout:
-  post:
-    - cp .env.testing .env # copy the config file
 dependencies:
   pre:
     - echo "date.timezone = UTC" > /opt/circleci/php/$(phpenv global)/etc/conf.d/date.ini
