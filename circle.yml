@@ -1,0 +1,23 @@
+
+machine:
+  php:
+    version: 5.6.18
+  timezone:
+    America/Chicago
+  hosts:
+    testing.app: 127.0.0.1
+checkout:
+  post:
+    - cp .env.testing .env # copy the config file
+dependencies:
+  pre:
+    - echo "date.timezone = UTC" > /opt/circleci/php/$(phpenv global)/etc/conf.d/date.ini
+test:
+  override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
+deployment:
+  stage:
+    branch: dev
+    commands:
+      - curl -X POST https://rundeck.strib.us/project/Ansible/job/edit/e0f712c4-c338-4744-9212-153bd8504606/run?authtoken=$RUNDECK_AUTH_TOKEN
