@@ -5250,7 +5250,7 @@ a.ui-button:active,
 
 /* PROJECT STYLES */
 #wrapper  {
-     width: 540px;
+     width: 525px;
      margin-right:auto;
      margin-left:auto;
  }
@@ -5290,8 +5290,8 @@ a.ui-button:active,
 }
 
 .col { 
-  display:inline-block;
-  vertical-align:top;  
+  display:inline-block; 
+  vertical-align:top; 
 }
 
 .type { 
@@ -5299,7 +5299,7 @@ a.ui-button:active,
 }
 
 .district { 
-  width:25%;
+  width:25%; 
   padding-right:3px;
 }
 
@@ -5339,7 +5339,7 @@ a.ui-button:active,
   width:50%;
 }
 
-@media only screen and (max-width:540px)  {
+@media only screen and (max-width:500px)  {
   #wrapper { 
     width:100%;
   }
@@ -5352,12 +5352,12 @@ a.ui-button:active,
     height:200px;
   }
 
-  .mobilekill {
-    display:none;
-  }
-
   #schools {
        height:190px;
+  }
+
+  .mobilekill {
+    display:none;
   }
 
   .name { 
