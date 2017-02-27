@@ -5250,7 +5250,7 @@ a.ui-button:active,
 
 /* PROJECT STYLES */
 #wrapper  {
-     width: 540px;
+     width: 525px;
      margin-right:auto;
      margin-left:auto;
  }
@@ -5339,7 +5339,7 @@ a.ui-button:active,
   width:50%;
 }
 
-@media only screen and (max-width:540px)  {
+@media only screen and (max-width:500px)  {
   #wrapper { 
     width:100%;
   }
