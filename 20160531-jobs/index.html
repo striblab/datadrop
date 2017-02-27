@@ -155,7 +155,7 @@ d3.select("#jobsList").selectAll(".card")
 
 //SEARCH FILTER TABLE
   $( document ).ready(function() {
-     $('#filter_box').keyup(function(i){
+    $('#filter_box').on('keyup search', function(e){
         $('.card').hide();
         var txt = $('#filter_box').val();
         $('.card').each(function(){
