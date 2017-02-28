@@ -10,7 +10,7 @@ d3.select("#schools").selectAll(".row")
   })
   .style("background-color",function(d) { 
 
-    if (d.EnrollChange == 0){
+    if (d.Enr1213 == null){
       return "#999999";
     }
 
@@ -20,7 +20,7 @@ d3.select("#schools").selectAll(".row")
   })
   .on("mousedown",function(d) { 
 
-    if (d.EnrollChange == 0){
+    if (d.Enr1213 == null){
       color = "#999999";
     }
     else {
