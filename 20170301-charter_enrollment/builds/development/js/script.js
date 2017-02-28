@@ -42,7 +42,13 @@ d3.select("#schools").selectAll(".row")
 
   })
   .html(function(d,i){ 
-    return "<div class='col type mobilekill'>" + d.DistrictType + "</div><div class='col district mobilekill'>" + d.districtname + "</div><div class='col name'>" + d.schoolname + "</div><div class='col score'>" + d3.format("+%")(d.EnrollChange) + "</div>";
+    var change = d3.format("+%")(d.EnrollChange);
+
+    if (d.Enr1213 == null){
+      change = "--";
+    }
+
+    return "<div class='col type mobilekill'>" + d.DistrictType + "</div><div class='col district mobilekill'>" + d.districtname + "</div><div class='col name'>" + d.schoolname + "</div><div class='col score'>" + change + "</div>";
   });
 
 function tableSort(container,party,data,candidate,sorted){
