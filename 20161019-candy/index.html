@@ -232,7 +232,7 @@ map.on('load', function() {
         },
              'fill-opacity': 0.6
       }
-    });
+    }, 'place-neighbourhood');
 
     //METRO
   var shapeObj2 = new mapboxgl.GeoJSONSource({
@@ -253,7 +253,7 @@ map.on('load', function() {
             'fill-color': "#888",
             'fill-outline-color': 'rgba(255, 255, 255, 1)'
       }
-    });
+    }, 'place-neighbourhood');
 
     //COUNTIES
   var shapeObj1 = new mapboxgl.GeoJSONSource({
@@ -274,7 +274,7 @@ map.on('load', function() {
             'fill-color': "#888",
             'fill-outline-color': 'rgba(255, 255, 255, 1)'
       }
-    });
+    }, 'place-neighbourhood');
 
 // Create a popup, but don't add it to the map yet.
 var popup = new mapboxgl.Popup({
