@@ -4,33 +4,32 @@ var data = dataLoad.schools;
 
 d3.select("#schools").selectAll(".row")
   .data(data.sort(function(a,b) { return b.EnrollChange - a.EnrollChange; })).enter().append("div")
-  .attr("class",function(d) { if (d.schoolname == "NORTH ACADEMY ARTS/COMMUNICATION") { return "row selected" } else { return "row"; } })
+  .attr("class",function(d) { 
+    if (d.schoolname == "NORTH ACADEMY ARTS/COMMUNICATION") { return "row selected" } 
+    else { return "row"; } 
+  })
   .style("background-color",function(d) { 
 
-  	var color = "#888888";
+    if (d.Enr1213 == null){
+      return "#999999";
+    }
 
     var color_scale = d3.scale.linear().domain([-1, 0, 5]).range(['#F21919', '#F1D9CB', '#57B857']);
     return color_scale(d.EnrollChange);
 
-	// if	(d.EnrollChange >= 1) { color = "#00441b"; }
-	// else if	(d.EnrollChange >= 0.75) { color = "#1b7837"; }
-	// else if	(d.EnrollChange >= 0.50) { color = "#5aae61"; }
-	// else if	(d.EnrollChange >= 0.25) { color = "#a6dba0"; }
-	// else if	(d.EnrollChange > 0) { color = "#d9f0d3"; }
-	// else if	(d.EnrollChange == 0) { color = "#f7f7f7"; }
-	// else if	(d.EnrollChange <= -0.75) { color = "#762a83"; }
-	// else if	(d.EnrollChange <= -0.50) { color = "#9970ab"; }
-	// else if	(d.EnrollChange < 0) { color = "#c2a5cf"; }
-
-	// return color;
-
   })
   .on("mousedown",function(d) { 
 
-    var color_scale = d3.scale.linear().domain([-1, 0, 5]).range(['#F21919', '#F1D9CB', '#57B857']);
+    if (d.Enr1213 == null){
+      color = "#999999";
+    }
+    else {
+      var color_scale = d3.scale.linear().domain([-1, 0, 5]).range(['#F21919', '#F1D9CB', '#57B857']);
+      color = color_scale(d.EnrollChange);
+    }
 
   	$("#districtName").html(d.schoolname);
-  	$("#districtName").css('background-color',color_scale(d.EnrollChange));
+  	$("#districtName").css('background-color',color);
   	$("#district").html("District: " + d.districtname);
   	$("#grades").html("Grades: " + d.grades);
 
@@ -106,6 +105,8 @@ $(".th").click(function() {
    var schoolData = data.filter(function(d){ return d.schoolname == "NORTH ACADEMY ARTS/COMMUNICATION"; })
 
   	$("#districtName").html(schoolData[0].schoolname);
+    $("#districtName").css('background-color','rgb(84, 183, 85)');
+
   	$("#district").html("District: " + schoolData[0].districtname);
   	$("#grades").html("Grades: " + schoolData[0].grades);
 
@@ -140,7 +141,7 @@ $(".th").click(function() {
                 },
                 x: {
                     type: 'category',
-                    categories: ['2012-2013', '2013-2014', '2014-2015', '2015-2016', '2016-2017'],
+                    categories: ['12-13', '13-14', '14-15', '15-16', '16-17'],
                     label: 'Enrollment over time'
                     // tick: {
                     //     format: '%Y'
