@@ -1,10 +1,22 @@
-Star Tribune Data Drop - Minnesota's Impaired Waters
+Star Tribune - Minnesota's troubled waters
 ================
 
 by Frey Hargarten
 
-Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [jQuery](https://github.com/jquery/jquery) and [Mapbox GL](https://www.mapbox.com/mapbox-gl-js/).
+Built using [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
-The files can be run in any live server setup. Just open the index.php or index.html file in your browser.
+Options for running:
 
-http://www.startribune.com/is-your-favorite-minnesota-lake-or-river-on-the-impaired-waters-list/387635411/
+a. Download and run on LAMP/MAMP/WAMP stack. Just launch the /builds/development/index.html file in your browser.
+
+b. NPM/GULP
+
+1. Download and unpack repo
+
+2. Go to folder in Terminal
+
+3. npm install
+
+4. gulp
+
+5. Modifications can be made to styles.css, index.html and scripts.js in /builds/development and pushed to /builds/production via gulp with the NODE_ENV=production gulp command.
