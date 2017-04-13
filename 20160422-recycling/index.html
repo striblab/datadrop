@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Recycling Trends</title>
+    <meta name="description" content="Recycling Trends">
+    <meta name="author" content="Frey Hargarten - StarTribune">
+
+    <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+
+<style>
+       body { margin:0; padding:0; }
+       #viewSwitch { text-align:center; width:100%; margin-left:auto; margin-right:auto; }
+      .chartHeader { padding:12px;height:auto;text-align:center;padding-bottom:5px; }
+      .chatter { padding:15px; text-align:center; margin-bottom:20px; text-align:left; }
+      .wrapper-dropdown-1 .active { background:#ddd; }
+
+      #chart .c3-line { stroke-width:6px !important; }
+
+      p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; }
+      h4 { font-family:"Benton Sans",Helvetica,Arial,sans-serif; text-align:center; padding:10px; }
+
+      .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; width:250px; }
+      .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+      ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
+      .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+      .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
+      header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
+      .c3-tooltip th { background-color:#aaa;font-size:12px;padding:2px 5px;text-align:left;color:#FFF;font-family:"Benton Sans"; }
+    
+      @media (max-width:500px) {
+      }
+</style>
+</head>
+
+<body>
+<div id="wrapper">
+<div class="chartTitle">Recyclable materials going into the trash</div>
+
+<div class="chatter">Explore the state's data on recyclable materials that ended up in landfills between 1996 and 2013. The Star Tribune converted the tonnage estimates provided by the MPCA into pounds, then divided that by the state population each year to express it as pounds per person.</div>
+
+    <div id="viewSwitch">
+<div id="selector">
+  <section class="main">
+        <div class="wrapper-demo">
+          <div id="dd" class="wrapper-dropdown-1" tabindex="1">
+            <span>All Materials</span>
+              <ul class="dropdown months" tabindex="1">
+        <li class="thisSwitch"><a href="#" data="total" fields="total">All Materials</a></li>
+        <li class="thisSwitch"><a href="#" data="alum_bev" fields="alum_bev">Aluminum Beverage Cans</a></li>
+        <li class="thisSwitch"><a href="#" data="film_plastic" fields="film_plastic">Plastic Film</a></li>
+        <li class="thisSwitch"><a href="#" data="glass" fields="glass_bev_containers,other_glass_containers">Glass</a></li>
+        <li class="thisSwitch"><a href="#" data="other_alum" fields="other_alum">Other Aluminum</a></li>
+        <li class="thisSwitch"><a href="#" data="paper" fields="cartons,high_grade_office,magazines,mixed_paper,newsprint,paper_boxboard,uncoated_old_corrugated_containers">Paper</a></li>
+        <li class="thisSwitch"><a href="#" data="plastic" fields="hdpe,pet,other_plastic_containers,polystyrene">Plastic</a></li>
+        <li class="thisSwitch"><a href="#" data="steel_cans" fields="other_metal,steel_tin_containers">Steel Cans + Other Metals</a></li>
+              </ul>
+          </div>
+        ​</div>
+</section>
+</div>
+</div>
+
+<h4>Pounds Per Person</h4>
+<div id="chart"></div>
+
+<div class="chatter">Note: Prior to 1999, glass beverage containers were counted as part of the "other glass containers" category.
+  <p>See bottom of story for definitions of materials.</p>
+<!--   <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
+</div>
+
+<!-- <a href="https://docs.google.com/spreadsheets/d/1P_ETaDTSnWw4iPN81dnnGG4jZRvDXd7qDwLbpIUjfjs/pub?output=xlsx" target="new_"><button class="downloadButton">&#9660; Download Data</button></a> -->
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script>
+d3.json("./data/recycling.json", function(error, dataLoad) {
+
+$(".thisSwitch a").click(function() {
+  // $(".chatter").hide();
+  // $("#" + $(this).attr("data")).show();
+  console.log($(this).attr("fields"));
+  var chartValue = String($(this).attr("fields")).split(",");
+  console.log(chartValue);
+
+  chartR.load({
+            json: data,
+            keys: {
+                x: 'year',
+                value: chartValue
+            },
+            names: {
+              'alum_bev':'Aluminum Beverage Containers',
+              'film_plastic':'Plastic Film',
+              'glass':'Glass',
+              'other_alum':'Other Aluminum',
+              'paper':'Paper',
+              'plastic':'Plastic',
+              'steel_cans':'Steel Cans',
+              'total':'All Materials',
+              'alum_bev_containers':'Aluminum Beverage Containers',
+              'glass_bev_containers':'Glass Beverage Containers',
+              'other_alum_small':'Other Aluminum',
+              'other_glass_containers':'Other Glass Containers',
+              'other_metal':'Other Metals',
+              'plastic_film_small':'Plastic Film',
+              'steel_tin_containers':'Steel Tin Containers',
+              'other_plastic_containers':'Other Plastic Containers',
+              'polystyrene':'Polystyrene',
+              'hdpe':'HDPE',
+              'pet':'PET',
+              'cartons':'Paper Cartons',
+              'magazines':'Magazines',
+              'paper_boxboard':'Paper Boxboard',
+              'high_grade_office':'High Grade Office Paper',
+              'newsprint':'Newsprint',
+              'mixed_paper':'Mixed Paper',
+              'uncoated_old_corrugated_containers':'Uncoated Old Corrugated Containers'
+            },
+            types: {
+              chartValue: 'bar'
+            },
+          unload: ['alum_bev','film_plastic','glass','other_alum','paper','plastic','steel_cans','total','alum_bev_containers','cartons','glass_bev_containers','hdpe','high_grade_office','magazines','mixed_paper','newsprint','other_alum_small','other_glass_containers','other_metal','other_plastic_containers','paper_boxboard','pet','plastic_film_small','polystyrene','steel_tin_containers','uncoated_old_corrugated_containers']
+    });
+});
+
+var data = dataLoad.chart;
+
+var  padding = {
+        top: 20,
+        right: 40,
+        bottom: 20,
+        left: 60,
+    };
+
+var chartR = c3.generate({
+        bindto: '#chart',
+        size: { height: 400 },
+        padding: padding,
+        data: {
+            json: data,
+            keys: {
+                x: 'year',
+                value: ['total']
+            },
+            names: {
+              'alum_bev':'Aluminum Beverage Containers',
+              'film_plastic':'Plastic Film',
+              'glass':'Glass',
+              'other_alum':'Other Aluminum',
+              'paper':'Paper',
+              'plastic':'Plastic',
+              'steel_cans':'Steel Cans',
+              'total':'All Materials',
+              'alum_bev_containers':'Aluminum Beverage Containers',
+              'glass_bev_containers':'Glass Beverage Containers',
+              'other_alum_small':'Other Aluminum',
+              'other_glass_containers':'Other Glass Containers',
+              'other_metal':'Other Metals',
+              'plastic_film_small':'Plastic Film',
+              'steel_tin_containers':'Steel Tin Containers',
+              'other_plastic_containers':'Other Plastic Containers',
+              'polystyrene':'Polystyrene',
+              'hdpe':'HDPE',
+              'pet':'PET',
+              'cartons':'Paper Cartons',
+              'magazines':'Magazines',
+              'paper_boxboard':'Paper Boxboard',
+              'high_grade_office':'High Grade Office Paper',
+              'newsprint':'Newsprint',
+              'mixed_paper':'Mixed Paper',
+              'uncoated_old_corrugated_containers':'Uncoated Old Corrugated Containers'
+            },
+        colors: {
+              'alum_bev':'#B0BEC5',
+              'film_plastic':'#90CAF9',
+              'glass':'#80DEEA',
+              'other_alum':'#9FA8DA',
+              'paper':'#242424',
+              'plastic':'#242424',
+              'steel_cans':'#B0BEC5',
+              'total':'#242424',
+              'alum_bev_containers':'#B0BEC5',
+              'glass_bev_containers':'#80DEEA',
+              'other_alum_small':'#9FA8DA',
+              'other_glass_containers':'#26C6DA',
+              'other_metal':'#90A4AE',
+              'plastic_film_small':'#90CAF9',
+              'steel_tin_containers':'#ccc',
+              'other_plastic_containers':'#FFCC80',
+              'polystyrene':'#FFB74D',
+              'pet':'#FF9800',
+              'hdpe':'#FFA726',
+              'cartons':'#FFE082',
+              'magazines':'#FFD54F',
+              'paper_boxboard':'#FFC107',
+              'high_grade_office':'#FFB300',
+              'newsprint':'#FFA000',
+              'mixed_paper':'#FF8F00',
+              'uncoated_old_corrugated_containers':'#FF6F00'
+        },
+        },
+       bar: {
+        width: {
+            ratio: 0.5 // this makes bar width 50% of length between ticks
+        }
+      },
+        axis: {
+          y: {
+            min: 0,
+            padding: {bottom: 0},
+            tick: {
+             count: 4,
+             format: d3.format('.0f')
+            }
+        },
+        x: {
+            // type: 'timeseries',
+            tick: {
+                values: ['1996', '2001', '2007', '2013'],
+                count: 4,
+                multiline: false
+            }
+          }
+        },
+      subchart: { show: false },
+        // color: { pattern: ['#000','#DAE1E7','#C6D1D9','#A8B9C5','#7F98AA','#556E7F','#2C3942'] },
+    });
+
+});
+</script>
+<script type="text/javascript">
+      
+      function DropDown(el) {
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype = {
+        initEvents : function() {
+          var obj = this;
+
+          obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function(){
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function() {
+          return this.val;
+        },
+        getIndex : function() {
+          return this.index;
+        }
+      }
+
+      $(function() {
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#ddY') );
+
+        $(document).click(function() {
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+
+</script>
+</body>
+</html>

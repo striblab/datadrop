@@ -1,0 +1,161 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota Pokemon Go Map</title>
+  <meta name="description" content="Minnesota Pokemon Go Map">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" /> 
+    <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
+  
+  <style>
+    body { margin:0; padding:0; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; overflow-x:hidden !important; }
+    a { color:steelblue; }
+    #map { width:100%; height:600px; }
+    #wrapper { text-align:center; margin-left:auto; margin-right:auto; width:100%; }
+    canvas { position:static !important; }
+    #geocoder-container, .mapboxgl-ctrl-geocoder { text-align:center; margin-left:auto; margin-right:auto; }
+    .mapboxgl-ctrl-attrib { display:none; }
+    #rightSide { width:48%; float:right; padding:10px; }
+    #leftSide { width:48%; float:left; padding:10px; }
+
+    #filter input:focus { width: 100% !important; }
+    #filter input { width: 100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+
+    .zoom { float:none !important; text-align:center; padding:20px; }
+    .chatter { text-align:left; padding:15px; }
+
+    .fly { display:inline-block; width:16%; /*height:50px;*/ border:1px solid #000; }
+    .fly:hover, .selected { background-color:#333; cursor:pointer; color:#fff; margin:0 !important; }
+
+    @media (max-width:920px) { 
+      #midbreak { display:none; }
+      #mapboxgl-ctrl-geocoder input { text-align:center; width:100%; margin: 0 0 0 0 !important; }
+      #geocoder-container, .mapboxgl-ctrl-geocoder { text-align:center; margin: 0 0 0 0 !important; width:100%; max-width:100%; }
+      #wrapper { width:100%; }
+      .fly { width:32.5%; }
+    }
+  </style> 
+</head>
+
+<body>
+<div id="wrapper">
+  <div id="filters">
+    <div class="fly selected" longitude="-93.784790" latitude="46.362093" zoom="5.4" chatter="This map displays a heavy sampling of Ingress portal locations throughout Minnesota, showing the biggest concentrations in urban areas.">MN Ingress Portals</div>
+    <div class="fly" longitude="-93.180448" latitude="44.978209" zoom="10" chatter="Downtown corridors in Minneapolis and St. Paul are filled with portals due to their concentration of significant public landmarks.">Downtown Corridors</div>
+    <div class="fly" longitude="-93.208558" latitude="45.104966" zoom="9" chatter="The northern metro suburbs, despite their size, have far fewer concentrations of portals and are more sprawling.">Northern Suburbs</div>
+    <div class="fly" longitude="-93.277723" latitude="44.767742" zoom="9.4" chatter="The big, sprawling southern suburbs have a number of portals but it's a mere dusting compared to elsewhere.">Southern Suburbs</div>
+    <div class="fly" longitude="-94.211364" latitude="46.986344" zoom="6.2" chatter="Duluth and Brainerd have a number of portals available to players, but they are fewer and further between across the rest of the region.">Northern Minnesota</div>
+    <div class="fly" longitude="-93.9994" latitude="44.163578" zoom="6.3" chatter="Beyond Rochester, most of Southern Minnesota's largest concentrations of portals are around college campuses in Northfield and Mankato.">Southern Minnesota</div>
+  </div>
+  <div id="chatter" class="chatter">This map displays a heavy sampling of Ingress portal locations throughout Minnesota, showing the biggest concentrations in urban areas. Some might be PokéStops or gyms.</div>
+  <div id='map'></div>
+  <div id='geocoder-container'></div>
+  <div class="breaker" id="midbreak"></div>
+ 
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.21.0/mapbox-gl.js'></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
+<script>
+d3.json("./data/portalsmn.geojson", function(error, portals) {
+d3.json('./shapefiles/counties.json', function(error, counties) {
+
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/shadowflare/ciqznymjs0009btm891qyu49n',
+    center: [-93.784790, 46.362093],
+    zoom: 5.4,
+    minZoom: 5.4
+});
+
+var geocoder = new mapboxgl.Geocoder({
+    container: 'geocoder-container'
+});
+
+map.addControl(geocoder);
+map.addControl(new mapboxgl.Navigation());
+
+$(".zoom").click(function() {
+map.flyTo({ center: [-93.773804, 46.187437], zoom: 5.4 });
+$(".fly").removeClass("selected");
+$("#chatter").html("This map displays a heavy sampling of Ingress portal locations throughout Minnesota, showing the heaviest concentrations of Pokestops in urban areas.");
+});
+
+$(".card").click(function() {
+map.flyTo({ center: [$(this).attr("long"), $(this).attr("lat")], zoom: 5 });
+});
+
+map.on('load', function() {
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by address or city");
+
+geocoder.on('result', function(ev) {
+  map.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
+    });
+
+var sourceObj0 = new mapboxgl.GeoJSONSource({
+   data: counties
+});
+
+map.addSource('counties', sourceObj0);
+
+map.addLayer({
+        'id': 'shape-layer-counties',
+        'interactive': true,
+        'type': 'fill',
+        'source': 'counties',
+        'paint': {
+            'fill-antialias' : true,
+            'fill-opacity': 0.09,
+            'fill-color': "#333",
+            'fill-outline-color': '#ddd'
+        }
+});
+
+   map.addSource("portals", {
+        type: "geojson",
+        data: portals
+    });
+
+    map.addLayer({
+                "id": "portal-points",
+                "type": "circle",
+                "source": "portals",
+                "paint": {
+                    "circle-color": 'rgba(0,191,255, 0.45)',
+                    // "circle-color": 'rgba(14,121,178, 0.45)',
+                    "circle-radius": 3
+                }
+    });
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+$(".fly").click(function() {
+  $(".fly").removeClass("selected");
+  $(this).addClass("selected");
+  map.flyTo({ center: [$(this).attr("longitude"), $(this).attr("latitude")], zoom: $(this).attr("zoom") });
+  $("#chatter").html($(this).attr("chatter"));
+});
+
+// map.on('mousemove', function(e) {
+//     .addTo(map);
+// });
+
+});
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota jobs that are expected to grow</title>
+  <meta name="description" content="Minnesota jobs that are expected to grow">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
+  
+  <style>
+     body, #filter, #filter input:focus, p { font-family:"Benton Sans",Helvetica,Arial,sans-serif; overflow-y:hidden; }
+     #wrapper { text-align:center; margin-left:auto; margin-right:auto; }
+     #chart .c3-line { stroke-width:6px !important; }
+     #leftSide { float:left; width:100%; position:relative; margin-right:auto; margin-left:auto; text-align:center; }
+      
+     .switch { padding:10px; display:inline-block; text-align:center; width:32.5%; background-color:#fff; font-weight:900; font-size:0.8em; font-family:"Benton Sans",Helvetica,Arial,sans-serif; border:1px solid black; margin:0 !important; }
+     .switch:hover, .selected { background-color:#333 !important; color:#fff !important; cursor:pointer; margin:0 !important;  }
+     #filter input:focus { width: 100% !important; }
+     #filter input { font-size:.85em; width:100% !important; font-family:"Benton Sans",Helvetica,Arial,sans-serif !important; }
+     .scrollToTop { color:steelblue !important; text-align:center; }
+     .scrollToTop:hover { color:#333 !important; cursor:pointer; }
+
+     .entry div { display:inline-block; }
+     .entry { width:100%; }
+
+     #heading { position:fixed; width:100%; background:#fff; margin-left:-9px; }
+     #jobsList, #heading { font-size:1em !important; width:100%; }
+     #jobsList { margin-top:40px; }
+     .tableHead { display:inline-block; padding:10px; border-bottom:1px solid #ddd; width:24.5%; font-weight:900; font-family:"Poynter Serif RE"; }
+     .tableCell { display:table-cell; padding:9px; border-bottom:1px solid #ddd; width:25%; font-family:"Benton Sans"; height:60px !important; vertical-align:middle;} 
+     .pct { font-size:1.5em; font-weight:900; }
+     .tableBreak { clear:both; display:block; }
+     .table { text-align:center; width:100%; overflow-x:hidden; overflow-y:auto; height:400px; }
+     .hSort:hover { background-color:#333; cursor:pointer; color:#fff !important; } 
+
+     .card { width:100% !important; height:auto !important; /*min-height:100% !important;*/ display:table-row; }
+
+     .zoom { text-align:center; float:none !important; }
+
+     .highSwatch { background-color:#969696; }
+     .middleSwatch { background-color:#AAAAAA; }
+     .lowSwatch { background-color:#CCCCCC; }
+     .breaker { margin:1px !important; }
+
+     .wrapper-dropdown-1 { display:inline-block;font-family:"Benton Sans",Helvetica,Arial,sans-serif;z-index:900;background:#ddd;color:#333;cursor:pointer;font-weight:bold;outline:none;padding:8px;position:relative;width:200px;border:1px solid #aaa;box-shadow:0 2px 1px rgba(0, 0, 0, 0.10);font-size:14px; width:300px; }
+     .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+     ul.dropdown.months { box-sizing:border-box;margin:0;moz-box-sizing:border-box;padding:0;webkit-box-sizing:border-box;margin-top:-1px;border-radius:0 0 4px 4px;background-clip:padding-box; }
+     .wrapper-dropdown-1 .dropdown { font-weight:normal;left:0;list-style:none;opacity:0;pointer-events:none;position:absolute;right:0;top:100%;border:1px solid #aaa;background:#fff;box-shadow:0 4px 5px rgba(0, 0, 0, 0.15);margin-top:0px !important; }
+     .wrapper-dropdown-1 .dropdown li:hover a { background:#EFEFEF; }
+     header[role="banner"] { width:100%;height:40px;z-index:1000;background:#f0f0f0; }
+     .c3-tooltip th { background-color:#aaa;font-size:12px;padding:2px 5px;text-align:left;color:#FFF;font-family:"Benton Sans"; }
+
+     @media (max-width:530px) { 
+      .tableCell { padding:9px; } 
+      .pct { font-size:1.2em; }
+      .switch { width:33%; }
+      #jobsList, #heading { font-size:.7em !important; }
+      .tableCell { word-wrap: break-word !important; overflow-wrap: break-word !important; word-break:break-word !important; word-wrap:break-word !important; hyphens:auto !important; }
+      #heading { margin-left:-5px; }
+     }
+
+     @media (max-width:320px) { 
+      #heading { font-size:.3em !important; }
+       #jobsList, #heading { font-size:.3em !important; }
+       .switch { font-size:.5em !important; }
+       .tableCell { word-wrap: break-word !important; overflow-wrap: break-word !important; word-break:break-word !important; word-wrap:break-word !important; hyphens:auto !important; }
+       .table { text-align:center; width:100%; height:350px; }
+       #filter input { font-size:.6em; }
+     }
+  </style> 
+</head>
+
+<body>
+  <div id="wrapper">
+<div><strong>Filter by skill level</strong></div>
+<button class="switch highSwatch" data="high">High Skill</button><button class="switch middleSwatch" data="middle">Medium Skill</button><button class="switch lowSwatch" data="low">Low Skill</button>
+<div class="breaker"></div>
+<span class="scrollToTop">Return to Top</span> | <span class="zoom">Reset View</span>
+<div class="breaker"></div>
+
+<div id="filter"><input type="search" id="filter_box" placeholder="Search table by occupation or industry, then scroll through list" /></div>
+
+<div id="heading"><div class='tableHead partyBar hSort' data="title">Occupation</div><div class='tableHead hSort' data="group">Group</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
+<div id="jobsList" class="table" data="finance">
+</div>
+
+<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
+  </div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../_common_resources/charts/c3-master/c3.min.js"></script>
+<script src="../_common_resources/js/d3-master/d3.min.js" charset="utf-8"></script>
+<script>
+$('.scrollToTop').click(function(){
+    $('#jobsList').animate({scrollTop : 0},800);
+    return false;
+  });
+
+d3.json("./data/growth.json", function(error, dataLoad) {
+
+var data = dataLoad.growth;
+
+$('.scrollToTop').click(function(){
+    $('html, body').animate({scrollTop : 0},800);
+    return false;
+  });
+$(".zoom").click(function() {
+  $(".card").show();
+  $(".switch").removeClass("selected");
+});
+
+function tableSort(container,party,data,candidate,sorted){
+   
+  d3.select(container).selectAll(".card").sort(function(a, b) {
+          if (candidate == "group") { 
+        if (sorted == "descend") { return d3.descending(a.OccupationGroup, b.OccupationGroup); }
+        if (sorted == "ascend") { return d3.ascending(a.OccupationGroup, b.OccupationGroup); }
+     }
+          if (candidate == "skill") { 
+        if (sorted == "descend") { return d3.descending(a.Education, b.Education); }
+        if (sorted == "ascend") { return d3.ascending(a.Education, b.Education); }
+     }
+           if (candidate == "pct") { 
+        if (sorted == "descend") { return d3.descending(a.PercentChange, b.PercentChange); }
+        if (sorted == "ascend") { return d3.ascending(a.PercentChange, b.PercentChange); }
+     }
+           if (candidate == "title") { 
+        if (sorted == "descend") { return d3.ascending(a.Title, b.Title); }
+        if (sorted == "ascend") { return d3.descending(a.Title, b.Title); }
+     }
+    })
+    .transition().duration(500);
+}
+
+function tableBuild() {
+d3.select("#jobsList").selectAll(".card")
+.data(data.sort(function (a,b) { return d3.descending(a.PercentChange, b.PercentChange); })).enter().append("div")
+.attr("class",function (d) { return "card " + d.SkillLevel; })
+.html(function (d){ 
+  var color_scale = d3.scale.linear().domain([-32, 0, 46]).range(['#CC4C02', '#ECF9B9', '#31A354']);
+  var color = color_scale(d.PercentChange);
+
+  if (d.SkillLevel == "high") { var skillswatch = "highSwatch"; }
+  else if (d.SkillLevel == "middle") { var skillswatch = "middleSwatch"; }
+  else if (d.SkillLevel == "low") { var skillswatch = "lowSwatch"; }
+
+    return "<div class='tableCell title'>" + d.Title + "</div><div class='tableCell group'>" + d.OccupationGroup + "</div><div class='tableCell skill " + skillswatch + "'>" + d.Education + "</div><div class='tableCell pct' style='background-color:" + color + "'>" + d3.format("+")(d.PercentChange) + "%</div>";
+});
+
+
+//SEARCH FILTER TABLE
+  $( document ).ready(function() {
+    $('#filter_box').on('keyup search', function(e){
+        $('.card').hide();
+        var txt = $('#filter_box').val();
+        $('.card').each(function(){
+           if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+               $(this).show();
+           }
+        });
+        var count = $('.card:visible').length;
+        $('#results').html(count);
+    });
+
+      $(".switch").click(function() {
+        $(".switch").removeClass("selected");
+        $(this).addClass("selected");
+        $('.card').hide();
+        $('.' + $(this).attr("data")).show();
+      });
+
+      });
+    $(".hSort").click(function() {
+      $(".hSort").removeClass("selected");
+      $(this).addClass("selected");
+      if ($(this).hasClass("toggled")) { $(this).removeClass("toggled"); var sorted = "ascend"; }
+      else if ($(this).hasClass("selected")) { $(this).addClass("toggled"); var sorted ="descend"; } 
+      tableSort("#jobsList",null,data,$(this).attr("data"),sorted);
+    });
+
+// });
+
+}
+
+tableBuild();
+
+// switchChart("tech","#ff0000")
+
+});
+</script>
+<script type="text/javascript">
+      
+      function DropDown(el) {
+        this.dd = el;
+        this.placeholder = this.dd.children('span');
+        this.opts = this.dd.find('ul.dropdown > li');
+        this.val = '';
+        this.index = -1;
+        this.initEvents();
+      }
+      DropDown.prototype = {
+        initEvents : function() {
+          var obj = this;
+
+          obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            return false;
+          });
+
+          obj.opts.on('click',function(){
+            var opt = $(this);
+            obj.val = opt.text();
+            obj.index = opt.index();
+            obj.placeholder.text(obj.val);
+          });
+        },
+        getValue : function() {
+          return this.val;
+        },
+        getIndex : function() {
+          return this.index;
+        }
+      }
+
+      $(function() {
+
+        var dd = new DropDown( $('#dd') );
+        var dd2 = new DropDown( $('#dd2') );
+
+        $(document).click(function() {
+          // all dropdowns
+          $('.wrapper-dropdown-1').removeClass('active');
+        });
+
+      });
+</script>
+</body>
+</html>

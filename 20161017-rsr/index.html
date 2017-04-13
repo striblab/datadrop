@@ -1,0 +1,164 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Retrospective Summary Report Lookup</title>
+  <meta name="description" content="FDA medical device retrospective summary report database lookup">
+  <meta name="author" content="CJ Sinner - StarTribune">
+
+  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  
+  <style>
+    .button { background-color:#fff; border:none; border-bottom:1px solid #999; display:inline-block; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-weight:500; padding:10px; text-align:center; width:100%; }
+    .button:hover, .selected { background-color:#eee !important; color:#000 !important; cursor:pointer; margin:0 !important; }
+    .button { float:left; }
+    #filter { font-family:"Benton Sans"; font-size:.9em; margin:5px; }
+    #filter input { background-color:#fff !important; background-position:98% 50%; background-repeat:no-repeat; background-size:14px 14px; border:1px solid #eee !important; border-radius:0 !important; border-radius:0; box-shadow:inset 0 1px 2px rgba(0,0,0,0.1); color:rgba(0,0,0,0.75); font-family:"Benton Sans"; font-family:inherit; font-size:1em; height:30px; line-height:120%; margin:0; moz-transition:all 0.30s ease-in-out; ms-transition:all 0.30s ease-in-out; o-transition:all 0.30s ease-in-out; padding:0 10px 0 10px; webkit-appearance:none; webkit-border-radius:0; webkit-transition:all 0.30s ease-in-out; width:100% !important; width:100%; }
+    #filter input:focus { border:1px solid #61bd1a; box-shadow:0 0 5px #999; font-family:"Benton Sans"; padding:1px 10px 1px 10px; width:100% !important; }
+    .title { font-family:"Poynter Serif RE",Georgia,Times,serif; font-size:1.9em; }
+    .descrip { line-height:1em; margin:auto; margin-bottom:35px; margin-top:25px; width:95%; }
+    #info, .title { margin:auto; text-align:center; }
+    .filters p { font-family:"Poynter Serif RE",Georgia,Times,serif; margin:auto; margin-top:20px; width:95%; }
+    .filters ul li { float:left; list-style:none; padding:10px 16px; }
+    .filters button { background-color:white; border:1px solid #eee; border-radius:8px; font-family:"Benton Sans",Helvetica,Arial,sans-serif; padding:7px 10px; text-align:center; text-decoration:none; }
+    .filters button:hover, .reset:hover { background-color:#f2f2f2; }
+    .clearfix { clear:both; text-align:right; }
+    .reset { background-color:white; border:1px solid #eee; border-radius:5px; font-family:"Benton Sans",Helvetica,Arial,sans-serif; font-size:.7em; margin-top:40px; padding:5px 7px; text-align:center; text-decoration:none; }
+    #deviceList { height:195px; margin-bottom:35px; overflow:auto; }
+    #info { width:70%; }
+    .num { color:#C22A22; font-family:"Poynter Serif RE",Georgia,Times,serif; font-size:1.9em; }
+    #lag, #device { font-weight:bold; }
+    a#FDA { color:black; text-decoration:underline; }
+    a#FDA:hover { color:#ccc; text-decoration:underline; }
+    .resources { clear:both; padding-top:60px; }
+    .resources p { line-height:.8em; }
+    .resources a { color:black; }
+    .resources a:hover { color:grey; }
+  </style> 
+</head>
+
+<body>
+<div id="wrapper">
+
+  <h2 class="title">Find a medical device report</h2>
+  <div class="descrip">
+  <p>The Food & Drug Administration allows medical device companies to summarize numerous adverse events in a single public filing, contrary to typical practice.</p>
+  <p>The Star Tribune discovered more than 300 such retrospective summary reports filed by more than two dozen companies between 2005 and 2015. Search them below.<p>
+  </div>
+  <div class="filters">
+    <p>See devices from these major companies:</p>
+    <ul>
+      <li><button class="company" company="Baxter">Baxter</button></li>
+      <li><button class="company" company="(GE)">GE</button></li>
+      <li><button class="company" company="Medtronic">Medtronic</button></li>
+      <li><button class="company" company="Stryker">Stryker</button></li>
+      <li><button class="company" company="Zimmer">Zimmer</button></li>
+    </ul>
+  </div>
+<div class="clearfix">
+    <button class="reset">Reset</button>
+  </div>
+  <div id="filter"><input type="search" id="filter_box" placeholder="Search a company or medical device"></input></div>
+  <div id="deviceList">
+  </div>
+
+  <div id="info">
+    <p><span id="manufName"></span> summarized</p>
+    <p id="reports" class="num"></p>
+    <p>adverse events for their <span id="device"></span> device in a retrospective summary report to the FDA on <span id="date"></span>.</p>
+    <p>It took the company <span id="lag"></span> days to file with the FDA after first learning of the events. Law says they're supposed to tell the FDA about adverse events within 30 days.</p>
+    <p>Read the full <a href="#" id="FDA" target="_blank">FDA report here</a>.</p>
+
+    <div class="resources">
+      <p><small><a href="https://github.com/striblab/datadrop/tree/gh-pages/20161017-rsr" target="_blank">View on Github</a> | <a href='https://docs.google.com/spreadsheets/d/1RlvqHMyepBysg8EEWg7veUQdOiLmLh8l3nYhhSVgNYY/pub?output=xlsx' target='new_'>Download the Data</a></small></p>
+      <p><small><em>The Star Tribune identified public Food & Drug Administration files using a <a href="http://deviceevents.com/" target="_blank">proprietary search tool</a> created by Device Events, Inc.</em></small></p>
+      <p><small><em>Database compiled by Joe Carlson, dashboard by C.J. Sinner, Star Tribune</em></small></p>
+    </div>
+  </div>
+
+</div>
+</body>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+</script>
+<script>
+d3.json("./data/rsr.json", function(error, dataLoad) {
+
+var data = dataLoad.rsr;
+
+var currentDevice = "";
+
+ d3.select("#deviceList").selectAll(".list")
+  .data(data).enter().append("div")
+  .attr("class","list")
+  .attr("data",function(d){ return d.id; })
+  .on("click", function(d, i){
+    $("#manufName").html(d.manuf);
+    $("#device").html(d.deviceName);
+    $("#reports").html(d3.format(",")(d.numEvents));
+    $("#lag").html(d3.format(",")(d.lag));
+    $("#date").html(d3.time.format("%B %e, %Y")(new Date(d.receiveDate)));
+    $("#FDA").attr("href",d.maudeLink);
+    })
+  .html(function(d){ 
+    if (currentDevice != d.combinedName){
+      currentDevice=d.combinedName;
+      return "<button class='button'>" + d.combinedName + "</button>";
+    } else {
+      return null;
+    }
+    });
+
+  $( ".button:first" ).click();
+
+  $(".button:first").addClass("selected");
+
+  $(".button").click(function() {
+  $(".button").removeClass("selected");
+  $(this).addClass("selected");
+  });
+
+
+   $( document ).ready(function() {
+
+    $('#filter_box').keyup(function(i){
+       $('.button').hide();
+       $(".button").removeClass("selected");
+       var txt = String($('#filter_box').val());
+       $('.button').each(function(){
+          if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+              $(this).show();
+          }
+       });
+    });
+
+       $('.company').click(function(i){
+       $('.button').hide();
+       $(".button").removeClass("selected");
+       $(".company").removeClass("selected");
+        $(this).addClass("selected");
+       var txt = String($(this).attr("company"));
+       $('.button').each(function(){
+          if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+              $(this).show();
+          }
+       });
+    });
+
+   $('.reset').click(function(){
+    $('.button').show();
+    // $(this).addClass("selected");
+    $(".company").removeClass("selected");
+   });
+
+});
+
+});
+</script>
+</html>
