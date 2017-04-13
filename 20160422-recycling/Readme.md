@@ -1,22 +1,10 @@
-Star Tribune - What Minnesotans are tossing instead of recycling
+Star Tribune Data Drop - What Minnesotans are throwing away, but could be recycling
 ================
 
 by Frey Hargarten
 
-Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [C3](https://github.com/c3js/c3) and [jQuery](https://github.com/jquery/jquery).
+Built using Mike Bostock's [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
-Options for running:
+The files can be run in any live server setup. Just open the index.html file in your browser.
 
-a. Download and run on LAMP/MAMP/WAMP stack. Just launch the /builds/development/index.html file in your browser.
-
-b. NPM/GULP
-
-1. Download and unpack repo
-
-2. Go to folder in Terminal
-
-3. npm install
-
-4. gulp
-
-5. Modifications can be made to styles.css, index.html and scripts.js in /builds/development and pushed to /builds/production via gulp with the NODE_ENV=production gulp command.
+http://www.startribune.com/what-you-ve-been-throwing-away-but-could-be-recycling/376382471/

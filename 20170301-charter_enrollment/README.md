@@ -1,9 +1,9 @@
-Star Tribune - Minnesota School District Enrollment Trends
+Star Tribune - School District Enrollment Trends
 ================
 
 by Frey Hargarten
 
-Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [C3](https://github.com/c3js/c3) and [jQuery](https://github.com/jquery/jquery).
+Built using Mike Bostock's [D3](https://github.com/mbostock/d3) and [jQuery](https://github.com/jquery/jquery).
 
 Options for running:
 

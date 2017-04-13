@@ -183,4 +183,4 @@ gulp.task('geojson_data', function() {
    .pipe(browserSync.stream())
 });
 
-gulp.task('default', ['html', 'json', 'geojson_data', 'compass', 'libraries', 'js', 'shapefiles', 'watch', 'browserSync']);
+gulp.task('default', ['html', 'json', 'geojson_data', 'coffee', 'libraries', 'js', 'shapefiles', 'compass', 'watch', 'browserSync']);
