@@ -1,22 +1,9 @@
-Star Tribune - PROJECT NAME
+Star Tribune Data Drop - Do we live in the tropics? Data show this was an unusually wet summer
 ================
 
-by Frey Hargarten
+by MaryJo Webster and Frey Hargarten
 
-Built using [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
+Built using [Mapbox GL](https://www.mapbox.com/mapbox-gl-js/) and [DataWrapper](https://github.com/datawrapper/datawrapper).
 
-Options for running:
+The files can be run in any live server setup. Just open the index.php or index.html file in your browser.
 
-a. Download and run on LAMP/MAMP/WAMP stack. Just launch the /builds/development/index.html file in your browser.
-
-b. NPM/GULP
-
-1. Download and unpack repo
-
-2. Go to folder in Terminal
-
-3. npm install
-
-4. gulp
-
-5. Modifications can be made to styles.css, index.html and scripts.js in /builds/development and pushed to /builds/production via gulp with the NODE_ENV=production gulp command.
