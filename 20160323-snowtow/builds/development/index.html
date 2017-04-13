@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <title>Snow Emergency Towing</title>
+    <meta name="description" content="Snow Emergency Towing">
+    <meta name="author" content="Frey Hargarten - StarTribune">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+<div id='map'></div>
+
+<div class='map-overlay-container'>
+  <div class='map-overlay'>
+<div id='geocoder-container'></div>
+<div class="breaker"></div>
+    <div>
+<button class="previous navButtons">&lt;&lt;</button><button class="next navButtons">&gt;&gt;</button><button class="play myButton2" id="toggle">&#9658;</button>
+
+<div id="tracker">
+<div class="trackDot" id="d0" index="0"></div>
+<div class="trackDot" id="d1" index="1"></div>
+<div class="trackDot" id="d2" index="2"></div>
+<div class="trackDot" id="d3" index="3"></div>
+<div class="trackDot" id="d4" index="4"></div>
+<div class="trackDot" id="d5" index="5"></div>
+<div class="trackDot" id="d6" index="6"></div>
+<div class="trackDot" id="d7" index="7"></div>
+<div class="trackDot" id="d8" index="8"></div>
+<div class="trackDot" id="d9" index="9"></div>
+<div class="trackDot" id="d10" index="10"></div>
+</div>
+
+<div class="breaker"></div>
+
+<div class="legends" id="tows">
+  <small class='stat'></small>
+    <div class="legendContainer">
+   <div class='gray5 dot'></div>
+    </div>
+<div class="zoom">Reset View</div>
+</div>
+
+<div class="legends" id="tickets">
+  <small class='stat'></small>
+    <div class="legendContainer">
+<div class='red4 dot'></div>
+    </div>
+<div class="zoom">Reset View</div>
+</div>
+
+<div class="legends" id="scale">
+  <small class='stat'></small>
+    <div class="legendContainer">
+      <span class='legend'>
+        <nav class='legend clearfix'>
+          <span style='background:#fff;'>Less</span>
+          <span class='gray1'></span>
+          <span class='gray2'></span>
+          <span class='gray3'></span>
+          <span class='gray4'></span>
+          <span class='gray5'></span>
+          <span style='background:#fff;'>More</span>
+        </nav>
+      </span>
+    </div>
+<div class="zoom">Reset View</div>
+</div>
+
+<div class="breaker"></div>
+</div>
+
+<div id="info">
+    <h2 id='location-title'></h2>
+    <p id='location-description'></p>
+</div>
+
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src='js/mapbox-gl.js'></script>
+<script src='js/mapbox-gl-geocoder.js'></script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
