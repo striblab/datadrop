@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota jobs that are expected to grow</title>
+  <meta name="description" content="Minnesota jobs that are expected to grow">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <div id="wrapper">
+<div><strong>Filter by skill level</strong></div>
+<button class="switch highSwatch" data="high">High Skill</button><button class="switch middleSwatch" data="middle">Medium Skill</button><button class="switch lowSwatch" data="low">Low Skill</button>
+<div class="breaker"></div>
+<span class="scrollToTop">Return to Top</span> | <span class="zoom">Reset View</span>
+<div class="breaker"></div>
+
+<div id="filter"><input type="search" id="filter_box" placeholder="Search table by occupation or industry, then scroll through list" /></div>
+
+<div id="heading"><div class='tableHead partyBar hSort' data="title">Occupation</div><div class='tableHead hSort' data="group">Group</div><div class='tableHead hSort' data="skill">Education</div><div class='tableHead hSort selected' data="pct">% Change</div></div>
+<div id="jobsList" class="table" data="finance">
+</div>
+
+<!-- <p><small class="byline">Data Visualization by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten</a></small></p> -->
+  </div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+
+<script src="js/script.js"></script>
+</body>
+</html>
