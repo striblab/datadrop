@@ -9,8 +9,8 @@
   <meta name="description" content="Three-month average winter minimum temperature">
   <meta name="author" content="Frey Hargarten - StarTribune">
 
-  <link href="../_common_resources/charts/c3-master/c3.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="../_common_resources/styles/startribune_dataviz_styles.css" />
+  <link href="css/c3.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/startribune_dataviz_styles.css" />
   
   <style>
 
@@ -56,11 +56,8 @@
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="js/d3.v3.min.js"></script>
 <script src="js/c3.min.js"></script> 
-<script src="js/script.js"></script>
 
 <script>
-//LIVE JSON MAGIC
-
 d3.json("./data/minimum_temps.json", function(error, dataLoad)  { 
 
 var data = dataLoad.minimum_temps;
