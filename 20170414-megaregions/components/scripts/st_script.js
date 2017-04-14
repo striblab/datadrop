@@ -139,10 +139,10 @@ $('.num').each(function(i, obj) {
     var remainder = 100 - pct;
     var pctString = d3.format("+%")(value);
 
-    $(this).css("background","-webkit-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
-    $(this).css("background","-moz-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
-    $(this).css("background","-ms-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
-    $(this).css("background","linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
+    // $(this).css("background","-webkit-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
+    // $(this).css("background","-moz-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
+    // $(this).css("background","-ms-linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
+    // $(this).css("background","linear-gradient(left, white " + remainder + "%, #aaaaaa " + pct + "%)");
 
     $(this).html(pctString);
 });
