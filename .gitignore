@@ -1,2 +1,5 @@
 *.zip
+*.doc
+*.docx
 node_modules/
+shapefiles/_raw/
