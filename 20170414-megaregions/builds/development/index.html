@@ -1,0 +1,154 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Emerging Megaregions</title>
+  <meta name="description" content="Emerging Megaregions">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+ 
+<div id="wrapper">
+
+<div id="regions" class="chart">
+<div id="mapMain">
+<div id="district">U.S. Megaregions <span id="population"></span></div>
+<div id="map">
+
+</div>
+</div>
+
+<!-- <div id="map"><svg width="100%" height="600" viewBox="0 0 650 400" preserveAspectRatio="xMidYMid"></svg></div> -->
+
+<!-- <div class="breaker"></div> -->
+
+<div id="dashboard">
+<div id="region">
+<div id="filter"><input type="search" id="filter_box" placeholder="Search by keyword" /></div>
+<div class="rowHead">
+<div class='col th name' data="name">Region</div><div class='col th city' data="city">City</div><!-- <div class='col th area' data="area">Area</div> -->
+</div>
+<div id="listing"></div>
+</div>
+</div>
+<div class="breaker"></div>
+<div class="source">Source: <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0166083#sec002" target="new_">An Economic Geography of the United States: From Commutes to Megaregions</a></div>
+</div>
+
+
+<div id="projections" class="chart">
+<div class="chartTitle">Regional population projections</div>
+<div class="statRow statHead">
+<div class="region">Region</div>
+<div class="pop2010">2010</div>
+<div class="pop2025">2025</div>
+<div class="bar">Growth</div>
+</div>
+
+<div class="statRow">
+<div class="region">Arizona Sun Corrdidor</div>
+<div class="pop2010">5.6m</div>
+<div class="pop2025">7.8m</div>
+<div class="bar num">.39</div>
+</div>
+
+<div class="statRow">
+<div class="region">Cascadia</div>
+<div class="pop2010">12.4m</div>
+<div class="pop2025">13.5m</div>
+<div class="bar num">.05</div>
+</div>
+
+<div class="statRow">
+<div class="region">Florida</div>
+<div class="pop2010">17.3m</div>
+<div class="pop2025">21.5m</div>
+<div class="bar num">.24</div>
+</div>
+
+<div class="statRow">
+<div class="region">Front Range</div>
+<div class="pop2010">5.5m</div>
+<div class="pop2025">6.9m</div>
+<div class="bar num">.26</div>
+</div>
+
+<div class="statRow" style="font-weight:900">
+<div class="region">Great Lakes</div>
+<div class="pop2010">55.5m</div>
+<div class="pop2025">61.7m</div>
+<div class="bar num">.09</div>
+</div>
+
+<div class="statRow">
+<div class="region">Gulf Coast</div>
+<div class="pop2010">13.4m</div>
+<div class="pop2025">16.3m</div>
+<div class="bar num">.22</div>
+</div>
+
+<div class="statRow">
+<div class="region">Northeast</div>
+<div class="pop2010">52.5m</div>
+<div class="pop2025">58.4m</div>
+<div class="bar num">.12</div>
+</div>
+
+<div class="statRow">
+<div class="region">Northern California</div>
+<div class="pop2010">14m</div>
+<div class="pop2025">16.4m</div>
+<div class="bar num">.17</div>
+</div>
+
+<div class="statRow">
+<div class="region">Piedmont Atlantic</div>
+<div class="pop2010">17.6m</div>
+<div class="pop2025">21.7m</div>
+<div class="bar num">.23</div>
+</div>
+
+<div class="statRow">
+<div class="region">Southern California</div>
+<div class="pop2010">24.4m</div>
+<div class="pop2025">29m</div>
+<div class="bar num">.19</div>
+</div>
+
+<div class="statRow">
+<div class="region">Texas Triangle</div>
+<div class="pop2010">19.7m</div>
+<div class="pop2025">24.8m</div>
+<div class="bar num">.26</div>
+</div>
+
+<div class="source">Source: <a href="http://www.america2050.org/megaregions.html" target="new_">Regional Plan Association</a></div>
+</div>
+
+<div id="commutes" class="chart">
+ <div class="chartTitle">Twin Cities metro area commuters 2009-2013</div>
+ <div id="filter2"><input type="search" id="filter_box2" placeholder="Search by keyword" /></div>
+ <div class="rowHead"><div class='col th metro' data="metro">Metro</div><div class='col th state' data="state">State</div><div class='col th selected3 commuters' data="commuters">Commuters</div></div>
+ <div id="commuter_list">
+	
+ </div>
+ <div class="source">Source: <a href="https://www.census.gov/hhes/commuting/" target="new_">U.S. Census Bureau</a></div>
+</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src='js/mapbox-gl.js'></script>
+<script src='js/mapbox-gl-geocoder.js'></script>
+
+<script src="js/script.js"></script>
+ 
+</body>
+</html>
