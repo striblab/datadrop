@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Drug Price Trends</title>
+  <meta name="description" content="Drug Price Trends">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+  
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+
+  </style> 
+</head>
+
+<body>
+  <div id="wrapper">
+
+<h3>Enter drug name (brand or generic):</h3>
+<div id="filter"><input type="search" id="filter_box" placeholder="Type name and press enter" /></div>
+
+<div class="chartTitle">How have prescription prices of <span id="named"></span> changed in Minnesota?</div>
+
+<div id="chart"></div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/c3.min.js"></script> 
+
+<script src="js/script.js"></script>
+</body>
+</html>
