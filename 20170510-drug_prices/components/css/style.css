@@ -6274,7 +6274,10 @@ body,
 }
 
 #wrapper {
-    text-align: center;
+    text-align:center;
+    margin-right:auto;
+    margin-left:auto;
+    width:520px;
 }
 
 #viewSwitch,
@@ -6302,24 +6305,35 @@ h3 {
     font-size: 0.8em;
 }
 
-.switch {
-    padding: 10px;
-    display: inline-block;
-    text-align: center;
-    width: 48.5%;
-    background-color: #fff;
-    margin:0 !important;
-    font-weight: 900;
-    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
-    border: 1px solid black;
-    color: #000 !important;
+#price, .pctchange {
+    font-weight:900;
 }
 
-.switch:hover,
-.selected,
-.step:hover {
-    background-color: #4C4C39 !important;
-    color: #fff !important;
-    cursor: pointer;
-    margin: 0 !important;
+.neg {
+    color:#857AAA;
+}
+
+.pos {
+    color:#5BBF48;
+}
+
+.chartSwitcher {
+    width:48%;
+    display:inline-block;
+    padding:10px;
+}
+
+.chartSwitcher:hover, .selected {
+    cursor:pointer;
+    color:#fff;
+    background-color:#333;
+}
+
+@media (max-width: 728px) {
+    #wrapper {
+        width:100%;
+    }
+    .chartSwitcher {
+        font-size:0.8em;
+    }
 }
