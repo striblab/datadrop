@@ -1,3 +1,16 @@
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if (results != null) { return results[1] || 0; }
+  else { return null; }
+}
+
+var selected = $.urlParam('chart');
+
+if (selected != null){
+$(".slide").hide();
+$("#" + selected).show();
+}
+
 d3.csv("./data/drugs.csv", function(d) {
   return {
     brand: d.brand,
@@ -24,7 +37,7 @@ for (var j=2011; j<2016; j++){
 function switchChart(name,colors){
 
   var found = false;
-  dataStream[0] = name;
+  dataStream[0] = "Price";
   var index = 0;
 
   for (var i=0; i < data.length; i++){
@@ -54,6 +67,16 @@ var  padding = {
         left: 60,
     };
 
+$(".pctchange").removeClass("neg");
+$(".pctchange").removeClass("pos");
+
+var changes = (dataStream[5] - dataStream[1])/dataStream[1];
+$("#price").html(d3.format("$,.0f")(dataStream[5]));
+$(".pctchange").html(d3.format("+%")(changes));
+if (changes < 0) { $(".pctchange").addClass("neg"); }
+else if (changes > 0) { $(".pctchange").addClass("pos"); }
+else { $(".pctchange").removeClass("neg"); $(".pctchange").removeClass("pos"); }
+
 var share = "#B0BEC5";
 
 var chart = c3.generate({
@@ -67,6 +90,7 @@ var chart = c3.generate({
         ],
         type: 'line'
     },
+    legend: { show:false },
     color:  {  pattern: [colors] },
     axis: {
       y: {
@@ -145,15 +169,19 @@ $.urlParam = function(name){
 if ($.urlParam('name') != 0 ) { 
   var name = $.urlParam('name').toUpperCase();
   var colorMe = "#333333"
-  $("#named").html(decodeURI(name));
+  $(".named").html(decodeURI(name));
   switchChart(decodeURI(name),colorMe);
+  if (decodeURI(name) != "EPIPEN 2-PAK") { $(".chartSwitcher").removeClass("selected"); }
 } 
 
   $( document ).ready(function() {
-    $(".switch").click(function()  { 
-       // genderStatus = $(this).attr("data");
-       $(".switch").removeClass("selected");
-       $(this).addClass("selected");
+    $(".chartSwitcher").click(function()  {
+      $(".chartSwitcher").removeClass("selected");
+      $(this).addClass("selected");
+      var name = $(this).text();
+      var colorMe = "#333333"
+      $(".named").html(name.toUpperCase());
+      switchChart(decodeURI(name.toUpperCase()),colorMe);
     });
 
    $('#filter_box').keyup(function(e){
