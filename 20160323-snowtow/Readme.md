@@ -1,7 +1,7 @@
 Star Tribune - Where were cars town during Minneapolis snow emergencies?
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js) and [jQuery](https://github.com/jquery/jquery).
 
