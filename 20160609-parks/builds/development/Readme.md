@@ -1,7 +1,7 @@
 Star Tribune Data Drop - National Park Attendance
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using [C3](https://github.com/masayuki0812/c3), [Mapbox GL](https://www.mapbox.com/mapbox-gl-js/) and [jQuery](https://github.com/jquery/jquery).
 

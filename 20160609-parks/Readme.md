@@ -1,7 +1,7 @@
 Star Tribune - National park attendence
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using Mike Bostock's [D3](https://github.com/mbostock/d3), [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js), [C3](https://github.com/c3js/c3) and [jQuery](https://github.com/jquery/jquery).
 
