@@ -1,7 +1,7 @@
 Star Tribune - Minnesota's troubled waters
 ================
 
-by Frey Hargarten
+by [Frey Hargarten](https://github.com/jeffhargarten)
 
 Built using [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
