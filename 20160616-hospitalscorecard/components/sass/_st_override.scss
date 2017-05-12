@@ -1,48 +1,229 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+.button {
+    background-color: #fff;
+    border: none;
+    border-bottom: 1px solid black;
+    display: inline-block;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+.button:hover,
+.selected {
+    background-color: #eee !important;
+    color: #000 !important;
+    cursor: pointer;
+    margin: 0 !important;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+.button {
+    float: left;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+#filter {
+    font-family: "Benton Sans";
+    font-size: .9em;
+    margin: 5px;
+}
 
-    .chatter { padding:20px; }  
+#filter input {
+    background-color: #fff !important;
+    background-position: 98% 50%;
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    border: 1px solid #eee !important;
+    border-radius: 0 !important;
+    border-radius: 0;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.75);
+    font-family: "Benton Sans";
+    font-family: inherit;
+    font-size: 1em;
+    height: 30px;
+    line-height: 120%;
+    margin: 0;
+    moz-transition: all 0.30s ease-in-out;
+    ms-transition: all 0.30s ease-in-out;
+    o-transition: all 0.30s ease-in-out;
+    padding: 0 10px 0 10px;
+    webkit-appearance: none;
+    webkit-border-radius: 0;
+    webkit-transition: all 0.30s ease-in-out;
+    width: 100% !important;
+    width: 100%;
+}
 
-    p { font-family:$bentonSans; }  
+#filter input:focus {
+    border: 1px solid #61bd1a;
+    box-shadow: 0 0 5px #999;
+    font-family: "Benton Sans";
+    padding: 1px 10px 1px 10px;
+    width: 100% !important;
+}
 
-    #info { display:none; }
+#hospitalsList {
+    height: 195px;
+    margin-bottom: 15px;
+    overflow: auto;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+#score,
+.title {
+    text-align: center;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.title {
+    font-family: "Poynter Serif RE", Georgia, Times, serif;
+    font-size: 1.9em;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.year {
+    font-size: 1.3em;
+}
+
+.hospital {
+    font-size: 2em;
+}
+
+.expl {
+    font-size: .8em;
+}
+
+#readpay,
+#hacPay,
+#valPay {
+    font-size: 1.7em;
+}
+
+.category {
+    border-right: 1px dotted #3e3e3e;
+    float: left;
+    min-height: 490px;
+    padding: 2%;
+    width: 33%;
+}
+
+.category:last-child {
+    border-right: none;
+}
+
+.red {
+    color: #C22A22;
+    font-weight: bold;
+}
+
+.green {
+    color: #299E3D;
+    font-weight: bold;
+}
+
+.more {
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-size: .8em;
+    padding: 10px;
+    width: 75%;
+}
+
+.close {
+    background-color: white;
+    border: none;
+    color: navy;
+    float: right;
+    font-size: 1em;
+    margin-left: 15px;
+}
+
+.more:hover,
+.close:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#readmMore,
+#hacMore,
+#vbMore {
+    display: none;
+}
+
+.catMore {
+    clear: left;
+    padding: 6%;
+}
+
+.catMore p,
+.catMore li {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-size: .8em;
+    text-align: left;
+}
+
+.catMore ul {
+    margin-bottom: 10px;
+    margin-left: 35px;
+}
+
+.resources {
+    clear: both;
+    padding-top: 60px;
+}
+
+.resources p {
+    line-height: .5em;
+}
+
+.resources a {
+    color: black;
+}
+
+.resources a:hover {
+    color: grey;
+}
+
+@media (max-width: 475px) {
+    .category {
+        min-height: 520px;
+        width: 33%;
     }
+    .year {
+        font-size: 1em;
+    }
+    .hospital {
+        font-size: 1.3em;
+    }
+    p,
+    .expl {
+        font-size: .8em;
+    }
+    #readpay,
+    #hacPay,
+    #valPay {
+        font-size: 1em;
+    }
+}
+
+@media (max-width:370px) {
+    .category {
+        min-height: 620px;
+        width: 33%;
+    }
+    .year {
+        font-size: 1em;
+    }
+    .hospital {
+        font-size: 1.3em;
+    }
+    p,
+    .expl {
+        font-size: .8em;
+    }
+    #readpay,
+    #hacPay,
+    #valPay {
+        font-size: 1em;
+    }
+}
