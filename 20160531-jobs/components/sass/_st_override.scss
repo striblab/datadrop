@@ -1,48 +1,297 @@
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
-    .bottom { position:absolute; bottom:0; width:100%; clear:both; }
-    .map-overlay-container { position: absolute; width:400px; top: 0; left: 0; padding: 10px; z-index: 1; }
-    .map-overlay { font: 12px/20px $bentonSans; background-color: #fff; border-radius: 3px; padding: 10px; box-shadow:0 1px 2px rgba(0,0,0,0.20); }
-    .map-overlay h2, .map-overlay p { margin: 0 0 10px; }
-    .mapboxgl-ctrl-attrib { display:none; }
-    .play { background-color:#fff !important; color:#000; }
-    .pause { background-color:#333 !important; color:#fff; }
-    #diverse { color:#299129; }
- 
-    #toggle { margin:0; padding:0; width:80px; height:23px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; margin-left:auto; margin-right:auto; display:block; }
-    #toggle:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .navButtons { display:block; text-align:center; background-color:#fff !important; width:40px; font-size:2em; -moz-border-radius:0; -webkit-border-radius:0; border-radius:0; border:0; font-weight:900; }
-    .navButtons:hover { background-color:#333 !important; color:#fff; cursor:pointer; }
-    .previous { float:left; }
-    .next { float:right; }
+/* PROJECT STYLES */
+body,
+#filter,
+#filter input:focus,
+p {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    overflow-y: hidden;
+}
 
-    #tracker { padding-top:10px; text-align:center; }
-    .trackDot { border-radius:50%; width:10px; height:10px; display:inline-block; margin:6px; background-color:#ddd; }
-    .trackDot:hover, .current { background-color:#333; cursor:pointer; }
-    .dot { border-radius:50%; width:15px; height:15px; text-align:center; margin-right:auto; margin-left:auto; }
-    .legendContainer { text-align:center; }
+#wrapper {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    #geocoder-container { width:100%; margin-top:10px; }
-    #geocoder-container > div { min-width:100%; margin-left:0; }
-    .chatter span { padding:5px; }
+#chart .c3-line {
+    stroke-width: 6px !important;
+}
 
-    small { font-family:$bentonSans; color:#808080; clear:both; display:block; }  
+#leftSide {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
 
-    .chatter { padding:20px; }  
+.switch {
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+    width: 32.5%;
+    background-color: #fff;
+    font-weight: 900;
+    font-size: 0.8em;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    border: 1px solid black;
+    margin: 0 !important;
+}
 
-    p { font-family:$bentonSans; }  
+.switch:hover,
+.selected {
+    background-color: #333 !important;
+    color: #fff !important;
+    cursor: pointer;
+    margin: 0 !important;
+}
 
-    #info { display:none; }
+#filter input:focus {
+    width: 100% !important;
+}
 
-    .zoom { text-align:center; float:none !important; }
-    .legends { width:247px; height:auto; text-align:center; margin-right:auto; margin-left:auto; display:none; }
-    .bigNum { display:inline-block; width:32%;  }
+#filter input {
+    font-size: .85em;
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
 
-    .mapboxgl-popup { max-width:400px; font: 12px/20px $bentonSans; }
-    .marker-title { font-weight: 700; }
+.scrollToTop {
+    color: steelblue !important;
+    text-align: center;
+}
 
-    @media (max-width:500px) {
-      #map { position:static; height:400px; }
-      .map-overlay-container { width:100%; position:static; }
-      .bottom { position:static; width:100%; clear:both; }
+.scrollToTop:hover {
+    color: #333 !important;
+    cursor: pointer;
+}
+
+.entry div {
+    display: inline-block;
+}
+
+.entry {
+    width: 100%;
+}
+
+#heading {
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    margin-left: -9px;
+}
+
+#jobsList,
+#heading {
+    font-size: 1em !important;
+    width: 100%;
+}
+
+#jobsList {
+    margin-top: 40px;
+}
+
+.tableHead {
+    display: inline-block;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 24.5%;
+    font-weight: 900;
+    font-family: "Poynter Serif RE";
+}
+
+.tableCell {
+    display: table-cell;
+    padding: 9px;
+    border-bottom: 1px solid #ddd;
+    width: 25%;
+    font-family: "Benton Sans";
+    height: 60px !important;
+    vertical-align: middle;
+}
+
+.pct {
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.tableBreak {
+    clear: both;
+    display: block;
+}
+
+.table {
+    text-align: center;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 400px;
+}
+
+.hSort:hover {
+    background-color: #333;
+    cursor: pointer;
+    color: #fff !important;
+}
+
+.card {
+    width: 100% !important;
+    height: auto !important;
+    /*min-height:100% !important;*/
+    display: table-row;
+}
+
+.zoom {
+    text-align: center;
+    float: none !important;
+}
+
+.highSwatch {
+    background-color: #969696;
+}
+
+.middleSwatch {
+    background-color: #AAAAAA;
+}
+
+.lowSwatch {
+    background-color: #CCCCCC;
+}
+
+.breaker {
+    margin: 1px !important;
+}
+
+.wrapper-dropdown-1 {
+    display: inline-block;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    z-index: 900;
+    background: #ddd;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 8px;
+    position: relative;
+    width: 200px;
+    border: 1px solid #aaa;
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.10);
+    font-size: 14px;
+    width: 300px;
+}
+
+.wrapper-dropdown-1 .dropdown {
+    font-weight: normal;
+    left: 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 0px !important;
+}
+
+ul.dropdown.months {
+    box-sizing: border-box;
+    margin: 0;
+    moz-box-sizing: border-box;
+    padding: 0;
+    webkit-box-sizing: border-box;
+    margin-top: -1px;
+    border-radius: 0 0 4px 4px;
+    background-clip: padding-box;
+}
+
+.wrapper-dropdown-1 .dropdown {
+    font-weight: normal;
+    left: 0;
+    list-style: none;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+    margin-top: 0px !important;
+}
+
+.wrapper-dropdown-1 .dropdown li:hover a {
+    background: #EFEFEF;
+}
+
+header[role="banner"] {
+    width: 100%;
+    height: 40px;
+    z-index: 1000;
+    background: #f0f0f0;
+}
+
+.c3-tooltip th {
+    background-color: #aaa;
+    font-size: 12px;
+    padding: 2px 5px;
+    text-align: left;
+    color: #FFF;
+    font-family: "Benton Sans";
+}
+
+@media (max-width:530px) {
+    .tableCell {
+        padding: 9px;
     }
+    .pct {
+        font-size: 1.2em;
+    }
+    .switch {
+        width: 33%;
+    }
+    #jobsList,
+    #heading {
+        font-size: .7em !important;
+    }
+    .tableCell {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    #heading {
+        margin-left: -5px;
+    }
+}
+
+@media (max-width:320px) {
+    #heading {
+        font-size: .3em !important;
+    }
+    #jobsList,
+    #heading {
+        font-size: .3em !important;
+    }
+    .switch {
+        font-size: .5em !important;
+    }
+    .tableCell {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        word-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    .table {
+        text-align: center;
+        width: 100%;
+        height: 350px;
+    }
+    #filter input {
+        font-size: .6em;
+    }
+}
