@@ -15,7 +15,7 @@ var dataStream = [];
 axis[0] = 'x';
 var indexYear = 1;
 
-for (var j=1910; j<2016; j++){
+for (var j=1910; j<2017; j++){
   axis[indexYear] = j;
   dataStream[indexYear] = 0;
   indexYear++;
