@@ -109,7 +109,7 @@ var chart = c3.generate({
               bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
 
               for (var k=0; k < rows.length; k++){
-                if (rows[k].name == name && rows[k].year == Number(title)){
+                if (rows[k].name == name && rows[k].year == Number(title) && rows[k].gender == gender){
                   birthNum = rows[k].births;
                   break;
                 }
