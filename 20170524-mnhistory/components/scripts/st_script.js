@@ -32,7 +32,7 @@ function mapColor(d, race, dataCompare){
 }
 
 function mapTips(d, subject, dataCompare){
-    return "<div class='districtName'>" + d.properties.NHGISNAM + " County</div><div class='population'>" + d3.format(",")(d.properties.TotalPop) + " population</div>"      
+    return "<div class='districtName'>" + d.properties.NHGISNAM + " County</div><div class='population'>" + d3.format(",")(d.properties.TotalPop) + " people</div>"      
 }
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
