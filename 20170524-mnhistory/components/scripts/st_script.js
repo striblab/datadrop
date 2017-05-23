@@ -19,18 +19,6 @@ data1860 = dataLoad1860.counties;
 data1870 = dataLoad1870.counties;
 
 //MAPS
-function mapColor(d, race, dataCompare){
-   // if (race != "redistrict"){ 
-    for (var i=0; i < dataCompare.length; i++){
-        if (d.properties.DISTRICT == dataCompare[i].district){
-            if (dataCompare[i].gop > dataCompare[i].dfl) { return "r4"; }
-            if (dataCompare[i].gop > dataCompare[i].dfl) { return "r3"; }
-            if (dataCompare[i].gop > dataCompare[i].dfl) { return "r2"; }
-            else if (dataCompare[i].gop < dataCompare[i].dfl) { return "r1"; }
-        }
-    } 
-}
-
 function mapTips(d, subject, dataCompare){
     return "<div class='districtName'>" + d.properties.NHGISNAM + " County</div><div class='population'>" + d3.format(",")(d.properties.TotalPop) + " people</div>"      
 }
