@@ -1,0 +1,129 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Minnesota's Tax Distribution</title>
+  <meta name="description" content="Minnesota's Tax Distribution">
+  <meta name="author" content="Frey Hargarten - StarTribune">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  </head>
+
+<body>
+<div id="wrapper">
+
+<div class="slide" id="spending">
+<div class="chartTitle">Title here</div>
+<div class="chatter">chatter here</div>
+
+<div style="clear:both;"></div>
+
+<div id="map" class="map"><svg width="320" height="350" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid"></svg></div>
+
+<input id="slider" type="range" min="2010" max="2013" step="1" value="2013" style="display:none;" />
+
+<div class="breaker"></div>
+
+<div id="sidebox" class="adjacent">
+<div class="zoom">Reset View</div>
+
+<div style="clear:both;padding:16px;"></div>
+
+<div id="infobox">
+    <div id='county_name'></div>
+    <div id="chart"></div>
+
+    
+<!--     <h4>Major Aid Types Per Capita</h4>
+        <div class='category lg'>Local Government Aid</div><div class='amount lg' id="lg"></div><hr>
+        <div class='category cp'>County Programs Aid</div><div class='amount cp' id="cp"></div><hr>
+        <div class='category hs'>Human Services Aid</div><div class='amount hs' id="hs"></div><hr>
+        <div class='category ed'>Educational Aid</div><div class='amount ed' id="ed"></div><hr>
+        <div class='category hw'>Highway Aid</div><div class='amount hw' id="hw"></div><hr>
+        <div class='category cc'>Community Corrections Aid</div><div class='amount cc' id="cc1"></div><hr>
+        <div class='category cc'>Disparity Reduction Aid</div><div class='amount cc' id="cc2"></div><hr>
+        <div class='category ta'>Total Aid</div><div class='amount ta' id="ta1"></div><hr>
+        <div class='category ta'>State Average Aid</div><div class='amount ta' id="ta2"></div>
+    <p style='clear:both'></p>
+
+    <h4>Major Taxes Per Capita</h4>
+        <div class='category pt'>Property Taxes</div><div class='amount pt' id="pt"></div><hr>
+        <div class='category it'>Income Taxes</div><div class='amount it' id="it"></div><hr>
+        <div class='category st'>Sales Taxes</div><div class='amount st' id="st"></div><hr>
+        <div class='category vt'>Vehicle Taxes</div><div class='amount vt' id="vt"></div><hr>
+        <div class='category gt'>Gas Taxes</div><div class='amount gt' id="gt"></div><hr>
+        <div class='category corp'>Corporate Taxes</div><div class='amount corp' id="corp"></div><hr>
+        <div class='category tt'>Total Taxes</div><div class='amount tt' id="tt1"></div><hr>
+        <div class='category tt'>State Average Taxes</div><div class='amount tt' id="tt2"></div> -->
+</div>
+</div>
+
+<div id="menu" class="adjacent">
+<div id="legends">
+<h5>Dollars per capita</h5>
+<div class='legend' id="aidQ">
+    <span style='background:#fff;'>Less</span>
+    <span style='background:#c7e9c0;'></span>
+    <span style='background:#74c476;'></span>
+    <span style='background:#006d2c'></span>
+    <span style='background:#002911'></span>
+    <span style='background:#fff;'>Most</span>
+</div>
+<div class='legend' id="taxQ">
+    <span style='background:#fff;'>Less</span>
+    <span style='background:#C6A29E;'></span>
+    <span style='background:#A45958;'></span>
+    <span style='background:#9B161F'></span>
+    <span style='background:#210507'></span>
+    <span style='background:#fff;'>Most</span>
+</div>
+</div>
+
+<div style="clear:both;padding:10px;"></div>
+
+<button id="aid" class="myButton clicker" highlight="ta" index="0">Total Aid <span class='amount ta' id="ta1"></span></button>
+<button id="lga" class="myButton clicker" highlight="lg" index="1">Local Gov <span class='amount lg' id="lg"></span></button>
+<button id="cpa" class="myButton clicker" highlight="cp" index="2">County Programs <span class='amount cp' id="cp"></span></button>
+<button id="hsa" class="myButton clicker" highlight="hs" index="3">Human Services <span class='amount hs' id="hs"></span></button>
+<button id="eda" class="myButton clicker" highlight="ed" index="4">Education <span class='amount ed' id="ed"></span></button>
+<button id="hwy" class="myButton clicker" highlight="hw" index="5">Highways <span class='amount hw' id="hw"></span></button>
+<button id="comm" class="myButton clicker" highlight="cc" index="6">Community <span class='amount cc' id="cc1"></span></button>
+
+<button id="tax" class="myButton_tax clicker" highlight="tt" index="7">Total Taxes <span class='amount tt' id="tt1"></span></button>
+<button id="pt" class="myButton_tax clicker" highlight="pt" index="8">Property <span class='amount pt' id="pt"></span></button>
+<button id="it" class="myButton_tax clicker" highlight="it" index="9">Income <span class='amount it' id="it"></span></button>
+<button id="st" class="myButton_tax clicker" highlight="st" index="10">Sales <span class='amount st' id="st"></span></button>
+<button id="vt" class="myButton_tax clicker" highlight="vt" index="11">Vehicle <span class='amount vt' id="vt"></span></button>
+<button id="gt" class="myButton_tax clicker" highlight="gt" index="12">Gas <span class='amount gt' id="gt"></span></button>
+<button id="corp" class="myButton_tax clicker" highlight="corp" index="13">Corporate <span class='amount corp' id="corp"></span></button>
+<small>Property tax credits not represented.</small>
+</div>
+</div>
+
+<div class="slide" id="change">
+    <div id="mapChange" class="map"><svg width="320" height="350" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid"></svg></div>
+
+<div id="legends">
+<h5>Income % change</h5>
+<div class='legend'>
+    <span style='background:#fff;'>Less</span>
+    <span class="purple1"></span>
+    <span class="purple2"></span>
+    <span class="purple3"></span>
+    <span class="purple4"></span>
+    <span style='background:#fff;'>Most</span>
+</div>
+</div>
+
+</div>
+
+<script src="//code.jquery.com/jquery-latest.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/c3.min.js"></script> 
+<script src="js/script.js"></script>
+</body>
+</html>
