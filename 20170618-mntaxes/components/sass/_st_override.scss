@@ -1,0 +1,288 @@
+body,
+h5,
+p {
+    overflow-x: hidden;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
+#wrapper {
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.background {
+    fill: none;
+    pointer-events: all;
+}
+
+#states {
+    fill: #aaa;
+}
+
+#state-borders {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.tooltip {
+    background-color: rgba(255, 255, 255, 1);
+    height: auto;
+    width: 150px;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 0;
+    border: 1px solid black;
+    font-size: 12px;
+    font-family: Arial;
+}
+
+#states .active {
+    fill: #333 !important;
+    fill-opacity: 1 !important;
+}
+
+.faded {
+    fill-opacity: 0.5 !important;
+}
+
+#states .active:hover {
+    fill: #333 !important;
+}
+
+#timeline {
+    font-weight: 900;
+}
+
+.selected {
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: 900;
+}
+
+#legends {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 180px;
+    height: 30px;
+}
+
+.legend label,
+.legend span {
+    display: block;
+    float: left;
+    height: 15px;
+    width: 30px;
+    text-align: center;
+    font-size: 11px;
+    color: #808080;
+}
+
+.legend {
+    width: 180px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*.thisLine {
+    font-weight: 900;
+    color: #000 !important;
+}*/
+
+.map {
+    text-align: center;
+    clear:both;
+}
+
+#sidebox {
+    float: right;
+    width: 50%;
+    background-color: #fff;
+}
+
+#menu {
+    width: 220px;
+    float: left;
+}
+
+small {
+    font-size:0.8em;
+}
+
+.myButton {
+    background-color: #61bd1a;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-align:left;
+    color: #ffffff !important;
+    font-family: arial;
+    font-size: 0.9em !important;
+    padding: 1px !important;
+    text-decoration: none;
+    font-weight: 900;
+    width: 100%;
+}
+
+.myButton:active {
+    background-color: #5cbf2a;
+}
+
+.myButton_tax {
+    background-color: #8B2219;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    text-align:left;
+    font-family: arial;
+    font-size: 0.9em;
+    padding: 1px !important;
+    text-decoration: none;
+    font-weight: 900;
+    width: 100%;
+}
+
+.myButton_tax:active {
+    background-color: #ad645e;
+}
+
+button:focus {
+    outline: 0 !important;
+}
+
+#legend_label {
+    font-weight: 900;
+}
+
+.zoom {
+    float: none !important;
+    text-align: center;
+    width: 100%;
+}
+
+#infobox {
+    width: 270px;
+    background-color: #fff;
+    height: 358px;
+    padding-bottom: 30px;
+}
+
+#county_name {
+    font-size: 18px;
+    font-weight: 900;
+    text-align:center;
+    background-color: #ddd;
+}
+
+.category {
+    float: left !important;
+    font-size: 13px;
+    color: #aaa;
+    font-family: Arial;
+}
+
+.amount {
+    float: right !important;
+    font-size: 0.9em;
+    color: #ffffff;
+    font-family: Arial;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px dashed #aaa;
+    background: #999;
+    clear: both;
+}
+
+#infobox h4 {
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: 900;
+    padding: 5px;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    float: left;
+    margin-right: 2px;
+    border-left: 5px solid black;
+}
+
+.myButton:hover {
+    background-color: #378f00 !important;
+}
+
+.myButton_tax:hover {
+    background-color: #ad645e !important;
+}
+
+path:hover {
+    fill: #333333 !important;
+    cursor: pointer;
+}
+
+.adjacent {
+    width: 48%;
+    display: inline-block;
+}
+
+#chart .c3-line {
+    stroke-width: 6px !important;
+}
+
+.yearScrub text {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+}
+
+.yearScrub line {
+    background-color: #3F88C5;
+    fill: #3F88C5 !important;
+    stroke: #3F88C5 !important;
+    pointer-events: all;
+    color: #3F88C5;
+}
+
+#chart {
+    width: 100%;
+    margin: 5px;
+    height: 480px;
+}
+
+@media only screen and (max-width:540px) {
+    #wrapper {
+        width: 100%;
+    }
+    #map,
+    .adjacent,
+    .myButton,
+    .myButton_tax,
+    #wrapper {
+        width: 100% !important;
+    }
+    .myButton,
+    .myButton_tax,
+    .amount{
+        font-size:1em !important;
+    }
+    #sidebox {
+        display: none;
+    }
+    .myButton,
+    .myButton_tax {
+        width: 32%;
+    }
+}
