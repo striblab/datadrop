@@ -1,14 +1,15 @@
 // style.scss
 // ==============
- 
+
 //Compass imports
 @import "compass";
 @import "compass/reset";
 // @import "compass/css3/box-shadow";
- 
+
 //JH JS partials
 //@import "mapbox_gl";
 //@import "mapbox_gl_geocoder";
+@import "jquery_ui";
 @import "c3";
 
 //Core partials
@@ -18,7 +19,7 @@
 // @import "mixins";
 // @import "modules";
 @import "st_override";
- 
+
 // JS partials
 // @import "pixgrid";
 // @import "rclick";
