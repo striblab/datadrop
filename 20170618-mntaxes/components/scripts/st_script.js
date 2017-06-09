@@ -1252,7 +1252,6 @@ d3.helper.tooltip = function(accessor){
     };
 };
 
-//POPULATE
   mapBuild("#mapChange", "#infobox", "#chart", "counties.json", "house", "mn", null, 0);
 
 });

@@ -4,7 +4,7 @@ Visual look at how drug prices have increased or decreased.  Created by [Frey Ha
 
 ## Data
 
-Data provided by ?? and can be found in `builds/development/data/_raw`.
+Data provided by Centers for Medicare and Medicaid Services and can be found in 'builds/development/data/_raw'.
 
 ### Processing
 
@@ -54,7 +54,7 @@ Deployment is managed in specific repositories:
 
 * [Data Drop](https://github.com/striblab/datadrop)
 * [General visuals](https://github.com/striblab/startribune_dataviz)
-* [Elections (2016)](https://github.com/striblab/2016election)
+* [Elections](https://github.com/striblab/2016election)
 
 The following will change based on which deployment repo this is going to and where you have that repository locally.
 

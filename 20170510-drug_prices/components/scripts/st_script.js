@@ -95,7 +95,7 @@ $(document).ready(function() {
     // Update wording
     $container.find('.brand-name').html(data.brand);
     $container.find('.generic-name').html(data.generic);
-    $container.find('.per-user-2015').html(formatCurrency(perUser2015.amount));
+    $container.find('.per-user-2015').html(d3.format("$,.0f")(perUser2015.amount));
     $container.find('.per-user-change').html(formatChange(
       (perUser2015.amount - perUser2011.amount) / perUser2011.amount * 100, 1));
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
         top: 20,
         right: 60,
         bottom: 20,
-        left: 60,
+        left: 120,
       },
       data: {
         x: 'x',
