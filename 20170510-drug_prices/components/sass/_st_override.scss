@@ -16,7 +16,6 @@ $wrapper-max: 520px;
   padding-top: 1em;
   margin-bottom: 1em;
   line-height: 1.25em;
-}
 
   p {
     font-family: $bentonSans;
@@ -118,4 +117,14 @@ $wrapper-max: 520px;
   max-height: 10em;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.drug-search {
+  margin-bottom: 1em;
+}
+
+.source-notes {
+  font-size: 0.85em;
+  text-align: right;
+  color: #BABABA;
 }
