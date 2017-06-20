@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
   if (results != null) { return results[1] || 0; }
@@ -1082,8 +1083,27 @@ chart.load({
 //     chart.attr("height", targetWidth / aspect);
 // });
 
+d3.json('./data/incomes.json', function(error, dataLoad) {
+
+var dataIncome = dataLoad.incomes;
+
 function mapTips(d, subject, dataCompare){
-    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population'>" + d3.format("+%")(-1) + " change</div>"      
+
+  var pctChange = 0;
+  var color = "";
+      for (var i=0; i < dataIncome.length; i++){
+          if (dataIncome[i].county == d.properties.COUNTYNAME){ 
+           if (dataIncome[i].pincomeDIFF >= 20) { color = "gray5"; }
+           else if (dataIncome[i].pincomeDIFF >= 15) { color = "gray4"; }
+           else if (dataIncome[i].pincomeDIFF >= 10) { color = "gray3"; }
+           else if (dataIncome[i].pincomeDIFF >= 5) { color = "gray2"; }
+           else if (dataIncome[i].pincomeDIFF  >= 0) { color = "gray1"; }
+           pctChange = dataIncome[i].pincomeDIFF / 100; 
+           break;
+         }
+        }
+
+    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"      
 }
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
@@ -1122,11 +1142,15 @@ d3.json("shapefiles/" + shape, function(error, us) {
       .attr("id", function(d) { var str = geo + "_" + d.properties.DISTRICT; return str.replace(new RegExp(" ", "g"),"-"); })
       .attr("precinctName", function(d){ return d.properties.DISTRICT })
       .attr("class", function(d){
-         if (d.properties.TotalPop >= 9000) { return "gray5"; }
-         else if (d.properties.TotalPop >= 6000) { return "gray4"; }
-         else if (d.properties.TotalPop >= 4000) { return "gray3"; }
-         else if (d.properties.TotalPop >= 2000) { return "gray2"; }
-         else if (d.properties.TotalPop >= 0) { return "gray1"; }
+        for (var i=0; i < dataIncome.length; i++){
+        if (dataIncome[i].county == d.properties.COUNTYNAME){
+         if (dataIncome[i].pincomeDIFF > 11) { return "gray5"; }
+         // else if (dataIncome[i].pincomeDIFF >= 20) { return "gray4"; }
+         else if (dataIncome[i].pincomeDIFF == 15) { return "gray3"; }
+         else if (dataIncome[i].pincomeDIFF <= 11) { return "gray1"; }
+         // else if (dataIncome[i].pincomeDIFF  >= 0) { return "gray1"; }
+          }
+        }
         })
       .style("stroke-width", "1px")
       .style("stroke", "#fff")
@@ -1252,9 +1276,147 @@ d3.helper.tooltip = function(accessor){
     };
 };
 
-//POPULATE
   mapBuild("#mapChange", "#infobox", "#chart", "counties.json", "house", "mn", null, 0);
+
+//personal income chart
+function gapChart(){
+    var chart = c3.generate({
+      bindto: '#gapChart',
+      padding: {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 120,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ["x",2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
+          ["Metro",47432,48013,48008,48574,49875,49278,49469,49935,49453,47250,47680,48978,50111,49387,50892,52811],
+          ["Outstate",34022,34626,35084,36548,37369,36742,36473,37360,39930,38416,39715,41437,44111,44051,42911,44484]
+          // ["STATE",32247,33204,33754,35174,37048,37775,39407,41258,42980,40739,42121,44621,47212,47235,49133,50871]
+        ],
+        type: 'line'
+      },
+      // legend: {
+      //   show: false
+      // },
+      color: {
+        pattern: ['#333333','#888888','#aaaaaa']
+      },
+      axis: {
+        y: {
+          min: 0,
+          padding: {
+            bottom: 0
+          },
+          tick: {
+            count: 4,
+            format: d3.format('$,.0f')
+          },
+          label: {
+            text: 'avg personal income',
+            position: 'outer-middle'
+          }
+        },
+        x: {
+          tick: {
+                     values: [2000,2007,2009,2015],
+                     count: 5
+                },
+          padding: {
+            left: 0.25,
+            right: 0.25
+          }
+        }
+      },
+         regions: [
+        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
+    ]
+      // tooltip: {
+      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+      //     return '<div class="chart-tooltip">' +
+      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
+      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+      //       '</div>';
+      //   }
+      // }
+    });
+}
+
+gapChart();
+
+
+//personal income chart
+function gapChart2(){
+    var chart = c3.generate({
+      bindto: '#gapChart2',
+      padding: {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 120,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ["x",2000,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
+          ["Metro",85681,80606,80092,78879,76225,74937,73821,74855,75324,75953,78877],
+          ["Outstate",54366,52031,52356,52312,51615,50994,50809,51399,52487,52721,53743],
+          // ["State",67673,63508,63639,63095,61455,60225,60008,60724,61705,61551,63459]
+        ],
+        type: 'line'
+      },
+      // legend: {
+      //   show: false
+      // },
+      color: {
+        pattern: ['#333333','#888888','#aaaaaa']
+      },
+      axis: {
+        y: {
+          min: 0,
+          padding: {
+            bottom: 0
+          },
+          tick: {
+            count: 4,
+            format: d3.format('$,.0f')
+          },
+          label: {
+            text: 'median household income',
+            position: 'outer-middle'
+          }
+        },
+        x: {
+          tick: {
+                     values: [2000,2007,2009,2015],
+                     count: 5
+                },
+          padding: {
+            left: 0.25,
+            right: 0.25
+          }
+        }
+      },
+         regions: [
+        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
+    ]
+      // tooltip: {
+      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+      //     return '<div class="chart-tooltip">' +
+      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
+      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+      //       '</div>';
+      //   }
+      // }
+    });
+}
+
+gapChart2();
 
 });
 });
 });
+});
+},{}]},{},[1])
