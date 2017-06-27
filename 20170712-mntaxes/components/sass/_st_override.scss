@@ -20,6 +20,11 @@ p {
     fill: #aaa;
 }
 
+.none {
+    fill: #fff !important;
+    stroke: #000 !important;
+}
+
 
 .c3-line {
    stroke-width: 6px !important;
@@ -87,7 +92,6 @@ p {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    width: 180px;
     height: 30px;
 }
 
@@ -103,9 +107,14 @@ p {
 }
 
 .legend {
-    width: 200px;
+    width: 300px;
     margin-right: auto;
     margin-left: auto;
+}
+
+.source {
+    clear:both;
+    padding-top:15px;
 }
 
 /*.thisLine {

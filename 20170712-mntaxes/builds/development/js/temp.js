@@ -1,20 +1,3 @@
-$.urlParam = function(name){
-  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-  if (results != null) { return results[1] || 0; }
-  else { return null; }
-}
-
-var selected = $.urlParam('chart');
-
-if (selected != null){
-$(".slide").hide();
-$("#" + selected).show();
-}
-
-d3.json("./data/data2010.json", function(error, data2010Load) {
-d3.json("./data/data2012.json", function(error, data2012Load) {
-d3.json("./data/data2014.json", function(error, data2013Load) {
-
 var data2010 = data2010Load.data;
 var data2012 = data2012Load.data;
 var data2013 = data2013Load.data;
@@ -1073,6 +1056,70 @@ chart.load({
     }
 });
 
+<div class="slide" id="spending" style="display:none;">
+<div class="chartTitle">Title here</div>
+<div class="chatter">chatter here</div>
+
+<div style="clear:both;"></div>
+
+<div id="map" class="map"><svg width="320" height="350" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid"></svg></div>
+
+<input id="slider" type="range" min="2010" max="2013" step="1" value="2013" style="display:none;" />
+
+<div class="breaker"></div>
+
+<div id="sidebox" class="adjacent">
+<div class="zoom">Reset View</div>
+
+<div style="clear:both;padding:16px;"></div>
+
+<div id="infobox">
+    <div id='county_name'></div>
+    <div id="chart"></div>
+</div>
+</div>
+
+<div id="menu" class="adjacent">
+<div id="legends">
+<h5>Dollars per capita</h5>
+<div class='legend' id="aidQ">
+    <span style='background:#fff;'>Less</span>
+    <span style='background:#c7e9c0;'></span>
+    <span style='background:#74c476;'></span>
+    <span style='background:#006d2c'></span>
+    <span style='background:#002911'></span>
+    <span style='background:#fff;'>Most</span>
+</div>
+<div class='legend' id="taxQ">
+    <span style='background:#fff;'>Less</span>
+    <span style='background:#C6A29E;'></span>
+    <span style='background:#A45958;'></span>
+    <span style='background:#9B161F'></span>
+    <span style='background:#210507'></span>
+    <span style='background:#fff;'>Most</span>
+</div>
+</div>
+
+<div style="clear:both;padding:10px;"></div>
+
+<button id="aid" class="myButton clicker" highlight="ta" index="0">Total Aid <span class='amount ta' id="ta1"></span></button>
+<button id="lga" class="myButton clicker" highlight="lg" index="1">Local Gov <span class='amount lg' id="lg"></span></button>
+<button id="cpa" class="myButton clicker" highlight="cp" index="2">County Programs <span class='amount cp' id="cp"></span></button>
+<button id="hsa" class="myButton clicker" highlight="hs" index="3">Human Services <span class='amount hs' id="hs"></span></button>
+<button id="eda" class="myButton clicker" highlight="ed" index="4">Education <span class='amount ed' id="ed"></span></button>
+<button id="hwy" class="myButton clicker" highlight="hw" index="5">Highways <span class='amount hw' id="hw"></span></button>
+<button id="comm" class="myButton clicker" highlight="cc" index="6">Community <span class='amount cc' id="cc1"></span></button>
+
+<button id="tax" class="myButton_tax clicker" highlight="tt" index="7">Total Taxes <span class='amount tt' id="tt1"></span></button>
+<button id="pt" class="myButton_tax clicker" highlight="pt" index="8">Property <span class='amount pt' id="pt"></span></button>
+<button id="it" class="myButton_tax clicker" highlight="it" index="9">Income <span class='amount it' id="it"></span></button>
+<button id="st" class="myButton_tax clicker" highlight="st" index="10">Sales <span class='amount st' id="st"></span></button>
+<button id="vt" class="myButton_tax clicker" highlight="vt" index="11">Vehicle <span class='amount vt' id="vt"></span></button>
+<button id="gt" class="myButton_tax clicker" highlight="gt" index="12">Gas <span class='amount gt' id="gt"></span></button>
+<button id="corp" class="myButton_tax clicker" highlight="corp" index="13">Corporate <span class='amount corp' id="corp"></span></button>
+<small>Property tax credits not represented.</small>
+</div>
+</div>
 
 // $( document ).ready(function() {
 //     var aspect = 320 / 400,
@@ -1081,340 +1128,3 @@ chart.load({
 //     chart.attr("width", targetWidth);
 //     chart.attr("height", targetWidth / aspect);
 // });
-
-d3.json('./data/incomes.json', function(error, dataLoad) {
-
-var dataIncome = dataLoad.incomes;
-
-function mapTips(d, subject, dataCompare){
-
-  var pctChange = 0;
-  var color = "";
-      for (var i=0; i < dataIncome.length; i++){
-          if (dataIncome[i].county == d.properties.COUNTYNAME){ 
-           if (dataIncome[i].pincomeDIFF >= 20) { color = "gray5"; }
-           else if (dataIncome[i].pincomeDIFF >= 15) { color = "gray4"; }
-           else if (dataIncome[i].pincomeDIFF >= 10) { color = "gray3"; }
-           else if (dataIncome[i].pincomeDIFF >= 5) { color = "gray2"; }
-           else if (dataIncome[i].pincomeDIFF  >= 0) { color = "gray1"; }
-           pctChange = dataIncome[i].pincomeDIFF / 100; 
-           break;
-         }
-        }
-
-    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"      
-}
-
-function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
-
-var width = 320,
-    height = 400,
-    centered;
-
-if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
-else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
-else if (geo=="metro") { var projection = d3.geo.mercator().scale([16800]).center([-92.384033,45.209134]); }
-
-var path = d3.geo.path()
-    .projection(projection);
-
-var svg = d3.select(container + " svg")
-    .attr("width", width)
-    .attr("height", height);
-
-svg.append("rect")
-    .attr("class", "background")
-    .attr("width", width)
-    .attr("height", height);
-
-var g = svg.append("g");
-
-d3.json("shapefiles/" + shape, function(error, us) {
-
-  g.append("g")
-      .attr("class", "states")
-    .selectAll("path")
-      .data(us.features)
-    .enter().append("path")
-      .attr("d", path)
-      // .on("click", clicked)
-      .attr("id", function(d) { var str = geo + "_" + d.properties.DISTRICT; return str.replace(new RegExp(" ", "g"),"-"); })
-      .attr("precinctName", function(d){ return d.properties.DISTRICT })
-      .attr("class", function(d){
-        for (var i=0; i < dataIncome.length; i++){
-        if (dataIncome[i].county == d.properties.COUNTYNAME){
-         if (dataIncome[i].pincomeDIFF > 11) { return "gray5"; }
-         // else if (dataIncome[i].pincomeDIFF >= 20) { return "gray4"; }
-         else if (dataIncome[i].pincomeDIFF == 15) { return "gray3"; }
-         else if (dataIncome[i].pincomeDIFF <= 11) { return "gray1"; }
-         // else if (dataIncome[i].pincomeDIFF  >= 0) { return "gray1"; }
-          }
-        }
-        })
-      .style("stroke-width", "1px")
-      .style("stroke", "#fff")
-      .call(d3.helper.tooltip(function(d, i){
-        return mapTips(d, race, dataCompare);
-      }));
-
-  g.append("path")
-      //.datum(topojson.mesh(us, us.features, function(a, b) { return a !== b; }))
-      .attr("id", "state-borders")
-      .attr("d", path);
-
-});
-
-var zoom = d3.behavior.zoom()
-    .on("zoom",function() {
-        g.attr("transform","translate("+ 
-            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
-        g.selectAll("circle")
-            .attr("d", path.projection(projection));
-        g.selectAll("path")  
-            .attr("d", path.projection(projection)); 
-
-  });
-
-$(".zoom, .switch, #close, .mapSwitch").click(function() {
-  clicked2();
-  $("#filter input").val("");
-  $(".district").removeClass("selected");
-  $("#infobox").hide();
-  d3.selectAll(".map rect").classed('faded', false); 
-  d3.selectAll(".map rect").classed('active', false); 
-  $(".rightSide").show();
-});
-
-$(".mapSwitch").click(function() {
-  $("#filter input").val("");
-});
-
-function clicked(d) {
-  var x, y, k;
-
-  if (d && centered !== d) {
-    var centroid = path.centroid(d);
-    x = centroid[0];
-    y = centroid[1];
-    k = 6;
-    centered = d;
-  } else {
-    x = width / 2;
-    y = height / 2;
-    k = 3;
-    centered = null;
-  }
-
-  d3.selectAll("#mapMetro path, #mapState path")
-      .classed("faded", false)
-      .classed("active", false);
-
-  g.selectAll("path")
-      .classed("faded", true)
-      .classed("active", centered && function (d) { return d === centered; });
-}
-
-function clicked2(d) {
-  var x, y, k;
-
-  if (d && centered !== d) {
-    var centroid = path.centroid(d);
-    x = centroid[0];
-    y = centroid[1];
-    k = 1;
-    centered = d;
-  } else {
-    x = width / 2;
-    y = height / 2;
-    k = 1;
-    centered = null;
-  }
-
-  g.selectAll("path")
-      .classed("faded", false)
-      .classed("active", centered && function (d) { return d === centered; });
-}
-
-}
-
-d3.helper = {};
-
-d3.helper.tooltip = function(accessor){
-    return function(selection){
-        var tooltipDiv;
-        var bodyNode = d3.select('body').node();
-        selection.on("mouseover", function(d, i){
-            // Clean up lost tooltips
-            d3.select('body').selectAll('div.tooltip').remove();
-            // Append tooltip
-            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
-            var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
-                .style('top', (absoluteMousePos[1] - 15)+'px')
-                .style('position', 'absolute') 
-                .style('z-index', 1001);
-            // Add text using the accessor function
-            var tooltipText = accessor(d, i) || '';
-            // Crop text arbitrarily
-            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
-            //    .html(tooltipText);
-        })
-        .on('mousemove', function(d, i) {
-            // Move tooltip
-            var absoluteMousePos = d3.mouse(bodyNode);
-            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
-                .style('top', (absoluteMousePos[1] - 15)+'px');
-            var tooltipText = accessor(d, i) || '';
-            tooltipDiv.html(tooltipText);
-        })
-        .on("mouseout", function(d, i){
-            // Remove tooltip
-            tooltipDiv.remove();
-        });
-
-    };
-};
-
-  mapBuild("#mapChange", "#infobox", "#chart", "counties.json", "house", "mn", null, 0);
-
-//personal income chart
-function gapChart(){
-    var chart = c3.generate({
-      bindto: '#gapChart',
-      padding: {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 120,
-      },
-      data: {
-        x: 'x',
-        columns: [
-          ["x",2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
-          ["Metro",47432,48013,48008,48574,49875,49278,49469,49935,49453,47250,47680,48978,50111,49387,50892,52811],
-          ["Outstate",34022,34626,35084,36548,37369,36742,36473,37360,39930,38416,39715,41437,44111,44051,42911,44484]
-          // ["STATE",32247,33204,33754,35174,37048,37775,39407,41258,42980,40739,42121,44621,47212,47235,49133,50871]
-        ],
-        type: 'line'
-      },
-      // legend: {
-      //   show: false
-      // },
-      color: {
-        pattern: ['#333333','#888888','#aaaaaa']
-      },
-      axis: {
-        y: {
-          min: 0,
-          padding: {
-            bottom: 0
-          },
-          tick: {
-            count: 4,
-            format: d3.format('$,.0f')
-          },
-          label: {
-            text: 'avg personal income',
-            position: 'outer-middle'
-          }
-        },
-        x: {
-          tick: {
-                     values: [2000,2007,2009,2015],
-                     count: 5
-                },
-          padding: {
-            left: 0.25,
-            right: 0.25
-          }
-        }
-      },
-         regions: [
-        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
-    ]
-      // tooltip: {
-      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-      //     return '<div class="chart-tooltip">' +
-      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
-      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
-      //       '</div>';
-      //   }
-      // }
-    });
-}
-
-gapChart();
-
-
-//personal income chart
-function gapChart2(){
-    var chart = c3.generate({
-      bindto: '#gapChart2',
-      padding: {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 120,
-      },
-      data: {
-        x: 'x',
-        columns: [
-          ["x",2000,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015],
-          ["Metro",85681,80606,80092,78879,76225,74937,73821,74855,75324,75953,78877],
-          ["Outstate",54366,52031,52356,52312,51615,50994,50809,51399,52487,52721,53743],
-          // ["State",67673,63508,63639,63095,61455,60225,60008,60724,61705,61551,63459]
-        ],
-        type: 'line'
-      },
-      // legend: {
-      //   show: false
-      // },
-      color: {
-        pattern: ['#333333','#888888','#aaaaaa']
-      },
-      axis: {
-        y: {
-          min: 0,
-          padding: {
-            bottom: 0
-          },
-          tick: {
-            count: 4,
-            format: d3.format('$,.0f')
-          },
-          label: {
-            text: 'median household income',
-            position: 'outer-middle'
-          }
-        },
-        x: {
-          tick: {
-                     values: [2000,2007,2009,2015],
-                     count: 5
-                },
-          padding: {
-            left: 0.25,
-            right: 0.25
-          }
-        }
-      },
-         regions: [
-        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
-    ]
-      // tooltip: {
-      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-      //     return '<div class="chart-tooltip">' +
-      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
-      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
-      //       '</div>';
-      //   }
-      // }
-    });
-}
-
-gapChart2();
-
-});
-});
-});
-});
