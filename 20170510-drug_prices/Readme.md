@@ -55,7 +55,7 @@ Deployment is managed in specific repositories:
 
 * [Data Drop](https://github.com/striblab/datadrop)
 * [General visuals](https://github.com/striblab/startribune_dataviz)
-* [Elections](https://github.com/striblab/2016election)
+* [Elections (2016)](https://github.com/striblab/2016election)
 
 The following will change based on which deployment repo this is going to and where you have that repository locally.
 
