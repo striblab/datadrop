@@ -42,6 +42,10 @@ function mapTips(d, subject, dataCompare){
            else if (dataIncome[i].mincomeDIFF >= 6) { color = "gray3"; }
            else if (dataIncome[i].mincomeDIFF >= 3) { color = "gray2"; }
            else if (dataIncome[i].mincomeDIFF  >= 0) { color = "gray1"; }
+           if (dataIncome[i].mincomeDIFF <= -9) { color = "red4"; }
+           else if (dataIncome[i].mincomeDIFF <= -6) { color = "red3"; }
+           else if (dataIncome[i].mincomeDIFF <= -3) { color = "red2"; }
+           else if (dataIncome[i].mincomeDIFF  < 0) { color = "red1"; }
            pctChange = dataIncome[i].mincomeDIFF / 100; 
            break;
          }
@@ -65,19 +69,15 @@ function mapTips(d, subject, dataCompare){
       } 
      if (subject == "trump"){
         for (var i=0; i < dataIncome.length; i++){
-            if (dataIncome[i].county == d.properties.COUNTYNAME && dataIncome[i].FLIP == "YES"){ 
-             if (dataIncome[i].FULLINDEX >= 120) { color = "gray4"; }
-             else if (dataIncome[i].FULLINDEX >= 80) { color = "gray3"; }
-             else if (dataIncome[i].FULLINDEX >= 40) { color = "gray2"; }
-             else if (dataIncome[i].FULLINDEX  >= 0) { color = "gray1"; }
-             else if (dataIncome[i].FULLINDEX  <= -15) { color = "red4"; }
-             else if (dataIncome[i].FULLINDEX  <= -7) { color = "red3"; }
-             else if (dataIncome[i].FULLINDEX  <= -3) { color = "red2"; }
-             else if (dataIncome[i].FULLINDEX  <= 0) { color = "red1"; }
-             pctChange = dataIncome[i].FULLINDEX / 100; 
-             break;
-           }
+         if (dataIncome[i].county == d.properties.COUNTYNAME){ 
+          if (dataIncome[i].pincomeDIFF >= 15) { color = "gray4"; }
+          else if (dataIncome[i].pincomeDIFF >= 10) { color = "gray3"; }
+          else if (dataIncome[i].pincomeDIFF >= 5) { color = "gray2"; }
+          else if (dataIncome[i].pincomeDIFF  >= 0) { color = "gray1"; }
+          pctChange = dataIncome[i].pincomeDIFF / 100; 
+          break;
           }
+         }
         } 
         if (subject == "taxes"){
         for (var i=0; i < dataIncome.length; i++){
@@ -163,14 +163,8 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "household"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].mincomeDIFF >= 9) { return "gray4"; }
-           else if (dataIncome[i].mincomeDIFF >= 6) { return "gray3"; }
-           else if (dataIncome[i].mincomeDIFF >= 3) { return "gray2"; }
-           else if (dataIncome[i].mincomeDIFF  >= 0) { return "gray1"; }
-           else if (dataIncome[i].mincomeDIFF  <= -9) { return "red4"; }
-           else if (dataIncome[i].mincomeDIFF  <= -6) { return "red3"; }
-           else if (dataIncome[i].mincomeDIFF  <= -3) { return "red2"; }
-           else if (dataIncome[i].mincomeDIFF  <= 0) { return "red1"; }
+           if (dataIncome[i].mincomeDIFF >= 3) { return "gray3"; }
+           else if (dataIncome[i].mincomeDIFF  < 3) { return "red3"; }
             }
           }
         }
@@ -191,14 +185,8 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "trump"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME && dataIncome[i].FLIP == "YES"){
-           if (dataIncome[i].FULLINDEX >= 120) { return "gray4"; }
-           else if (dataIncome[i].FULLINDEX >= 80) { return "gray3"; }
-           else if (dataIncome[i].FULLINDEX >= 40) { return "gray2"; }
-           else if (dataIncome[i].FULLINDEX  >= 0) { return "gray1"; }
-           else if (dataIncome[i].FULLINDEX  <= -15) { return "red4"; }
-           else if (dataIncome[i].FULLINDEX  <= -7) { return "red3"; }
-           else if (dataIncome[i].FULLINDEX  <= -3) { return "red2"; }
-           else if (dataIncome[i].FULLINDEX  <= 0) { return "red1"; }
+           if (dataIncome[i].RECOVERED == "YES") { return "gray3"; }
+           else if (dataIncome[i].RECOVERED == "NO") { return "red3"; }
             }
           }
          return "none";
@@ -516,8 +504,8 @@ function taxChart(){
       data: {
         // x: 'x',
         columns: [
-          // ["Metro",2914,3280,3540],
-          ["Outstate",1920,2218,2368],
+          ["METRO",2914,3280,3540],
+          ["OUTSTATE",1920,2218,2368],
           // ["State",67673,63508,63639,63095,61455,60225,60008,60724,61705,61551,63459]
         ],
         type: 'line'
@@ -526,7 +514,7 @@ function taxChart(){
       //   show: false
       // },
       color: {
-        pattern: ['#888888','#333333','#aaaaaa']
+        pattern: ['#333333','#888888','#aaaaaa']
       },
       axis: {
         y: {
