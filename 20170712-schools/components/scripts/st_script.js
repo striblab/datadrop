@@ -41,7 +41,7 @@ map.on('load', function() {
  });
 
   map.addLayer({
-       'id': 'district-layer',
+       'id': 'district-layer1',
        'interactive': true,
        'source': 'districts',
        'layout': {},
@@ -60,6 +60,30 @@ map.on('load', function() {
            'fill-outline-color': 'rgba(255, 255, 255, 0.1)'
      }
    }, 'place-neighbourhood');
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['district-layer1'] });
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(e.lngLat)
+        .setHTML("<div>" + feature.properties.Name + "</div><div>" + feature.properties.ac + "% with AC")
+        .addTo(map);
+});
 
 });
 
@@ -89,7 +113,7 @@ map2.on('load', function() {
  });
 
   map2.addLayer({
-       'id': 'district-layer',
+       'id': 'district-layer2',
        'interactive': true,
        'source': 'districts',
        'layout': {},
@@ -111,6 +135,29 @@ map2.on('load', function() {
      }
    }, 'place-neighbourhood');
 
+var popup2 = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map2.on('mousemove', function(e) {
+    var features = map2.queryRenderedFeatures(e.point, { layers: ['district-layer2'] });
+    // Change the cursor style as a UI indicator.
+    map2.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup2.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup2.setLngLat(e.lngLat)
+        .setHTML("<div>" + feature.properties.Name + "</div><div>" + feature.properties.util + "% of buildings used")
+        .addTo(map2);
+});
 
 });
 
@@ -140,7 +187,7 @@ map3.on('load', function() {
  });
 
   map3.addLayer({
-       'id': 'district-layer',
+       'id': 'district-layer3',
        'interactive': true,
        'source': 'districts',
        'layout': {},
@@ -161,6 +208,30 @@ map3.on('load', function() {
            'fill-outline-color': 'rgba(255, 255, 255, 0.1)'
      }
    }, 'place-neighbourhood');
+
+var popup3 = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map3.on('mousemove', function(e) {
+    var features = map3.queryRenderedFeatures(e.point, { layers: ['district-layer3'] });
+    // Change the cursor style as a UI indicator.
+    map3.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup3.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup3.setLngLat(e.lngLat)
+        .setHTML("<div>" + feature.properties.Name + "</div><div>" + feature.properties.since + " average years since built")
+        .addTo(map3);
+});
 
 });
 
