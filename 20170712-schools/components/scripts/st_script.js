@@ -53,8 +53,9 @@ map.on('load', function() {
             "property": "ac",
             "stops": [
               [70, "#f1eef6"],
-              [80, "#bdc9e1"],
-              [90, "#0570b0"]
+              [80, "#bdd7e7"],
+              [90, "#6baed6"],
+              [100, "#08519c"]
            ]
         },
            'fill-outline-color': 'rgba(255, 255, 255, 0.1)'
