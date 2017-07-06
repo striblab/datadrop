@@ -2188,6 +2188,7 @@ header[role="banner"] {
   color: #888;
   padding-top: 10px;
   padding-bottom: 10px;
+  text-align: right;
 }
 
 .chatter {
