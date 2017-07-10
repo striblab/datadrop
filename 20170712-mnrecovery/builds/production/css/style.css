@@ -1670,6 +1670,14 @@ p {
   stroke: #000 !important;
 }
 
+.chatter {
+  line-height: 140%;
+}
+
+.legendary {
+  padding: 3px;
+}
+
 .c3-line {
   stroke-width: 6px !important;
 }
@@ -1743,7 +1751,7 @@ p {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  width: 133px;
+  width: 178px;
 }
 
 .legend label,
