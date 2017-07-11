@@ -24,7 +24,9 @@ function mapTips(d, subject, dataCompare){
   var jobs = "NO";
   var household = "NO";
   var personal = "NO";
-  var wages = "NO";
+  var hpi = "NO";
+  var unemployment = "NO";
+  var taxes = "NO";
   var color = "";
 
   if (subject == "personal"){
@@ -55,18 +57,6 @@ function mapTips(d, subject, dataCompare){
          }
         }
       } 
-     if (subject == "trump"){
-        for (var i=0; i < dataIncome.length; i++){
-         if (dataIncome[i].county == d.properties.COUNTYNAME){ 
-          if (dataIncome[i].pincomeDIFF >= 15) { color = "gray4"; }
-          else if (dataIncome[i].pincomeDIFF >= 10) { color = "gray3"; }
-          else if (dataIncome[i].pincomeDIFF >= 5) { color = "gray2"; }
-          else if (dataIncome[i].pincomeDIFF  >= 0) { color = "gray1"; }
-          pctChange = dataIncome[i].pincomeDIFF / 100; 
-          break;
-          }
-         }
-        } 
         if (subject == "taxes"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
@@ -99,7 +89,7 @@ function mapTips(d, subject, dataCompare){
             }
           }
         }
-        if (subject == "indexed"){
+        if (subject == "indexed" || subject == "trump"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
            pctChange = dataIncome[i].index; 
@@ -107,14 +97,15 @@ function mapTips(d, subject, dataCompare){
            if (dataIncome[i].jobs == 1) { jobs = "YES"; }
            if (dataIncome[i].household == 1) { household = "YES"; }
            if (dataIncome[i].personal == 1) { personal = "YES"; }
-           if (dataIncome[i].wages == 1) { wages = "YES"; }
-
+           if (dataIncome[i].hpi == 1) { hpi = "YES"; }
+           if (dataIncome[i].unemployment == 1) { unemployment = "YES"; }
+           if (dataIncome[i].tax == 1) { taxes = "YES"; }
            break;
             }
           }
         }
-   if (subject != "indexed") { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"; }    
-   else { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + pctChange + " indicators above avg</div><div>Poverty: " + poverty + "</div><div>Jobs: " + jobs + "</div><div>Household inc: "+ household + "</div><div>Personal inc: " + personal + "</div><div>Wages: " + wages + "</div>"; } 
+   if (subject != "indexed" && subject != "trump") { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"; }    
+   else { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + pctChange + " indicators above avg</div><div>Poverty: " + poverty + "</div><div>Jobs: " + jobs + "</div><div>Unemployment: " + unemployment + "</div><div>Household inc: " + household + "</div><div>Personal inc: " + personal + "</div><div>Housing: " + hpi + "</div><div>Taxes: " + taxes + "</div>"; } 
 }
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
@@ -174,8 +165,10 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "trump"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME && dataIncome[i].FLIP == "YES"){
-           if (dataIncome[i].RECOVERED == "YES") { return "gray3"; }
-           else if (dataIncome[i].RECOVERED == "NO") { return "red3"; }
+           if (dataIncome[i].index >= 5) { return "gray5"; }
+           else if (dataIncome[i].index >= 4) { return "gray4"; }
+           else if (dataIncome[i].index >= 3) { return "gray3"; }
+           else if (dataIncome[i].index  >= 1) { return "gray1"; }
             }
           }
          return "none";
@@ -214,8 +207,9 @@ d3.json("shapefiles/" + shape, function(error, us) {
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
            if (dataIncome[i].index >= 5) { return "gray5"; }
-           else if (dataIncome[i].index >= 3) { return "gray3"; }
-           else if (dataIncome[i].index  >= 1) { return "gray1"; }
+           else if (dataIncome[i].index >= 4) { return "gray4"; }
+           else if (dataIncome[i].index >= 3) { return "gray2"; }
+           else if (dataIncome[i].index  >= 0) { return "gray1"; }
 
             }
           }
@@ -622,8 +616,8 @@ function aidChart(){
 //populate
   mapBuild("#mapHousehold", "#infobox", "#chart", "counties.json", "household", "mn", null, 0);
   mapBuild("#mapPersonal", "#infobox", "#chart", "counties.json", "personal", "mn", null, 0);
-  mapBuild("#mapTaxes", "#infobox", "#chart", "counties.json", "taxes", "mn", null, 0);
-  mapBuild("#mapAids", "#infobox", "#chart", "counties.json", "aids", "mn", null, 0);
+  // mapBuild("#mapTaxes", "#infobox", "#chart", "counties.json", "taxes", "mn", null, 0);
+  // mapBuild("#mapAids", "#infobox", "#chart", "counties.json", "aids", "mn", null, 0);
   mapBuild("#mapIndex", "#infobox", "#chart", "counties.json", "indexed", "mn", null, 0);
   mapBuild("#mapTrump", "#infobox", "#chart", "counties.json", "trump", "mn", null, 0);
   gapChart();
