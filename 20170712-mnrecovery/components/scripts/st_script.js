@@ -41,7 +41,7 @@ function mapTips(d, subject, dataCompare){
          }
         }
       }
-   if (subject == "household"){
+   if (subject == "household" || subject == "trump"){
       for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){ 
            if (dataIncome[i].mincomeDIFF >= 9) { color = "gray4"; }
@@ -57,7 +57,7 @@ function mapTips(d, subject, dataCompare){
          }
         }
       } 
-        if (subject == "indexed" || subject == "trump"){
+        if (subject == "indexed"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
            pctChange = dataIncome[i].index; 
@@ -72,7 +72,7 @@ function mapTips(d, subject, dataCompare){
             }
           }
         }
-   if (subject != "indexed" && subject != "trump") { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"; }    
+   if (subject != "indexed") { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"; }    
    else { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='indicators " + color + "'>" + pctChange + " indicators above avg</div><div class='label'>Poverty:</div><div class='stat'>" + poverty + "</div><div class='label'>Jobs:</div><div class='stat'>" + jobs + "</div><div class='label'>Unemployment:</div><div class='stat'>" + unemployment + "</div><div class='label'>Household inc:</div><div class='stat'>" + household + "</div><div class='label'>Personal inc:</div><div class='stat'>" + personal + "</div><div class='label'>Housing:</div><div class='stat'>" + hpi + "</div>"; } 
 }
 
@@ -133,10 +133,12 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "trump"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME && dataIncome[i].FLIP == "YES"){
-           if (dataIncome[i].index >= 5) { return "gray5"; }
-           else if (dataIncome[i].index >= 4) { return "gray4"; }
-           else if (dataIncome[i].index >= 3) { return "gray3"; }
-           else if (dataIncome[i].index  >= 1) { return "gray1"; }
+           // if (dataIncome[i].index >= 5) { return "gray5"; }
+           // else if (dataIncome[i].index >= 4) { return "gray4"; }
+           // else if (dataIncome[i].index >= 3) { return "gray3"; }
+           // else if (dataIncome[i].index  >= 1) { return "gray1"; }
+           if (dataIncome[i].mincomeDIFF >= 3) { return "gray3"; }
+           else if (dataIncome[i].mincomeDIFF  < 3) { return "red3"; }
             }
           }
          return "none";
