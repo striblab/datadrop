@@ -1678,6 +1678,10 @@ p {
   padding: 3px;
 }
 
+.districtName {
+  font-weight: 900 !important;
+}
+
 .c3-line {
   stroke-width: 6px !important;
 }
@@ -1945,6 +1949,29 @@ path:hover {
   width: 100%;
   margin: 5px;
   height: 480px;
+}
+
+.label {
+  float: left;
+  clear: left;
+}
+
+.stat {
+  float: right;
+}
+
+.indicators {
+  padding: 3px;
+}
+
+.byline {
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.7em;
+  color: #888;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 
 @media only screen and (max-width: 540px) {

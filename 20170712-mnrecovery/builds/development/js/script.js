@@ -58,38 +58,6 @@ function mapTips(d, subject, dataCompare){
          }
         }
       } 
-        if (subject == "taxes"){
-        for (var i=0; i < dataIncome.length; i++){
-          if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].taxDIFF >= 100) { color = "gray4"; }
-           else if (dataIncome[i].taxDIFF >= 50) { color = "gray3"; }
-           else if (dataIncome[i].taxDIFF >= 30) { color = "gray2"; }
-           else if (dataIncome[i].taxDIFF  > 0) { color = "gray1"; }
-           else if (dataIncome[i].taxDIFF  <= -30) { color = "red4"; }
-           else if (dataIncome[i].taxDIFF  <= -20) { color = "red3"; }
-           else if (dataIncome[i].taxDIFF  <= -10) { color = "red2"; }
-           else if (dataIncome[i].taxDIFF  <= 0) { color = "red1"; }
-           pctChange = dataIncome[i].taxDIFF / 100; 
-           break;
-            }
-          }
-        }
-        if (subject == "aids"){
-        for (var i=0; i < dataIncome.length; i++){
-          if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].aidsDIFF >= 100) { color = "gray4"; }
-           else if (dataIncome[i].aidsDIFF >= 50) { color = "gray3"; }
-           else if (dataIncome[i].aidsDIFF >= 30) { color = "gray2"; }
-           else if (dataIncome[i].aidsDIFF  > 0) { color = "gray1"; }
-           else if (dataIncome[i].aidsDIFF  <= -30) { color = "red4"; }
-           else if (dataIncome[i].aidsDIFF  <= -20) { color = "red3"; }
-           else if (dataIncome[i].aidsDIFF  <= -10) { color = "red2"; }
-           else if (dataIncome[i].aidsDIFF  <= 0) { color = "red1"; }
-           pctChange = dataIncome[i].aidsDIFF / 100; 
-           break;
-            }
-          }
-        }
         if (subject == "indexed" || subject == "trump"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
@@ -106,7 +74,7 @@ function mapTips(d, subject, dataCompare){
           }
         }
    if (subject != "indexed" && subject != "trump") { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + d3.format("+%")(pctChange) + " change</div>"; }    
-   else { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='population " + color + "'>" + pctChange + " indicators above avg</div><div>Poverty: " + poverty + "</div><div>Jobs: " + jobs + "</div><div>Unemployment: " + unemployment + "</div><div>Household inc: " + household + "</div><div>Personal inc: " + personal + "</div><div>Housing: " + hpi + "</div><div>Taxes: " + taxes + "</div>"; } 
+   else { return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div class='indicators " + color + "'>" + pctChange + " indicators above avg</div><div class='label'>Poverty:</div><div class='stat'>" + poverty + "</div><div class='label'>Jobs:</div><div class='stat'>" + jobs + "</div><div class='label'>Unemployment:</div><div class='stat'>" + unemployment + "</div><div class='label'>Household inc:</div><div class='stat'>" + household + "</div><div class='label'>Personal inc:</div><div class='stat'>" + personal + "</div><div class='label'>Housing:</div><div class='stat'>" + hpi + "</div>"; } 
 }
 
 function mapBuild(container, boxContainer, chartContainer, shape, race, geo, dataCompare, index) {
@@ -173,36 +141,6 @@ d3.json("shapefiles/" + shape, function(error, us) {
             }
           }
          return "none";
-        }
-        if (race == "taxes"){
-        for (var i=0; i < dataIncome.length; i++){
-          if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].taxDIFF >= 100) { return "gray4"; }
-           else if (dataIncome[i].taxDIFF >= 50) { return "gray3"; }
-           else if (dataIncome[i].taxDIFF >= 30) { return "gray2"; }
-           else if (dataIncome[i].taxDIFF  > 0) { return "gray1"; }
-           else if (dataIncome[i].taxDIFF  <= -30) { return "red4"; }
-           else if (dataIncome[i].taxDIFF  <= -20) { return "red3"; }
-           else if (dataIncome[i].taxDIFF  <= -10) { return "red2"; }
-           else if (dataIncome[i].taxDIFF  <= 0) { return "red1"; }
-
-            }
-          }
-        }
-        if (race == "aids"){
-        for (var i=0; i < dataIncome.length; i++){
-          if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].aidsDIFF >= 100) { return "gray4"; }
-           else if (dataIncome[i].aidsDIFF >= 50) { return "gray3"; }
-           else if (dataIncome[i].aidsDIFF >= 30) { return "gray2"; }
-           else if (dataIncome[i].aidsDIFF  > 0) { return "gray1"; }
-           else if (dataIncome[i].aidsDIFF  <= -30) { return "red4"; }
-           else if (dataIncome[i].aidsDIFF  <= -20) { return "red3"; }
-           else if (dataIncome[i].aidsDIFF  <= -10) { return "red2"; }
-           else if (dataIncome[i].aidsDIFF  <= 0) { return "red1"; }
-
-            }
-          }
         }
         if (race == "indexed"){
         for (var i=0; i < dataIncome.length; i++){
@@ -549,9 +487,9 @@ function taxChart(){
 }
 
 //per capita taxes chart
-function aidChart(){
+function regionChart(){
     var chart = c3.generate({
-      bindto: '#aidChart',
+      bindto: '#regionChart',
       padding: {
         top: 20,
         right: 60,
@@ -561,11 +499,7 @@ function aidChart(){
       data: {
         // x: 'x',
         columns: [
-          ["Metro",2611],
-          ["Outstate",2637],
-          // ["Metro",2163,2519,2611],
-          // ["Outstate",2235,2554,2637],
-          // ["State",67673,63508,63639,63095,61455,60225,60008,60724,61705,61551,63459]
+          ["income % change",0.131812242,0.083172603,0.038747892,0.034280751,0.033496606,0.032609226,0.024379787,0.008856891]
         ],
         type: 'bar'
       },
@@ -573,9 +507,10 @@ function aidChart(){
       //   show: false
       // },
       color: {
-        pattern: ['#333333','#888888','#aaaaaa']
+        pattern: ['#333333']
       },
       axis: {
+        rotated: true,
         y: {
           min: 0,
           padding: {
@@ -583,17 +518,13 @@ function aidChart(){
           },
           tick: {
             count: 4,
-            format: d3.format('$,.0f')
-          },
-          label: {
-            text: 'taxes per capita',
-            position: 'outer-middle'
+            format: d3.format('%')
           }
         },
         x: {
           type: 'category',
           // categories: ['2009-2010', '2011-2012', '2012-2013'],
-          categories: ['Major State Aid'],
+          categories: ["West Central","Northwest","Northland","Central","Southwest","Minnesota","Twin Cities","Southern"],
           padding: {
             left: 0.25,
             right: 0.25
@@ -617,14 +548,12 @@ function aidChart(){
 //populate
   mapBuild("#mapHousehold", "#infobox", "#chart", "counties.json", "household", "mn", null, 0);
   mapBuild("#mapPersonal", "#infobox", "#chart", "counties.json", "personal", "mn", null, 0);
-  // mapBuild("#mapTaxes", "#infobox", "#chart", "counties.json", "taxes", "mn", null, 0);
-  // mapBuild("#mapAids", "#infobox", "#chart", "counties.json", "aids", "mn", null, 0);
   mapBuild("#mapIndex", "#infobox", "#chart", "counties.json", "indexed", "mn", null, 0);
   mapBuild("#mapTrump", "#infobox", "#chart", "counties.json", "trump", "mn", null, 0);
   gapChart();
   gapChart2();
   taxChart();
-  aidChart();
+  regionChart();
 
 });
 },{}]},{},[1])
