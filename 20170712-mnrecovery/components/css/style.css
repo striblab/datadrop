@@ -1951,6 +1951,29 @@ path:hover {
   height: 480px;
 }
 
+.label {
+  float: left;
+  clear: left;
+}
+
+.stat {
+  float: right;
+}
+
+.indicators {
+  padding: 3px;
+}
+
+.byline {
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.7em;
+  color: #888;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
 @media only screen and (max-width: 540px) {
   #wrapper {
     width: 100%;
