@@ -1678,6 +1678,10 @@ p {
   padding: 3px;
 }
 
+.districtName {
+  font-weight: 900 !important;
+}
+
 .c3-line {
   stroke-width: 6px !important;
 }
