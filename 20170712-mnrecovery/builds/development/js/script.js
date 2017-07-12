@@ -426,69 +426,6 @@ function gapChart2(){
 }
 
 //per capita taxes chart
-function taxChart(){
-    var chart = c3.generate({
-      bindto: '#taxChart',
-      padding: {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 120,
-      },
-      data: {
-        // x: 'x',
-        columns: [
-          ["METRO",2914,3280,3540],
-          ["OUTSTATE",1920,2218,2368],
-          // ["State",67673,63508,63639,63095,61455,60225,60008,60724,61705,61551,63459]
-        ],
-        type: 'line'
-      },
-      // legend: {
-      //   show: false
-      // },
-      color: {
-        pattern: ['#333333','#888888','#aaaaaa']
-      },
-      axis: {
-        y: {
-          min: 0,
-          padding: {
-            bottom: 0
-          },
-          tick: {
-            count: 4,
-            format: d3.format('$,.0f')
-          },
-          label: {
-            text: 'taxes per capita',
-            position: 'outer-middle'
-          }
-        },
-        x: {
-          type: 'category',
-          categories: ['2009-2010', '2011-2012', '2012-2013'],
-          padding: {
-            left: 0.25,
-            right: 0.25
-          }
-        }
-      },
-         regions: [
-        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
-    ]
-      // tooltip: {
-      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-      //     return '<div class="chart-tooltip">' +
-      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
-      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
-      //       '</div>';
-      //   }
-      // }
-    });
-}
-
-//per capita taxes chart
 function regionChart(){
     var chart = c3.generate({
       bindto: '#regionChart',
@@ -547,6 +484,78 @@ function regionChart(){
     });
 }
 
+function jobsChart(){
+   var chart = c3.generate({
+      bindto: '#jobsChart',
+      padding: {
+        top: 20,
+        right: 60,
+        bottom: 20,
+        left: 120,
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ["x",2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016],
+          ["Central",0.00,0.02,0.04,0.04,0.07,0.09,0.11,0.12,0.11,0.07,0.06,0.08,0.09,0.12,0.14,0.15,0.17],
+          ["Northland",0.00,-0.01,-0.01,-0.02,-0.01,0.00,0.01,0.02,0.02,-0.02,-0.02,-0.02,-0.01,0.00,0.01,0.02,0.01],
+          ["Northwest",0.00,0.01,0.02,0.02,0.03,0.04,0.04,0.02,0.03,0.00,-0.01,0.00,0.02,0.03,0.05,0.06,0.06],
+          ["Southern",0.00,0.00,0.00,0.00,0.01,0.02,0.03,0.03,0.03,0.00,-0.01,0.00,0.02,0.03,0.03,0.04,0.05],
+          ["Southwest",0.00,0.00,0.00,0.00,0.00,0.01,0.02,0.03,0.03,0.00,-0.01,-0.01,-0.01,0.00,0.01,0.01,0.00],
+          ["West Central",0.00,0.00,0.02,0.03,0.04,0.05,0.07,0.07,0.08,0.05,0.06,0.06,0.08,0.10,0.11,0.12,0.13],
+          ["Twin Cities",0.00,0.00,-0.02,-0.03,-0.02,0.00,0.01,0.01,0.01,-0.04,-0.04,-0.02,-0.01,0.01,0.03,0.05,0.06],
+          ["Minnesota",0.00,0.00,-0.01,-0.01,0.00,0.01,0.03,0.03,0.03,-0.01,-0.02,0.00,0.01,0.03,0.05,0.06,0.08]
+        ],
+        type: 'line'
+      },
+      // legend: {
+      //   show: false
+      // },
+      color: {
+        pattern: ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17','#666666']
+      },
+      axis: {
+        y: {
+          max: .20,
+          min: -0.05,
+          padding: {
+            bottom: 0,
+            top: 0
+          },
+          tick: {
+            count: 4,
+            format: d3.format('%.0')
+          },
+          label: {
+            text: 'jobs % change',
+            position: 'outer-middle'
+          }
+        },
+        x: {
+          tick: {
+                     values: [2000,2007,2009,2015],
+                     count: 5
+                },
+          padding: {
+            left: 0.25,
+            right: 0.25
+          }
+        }
+      },
+         regions: [
+        {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
+    ]
+      // tooltip: {
+      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+      //     return '<div class="chart-tooltip">' +
+      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
+      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+      //       '</div>';
+      //   }
+      // }
+    });
+}
+
 //populate
   mapBuild("#mapHousehold", "#infobox", "#chart", "counties.json", "household", "mn", null, 0);
   mapBuild("#mapPersonal", "#infobox", "#chart", "counties.json", "personal", "mn", null, 0);
@@ -554,7 +563,7 @@ function regionChart(){
   mapBuild("#mapTrump", "#infobox", "#chart", "counties.json", "trump", "mn", null, 0);
   gapChart();
   gapChart2();
-  taxChart();
+  jobsChart()
   regionChart();
 
 });
