@@ -1,5 +1,7 @@
-*.zip
-*.doc
-*.docx
-node_modules/
-shapefiles/_raw/
+.DS_Store
+node_modules
+.tmp
+.sass-cache
+builds/**/images/*
+drafts
+interviews
