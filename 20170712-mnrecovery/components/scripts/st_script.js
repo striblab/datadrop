@@ -125,8 +125,16 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (race == "household"){
         for (var i=0; i < dataIncome.length; i++){
           if (dataIncome[i].county == d.properties.COUNTYNAME){
-           if (dataIncome[i].mincomeDIFF >= 3) { return "gray3"; }
-           else if (dataIncome[i].mincomeDIFF  < 3) { return "red3"; }
+           // if (dataIncome[i].mincomeDIFF >= 3) { return "gray3"; }
+           // else if (dataIncome[i].mincomeDIFF  < 3) { return "red3"; }
+           if (dataIncome[i].mincomeDIFF >= 9) { return "gray4"; }
+           else if (dataIncome[i].mincomeDIFF >= 6) { return "gray3"; }
+           else if (dataIncome[i].mincomeDIFF >= 3) { return "gray2"; }
+           else if (dataIncome[i].mincomeDIFF  >= 0) { return "gray1"; }
+           if (dataIncome[i].mincomeDIFF <= -9) { return "red4"; }
+           else if (dataIncome[i].mincomeDIFF <= -6) { return "red3"; }
+           else if (dataIncome[i].mincomeDIFF <= -3) { return "red2"; }
+           else if (dataIncome[i].mincomeDIFF  < 0) { return "red1"; }
             }
           }
         }
@@ -326,7 +334,8 @@ function gapChart(){
           },
           tick: {
             count: 4,
-            format: d3.format('$,.0f')
+            format: d3.format('$,.0f'),
+            values: [0,20000,40000,60000]
           },
           label: {
             text: 'avg personal income',
@@ -450,9 +459,11 @@ function regionChart(){
       axis: {
         rotated: true,
         y: {
+          max: 0.2,
           min: 0,
           padding: {
-            bottom: 0
+            bottom: 0,
+            top: 0
           },
           tick: {
             count: 4,
@@ -511,19 +522,21 @@ function jobsChart(){
       //   show: false
       // },
       color: {
-        pattern: ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17','#666666']
+        // pattern: ['#7fc97f','#beaed4','#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17','#666666']
+        pattern: ['#d9d9d9','#bdbdbd','#969696','#737373','#525252','#252525','#fc9272','#cb181d']
       },
       axis: {
         y: {
-          max: .20,
+          max: 0.20,
           min: -0.05,
           padding: {
             bottom: 0,
             top: 0
           },
           tick: {
-            count: 4,
-            format: d3.format('%.0')
+            count: 6,
+            format: d3.format('%.0'),
+            values: [-0.05,0,0.05,0.10,0.15,0.20]
           },
           label: {
             text: 'jobs % change',
