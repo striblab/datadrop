@@ -18,6 +18,16 @@
 
   #chartMonth .c3-line-statewide-trend, #chartMonth .c3-line-northwest-trend, #chartMonth .c3-line-northeast-trend, #chartMonth .c3-line-southwest-trend, #chartMonth .c3-line-southeast-trend, #chartMonth .c3-line-central-trend, #chartMonth .c3-line-northcentral-trend, #chartMonth .c3-line-south-central-trend, #chartMonth .c3-line-west-central-trend, #chartMonth .c3-line-east-central-trend, #chartColdest .c3-line-downtown-ma { stroke-width: 3px !important; }
 
+    .byline {
+        font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        font-size:0.6em;
+        color: #888;
+        padding-top:10px;
+        padding-bottom:10px;
+        text-align:left;
+    }
+
   .chartHeader { padding:12px;height:auto;text-align:center;padding-bottom:5px; }
   .chatter { padding-left:20px;text-align:center;margin-bottom:20px; }
   .wrapper-dropdown-1 .active { background:#ddd; }
@@ -62,6 +72,8 @@
 <div class="chatter">The number of years each decade that the average minimum temperature was above zero or at/below zero.</div>
 <div id="chartDecade" class="chart"></div>
 </div>
+
+<div class="byline">Source: State Climatology Office of the MN DNR | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="../data/maindata.xlsx" target="new_">Download Data</a></div>
 </div>
 
 <script src="//code.jquery.com/jquery-latest.js"></script>
