@@ -36,6 +36,7 @@ function mapTips(d, subject, dataCompare){
            else if (dataIncome[i].pincomeDIFF >= 10) { color = "gray3"; }
            else if (dataIncome[i].pincomeDIFF >= 5) { color = "gray2"; }
            else if (dataIncome[i].pincomeDIFF  >= 0) { color = "gray1"; }
+           else if (dataIncome[i].pincomeDIFF  < 0) { color = "red1"; }
            pctChange = dataIncome[i].pincomeDIFF / 100; 
            break;
          }
@@ -119,6 +120,7 @@ d3.json("shapefiles/" + shape, function(error, us) {
            else if (dataIncome[i].pincomeDIFF >= 12) { return "gray3"; }
            else if (dataIncome[i].pincomeDIFF >= 6) { return "gray2"; }
            else if (dataIncome[i].pincomeDIFF  >= 0) { return "gray1"; }
+           else if (dataIncome[i].pincomeDIFF  < 0) { return "red1"; }
             }
           }
         }
