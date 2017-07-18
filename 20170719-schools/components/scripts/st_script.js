@@ -11,7 +11,7 @@ $(".slide").hide();
 $("#" + selected).show();
 }
 
-d3.json("./shapefiles/minneapolis_boe.json", function(error, districts) {
+d3.json("./shapefiles/minneapolis_boe2.json", function(error, districts) {
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 
@@ -26,12 +26,13 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.NavigationControl());
 map.scrollZoom.disable();
+map.doubleClickZoom.disable();
 
 var geocoder = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken
 });
 
-document.getElementById('geocoder').appendChild(geocoder.onAdd(map))
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 map.on('load', function() {
 
@@ -48,7 +49,7 @@ map.on('load', function() {
        'type': 'fill',
             'paint': {
            'fill-antialias' : true,
-           'fill-opacity': 0.7,
+           'fill-opacity': 1,
            'fill-color': {
             "property": "ac",
             "stops": [
@@ -99,6 +100,7 @@ var map2 = new mapboxgl.Map({
 
 map2.addControl(new mapboxgl.NavigationControl());
 map2.scrollZoom.disable();
+map2.doubleClickZoom.disable();
 
 var geocoder2 = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken
@@ -121,7 +123,7 @@ map2.on('load', function() {
        'type': 'fill',
             'paint': {
            'fill-antialias' : true,
-           'fill-opacity': 0.7,
+           'fill-opacity': 1,
            'fill-color': {
             "property": "util",
             "stops": [
@@ -173,6 +175,7 @@ var map3 = new mapboxgl.Map({
 
 map3.addControl(new mapboxgl.NavigationControl());
 map3.scrollZoom.disable();
+map3.doubleClickZoom.disable();
 
 var geocoder3 = new MapboxGeocoder({
   accessToken: mapboxgl.accessToken
@@ -195,7 +198,7 @@ map3.on('load', function() {
        'type': 'fill',
             'paint': {
            'fill-antialias' : true,
-           'fill-opacity': 0.7,
+           'fill-opacity': 1,
            'fill-color': {
             "property": "since",
             "stops": [
