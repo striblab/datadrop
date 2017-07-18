@@ -59,7 +59,7 @@ Deployment is managed in specific repositories:
 The following will change based on which deployment repo this is going to and where you have that repository locally.
 
 1. Build the production version: `NODE_ENV=production gulp`
-2. Copy files (update path as needed): `mkdir -p ../20170628-mntaxes/ && rsync -rav ./ ../20170628-mntaxes/ --exclude=".git" --exclude="node_modules" --exclude=".sass-cache" --delete-after`
+2. Copy files (update path as needed): `mkdir -p ../20170712-mnrecovery/ && rsync -rav ./ ../20170712-mnrecovery/ --exclude=".git" --exclude="node_modules" --exclude=".sass-cache" --delete-after`
 3. Update the relevant deployment repo.
 
 ## Credits
