@@ -91,6 +91,14 @@ $( document ).ready(function() {
      // var count = $('.card:visible').length;
      // $('#results').html(count);
  });
+
+$('.scrollToTop').click(function(){
+    $(".row").show();
+    $('#filter_box').val("");
+    map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
+    $('#chart').animate({scrollTop : 0},800);
+    return false;
+  });
 });
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';

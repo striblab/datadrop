@@ -140,6 +140,17 @@ body {
     text-align:left !important;
 }
 
+.scrollToTop {
+    color: steelblue !important;
+    text-align: center;
+    margin-top:3px;
+}
+
+.scrollToTop:hover {
+    color: #333 !important;
+    cursor: pointer;
+}
+
 @media (max-width:500px) {
     #wrapper {
         width:100%;
