@@ -1,0 +1,147 @@
+body { 
+	margin:0; 
+	padding:0; 
+    font-family: "Benton Sans";
+}
+
+#wrapper {
+    width:520px;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.map { 
+	height:380px;
+	width:100%;
+}
+
+.block {
+    width:10%;
+    height:50px;
+    border:1px solid black;
+    display:inline-block
+}
+
+#filter {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+#chart {
+    height:280px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.chatter {
+    line-height:160%;
+}
+
+.legendary {
+    padding:1px;
+}
+
+.row {
+    padding:10px;
+    vertical-align:top;
+}
+
+.cell {
+    display:inline-block;
+    vertical-align:top;
+}
+
+.neighborhood {
+    width:50%;
+}
+
+.rate, .shooting {
+    width:23%;
+}
+
+#filter input:focus {
+    width: 100% !important;
+}
+
+#filter input {
+    font-size: .85em;
+    width: 100% !important;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
+}
+
+.scrollToTop {
+    color: steelblue !important;
+    text-align: center;
+}
+
+.scrollToTop:hover {
+    color: #333 !important;
+    cursor: pointer;
+}
+
+#heading {
+    width: 100%;
+    background: #fff;
+}
+
+.tableHead:hover, .row:hover {
+    opacity:0.8;
+    cursor:pointer;
+}
+
+.tableHead {
+    font-weight:900;
+}
+
+.selected {
+    text-decoration:underline;
+    background-color:#ffffff !important;
+    color:#000000 !important;
+}
+
+.rowSelect {
+    opacity:0.8;
+}
+
+.districtName { 
+    font-weight:900;
+    font-size:1.2em;
+}
+
+.block:hover {
+    cursor:pointer;
+    opacity:0.7;
+}
+
+.legendary {
+    padding:4px;
+}
+
+.geocoder, .mapboxgl-ctrl-geocoder {
+    width:100%;
+    margin-bottom:10px;
+ }
+
+.geocoder-pin-right {
+    display:none !important;
+}
+
+.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-compass {
+    display:none !important;
+}
+
+.byline {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
+    font-size:0.6em !important;
+    color: #888 !important;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    text-align:left !important;
+}
+
+@media (max-width:500px) {
+    #wrapper {
+        width:100%;
+    }
+}

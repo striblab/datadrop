@@ -1,0 +1,527 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.31822,44.91063 ]
+    },
+    "properties": {
+    "LastName":"Damond",
+    "FirstName":"Justine",
+    "MiddleName":"Ruszczyk",
+    "BirthDate":"",
+    "DeathDate":"7/15/17",
+    "year":2017,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":40,
+    "Race":"WHITE"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2441,44.9626 ]
+    },
+    "properties": {
+    "LastName":"Marquez-Heraldes",
+    "FirstName":"Raul",
+    "MiddleName":"Salvador",
+    "BirthDate":"9/13/65",
+    "DeathDate":"4/4/16",
+    "year":2016,
+    "WeaponCategory":"BLADED WEAPON",
+    "AgeYears":50,
+    "Race":"HISPANIC"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.300972,44.991783 ]
+    },
+    "properties": {
+    "LastName":"Clark",
+    "FirstName":"Jamar",
+    "MiddleName":"O'Neal",
+    "BirthDate":"5/3/91",
+    "DeathDate":"11/16/15",
+    "year":2015,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":24,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2902603,44.953163 ]
+    },
+    "properties": {
+    "LastName":"Franklin",
+    "FirstName":"Terrance",
+    "MiddleName":"Terrell",
+    "BirthDate":"5/30/90",
+    "DeathDate":"5/10/13",
+    "year":2013,
+    "WeaponCategory":"GUN",
+    "AgeYears":22,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2445221,44.947639 ]
+    },
+    "properties": {
+    "LastName":"Crawford",
+    "FirstName":"DelShawn",
+    "MiddleName":"",
+    "BirthDate":"2/25/72",
+    "DeathDate":"5/12/12",
+    "year":2012,
+    "WeaponCategory":"BLADED WEAPON",
+    "AgeYears":40,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2755127,44.975864 ]
+    },
+    "properties": {
+    "LastName":"Smith",
+    "FirstName":"David",
+    "MiddleName":"Cornelious",
+    "BirthDate":"3/2/82",
+    "DeathDate":"9/17/10",
+    "year":2010,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":28,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.3044299,44.99875 ]
+    },
+    "properties": {
+    "LastName":"Guled",
+    "FirstName":"Ahmed",
+    "MiddleName":"Mohammed",
+    "BirthDate":"7/5/85",
+    "DeathDate":"2/5/09",
+    "year":2009,
+    "WeaponCategory":"OTHER",
+    "AgeYears":23,
+    "Race":"ASIAN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.3019059,44.987757 ]
+    },
+    "properties": {
+    "LastName":"Smith",
+    "FirstName":"Quincy",
+    "MiddleName":"De-Shawn",
+    "BirthDate":"4/2/84",
+    "DeathDate":"12/9/08",
+    "year":2008,
+    "WeaponCategory":"GUN",
+    "AgeYears":24,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2790555,44.975262 ]
+    },
+    "properties": {
+    "LastName":"Baker",
+    "FirstName":"Tommie",
+    "MiddleName":"Lamar",
+    "BirthDate":"7/4/68",
+    "DeathDate":"4/1/08",
+    "year":2008,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":39,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2236102,44.92691 ]
+    },
+    "properties": {
+    "LastName":"Reyes",
+    "FirstName":"Wayne",
+    "MiddleName":"",
+    "BirthDate":"8/14/64",
+    "DeathDate":"10/29/06",
+    "year":2006,
+    "WeaponCategory":"GUN",
+    "AgeYears":42,
+    "Race":"AMERICAN INDIAN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2523702,44.93053 ]
+    },
+    "properties": {
+    "LastName":"Felder",
+    "FirstName":"Dominic",
+    "MiddleName":"Aries",
+    "BirthDate":"5/16/79",
+    "DeathDate":"9/20/06",
+    "year":2006,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":27,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2840958,45.015358 ]
+    },
+    "properties": {
+    "LastName":"Lee",
+    "FirstName":"Fong",
+    "MiddleName":"",
+    "BirthDate":"3/5/87",
+    "DeathDate":"7/22/06",
+    "year":2006,
+    "WeaponCategory":"GUN",
+    "AgeYears":19,
+    "Race":"ASIAN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2889786,44.962894 ]
+    },
+    "properties": {
+    "LastName":"Redin",
+    "FirstName":"Ricky",
+    "MiddleName":"Alan",
+    "BirthDate":"1/6/58",
+    "DeathDate":"8/1/05",
+    "year":2005,
+    "WeaponCategory":"BLADED WEAPON",
+    "AgeYears":47,
+    "Race":"WHITE"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.315033,45.005898 ]
+    },
+    "properties": {
+    "LastName":"DeCoteau",
+    "FirstName":"Benjamin",
+    "MiddleName":"Gene",
+    "BirthDate":"3/23/83",
+    "DeathDate":"1/22/05",
+    "year":2005,
+    "WeaponCategory":"GUN",
+    "AgeYears":21,
+    "Race":"AMERICAN INDIAN"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.3018556,45.011616 ]
+    },
+    "properties": {
+    "LastName":"Williams",
+    "FirstName":"Courtney",
+    "MiddleName":"Jaqueze",
+    "BirthDate":"7/28/89",
+    "DeathDate":"10/24/04",
+    "year":2004,
+    "WeaponCategory":"OTHER",
+    "AgeYears":15,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.285842,44.958854 ]
+    },
+    "properties": {
+    "LastName":"Doby",
+    "FirstName":"Lorenzo",
+    "MiddleName":"Ellis",
+    "BirthDate":"2/16/76",
+    "DeathDate":"5/26/04",
+    "year":2004,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":28,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.265049,44.960296 ]
+    },
+    "properties": {
+    "LastName":"Collins",
+    "FirstName":"Walter",
+    "MiddleName":"Kenyon",
+    "BirthDate":"2/6/82",
+    "DeathDate":"10/10/03",
+    "year":2003,
+    "WeaponCategory":"GUN",
+    "AgeYears":21,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.3079529,44.979942 ]
+    },
+    "properties": {
+    "LastName":"Williams",
+    "FirstName":"Anthony",
+    "MiddleName":"Maurice",
+    "BirthDate":"11/26/74",
+    "DeathDate":"8/28/03",
+    "year":2003,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":28,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.30823,45.003878 ]
+    },
+    "properties": {
+    "LastName":"Netters",
+    "FirstName":"Eric",
+    "MiddleName":"Von",
+    "BirthDate":"4/23/72",
+    "DeathDate":"5/7/03",
+    "year":2003,
+    "WeaponCategory":"OTHER",
+    "AgeYears":31,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2621231,44.959873 ]
+    },
+    "properties": {
+    "LastName":"Burns",
+    "FirstName":"Christopher",
+    "MiddleName":"Stephen",
+    "BirthDate":"9/16/58",
+    "DeathDate":"11/1/02",
+    "year":2002,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":44,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2800774,44.946537 ]
+    },
+    "properties": {
+    "LastName":"Donald",
+    "FirstName":"Martha",
+    "MiddleName":"Regina",
+    "BirthDate":"1/28/42",
+    "DeathDate":"8/1/02",
+    "year":2002,
+    "WeaponCategory":"GUN",
+    "AgeYears":60,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2626136,44.963639 ]
+    },
+    "properties": {
+    "LastName":"Jeilani",
+    "FirstName":"Abu",
+    "MiddleName":"Kassim",
+    "BirthDate":"1/1/74",
+    "DeathDate":"3/10/02",
+    "year":2002,
+    "WeaponCategory":"BLADED WEAPON",
+    "AgeYears":28,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2964935,45.02232 ]
+    },
+    "properties": {
+    "LastName":"Simmons-Muhammad",
+    "FirstName":"Abdullah",
+    "MiddleName":"Kaamil",
+    "BirthDate":"8/27/85",
+    "DeathDate":"7/29/01",
+    "year":2001,
+    "WeaponCategory":"GUN",
+    "AgeYears":15,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2727084,44.934142 ]
+    },
+    "properties": {
+    "LastName":"Pompa De Paz",
+    "FirstName":"Efrain",
+    "MiddleName":"",
+    "BirthDate":"9/27/79",
+    "DeathDate":"5/1/01",
+    "year":2001,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":21,
+    "Race":"HISPANIC"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2783432,44.919842 ]
+    },
+    "properties": {
+    "LastName":"Sesler",
+    "FirstName":"Demitreus",
+    "MiddleName":"Marque",
+    "BirthDate":"1/27/74",
+    "DeathDate":"4/2/01",
+    "year":2001,
+    "WeaponCategory":"GUN",
+    "AgeYears":27,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2554092,44.947067 ]
+    },
+    "properties": {
+    "LastName":"Sanders",
+    "FirstName":"Alfred",
+    "MiddleName":"Charles",
+    "BirthDate":"12/14/70",
+    "DeathDate":"11/1/00",
+    "year":2000,
+    "WeaponCategory":"OTHER",
+    "AgeYears":29,
+    "Race":"BLACK"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2986755,44.946407 ]
+    },
+    "properties": {
+    "LastName":"Schneider",
+    "FirstName":"Barbara",
+    "MiddleName":"L",
+    "BirthDate":"7/31/50",
+    "DeathDate":"6/12/00",
+    "year":2000,
+    "WeaponCategory":"BLADED WEAPON",
+    "AgeYears":49,
+    "Race":"WHITE"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.273124,44.937156 ]
+    },
+    "properties": {
+    "LastName":"Hayes",
+    "FirstName":"Sean",
+    "MiddleName":"Flannery",
+    "BirthDate":"1/5/66",
+    "DeathDate":"5/14/00",
+    "year":2000,
+    "WeaponCategory":"OTHER",
+    "AgeYears":34,
+    "Race":"WHITE"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.2570124,44.967875 ]
+    },
+    "properties": {
+    "LastName":"Siegler",
+    "FirstName":"Raymond",
+    "MiddleName":"Leo",
+    "BirthDate":"8/18/63",
+    "DeathDate":"2/11/04",
+    "year":2004,
+    "WeaponCategory":"UNARMED",
+    "AgeYears":40,
+    "Race":"WHITE"
+    }
+  }
+]
+}
