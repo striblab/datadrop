@@ -88,6 +88,21 @@ $( document ).ready(function() {
             $(this).show();
         }
      });
+ });
+ 
+ $('#filter_box').on('search', function(e){
+    $(".row").show();
+    $('#filter_box').val("");
+    map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
+    $('#chart').animate({scrollTop : 0},800);
+    return false;
+     $('.row').hide();
+     var txt = $('#filter_box').val();
+     $('.row').each(function(){
+        if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
+            $(this).show();
+        }
+     });
      // var count = $('.card:visible').length;
      // $('#results').html(count);
  });
