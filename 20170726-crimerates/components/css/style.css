@@ -2243,6 +2243,8 @@ body {
 .scrollToTop {
   color: steelblue !important;
   text-align: center;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .scrollToTop:hover {
