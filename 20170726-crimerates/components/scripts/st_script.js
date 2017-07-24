@@ -222,6 +222,7 @@ function raceChart(){
         // x: 'x',
         columns: [
           ["Deaths",0.172,0.62,0.068,0.068,0.068],
+          // ["Minneapolis 2000",0.65,0.179,0.613,0.0219,0.0763],
           ["Minneapolis",0.64,0.186,0.56,0.02,0.105]
         ],
         type: 'bar'
@@ -230,7 +231,7 @@ function raceChart(){
         show: false
       },
       color: {
-        pattern: ['#ef3b2c','#333333']
+        pattern: ['#ef3b2c',"#333333"]
       },
       axis: {
         // rotated: true,
@@ -276,6 +277,140 @@ function raceChart(){
 }
 
 raceChart();
+
+d3.csv("./data/timeline.csv", function(d) {
+  return {
+    filed: d.DeathDate,
+    race: d.Race,
+    status: d.armed,
+    code: +d.Code,
+    last: d.LastName,
+    first: d.FirstName,
+    year: d.year
+  };
+}, function(error, rows) {
+
+  var data = rows;
+
+var chart;
+
+var axis = [];
+var allNum = [];
+var unarmedNum = [];
+
+axis[0] = 'axis';
+allNum[0] = 'Armed';
+unarmedNum[0] = 'Unarmed';
+
+var allCount = 0;
+
+for (var i=0; i < data.length; i++){
+  axis[i+1] = d3.time.format("%m-%d-%Y")(new Date(data[i].filed));
+  if (data[i].code == 10) { unarmedNum[i+1] = data[i].code; allNum[i+1] = null; }
+  if (data[i].code == 30) { unarmedNum[i+1] = null; allNum[i+1] = data[i].code; }
+}
+
+console.log(axis);
+console.log(allNum);
+
+var  padding = {
+        top: 20,
+        right: 80,
+        bottom: 20,
+        left: 80,
+    };
+
+chart = c3.generate({
+      bindto: "#timelineChart",
+      padding: padding,
+      point: {
+        r: 4
+    },
+    data: {
+        xs: {
+            'Armed': 'axis',
+            'Unarmed': 'axis',
+        },
+        columns: [
+            axis,
+            allNum,
+            unarmedNum
+        ],
+        type: 'scatter'
+    },
+     color:  { 
+          pattern: ['#4286f4','#969696']
+        },
+      legend: {
+        show: false
+        },
+    axis: {
+      y: {
+            min: 0,
+            padding: {bottom: 0},
+            tick: {
+             format: function (d) {
+                    switch (d) {
+                        case 30:
+                            return "Armed"
+                        case 10:
+                            return "Unarmed"
+                    }
+                },
+              values: [10,30],
+            }
+        },
+        x: {
+            type: 'categories',
+            categories: ['05-14-2000','07-22-2006','05-12-2012','07-15-2017'],
+            tick: {
+                count: 4,
+                multiline: false
+            }
+          }
+        },
+        tooltip: {
+      contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+          var $$ = this, config = $$.config,
+              titleFormat = config.tooltip_format_title || defaultTitleFormat,
+              nameFormat = config.tooltip_format_name || function (name) { return name; },
+              valueFormat = config.tooltip_format_value || defaultValueFormat,
+              text, i, title, value, name, bgcolor;
+          for (i = 0; i < d.length; i++) {
+              if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+              if (! text) {
+                  title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+                  text = "<table class='" + $$.CLASS.tooltip + " fixtip'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+              }
+
+              var description = "";
+
+              name = nameFormat(d[i].name);
+              value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+              bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+              // console.log(title);
+
+              for (var k=0; k < data.length; k++){
+                if (d3.time.format("%m-%d-%Y")(new Date(data[k].filed)) == title){
+                  description = data[k].first + " " + data[k].last;
+                  break;
+                }
+              }
+
+              text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+              text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>Death</td>";
+              text += "<td class='value'>" + value + "</td>";
+              text += "</tr><tr>";
+              text += "<tr class='value'><td style='width:100%' colspan='2'>" + description + "</td></tr>";
+              
+          }
+          return text + "</table>";
+      }
+    }
+});
+});
 
 });
 });
