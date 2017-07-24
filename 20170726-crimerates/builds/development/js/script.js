@@ -131,7 +131,7 @@ map.on('load', function() {
        'type': 'fill',
             'paint': {
            'fill-antialias' : true,
-           'fill-opacity': 1,
+           'fill-opacity': 0.7,
            'fill-color': {
             "property": "maindata_rate",
             "stops": [
@@ -224,7 +224,7 @@ function raceChart(){
         columns: [
           ["Deaths",0.172,0.62,0.068,0.068,0.068],
           // ["Minneapolis 2000",0.65,0.179,0.613,0.0219,0.0763],
-          ["Minneapolis",0.64,0.186,0.56,0.02,0.105]
+          ["Minneapolis",0.64,0.186,0.056,0.02,0.105]
         ],
         type: 'bar'
       },

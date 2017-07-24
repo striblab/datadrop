@@ -1,5 +1,4 @@
-{"ranking":[{"neighborhood":"MID - CITY INDUSTRIAL","rate":55.4647785,"city":"Minneapolis","state":"MN","latitude":44.99509811,"longitude":-93.22219086,"neighbor_1":"mid_city_industrial","shooting":0},
-{"neighborhood":"DOWNTOWN WEST","rate":35.23905219,"city":"Minneapolis","state":"MN","latitude":44.98035812,"longitude":-93.26508331,"neighbor_1":"downtown_west","shooting":2},
+{"ranking":[{"neighborhood":"DOWNTOWN WEST","rate":35.23905219,"city":"Minneapolis","state":"MN","latitude":44.98035812,"longitude":-93.26508331,"neighbor_1":"downtown_west","shooting":2},
 {"neighborhood":"DOWNTOWN EAST","rate":18.56502369,"city":"Minneapolis","state":"MN","latitude":44.97631073,"longitude":-93.25511932,"neighbor_1":"downtown_east","shooting":0},
 {"neighborhood":"NORTHEAST PARK","rate":17.75304716,"city":"Minneapolis","state":"MN","latitude":45.00592041,"longitude":-93.22097015,"neighbor_1":"northeast_park","shooting":0},
 {"neighborhood":"NEAR - NORTH","rate":15.85563596,"city":"Minneapolis","state":"MN","latitude":44.99198914,"longitude":-93.29535675,"neighbor_1":"near_north","shooting":2},
@@ -85,4 +84,5 @@
 {"neighborhood":"KENNY","rate":1.327497932,"city":"Minneapolis","state":"MN","latitude":44.89966965,"longitude":-93.2960434,"neighbor_1":"kenny","shooting":0},
 {"neighborhood":"MORRIS PARK","rate":1.235052543,"city":"Minneapolis","state":"MN","latitude":44.90174866,"longitude":-93.21463013,"neighbor_1":"morris_park","shooting":0},
 {"neighborhood":"CAMDEN INDUSTRIAL","rate":0,"city":"Minneapolis","state":"MN","latitude":45.03762054,"longitude":-93.28504944,"neighbor_1":"camden_industrial","shooting":0},
+{"neighborhood":"MID - CITY INDUSTRIAL","rate":0,"city":"Minneapolis","state":"MN","latitude":44.99509811,"longitude":-93.22219086,"neighbor_1":"mid_city_industrial","shooting":0},
 {"neighborhood":"HUMBOLDT INDUSTRIAL AREA","rate":0,"city":"Minneapolis","state":"MN","latitude":45.04027176,"longitude":-93.29997253,"neighbor_1":"humboldt_industrial_area","shooting":0}]}
