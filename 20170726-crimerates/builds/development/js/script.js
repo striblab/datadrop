@@ -38,7 +38,8 @@ d3.select("#chart").selectAll(".row")
   .attr("longitude",function(d) { return d.longitude; })
   .on("mousedown",function(d) { 
     $(".districtName").html(d.neighborhood);
-    map.flyTo({ center: [d.longitude, d.latitude], zoom:13 });
+    if (d.neighborhood != "Minneapolis") { map.flyTo({ center: [d.longitude, d.latitude], zoom:13 }); }
+    else { map.flyTo({ center: [-93.264313, 44.973269], zoom:10 }); }
   })
   .html(function(d,i){ 
     return "<div class='cell neighborhood'>" + d.neighborhood + "</div><div class='cell rate'>" + d3.format(".1f")(d.rate) + "</div><div class='cell shootings'>" + d.shooting + "</div>";

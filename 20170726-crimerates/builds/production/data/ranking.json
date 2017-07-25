@@ -19,7 +19,7 @@
 {"neighborhood":"WEBBER - CAMDEN","rate":5.968989285,"city":"Minneapolis","state":"MN","latitude":45.02956009,"longitude":-93.29511261,"neighbor_1":"webber_camden","shooting":0},
 {"neighborhood":"WHITTIER","rate":5.773051549,"city":"Minneapolis","state":"MN","latitude":44.95730972,"longitude":-93.28044128,"neighbor_1":"whittier","shooting":1},
 {"neighborhood":"EAST ISLES","rate":5.588039487,"city":"Minneapolis","state":"MN","latitude":44.9557991,"longitude":-93.29905701,"neighbor_1":"east_isles","shooting":0},
-{"neighborhood":"ELLIOT PARK","rate":5.540343558,"city":"Minneapolis","state":"MN","latitude":44.97040939,"longitude":-93.26477051,"neighbor_1":"elliot_park","shooting":0},
+{"neighborhood":"ELLIOT PARK","rate":5.540343558,"city":"Minneapolis","state":"MN","latitude":44.97040939,"longitude":-93.26477051,"neighbor_1":"elliot_park","shooting":1},
 {"neighborhood":"STEVENS SQUARE - LORING HEIGHTS","rate":5.391463873,"city":"Minneapolis","state":"MN","latitude":44.96393967,"longitude":-93.27210999,"neighbor_1":"stevens_square_loring_heights","shooting":0},
 {"neighborhood":"WILLARD - HAY","rate":5.377687748,"city":"Minneapolis","state":"MN","latitude":44.99515152,"longitude":-93.31179047,"neighbor_1":"willard_hay","shooting":3},
 {"neighborhood":"ECCO","rate":5.272400844,"city":"Minneapolis","state":"MN","latitude":44.94210815,"longitude":-93.3008728,"neighbor_1":"ecco","shooting":1},
@@ -64,7 +64,7 @@
 {"neighborhood":"BRYN - MAWR","rate":3.021984104,"city":"Minneapolis","state":"MN","latitude":44.97172928,"longitude":-93.31407166,"neighbor_1":"bryn_mawr","shooting":0},
 {"neighborhood":"ERICSSON","rate":3.004103392,"city":"Minneapolis","state":"MN","latitude":44.92147064,"longitude":-93.23023224,"neighbor_1":"ericsson","shooting":0},
 {"neighborhood":"REGINA","rate":2.991826306,"city":"Minneapolis","state":"MN","latitude":44.9233284,"longitude":-93.26825714,"neighbor_1":"regina","shooting":0},
-{"neighborhood":"KINGFIELD","rate":2.915719234,"city":"Minneapolis","state":"MN","latitude":44.927351,"longitude":-93.280998,"neighbor_1":"king_field","shooting":1},
+{"neighborhood":"KINGFIELD","rate":2.915719234,"city":"Minneapolis","state":"MN","latitude":44.97903061,"longitude":-93.26493073,"neighbor_1":"king_field","shooting":1},
 {"neighborhood":"HOWE","rate":2.838819051,"city":"Minneapolis","state":"MN","latitude":44.93581009,"longitude":-93.21723938,"neighbor_1":"howe","shooting":0},
 {"neighborhood":"TANGLETOWN","rate":2.814615514,"city":"Minneapolis","state":"MN","latitude":44.91233826,"longitude":-93.28069305,"neighbor_1":"tangletown","shooting":0},
 {"neighborhood":"SHINGLE CREEK","rate":2.806315237,"city":"Minneapolis","state":"MN","latitude":45.04758072,"longitude":-93.31121826,"neighbor_1":"shingle_creek","shooting":0},
@@ -83,6 +83,6 @@
 {"neighborhood":"ARMATAGE","rate":1.401430678,"city":"Minneapolis","state":"MN","latitude":44.89794159,"longitude":-93.31182861,"neighbor_1":"armatage","shooting":0},
 {"neighborhood":"KENNY","rate":1.327497932,"city":"Minneapolis","state":"MN","latitude":44.89966965,"longitude":-93.2960434,"neighbor_1":"kenny","shooting":0},
 {"neighborhood":"MORRIS PARK","rate":1.235052543,"city":"Minneapolis","state":"MN","latitude":44.90174866,"longitude":-93.21463013,"neighbor_1":"morris_park","shooting":0},
-{"neighborhood":"CAMDEN INDUSTRIAL","rate":0,"city":"Minneapolis","state":"MN","latitude":45.03762054,"longitude":-93.28504944,"neighbor_1":"camden_industrial","shooting":0},
 {"neighborhood":"MID - CITY INDUSTRIAL","rate":0,"city":"Minneapolis","state":"MN","latitude":44.99509811,"longitude":-93.22219086,"neighbor_1":"mid_city_industrial","shooting":0},
-{"neighborhood":"HUMBOLDT INDUSTRIAL AREA","rate":0,"city":"Minneapolis","state":"MN","latitude":45.04027176,"longitude":-93.29997253,"neighbor_1":"humboldt_industrial_area","shooting":0}]}
+{"neighborhood":"HUMBOLDT INDUSTRIAL AREA","rate":0,"city":"Minneapolis","state":"MN","latitude":45.04027176,"longitude":-93.29997253,"neighbor_1":"humboldt_industrial_area","shooting":0},
+{"neighborhood":"CAMDEN INDUSTRIAL","rate":0,"city":"Minneapolis","state":"MN","latitude":45.03762054,"longitude":-93.28504944,"neighbor_1":"camden_industrial","shooting":0}]}
