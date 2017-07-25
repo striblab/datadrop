@@ -1,4 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+//chart selection parameters
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
   if (results != null) { return results[1] || 0; }
@@ -18,6 +19,7 @@ d3.json("./data/ranking.json", function(error, dataLoad) {
 
 var dataRank = dataLoad.ranking;
 
+//build the neighbor crime rate ranking table
 function tableBuild(){
 d3.select("#chart").selectAll(".row")
   .data(dataRank).enter().append("div")
@@ -67,6 +69,7 @@ function tableSort(container,party,data,candidate,sorted){
     .transition().duration(500);
 }
 
+//interface triggers
 $( document ).ready(function() {
  $(".row").click(function() {
    $(".row").removeClass("rowSelect");
@@ -83,6 +86,7 @@ $( document ).ready(function() {
 
  $('#filter_box').on('keyup search', function(e){
      $('.row').hide();
+     $(".row").removeClass("rowSelect");
      var txt = $('#filter_box').val();
      $('.row').each(function(){
         if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
@@ -93,6 +97,7 @@ $( document ).ready(function() {
  
  $('#filter_box').on('search', function(e){
     $(".row").show();
+    $(".row").removeClass("rowSelect");
     $('#filter_box').val("");
     map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
     $('#chart').animate({scrollTop : 0},800);
@@ -110,6 +115,7 @@ $( document ).ready(function() {
 
 $('.scrollToTop').click(function(){
     $(".row").show();
+    $(".row").removeClass("rowSelect");
     $('#filter_box').val("");
     map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
     $('#chart').animate({scrollTop : 0},800);
@@ -117,6 +123,7 @@ $('.scrollToTop').click(function(){
   });
 });
 
+//crime rate map
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
 
 var map = new mapboxgl.Map({
@@ -225,7 +232,7 @@ map.on('mousemove', function(e) {
 
 });
 
-
+//racial breakdown chart
 function raceChart(){
     var chart = c3.generate({
       bindto: '#raceChart',
@@ -295,6 +302,7 @@ function raceChart(){
 
 raceChart();
 
+//timeline chart
 d3.csv("./data/timeline.csv", function(d) {
   return {
     filed: d.DeathDate,
@@ -326,9 +334,6 @@ for (var i=0; i < data.length; i++){
   if (data[i].code == 10) { unarmedNum[i+1] = data[i].code; allNum[i+1] = null; }
   if (data[i].code == 30) { unarmedNum[i+1] = null; allNum[i+1] = data[i].code; }
 }
-
-console.log(axis);
-console.log(allNum);
 
 var  padding = {
         top: 20,
@@ -364,7 +369,7 @@ chart = c3.generate({
     axis: {
       y: {
             min: 0,
-            padding: {bottom: 0},
+            padding: {bottom: 0, left:0},
             tick: {
              format: function (d) {
                     switch (d) {
@@ -381,7 +386,7 @@ chart = c3.generate({
             type: 'categories',
             categories: ['05-14-2000','07-22-2006','05-12-2012','07-15-2017'],
             tick: {
-                count: 4,
+                count: 2,
                 multiline: false
             }
           }
