@@ -64,7 +64,7 @@
 {"neighborhood":"BRYN - MAWR","rate":3.021984104,"city":"Minneapolis","state":"MN","latitude":44.97172928,"longitude":-93.31407166,"neighbor_1":"bryn_mawr","shooting":0},
 {"neighborhood":"ERICSSON","rate":3.004103392,"city":"Minneapolis","state":"MN","latitude":44.92147064,"longitude":-93.23023224,"neighbor_1":"ericsson","shooting":0},
 {"neighborhood":"REGINA","rate":2.991826306,"city":"Minneapolis","state":"MN","latitude":44.9233284,"longitude":-93.26825714,"neighbor_1":"regina","shooting":0},
-{"neighborhood":"KINGFIELD","rate":2.915719234,"city":"Minneapolis","state":"MN","latitude":44.97903061,"longitude":-93.26493073,"neighbor_1":"king_field","shooting":1},
+{"neighborhood":"KINGFIELD","rate":2.915719234,"city":"Minneapolis","state":"MN","latitude":44.927351,"longitude":-93.280998,"neighbor_1":"king_field","shooting":1},
 {"neighborhood":"HOWE","rate":2.838819051,"city":"Minneapolis","state":"MN","latitude":44.93581009,"longitude":-93.21723938,"neighbor_1":"howe","shooting":0},
 {"neighborhood":"TANGLETOWN","rate":2.814615514,"city":"Minneapolis","state":"MN","latitude":44.91233826,"longitude":-93.28069305,"neighbor_1":"tangletown","shooting":0},
 {"neighborhood":"SHINGLE CREEK","rate":2.806315237,"city":"Minneapolis","state":"MN","latitude":45.04758072,"longitude":-93.31121826,"neighbor_1":"shingle_creek","shooting":0},
