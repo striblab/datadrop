@@ -85,6 +85,7 @@ $( document ).ready(function() {
 
  $('#filter_box').on('keyup search', function(e){
      $('.row').hide();
+     $(".row").removeClass("rowSelect");
      var txt = $('#filter_box').val();
      $('.row').each(function(){
         if($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1){
@@ -95,6 +96,7 @@ $( document ).ready(function() {
  
  $('#filter_box').on('search', function(e){
     $(".row").show();
+    $(".row").removeClass("rowSelect");
     $('#filter_box').val("");
     map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
     $('#chart').animate({scrollTop : 0},800);
@@ -112,6 +114,7 @@ $( document ).ready(function() {
 
 $('.scrollToTop').click(function(){
     $(".row").show();
+    $(".row").removeClass("rowSelect");
     $('#filter_box').val("");
     map.flyTo({ center: [-93.264313, 44.973269], zoom:10 });
     $('#chart').animate({scrollTop : 0},800);
