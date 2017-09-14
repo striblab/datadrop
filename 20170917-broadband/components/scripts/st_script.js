@@ -499,7 +499,7 @@ chartStates();
           data: {
               // x: 'x',
                 columns: [
-                  ['US Broadband Access',0.913,0.839,0.745,0.697],
+                  ['US Broadband Access',0.895,0.793,0.705,0.645],
                   ['MN Broadband Access',0.874,0.858,0.769,0.754]
                 ],
             type: 'bar'
@@ -685,7 +685,7 @@ if (subject == "percent") {
           }
          }
 
-    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div><span class='legendary chatter " +  color + "'>" + d3.format(".1f")(broadband) + "%</span> high-speed broadband adoption</div>"      
+    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div><span class='legendary chatter " +  color + "'>" + d3.format(".1f")(broadband) + "%</span> broadband access</div>"      
 
 }
 
