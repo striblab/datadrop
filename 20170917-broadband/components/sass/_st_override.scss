@@ -34,6 +34,10 @@
 	height:770px;
 }
 
+.mobilekill {
+  display:none;
+}
+
 .map text {
   fill:#ffffff !important;
   pointer-events:none !important;
@@ -47,6 +51,16 @@
 .mnmap {
   text-align:center;
 }
+
+#mapProviders {
+    height: 400px;
+    width:100%;
+}
+
+.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-compass, .mapboxgl-ctrl-logo {
+    display:none !important;
+}
+
 
 @media (max-width:520px) {
     #wrapper {
