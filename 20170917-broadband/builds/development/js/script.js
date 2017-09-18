@@ -673,20 +673,31 @@ function mapTips(d, subject, dataCompare){
 if (subject == "percent") {
 
     var color = "";
+    var dcolor = "";
     var broadband = 0;
+    var diff = 0;
 
            for (var i=0; i < dataCompare.length; i++){
           if (String(d.properties.COUNTYNAME).toUpperCase() == String(dataCompare[i].county).toUpperCase()) {
-           if (dataCompare[i].broadband_25 >= 80) { color = "gray5"; }
-           else if (dataCompare[i].broadband_25 >= 60) { color = "gray4"; }
-           else if (dataCompare[i].broadband_25 >= 40) { color = "gray3"; }
-           else if (dataCompare[i].broadband_25 >= 20) { color = "gray2"; }
-           else if (dataCompare[i].broadband_25 > 0) { color = "gray1"; }
-           broadband = dataCompare[i].broadband_25;
+           if (dataCompare[i].broadband_2017 >= 80) { color = "gray5"; }
+           else if (dataCompare[i].broadband_2017 >= 60) { color = "gray4"; }
+           else if (dataCompare[i].broadband_2017 >= 40) { color = "gray3"; }
+           else if (dataCompare[i].broadband_2017 >= 20) { color = "gray2"; }
+           else if (dataCompare[i].broadband_2017 > 0) { color = "gray1"; }
+
+           broadband = dataCompare[i].broadband_2017;
+
+           // if (dataCompare[i].diff >= 80) { dcolor = "gray5"; }
+           // else if (dataCompare[i].diff >= 60) { dcolor = "gray4"; }
+           // else if (dataCompare[i].diff >= 40) { dcolor = "gray3"; }
+           // else if (dataCompare[i].diff >= 20) { dcolor = "gray2"; }
+           // else if (dataCompare[i].diff >= 0) { dcolor = "gray1"; }
+           // else if (dataCompare[i].diff < 0) { dcolor = "red3"; }
+           diff = dataCompare[i].diff;
           }
          }
 
-    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div><span class='legendary chatter " +  color + "'>" + d3.format(".1f")(broadband) + "%</span> broadband access</div>"      
+    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div><span class='legendary chatter " +  color + "'>" + d3.format(".1f")(broadband) + "%</span> broadband access</div><div class='mobilekill'><span class='chatter " +  dcolor + "'>" + d3.format("+.1f")(diff) + "%</span> change since 2012</div>"      
 
 }
 
@@ -729,12 +740,12 @@ d3.json("shapefiles/" + shape, function(error, us) {
         if (subject == "percent"){ 
          for (var i=0; i < dataCompare.length; i++){
           if (String(d.properties.COUNTYNAME).toUpperCase() == String(dataCompare[i].county).toUpperCase()) {
-           if (dataCompare[i].broadband_25 >= 90) { return "gray5"; }
-           else if (dataCompare[i].broadband_25 >= 80) { return "gray4"; }
-           else if (dataCompare[i].broadband_25 >= 60) { return "gray3"; }
-           else if (dataCompare[i].broadband_25 >= 40) { return "gray2"; }
-           else if (dataCompare[i].broadband_25 >= 20) { return "gray1"; }
-           else if (dataCompare[i].broadband_25 > 0) { return "none"; }
+           if (dataCompare[i].broadband_2017 >= 90) { return "gray5"; }
+           else if (dataCompare[i].broadband_2017 >= 80) { return "gray4"; }
+           else if (dataCompare[i].broadband_2017 >= 60) { return "gray3"; }
+           else if (dataCompare[i].broadband_2017 >= 40) { return "gray2"; }
+           else if (dataCompare[i].broadband_2017 >= 20) { return "gray1"; }
+           else if (dataCompare[i].broadband_2017 > 0) { return "none"; }
           }
          }
        }
@@ -864,6 +875,108 @@ d3.helper.tooltip = function(accessor){
 
 //POPULATE
   mapBuild("#mapCounties", "#infobox", "#chart", "counties.json", "percent", "mn", data, 0);
+});
+});
+
+
+//PROVIDERS MAP
+d3.json('./shapefiles/counties.json', function(error, counties) {
+d3.json('./shapefiles/mnblocks.json', function(error, blocks) {
+//MAPPAGE BLOCKS
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
+var map = new mapboxgl.Map({
+    container: 'mapProviders',
+    style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
+    // center: [-93.179770, 44.877039],
+    center: [-93.985900, 46.429553], 
+    zoom: 4.9,
+    minZoom: 3
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+
+map.on('load', function() {
+$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address");
+
+// geocoder2.on('result', function(ev) {
+//   map2.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
+//     });
+
+    map.addSource("counties", {
+        type: "geojson",
+        data: counties
+    });
+
+    map.addSource("blocks", {
+        type: "geojson",
+        data: blocks
+    });
+
+
+      map.addLayer({
+       'id': 'blocks-layer',
+       'interactive': true,
+       'source': 'blocks',
+       'layout': {},
+       'type': 'fill',
+            'paint': {
+           'fill-antialias' : true,
+           'fill-opacity': 1,
+           'fill-color': {
+            "type": "categorical",
+            "property": "p",
+            "stops": [
+              [0, "#a50f15"],
+              [1, "#fb6a4a"],
+              [2, "#de2d26"],
+              [3, "#fee5d9"]
+           ]
+        },
+           'fill-outline-color': 'rgba(0, 0, 0, 0)'
+     }
+   }, 'place-neighbourhood');
+
+      map.addLayer({
+       'id': 'counties-layer',
+       'interactive': true,
+       'source': 'counties',
+       'layout': {},
+       'type': 'fill',
+            'paint': {
+           'fill-antialias' : true,
+           'fill-opacity': 0.3,
+           'fill-color': "#dddddd",
+           'fill-outline-color': 'rgba(0, 0, 0, 1)'
+     }
+   }, 'place-neighbourhood');
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+});
+
+map.on('mousemove', function(e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['counties-layer'] });
+    // Change the cursor style as a UI indicator.
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+    if (!features.length) {
+        popup.remove();
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    popup.setLngLat(e.lngLat)
+        .setHTML("<div>" + feature.properties.COUNTYNAME + " County</div>")
+        .addTo(map);
+});
+
+
+
+});
 });
 });
 },{}]},{},[1])
