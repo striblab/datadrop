@@ -556,8 +556,8 @@ chartRace();
           padding: padding,
           data: {
                 columns: [
-                  ['US Broadband Access',0.488,0.742,0.924],
-                  ['MN Broadband Access',0.505,0.753,0.931]
+                  ['US Broadband Access',0.56,0.80,0.94],
+                  ['MN Broadband Access',0.56,0.80,0.95]
                 ],
             type: 'bar'
             },
@@ -919,19 +919,19 @@ $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address
        'layout': {},
        'type': 'fill',
             'paint': {
-           'fill-antialias' : true,
+           // 'fill-antialias' : true,
            'fill-opacity': 1,
            'fill-color': {
             "type": "categorical",
             "property": "p",
             "stops": [
-              [0, "#a50f15"],
+              [0, "#fee5d9"],
               [1, "#fb6a4a"],
               [2, "#de2d26"],
-              [3, "#fee5d9"]
+              [3, "#a50f15"]
            ]
         },
-           'fill-outline-color': 'rgba(0, 0, 0, 0)'
+           'fill-outline-color': 'rgba(0, 0, 0, 1)'
      }
    }, 'place-neighbourhood');
 
