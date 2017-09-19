@@ -879,102 +879,108 @@ d3.helper.tooltip = function(accessor){
 
 
 //PROVIDERS MAP
-d3.json('./shapefiles/counties.json', function(error, counties) {
-d3.json('./shapefiles/mnblocks.json', function(error, blocks) {
+// d3.json('./shapefiles/counties.json', function(error, counties) {
+// d3.json('./shapefiles/mnblocks.json', function(error, blocks) {
 //MAPPAGE BLOCKS
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
-var map = new mapboxgl.Map({
-    container: 'mapProviders',
-    style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
-    // center: [-93.179770, 44.877039],
-    center: [-93.985900, 46.429553], 
-    zoom: 4.9,
-    minZoom: 3
-});
+// mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
+// var map = new mapboxgl.Map({
+//     container: 'mapProviders',
+//     style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
+//     // center: [-93.179770, 44.877039],
+//     center: [-93.985900, 46.429553], 
+//     zoom: 4.9,
+//     minZoom: 3
+// });
 
-map.addControl(new mapboxgl.NavigationControl());
+// map.addControl(new mapboxgl.NavigationControl());
 
-map.on('load', function() {
-$(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address");
+// map.on('load', function() {
+// $(".mapboxgl-ctrl-geocoder input").attr("placeholder","Search by city or address");
 
 // geocoder2.on('result', function(ev) {
 //   map2.flyTo({ center: ev.result.geometry.coordinates, zoom: 14 });
 //     });
 
-    map.addSource("counties", {
-        type: "geojson",
-        data: counties
-    });
+   //  map.addSource("counties", {
+   //      type: "geojson",
+   //      data: counties
+   //  });
 
-    map.addSource("blocks", {
-        type: "geojson",
-        data: blocks
-    });
-
-
-      map.addLayer({
-       'id': 'blocks-layer',
-       'interactive': true,
-       'source': 'blocks',
-       'layout': {},
-       'type': 'fill',
-            'paint': {
-           // 'fill-antialias' : true,
-           'fill-opacity': 1,
-           'fill-color': {
-            "type": "categorical",
-            "property": "p",
-            "stops": [
-              [0, "#fee5d9"],
-              [1, "#fb6a4a"],
-              [2, "#de2d26"],
-              [3, "#a50f15"]
-           ]
-        },
-           'fill-outline-color': 'rgba(0, 0, 0, 1)'
-     }
-   }, 'place-neighbourhood');
-
-      map.addLayer({
-       'id': 'counties-layer',
-       'interactive': true,
-       'source': 'counties',
-       'layout': {},
-       'type': 'fill',
-            'paint': {
-           'fill-antialias' : true,
-           'fill-opacity': 0.3,
-           'fill-color': "#dddddd",
-           'fill-outline-color': 'rgba(0, 0, 0, 1)'
-     }
-   }, 'place-neighbourhood');
-
-var popup = new mapboxgl.Popup({
-    closeButton: false,
-    closeOnClick: false
-});
-
-map.on('mousemove', function(e) {
-    var features = map.queryRenderedFeatures(e.point, { layers: ['counties-layer'] });
-    // Change the cursor style as a UI indicator.
-    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-
-    if (!features.length) {
-        popup.remove();
-        return;
-    }
-
-    var feature = features[0];
-
-    // Populate the popup and set its coordinates
-    // based on the feature found.
-    popup.setLngLat(e.lngLat)
-        .setHTML("<div>" + feature.properties.COUNTYNAME + " County</div>")
-        .addTo(map);
-});
+   //  map.addSource("blocks", {
+   //      type: "geojson",
+   //      data: blocks
+   //  });
 
 
+   //    map.addLayer({
+   //     'id': 'blocks-layer',
+   //     'interactive': true,
+   //     'source': 'blocks',
+   //     'layout': {},
+   //     'type': 'fill',
+   //          'paint': {
+   //         // 'fill-antialias' : true,
+   //         'fill-opacity': 1,
+   //         'fill-color': {
+   //          "type": "categorical",
+   //          "property": "p",
+   //          "stops": [
+   //            [0, "#fee5d9"],
+   //            [1, "#fb6a4a"],
+   //            [2, "#de2d26"],
+   //            [3, "#a50f15"],
+   //            [4, "#a50f15"],
+   //            [5, "#a50f15"],
+   //            [6, "#a50f15"],
+   //            [7, "#a50f15"],
+   //            [8, "#a50f15"],
+   //            [9, "#a50f15"]
+   //         ]
+   //      },
+   //         'fill-outline-color': 'rgba(0, 0, 0, 0)'
+   //   }
+   // }, 'place-neighbourhood');
 
-});
-});
-});
+   //    map.addLayer({
+   //     'id': 'counties-layer',
+   //     'interactive': true,
+   //     'source': 'counties',
+   //     'layout': {},
+   //     'type': 'fill',
+   //          'paint': {
+   //         'fill-antialias' : true,
+   //         'fill-opacity': 0.3,
+   //         'fill-color': "#dddddd",
+   //         'fill-outline-color': 'rgba(0, 0, 0, 1)'
+   //   }
+   // }, 'place-neighbourhood');
+
+// var popup = new mapboxgl.Popup({
+//     closeButton: false,
+//     closeOnClick: false
+// });
+
+// map.on('mousemove', function(e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: ['counties-layer'] });
+//     // Change the cursor style as a UI indicator.
+//     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+//     if (!features.length) {
+//         popup.remove();
+//         return;
+//     }
+
+//     var feature = features[0];
+
+//     // Populate the popup and set its coordinates
+//     // based on the feature found.
+//     popup.setLngLat(e.lngLat)
+//         .setHTML("<div>" + feature.properties.COUNTYNAME + " County</div>")
+//         .addTo(map);
+// });
+
+
+
+// });
+// });
+// });
