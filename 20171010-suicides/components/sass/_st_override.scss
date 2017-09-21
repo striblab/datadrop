@@ -1,0 +1,56 @@
+#wrapper {
+    width:520px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.byline a {
+    color: #888;
+}
+
+.byline {
+    line-height:140%;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size:0.6em;
+    color: #888;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:left;
+}
+
+.chart .c3-line {
+    stroke-width: 6px !important;
+}
+
+#chartTrend .c3-line, #chartGender .c3-line {
+    opacity:0 !important;
+}
+
+#chartTrend .c3-area {
+  opacity: 1 !important;
+}
+
+.legendary {
+    padding:3px;
+}
+
+.chatter {
+    line-height:160%;
+}
+
+.numLabel {
+    text-align:center;
+}
+
+.bigNum {
+    text-align:center;
+    font-size:5em;
+    color:#333;
+}
+
+@media (max-width:520px) {
+    #wrapper {
+        width:100%;
+    }
+}
