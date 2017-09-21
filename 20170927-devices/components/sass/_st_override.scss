@@ -1,0 +1,41 @@
+body {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+    width:520px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+a {
+    color:steelblue;
+}
+
+.legendary {
+    padding:3px;
+}
+.chatter {
+    line-height:170%;
+}
+
+.purple1, .red2, red1 {
+    color:#ffffff;
+}
+
+.byline {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
+    font-size:0.6em !important;
+    color: #888 !important;
+    line-height:140%;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    text-align:left !important;
+}
+
+@media (max-width:520px) {
+    #wrapper {
+        width:100%;
+    }
+}
