@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
- 
 <div id="wrapper">
 
 <div id="devices" class="slide">
@@ -28,7 +28,7 @@
 
 <div id="states" class="slide">
 <div class="chartTitle">Comparing Minnesota's tech to its neighbors</div>
-<div class="chatter"><span class='legendary gray5'>Minnesota</span> has slightly higher rates of computer and smartphone ownership than, <span class='legendary' style="background-color:#fcbba1;">North Dakota</span>, <span class='legendary' style="background-color:#fb6a4a;">South Dakota</span>, <span class='legendary' style="background-color:#cb181d;color:#ffffff;">Iowa</span> and <span class='legendary' style="background-color:#67000d;color:#ffffff;">Wisconsin</span>. 
+<div class="chatter"><span class='legendary gray5'>Minnesota</span> has slightly higher rates of computer and smartphone ownership than, <span class='legendary' style="background-color:#f0f0f0;">North Dakota</span>, <span class='legendary' style="background-color:#bdbdbd;">South Dakota</span>, <span class='legendary' style="background-color:#737373;color:#ffffff;">Iowa</span> and <span class='legendary' style="background-color:#525252;color:#ffffff;">Wisconsin</span>. 
 </div>
 
 <div id="chartStates" class="chart"></div>
@@ -38,11 +38,30 @@
 
 <div id="race" class="slide">
 <div class="chartTitle">The digital divide by race</div>
-<div class="chatter"><span class='legendary purple4'>Asians</span> have the highest rates of technology ownership nationally, followed by <span class='legendary purple3'>white</span>, <span class='legendary purple2'>Hispanic</span> and <span class='legendary purple1'>black households</span>.</div>
+<div class="chatter"><span class='legendary purple4'>Asian households</span> have the highest rates of device ownership nationally, followed by <span class='legendary purple3'>white</span>, <span class='legendary purple2'>Hispanic</span> and <span class='legendary purple1'>black households</span>.</div>
 
 <div id="chartRace" class="chart"></div>
 
 <div class="byline">Source: <a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_1YR_S2801&prodType=table" target="new_">American Community Survey</a> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+
+<div id="trend" class="slide">
+<div class="chartTitle">Evolution of technological adoption</div>
+<div class="chatter">Shows the percent increase in Americans using various technologies from when Pew starting tracking ownership of each device through 2016.</div>
+
+<div id="chartTrend" class="chart"></div>
+
+<div class="byline">Source: <a href="http://www.pewresearch.org/fact-tank/2017/01/12/evolution-of-technology/" target="new_">Pew Research Center</a> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="smartphones" class="slide">
+<div class="chartTitle">Minnesota's smartphone demand</div>
+<div class="chatter">Shows the dominant market demand for smartphones in 2015 by county, whether its an iPhone, Samsung, HTC, Nokia, Motorola, Blackberry device.</div>
+
+<div id="map" class="map"></div>
+
+<div class="byline">Source: <a href="https://www.arcgis.com/home/item.html?id=5f9611a236704c13ae857357a3500c50" target="new_">ESRI</a> | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a></div>
 </div>
 
 
@@ -51,6 +70,7 @@
 <script src="//code.jquery.com/jquery-latest.js"></script>
 <script src="js/d3.v3.min.js"></script>
 <script src="js/c3.min.js"></script> 
+<script src='js/mapbox-gl.js'></script>
 
 <script src="js/script.js"></script>
  

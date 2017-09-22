@@ -76,7 +76,7 @@ librarySources = [
   // 'components/scripts/Leaflet.fullscreen.min.js',
   // 'components/scripts/leaflet.markercluster-src.js',
   // 'components/scripts/leaflet-omnivore.min.js',
-  // 'components/scripts/mapbox-gl.js',
+  'components/scripts/mapbox-gl.js',
   // 'components/scripts/mapbox-gl-geocoder.js',
   // 'components/scripts/jquery.fullpage.min.js'
 ];
