@@ -23,6 +23,17 @@ a {
     color:#ffffff;
 }
 
+
+.map {
+  text-align:center;
+  height: 400px;
+  width:100%;
+}
+
+.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-compass {
+    display:none !important;
+}
+
 .byline {
     font-family: "Benton Sans", Helvetica, Arial, sans-serif;
     font-weight: 400 !important;

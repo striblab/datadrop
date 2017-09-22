@@ -82,11 +82,11 @@ chartDevices();
           padding: padding,
           data: {
                 columns: [
-                  ['MN',0.808,0.755,0.603,0.025,0.098],
                   ['ND',0.786,0.745,0.577,0.023,0.108],
                   ['SD',0.771,0.713,0.562,0.024,0.124],
                   ['IA',0.764,0.725,0.564,0.022,0.119],
-                  ['WI',0.775,0.718,0.566,0.025,0.116]
+                  ['WI',0.775,0.718,0.566,0.025,0.116],
+                  ['MN',0.808,0.755,0.603,0.025,0.098]
                 ],
             type: 'bar'
             },
@@ -97,7 +97,7 @@ chartDevices();
                 show: false
             },
                 color: {
-                  pattern: ['#333333','#fcbba1','#fb6a4a','#cb181d','#67000d']
+                  pattern: ['#f0f0f0','#bdbdbd','#737373','#525252','#333333']
                 },
             axis: {
                   rotated: true,
@@ -310,3 +310,378 @@ chartTrend();
 }
 
 chartIOT();
+
+  function chartTrend(){
+
+    var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 100,
+        };
+
+    var chartTrend = c3.generate({
+          bindto: "#chartTrend",
+          padding: padding,
+          data: {
+                columns: [
+                  ['US',0.42,0.48,0.64,0.72,0.36]
+                ],
+            type: 'bar'
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: false
+            },
+                color: {
+                  pattern: ['#aaaaaa','#333333']
+                },
+            axis: {
+                  rotated: true,
+                  y: {
+                        max: 1,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 4,
+                         values: [0,0.25,0.50,0.75,1],
+                        format: d3.format('+%')
+                        }
+                    },
+                 x: {
+                    type: 'category',
+                    categories: ['  Smartphone (since 2011)','   Tablet (since 2010)','Social Media (since 2005)','Home Broadband (since 2000)','Internet Use (since 2000)'],
+                    tick: {
+                        // count: 4,
+                        multiline: true,
+                        // format: d3.format('.0f')
+                    }
+                 }
+            }
+    });
+}
+
+chartTrend();
+
+// mapboxgl.accessToken = 'pk.eyJ1Ijoic2hhZG93ZmxhcmUiLCJhIjoiS3pwY1JTMCJ9.pTSXx_LFgR3XBpCNNxWPKA';
+
+// var map = new mapboxgl.Map({
+//     container: 'map', // container id
+//     style: 'mapbox://styles/shadowflare/ciqzo0bu20004bknkbrhrm6wf',
+//     center: [-94.085900, 46.729553], 
+//     zoom: 4.8,
+//     // minZoom: 10,
+//     hash: false
+// });
+
+// map.addControl(new mapboxgl.NavigationControl());
+// map.scrollZoom.disable();
+// map.doubleClickZoom.disable();
+
+// map.on('load', function() {
+
+//  map.addSource('nb', {
+//    type: 'geojson',
+//    data: nb
+//  });
+
+//   map.addLayer({
+//        'id': 'nb-layer',
+//        'interactive': true,
+//        'source': 'nb',
+//        'layout': {},
+//        'type': 'fill',
+//             'paint': {
+//            'fill-antialias' : true,
+//            'fill-opacity': 0.7,
+//            'fill-color': {
+//             "property": "maindata_rate",
+//             "stops": [
+//               [0, "#dddddd"],
+//               [1, "#fee0d2"],
+//               [4, "#fcbba1"],
+//               [6, "#fc9272"],
+//               [8, "#fb6a4a"],
+//               [10, "#ef3b2c"],
+//               [20, "#cb181d"],
+//               [30, "#99000d"]
+//            ]
+//         },
+//            'fill-outline-color': 'rgba(255, 255, 255, 1)'
+//      }
+//    }, 'place-neighbourhood');
+
+//  map.addSource('shootings', {
+//    type: 'geojson',
+//    data: shootings
+//  });
+
+//          map.addLayer({
+//                   "id": "shootings-layer",
+//                   "type": "circle",
+//                   "source": "shootings",
+//                   "paint": {
+//                      "circle-radius": 3,
+//                      "circle-color": 'rgba(150, 150, 150, 0.8)'
+//                   },
+//                   "filter": [
+//                   "==",
+//                   "WeaponCategory",
+//                   "UNARMED"]
+//         });
+
+//          map.addLayer({
+//                   "id": "shootings-layer2",
+//                   "type": "circle",
+//                   "source": "shootings",
+//                   "paint": {
+//                      "circle-radius": 3,
+//                      "circle-color": 'rgba(66, 134, 244, 0.8)'
+//                   },
+//                   "filter": [
+//                   "!=",
+//                   "WeaponCategory",
+//                   "UNARMED"]
+//         });
+
+
+// var popup = new mapboxgl.Popup({
+//     closeButton: false,
+//     closeOnClick: false
+// });
+
+// map.on('mousemove', function(e) {
+//     var features = map.queryRenderedFeatures(e.point, { layers: ['shootings-layer','shootings-layer2'] });
+//     // Change the cursor style as a UI indicator.
+//     map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+
+//     if (!features.length) {
+//         popup.remove();
+//         return;
+//     }
+
+//     var feature = features[0];
+
+//     // Populate the popup and set its coordinates
+//     // based on the feature found.
+//     popup.setLngLat(e.lngLat)
+//         .setHTML("<div>" + feature.properties.FirstName + " " + feature.properties.LastName + "</div><div>died in " + feature.properties.year + "</div><div>" + feature.properties.WeaponCategory + "</div>")
+//         .addTo(map);
+// });
+
+// });
+
+d3.json('./shapefiles/counties.json', function(error, counties) {
+
+var data = dataLoad.counties;
+
+function mapTips(d, subject, dataCompare){
+
+if (subject == "percent") {
+
+    var color = "";
+    var dcolor = "";
+    var broadband = 0;
+    var diff = 0;
+
+           for (var i=0; i < dataCompare.length; i++){
+          if (String(d.properties.COUNTYNAME).toUpperCase() == String(dataCompare[i].county).toUpperCase()) {
+           if (dataCompare[i].broadband_2017 >= 80) { color = "gray5"; }
+           else if (dataCompare[i].broadband_2017 >= 60) { color = "gray4"; }
+           else if (dataCompare[i].broadband_2017 >= 40) { color = "gray3"; }
+           else if (dataCompare[i].broadband_2017 >= 20) { color = "gray2"; }
+           else if (dataCompare[i].broadband_2017 > 0) { color = "gray1"; }
+
+           broadband = dataCompare[i].broadband_2017;
+
+           // if (dataCompare[i].diff >= 80) { dcolor = "gray5"; }
+           // else if (dataCompare[i].diff >= 60) { dcolor = "gray4"; }
+           // else if (dataCompare[i].diff >= 40) { dcolor = "gray3"; }
+           // else if (dataCompare[i].diff >= 20) { dcolor = "gray2"; }
+           // else if (dataCompare[i].diff >= 0) { dcolor = "gray1"; }
+           // else if (dataCompare[i].diff < 0) { dcolor = "red3"; }
+           diff = dataCompare[i].diff;
+          }
+         }
+
+    return "<div class='districtName'>" + d.properties.COUNTYNAME + " County</div><div><span class='legendary chatter " +  color + "'>" + d3.format(".1f")(broadband) + "%</span> broadband access</div><div class='mobilekill'><span class='chatter " +  dcolor + "'>" + d3.format("+.1f")(diff) + "%</span> change since 2012</div>"      
+
+}
+
+}
+
+function mapBuild(container, boxContainer, chartContainer, shape, subject, geo, dataCompare, index) {
+
+var width = 320,
+    height = 400,
+    centered;
+
+if (geo=="us") { var projection = d3.geo.albersUsa().scale(700).translate([330, 200]); }
+else if (geo=="mn") { var projection = d3.geo.albersUsa().scale(5037).translate([50, 970]); }
+else if (geo=="metro") { var projection = d3.geo.mercator().scale([16800]).center([-92.384033,45.209134]); }
+
+var path = d3.geo.path()
+    .projection(projection);
+
+var svg = d3.select(container + " svg")
+    .attr("width", width)
+    .attr("height", height);
+
+svg.append("rect")
+    .attr("class", "background")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g");
+
+d3.json("shapefiles/" + shape, function(error, us) {
+
+  g.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+      .data(us.features)
+    .enter().append("path")
+      .attr("d", path)
+      .attr("class", function(d){
+
+        if (subject == "percent"){ 
+         for (var i=0; i < dataCompare.length; i++){
+          if (String(d.properties.COUNTYNAME).toUpperCase() == String(dataCompare[i].county).toUpperCase()) {
+           if (dataCompare[i].broadband_2017 >= 90) { return "gray5"; }
+           else if (dataCompare[i].broadband_2017 >= 80) { return "gray4"; }
+           else if (dataCompare[i].broadband_2017 >= 60) { return "gray3"; }
+           else if (dataCompare[i].broadband_2017 >= 40) { return "gray2"; }
+           else if (dataCompare[i].broadband_2017 >= 20) { return "gray1"; }
+           else if (dataCompare[i].broadband_2017 > 0) { return "none"; }
+          }
+         }
+       }
+        })
+      .style("stroke-width", "1px")
+      .style("stroke", "#fff")
+      .call(d3.helper.tooltip(function(d, i){
+        return mapTips(d, subject, dataCompare);
+      }));
+
+  g.append("path")
+      .attr("id", "state-borders")
+      .attr("d", path);
+
+});
+
+var zoom = d3.behavior.zoom()
+    .on("zoom",function() {
+        g.attr("transform","translate("+ 
+            d3.event.translate.join(",")+")scale("+d3.event.scale+")");
+        g.selectAll("circle")
+            .attr("d", path.projection(projection));
+        g.selectAll("path")  
+            .attr("d", path.projection(projection)); 
+
+  });
+
+$(".zoom, .switch, #close, .mapSwitch").click(function() {
+  clicked2();
+  $("#filter input").val("");
+  $(".district").removeClass("selected");
+  $("#infobox").hide();
+  d3.selectAll(".map rect").classed('faded', false); 
+  d3.selectAll(".map rect").classed('active', false); 
+  $(".rightSide").show();
+});
+
+$(".mapSwitch").click(function() {
+  $("#filter input").val("");
+});
+
+function clicked(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 6;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 3;
+    centered = null;
+  }
+
+  d3.selectAll("#mapMetro path, #mapState path")
+      .classed("faded", false)
+      .classed("active", false);
+
+  g.selectAll("path")
+      .classed("faded", true)
+      .classed("active", centered && function (d) { return d === centered; });
+}
+
+function clicked2(d) {
+  var x, y, k;
+
+  if (d && centered !== d) {
+    var centroid = path.centroid(d);
+    x = centroid[0];
+    y = centroid[1];
+    k = 1;
+    centered = d;
+  } else {
+    x = width / 2;
+    y = height / 2;
+    k = 1;
+    centered = null;
+  }
+
+  g.selectAll("path")
+      .classed("faded", false)
+      .classed("active", centered && function (d) { return d === centered; });
+}
+
+}
+
+d3.helper = {};
+
+d3.helper.tooltip = function(accessor){
+    return function(selection){
+        var tooltipDiv;
+        var bodyNode = d3.select('body').node();
+        selection.on("mouseover", function(d, i){
+            // Clean up lost tooltips
+            d3.select('body').selectAll('div.tooltip').remove();
+            // Append tooltip
+            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px')
+                .style('position', 'absolute') 
+                .style('z-index', 1001);
+            // Add text using the accessor function
+            var tooltipText = accessor(d, i) || '';
+            // Crop text arbitrarily
+            //tooltipDiv.style('width', function(d, i){return (tooltipText.length > 80) ? '300px' : null;})
+            //    .html(tooltipText);
+        })
+        .on('mousemove', function(d, i) {
+            // Move tooltip
+            var absoluteMousePos = d3.mouse(bodyNode);
+            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
+                .style('top', (absoluteMousePos[1] - 15)+'px');
+            var tooltipText = accessor(d, i) || '';
+            tooltipDiv.html(tooltipText);
+        })
+        .on("mouseout", function(d, i){
+            // Remove tooltip
+            tooltipDiv.remove();
+        });
+
+    };
+};
+
+//POPULATE
+  mapBuild("#map", "#infobox", "#chart", "counties.json", "percent", "mn", data, 0);
+});
