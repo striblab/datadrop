@@ -213,7 +213,7 @@ chartRace();
                 x: "x",
                 columns: [
                   ["x",2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
-                  ['Smartphone',null,null,null,null,null,null,null,null,null,null,0.35,null,null,null,null,null,0.77,null],
+                  ['Smartphone',null,null,null,null,null,null,null,null,null,null,null,0.35,null,null,null,null,0.77,null],
                   ['Tablet',null,null,null,null,null,null,null,null,null,null,0.03,null,null,null,null,null,0.51,null],
                   ['Social Media',null,null,null,null,0.05,null,null,null,null,null,null,null,null,null,null,null,0.69,null],
                   ['Home Broadband',0.01,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,0.73,null],
