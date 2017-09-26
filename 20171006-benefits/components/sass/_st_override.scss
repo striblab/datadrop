@@ -1,0 +1,123 @@
+body {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+    width:520px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+a {
+    color:steelblue;
+}
+
+.label {
+    font-size:0.8em;
+    line-height:160%;
+}
+
+.legendary {
+    padding:3px;
+}
+
+.chatter {
+    line-height:170%;
+}
+
+.barChart {
+    display:inline-block;
+    width:89%
+}
+
+.updown {
+    display:inline-block;
+    width:10%;
+    text-align:center;
+    font-weight:bold;
+    font-size:1em;
+    padding-bottom:4px;
+}
+
+.holder {
+    height:400px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.bar {
+    text-align:right;
+    font-weight:bold;
+    font-size:0.8em;
+}
+
+.first {
+    text-align:right;
+    font-weight:bold;
+    float:left;
+}
+
+.filter {
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+#increasing .bar {
+    background-color:#9EE384;
+}
+
+#decreasing .first {
+    background-color:#F28670;
+}
+
+#weird .bar {
+    background-color:#dddddd;
+}
+
+#increasing .first {
+    background-color:#299E3D;
+}
+
+#decreasing .bar {
+    background-color:#C22A22;
+}
+
+#weird .first {
+    background-color:#636363;
+}
+
+
+.byline {
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400 !important;
+    font-size:0.6em !important;
+    color: #888 !important;
+    line-height:140%;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    text-align:left !important;
+}
+
+#listing {
+    height:300px;
+    overflow-x:hidden;
+    overflow-y:auto;
+    background-color:#dddddd;
+}
+
+.scrollToTop {
+    color: steelblue !important;
+    text-align: center;
+    padding:15px;
+}
+
+.scrollToTop:hover {
+    color: #333 !important;
+    cursor: pointer;
+}
+
+@media (max-width:520px) {
+    #wrapper {
+        width:100%;
+    }
+}
