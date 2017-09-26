@@ -2179,6 +2179,10 @@ body {
   margin-right: auto;
 }
 
+.slide {
+  display: none;
+}
+
 a {
   color: steelblue;
 }
