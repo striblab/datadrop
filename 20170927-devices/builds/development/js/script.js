@@ -95,11 +95,12 @@ chartDevices();
           padding: padding,
           data: {
                 columns: [
-                  ['ND',0.786,0.745,0.577,0.023,0.108],
-                  ['SD',0.771,0.713,0.562,0.024,0.124],
-                  ['IA',0.764,0.725,0.564,0.022,0.119],
-                  ['WI',0.775,0.718,0.566,0.025,0.116],
-                  ['MN',0.808,0.755,0.603,0.025,0.098]
+                  // ['ND',0.786,0.745,0.577,0.023,0.108],
+                  // ['SD',0.771,0.713,0.562,0.024,0.124],
+                  // ['IA',0.764,0.725,0.564,0.022,0.119],
+                  // ['WI',0.775,0.718,0.566,0.025,0.116],
+                  // ['MN',0.808,0.755,0.603,0.025,0.098]
+                  ['Smartphone Ownership',0.755,0.745,0.725,0.718,0.713]
                 ],
             type: 'bar'
             },
@@ -110,7 +111,7 @@ chartDevices();
                 show: false
             },
                 color: {
-                  pattern: ['#f0f0f0','#bdbdbd','#737373','#525252','#333333']
+                  pattern: ['#333333']
                 },
             axis: {
                   rotated: true,
@@ -126,7 +127,7 @@ chartDevices();
                     },
                  x: {
                     type: 'category',
-                    categories: ['Desktop/Laptop','Smartphone','Tablet','Other Computer','No computer'],
+                    categories: ['Minnesota','North Dakota','Iowa','Wisconsin','South Dakota'],
                     tick: {
                         // count: 4,
                         multiline: false,
@@ -138,6 +139,70 @@ chartDevices();
 }
 
 chartStates();
+
+  function chartAge(){
+
+    var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 100,
+        };
+
+    var chartAge = c3.generate({
+          bindto: "#chartAge",
+          padding: padding,
+          data: {
+                columns: [
+                  // ['ND',0.786,0.745,0.577,0.023,0.108],
+                  // ['SD',0.771,0.713,0.562,0.024,0.124],
+                  // ['IA',0.764,0.725,0.564,0.022,0.119],
+                  // ['WI',0.775,0.718,0.566,0.025,0.116],
+                  // ['MN',0.808,0.755,0.603,0.025,0.098]
+                  ['Cellphone Ownership',0.08,0.11,0.23,0.38],
+                  ['Smartphone Ownership',0.92,0.88,0.74,0.42]
+                  
+                ],
+            type: 'bar',
+            groups: [
+                ['Cellphone Ownership', 'Smartphone Ownership']
+            ]
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: false
+            },
+                color: {
+                  pattern: ['#aaaaaa','#333333']
+                },
+            axis: {
+                  rotated: true,
+                  y: {
+                        max: 1,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 4,
+                         values: [0,0.25,0.50,0.75,1],
+                        format: d3.format('%')
+                        }
+                    },
+                 x: {
+                    type: 'category',
+                    categories: ['Age 18-29','Age 30-49','Age 50-64','Age 65+'],
+                    tick: {
+                        // count: 4,
+                        multiline: false,
+                        // format: d3.format('.0f')
+                    }
+                 }
+            }
+    });
+}
+
+chartAge();
 
   function chartRace(){
 
