@@ -53,12 +53,15 @@ a {
     text-align:right;
     font-weight:bold;
     font-size:0.8em;
+    color:#ffffff;
+    padding-right:2px;
 }
 
 .first {
     text-align:right;
     font-weight:bold;
     float:left;
+    padding-right:2px;
 }
 
 .filter {
@@ -74,20 +77,12 @@ a {
     background-color:#F28670;
 }
 
-#weird .bar {
-    background-color:#dddddd;
-}
-
 #increasing .first {
     background-color:#299E3D;
 }
 
 #decreasing .bar {
     background-color:#C22A22;
-}
-
-#weird .first {
-    background-color:#636363;
 }
 
 

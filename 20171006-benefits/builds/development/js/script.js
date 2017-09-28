@@ -55,8 +55,8 @@ d3.select("#" + target + " .holder").selectAll(".card")
     newValue = d3.format("%")(d.y2017);
     if (d.y2013 > 0.10) { oldValue = d3.format("%")(d.y2013); }
 
-    if (d.diff < 0) { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='width:" + width + ";'><div class='first' style='width:" + first + ";'>" + newValue + "</div>" + oldValue + "</div><div class='pct'></div></div></div>"; }
-    else { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='width:" + width + ";'><div class='first' style='width:" + first + ";'>" + oldValue + "</div>" + newValue + "</div><div class='pct'></div></div></div>"; }
+    if (d.diff < 0) { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#636363;width:" + width + ";'><div class='first' style='background-color:#aaaaaa;width:" + first + ";'>" + newValue + "</div>" + oldValue + "</div><div class='pct'></div></div></div>"; }
+    else { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#aaaaaa;width:" + width + ";'><div class='first' style='background-color:#636363;width:" + first + ";'>" + oldValue + "</div>" + newValue + "</div><div class='pct'></div></div></div>"; }
 
   }
     return markup;
