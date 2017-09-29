@@ -20,14 +20,14 @@ var data = dataLoad.benefits;
 //build the scroller
 function scrollerBuild(target,type) {
 d3.select("#" + target + " .holder").selectAll(".card")
-.data(data.filter(function(d) { return d.FiveYearChange == type }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
+.data(data.filter(function(d) { if (type != "all") { return d.FiveYearChange == type } else { return d.FiveYearChange == "Increase" || d.FiveYearChange == "Decrease" || d.FiveYearChange == "Weird" } }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
 .attr("class",function (d) { return d.slug + " card"; })
 .html(function (d){ 
   var width = "";
   var first = "";
   var markup = "";
-  var newValue = "&nbsp;&nbsp;";
-  var oldValue = "&nbsp;&nbsp;";
+  var newValue = "&nbsp;";
+  var oldValue = "&nbsp;";
   var pctChange = d.y2017 - d.y2013;
   var posneg = "#118241";
 
@@ -52,8 +52,8 @@ d3.select("#" + target + " .holder").selectAll(".card")
   else {
     width = d3.format("%")(d.y2017);
     first = d3.format("%")(d.y2013);
-    newValue = d3.format("%")(d.y2017);
-    if (d.y2013 > 0.10) { oldValue = d3.format("%")(d.y2013); }
+    if (d.y2017 > 0.12) { newValue = d3.format("%")(d.y2017); }
+    if (d.y2013 > 0.12) { oldValue = d3.format("%")(d.y2013); }
 
     if (d.diff < 0) { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#636363;width:" + width + ";'><div class='first' style='background-color:#aaaaaa;width:" + first + ";'>" + newValue + "</div>" + oldValue + "</div><div class='pct'></div></div></div>"; }
     else { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#aaaaaa;width:" + width + ";'><div class='first' style='background-color:#636363;width:" + first + ";'>" + oldValue + "</div>" + newValue + "</div><div class='pct'></div></div></div>"; }
@@ -88,6 +88,7 @@ d3.select("#" + target + " .holder").selectAll(".card")
 scrollerBuild("increasing","Increase");
 scrollerBuild("decreasing","Decrease");
 scrollerBuild("weird","Weird");
+scrollerBuild("all","all");
 
 $(".thisSwitch a").click(function()  { 
   $(".card").hide();
@@ -133,6 +134,7 @@ $(".thisSwitch a").click(function()  {
         var dd = new DropDown( $('#dd') );
         var dd2 = new DropDown( $('#dd2') );
         var dd3 = new DropDown( $('#dd3') );
+        var dd4 = new DropDown( $('#dd4') );
 
         $(document).click(function()  { 
           // all dropdowns
