@@ -13,13 +13,22 @@ $("#" + selected).show();
 
 
 d3.json('./data/benefits.json', function(error, dataLoad) {
+d3.json('./data/benefits_all.json', function(error, dataLoadAll) {
 
 var data = dataLoad.benefits;
+var dataAll = dataLoadAll.benefits;
 
 //build the scroller
 function scrollerBuild(target,type) {
+
+if (type == "All"){
+  var thisData = dataAll;
+} else {
+  var thisData = data;
+}
+
 d3.select("#" + target + " .holder").selectAll(".card")
-.data(data.filter(function(d) { if (type != "all") { return d.FiveYearChange == type } else { return d.FiveYearChange == "Increase" || d.FiveYearChange == "Decrease" || d.FiveYearChange == "Weird" } }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
+.data(thisData.filter(function(d) { if (type != "all") { return d.FiveYearChange == type } else { return d.FiveYearChange == "Increase" || d.FiveYearChange == "Decrease" || d.FiveYearChange == "Weird" } }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
 .attr("class",function (d) { return d.slug + " card"; })
 .html(function (d){ 
   var width = "";
@@ -36,26 +45,25 @@ d3.select("#" + target + " .holder").selectAll(".card")
     width = d3.format("%")(d.y2017);
     first = d3.format("%")(d.y2013);
     newValue = d3.format("%")(d.y2017);
-    if (d.y2013 > 0.10) { oldValue = d3.format("%")(d.y2013); }
+    if (d.y2013 > 0.04) { oldValue = d3.format("%")(d.y2013); }
 
-    markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='width:" + width + ";'><div class='first' style='width:" + first + ";'>" + oldValue + "</div>" + newValue + "</div><div class='pct'></div></div></div>";
+    markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='first' style='width:" + first + ";'>" + oldValue + "</div><div class='bar' style='width:" + width + ";'>" + newValue + "</div><div class='pct'></div></div></div>";
   }
   else if (type == "Decrease") {
     first = d3.format("%")(d.y2017);
     width = d3.format("%")(d.y2013);
-    if (d.y2017 > 0.10) { newValue = d3.format("%")(d.y2017); }
+    if (d.y2017 > 0.04) { newValue = d3.format("%")(d.y2017); }
     oldValue = d3.format("%")(d.y2013);
 
-    markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='width:" + width + ";'><div class='first' style='width:" + first + ";'>" + newValue + "</div>" + oldValue + "</div><div class='pct'></div></div></div>";
+    markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='width:" + width + ";'>" + oldValue + "</div><div class='first' style='width:" + first + ";'>" + newValue + "</div><div class='pct'></div></div></div>";
   }
   else {
     width = d3.format("%")(d.y2017);
     first = d3.format("%")(d.y2013);
-    if (d.y2017 > 0.12) { newValue = d3.format("%")(d.y2017); }
-    if (d.y2013 > 0.12) { oldValue = d3.format("%")(d.y2013); }
+    if (d.y2017 > 0.04) { newValue = d3.format("%")(d.y2017); }
+    if (d.y2013 > 0.04) { oldValue = d3.format("%")(d.y2013); }
 
-    if (d.diff < 0) { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#636363;width:" + width + ";'><div class='first' style='background-color:#aaaaaa;width:" + first + ";'>" + newValue + "</div>" + oldValue + "</div><div class='pct'></div></div></div>"; }
-    else { markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='bar' style='background-color:#aaaaaa;width:" + width + ";'><div class='first' style='background-color:#636363;width:" + first + ";'>" + oldValue + "</div>" + newValue + "</div><div class='pct'></div></div></div>"; }
+    markup = "<div class='updown' style='color:" + posneg + "'>" + d3.format("+%")(pctChange) + "</div><div class='barChart'><div class='label'>" + d.description + "<div class='first' style='background-color:#636363;width:" + first + ";'>" + oldValue + "</div><div class='bar' style='background-color:#aaaaaa;width:" + width + ";'>" + newValue + "</div><div class='pct'></div></div></div>";
 
   }
     return markup;
@@ -142,4 +150,5 @@ $(".thisSwitch a").click(function()  {
 
       });
 
+});
 });
