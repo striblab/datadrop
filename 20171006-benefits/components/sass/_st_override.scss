@@ -48,7 +48,7 @@ a {
 }
 
 .holder {
-    height:440px;
+    height:220px;
     overflow-x:hidden;
     overflow-y:auto;
 }
@@ -64,8 +64,9 @@ a {
 .first {
     text-align:right;
     font-weight:bold;
-    float:left;
     padding-right:2px;
+    font-size:0.8em;
+    color:#ffffff;
 }
 
 .filter {
