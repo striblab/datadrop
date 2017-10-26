@@ -21,14 +21,16 @@ var dataAll = dataLoadAll.benefits;
 //build the scroller
 function scrollerBuild(target,type) {
 
-if (type == "All"){
+if (type == "all"){
   var thisData = dataAll;
 } else {
   var thisData = data;
 }
 
+console.log(thisData);
+
 d3.select("#" + target + " .holder").selectAll(".card")
-.data(thisData.filter(function(d) { if (type != "all") { return d.FiveYearChange == type } else { return d.FiveYearChange == "Increase" || d.FiveYearChange == "Decrease" || d.FiveYearChange == "Weird" } }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
+.data(thisData.filter(function(d) { if (type != "all") { return d.FiveYearChange == type } else { return d.FiveYearChange == "Increase" || d.FiveYearChange == "Decrease" || d.FiveYearChange == "Weird"  || d.FiveYearChange == "" } }).sort(function(a,b) { if (type == "Decrease") { return d3.ascending(a.diff, b.diff); } else { return d3.descending(a.diff, b.diff); }  })).enter().append("div")
 .attr("class",function (d) { return d.slug + " card"; })
 .html(function (d){ 
   var width = "";

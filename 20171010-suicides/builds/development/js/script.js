@@ -54,9 +54,9 @@ $("#" + selected).show();
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
-                         count: 4,
-                         // values: [0,0.03,0.06,0.09,0.12],
-                        format: d3.format('.0f')
+                         count: 5,
+                         values: [0,150,300,450,600,750],
+                         format: d3.format('.0f')
                         }
                     },
                 x: {
@@ -117,10 +117,12 @@ $("#" + selected).show();
             axis: {
                   // rotated: true,
                   y: {
+                        max: 15,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
-                        count: 5,
+                        count: 4,
+                        values: [0,5,10,15],
                         format: d3.format('.1f')
                         }
                     },
@@ -181,11 +183,12 @@ $("#" + selected).show();
             axis: {
                   // rotated: true,
                   y: {
+                        max: 5000,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
-                         count: 4,
-                         // values: [0,0.03,0.06,0.09,0.12],
+                         count: 6,
+                         values: [0,1000,2000,3000,4000,5000],
                          format: d3.format(',')
                         }
                     },
@@ -251,11 +254,12 @@ $("#" + selected).show();
             axis: {
                   // rotated: true,
                   y: {
+                        max: 20,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
                          count: 4,
-                         // values: [0,0.03,0.06,0.09,0.12],
+                         values: [0,5,10,15,20],
                          format: d3.format(',.1f')
                         }
                     },
@@ -263,7 +267,7 @@ $("#" + selected).show();
                     padding: {right: 0, left: 0},
                     tick: {
                         count: 6,
-                        values: [1981,1988,1995,2000,2007,2015],
+                        values: [1981,1988,1995,2000,2007,2016],
                         multiline: false
                     }
                 }
@@ -320,11 +324,12 @@ $("#" + selected).show();
             axis: {
                   // rotated: true,
                   y: {
+                        max: 600,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
-                         count: 4,
-                         // values: [0,0.03,0.06,0.09,0.12],
+                         count: 5,
+                         values: [0,150,300,450,600],
                          format: d3.format('.0f')
                         }
                     },
