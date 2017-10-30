@@ -32,7 +32,7 @@ var data = rows;
     var thisDistrict = "All Districts";
 
 d3.select("#listedSchools").selectAll(".district")
-  .data(data.sort(function(a,b) { return d3.ascending(a.school, b.school); }).filter(function(d) { return d.year == "16 to 17" && d.subject == "R"; })).enter().append("div")
+  .data(data.filter(function(d) { return d.year == "16 to 17" && d.subject == "R"; })).enter().append("div")
   .attr("class",function(d) { return "switch district"; })
   .attr("categoryr",function(d) { 
     var category;
