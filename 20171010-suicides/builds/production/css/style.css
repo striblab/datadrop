@@ -2204,6 +2204,8 @@ header[role="banner"] {
 
 .legendary {
   padding: 3px;
+  color: #fff;
+  font-weight: bold;
 }
 
 .chatter {
