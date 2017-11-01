@@ -172,11 +172,14 @@ p {
 
 #filter2 {
     padding: 0px !important;
+    margin-top:7px;
+    margin-bottom:7px;
 }
 
 #schoolname {
     font-weight: 900;
     font-size: 1.2em;
+    line-height: 160%;
 }
 
 p {
@@ -234,14 +237,13 @@ p {
 
 #listedSchools {
     display: block;
-    height: 369px;
+    height: 243px;
     overflow-y: auto;
-    display: none;
     z-index: 90;
 }
 
 #filter2 {
-    display:none;
+    //display:none;
 }
 
 li.district {
@@ -274,7 +276,7 @@ li.district:hover {
 .chartTitle {
     color: #000 !important;
     text-align: left;
-    font-size:1em;
+    font-size:1.5em;
 }
 
 .switch {
@@ -336,6 +338,11 @@ li.district:hover {
 
 #mobileBreak {
     display: none;
+}
+
+.category {
+    background-color:#ffffff !important;
+    color:#000000 !important;
 }
 
 @media (max-width:800px) {

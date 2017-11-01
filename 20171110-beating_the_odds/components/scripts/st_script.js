@@ -278,16 +278,16 @@ d3.select("#listedSchools").selectAll(".district")
   }
 
     $("#districtSelect").click(function() { 
-      $("#listedSchools, #filter2").slideToggle();
-      $(".directions").toggle();
+      // $("#listedSchools, #filter2").slideToggle();
+      // $(".directions").toggle();
     });
 
     $(".district").click(function() { 
-      $("#listedSchools, #filter2").slideToggle();
+      // $("#listedSchools, #filter2").slideToggle();
       $("li.district").removeClass("selected");
       $(".cell").removeClass("selected2");
       $(this).addClass("selected");
-      $(".directions").toggle();
+      // $(".directions").toggle();
       $("#thisDistrict").html($(this).text());
       // $(".switch").hide();
       // $(".switch[district='" + $(this).text() + "']").show();
@@ -445,6 +445,13 @@ dataMP = 0;
 
 var found = false;
 
+var mProf = ["M Score",null,null,null,null];
+var mPred = ["M Predicted",null,null,null,null];
+var rProf = ["R Score",null,null,null,null];
+var rPred = ["R Predicted",null,null,null,null];
+
+var shortAxis = ["x","R Score","R Precicted","M Score","M Predicted"]
+
 for (var i=0; i < data.length; i++){
   if (name == data[i].school && district == data[i].district){
     found = true;
@@ -458,6 +465,9 @@ for (var i=0; i < data.length; i++){
     
   }
 }
+
+rProf[1] = dataR[dataR.length-1]
+rPred[2] = dataRP;
 
 indexYear = 1;
 
@@ -474,6 +484,9 @@ for (var i=0; i < data.length; i++){
     
   }
 }
+
+mProf[3] = dataM[dataM.length-1]
+mPred[4] = dataMP;
 
 if (dataR.length > dataM.length) { dataM[dataM.length] = 0; }
 else if (dataR.length < dataM.length) { dataR[dataR.length] = 0; }
@@ -495,11 +508,27 @@ var chart = c3.generate({
     data: {
         x: 'x',
         columns: [
-            axis,
-            dataR,
-            dataM
+            shortAxis,
+            rProf,
+            rPred,
+            mProf,
+            mPred
         ],
-        type: 'line'
+        line: {
+         connectNull: true,
+        },
+        groups:[
+          ['M Score', 'M Predicted', 'R Score', 'R Predicted']
+        ],
+        type: 'bar',
+        labels: {
+            format: {
+              'M Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) + "%"; } },
+              'M Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
+              'R Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
+              'R Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  }
+             }
+          }
     },
     legend: {
         show: false
@@ -508,10 +537,14 @@ var chart = c3.generate({
         // show: false
         size: 4
     },
+    tooltip: {
+        show: false
+    },
+    order: null,
     transition: {
         duration: 1300
     },
-    color:  { pattern: ["#51373E","#E3B5A4"] },
+    color:  { pattern: ["#4C4C39","#858565","#BF603C","#E3B5A4"] },
     axis: {
       y: {
             max: 1,
@@ -529,17 +562,19 @@ var chart = c3.generate({
             // categories: ["'00 to '01","'01 to '02","'02 to '03","'03 to '04","'04 to '05","'05 to '06","'06 to '07","'07 to '08","'08 to '09","'09 to '10","'10 to '11","'11 to '12","'12 to '13", "'13 to '14", "'14 to '15", "'15 to '16"],
             tick: {
                 // count: 4,
-                rotate: -75,
-                multiline: false
+                // rotate: -75,
+                multiline: true
             },
-            height: 30
+            // height: 30
           }
         },
     grid: {
         y: {
-            lines: [
-                // {value: dataRP, text: ' ', position: 'start', class:'read'},
-                // {value: dataMP, text: ' ', position: 'start', class:'math'}
+             lines: [
+            //     {value: rProf, text: ' ', position: 'start', class:'read'},
+            //     {value: rPred, text: ' ', position: 'start', class:'read'},
+            //     {value: mProf, text: ' ', position: 'start', class:'read'},
+            //     {value: mPred, text: ' ', position: 'start', class:'math'}
             ]
         }
     }
@@ -547,25 +582,31 @@ var chart = c3.generate({
   });
 
 d3.select("#chart svg").append("text")
-    .attr("x", 200 )
+    .attr("x", 170 )
     .attr("y", 20)
     .attr("class","mobilekill")
     .style("text-anchor", "right")
-    .text("Proficiency change over time");
+    .text("Proficiency to predicted comparison");
 }
 
       chart.load({
                 columns: [
-                    ["Reading",0],
-                    ["Math",0]
-                ]
+                    ["R Score",null,null,null,null],
+                    ["R Predicted",null,null,null,null],
+                    ["M Score",null,null,null,null],
+                    ["M Predicted",null,null,null,null]
+                    ]
+                
       });
 
       chart.load({
                 columns: [
-                  axis,
-                  dataR,
-                  dataM
+                    shortAxis,
+                    shortAxis,
+                    rProf,
+                    rPred,
+                    mProf,
+                    mPred
                 ]
       });
 
