@@ -33,7 +33,29 @@ var data = rows;
 
 d3.select("#listedSchools").selectAll(".district")
   .data(data.filter(function(d) { return d.year == "16 to 17" && d.subject == "R"; })).enter().append("div")
-  .attr("class",function(d) { return "switch district"; })
+  .attr("class",function(d) { 
+
+    var colorCode = "";
+
+    var category;
+        for (var k=0; k < data.length; k++){
+      if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
+        category = data[k].category;
+      }
+    }
+
+    if ((category == "Better than expected") && (d.category == "Better than expected")) {
+      colorCode = "both";
+    }
+    else if (d.category == "Better than expected") {
+      colorCode = "reading";
+    } else {
+      colorCode = "math";
+    }
+
+    return "switch district " + colorCode; 
+
+  })
   .attr("categoryr",function(d) { 
     var category;
     if (d.category == "About as expected") { category = "expected"; }
@@ -150,7 +172,7 @@ d3.select("#listedSchools").selectAll(".district")
       currentDistrict = d.district;
       // $("#listedSchools").append("<li class='district'>" + currentDistrict + "</li>");
     }
-    return d.school;
+    return d.school + "<span class='hideme'>(" + currentDistrict + ")</span>";
   });
 
   function crunchStatsP(district,all){
