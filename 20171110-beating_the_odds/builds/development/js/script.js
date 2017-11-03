@@ -36,25 +36,7 @@ d3.select("#listedSchools").selectAll(".district")
   .data(data.filter(function(d) { return d.year == "16 to 17" && d.subject == "R"; })).enter().append("div")
   .attr("class",function(d) { 
 
-    var colorCode = "";
-
-    var category;
-        for (var k=0; k < data.length; k++){
-      if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
-        category = data[k].category;
-      }
-    }
-
-    if ((category == "Better than expected") && (d.category == "Better than expected")) {
-      colorCode = "both";
-    }
-    else if (d.category == "Better than expected") {
-      colorCode = "reading";
-    } else {
-      colorCode = "math";
-    }
-
-    return "switch district " + colorCode; 
+    return "switch district"; 
 
   })
   .attr("categoryr",function(d) { 
@@ -97,75 +79,75 @@ d3.select("#listedSchools").selectAll(".district")
     // $("#minority").removeClass('gray4');
     // $("#minority").removeClass('gray3');
     // $("#minority").removeClass('gray2');
-    // $("#minority").removeClass('gray1');
-    $("#poverty,#freelunch").removeClass('gray5');
-    $("#poverty,#freelunch").removeClass('gray4');
-    $("#poverty,#freelunch").removeClass('gray3');
-    $("#poverty,#freelunch").removeClass('gray2');
-    $("#poverty,#freelunch").removeClass('gray1');
-    $("#categoryR,#categoryM").removeClass('better');
-    $("#categoryR,#categoryM").removeClass('worse');
-    $("#categoryR,#categoryM").removeClass('expected');
-    $("#categoryR,#categoryM").removeClass('nan');
+    // // $("#minority").removeClass('gray1');
+    // $("#poverty,#freelunch").removeClass('gray5');
+    // $("#poverty,#freelunch").removeClass('gray4');
+    // $("#poverty,#freelunch").removeClass('gray3');
+    // $("#poverty,#freelunch").removeClass('gray2');
+    // $("#poverty,#freelunch").removeClass('gray1');
+    // $("#categoryR,#categoryM").removeClass('better');
+    // $("#categoryR,#categoryM").removeClass('worse');
+    // $("#categoryR,#categoryM").removeClass('expected');
+    // $("#categoryR,#categoryM").removeClass('nan');
 
-    switchChart(d.school,d.district);
+    // switchChart(d.school,d.district);
 
-    for (var k=0; k < data.length; k++){
-      if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
-        $("#categoryM").html(data[k].category);
-        $("#categoryR").html(d.category);
-        $("#mPCT").html(d3.format("%")(data[k].profpct) + " proficiency");
-        $("#rPCT").html(d3.format("%")(d.profpct) + " proficiency");
-        $("#mPCTP").html(d3.format("%")(data[k].predicted) + " predicted");
-        $("#rPCTP").html(d3.format("%")(d.predicted) + " predicted");
-        if (data[k].category == "About as expected") { gradeShade2 = "expected"; }
-        if (data[k].category == "Falling short") { gradeShade2 = "worse"; }
-        if (data[k].category == "Better than expected") { gradeShade2 = "better"; }
-        if (data[k].category == "Not enough students tested") { gradeShade2 = "nan"; }
-      }
-    }
+    // for (var k=0; k < data.length; k++){
+    //   if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
+    //     $("#categoryM").html(data[k].category);
+    //     $("#categoryR").html(d.category);
+    //     $("#mPCT").html(d3.format("%")(data[k].profpct) + " proficiency");
+    //     $("#rPCT").html(d3.format("%")(d.profpct) + " proficiency");
+    //     $("#mPCTP").html(d3.format("%")(data[k].predicted) + " predicted");
+    //     $("#rPCTP").html(d3.format("%")(d.predicted) + " predicted");
+    //     if (data[k].category == "About as expected") { gradeShade2 = "expected"; }
+    //     if (data[k].category == "Falling short") { gradeShade2 = "worse"; }
+    //     if (data[k].category == "Better than expected") { gradeShade2 = "better"; }
+    //     if (data[k].category == "Not enough students tested") { gradeShade2 = "nan"; }
+    //   }
+    // }
 
-    var freelunchPCT = d.freelunch / d.enrollment;
+    // var freelunchPCT = d.freelunch / d.enrollment;
 
-    if (freelunchPCT >= .70) { lunchShade = "gray5"; }
-    else if (freelunchPCT >= .50) { lunchShade = "gray4"; }
-    else if (freelunchPCT >= .40) { lunchShade = "gray3"; }
-    else if (freelunchPCT >= .20) { lunchShade = "gray2"; }
-    else if (freelunchPCT >= 0) { lunchShade = "gray1"; }
+    // if (freelunchPCT >= .70) { lunchShade = "gray5"; }
+    // else if (freelunchPCT >= .50) { lunchShade = "gray4"; }
+    // else if (freelunchPCT >= .40) { lunchShade = "gray3"; }
+    // else if (freelunchPCT >= .20) { lunchShade = "gray2"; }
+    // else if (freelunchPCT >= 0) { lunchShade = "gray1"; }
 
-    if (d.minoritypct >= .70) { raceShade = "gray5"; }
-    else if (d.minoritypct >= .50) { raceShade = "gray4"; }
-    else if (d.minoritypct >= .40) { raceShade = "gray3"; }
-    else if (d.minoritypct >= .20) { raceShade = "gray2"; }
-    else if (d.minoritypct >= 0) { raceShade = "gray1"; }
+    // if (d.minoritypct >= .70) { raceShade = "gray5"; }
+    // else if (d.minoritypct >= .50) { raceShade = "gray4"; }
+    // else if (d.minoritypct >= .40) { raceShade = "gray3"; }
+    // else if (d.minoritypct >= .20) { raceShade = "gray2"; }
+    // else if (d.minoritypct >= 0) { raceShade = "gray1"; }
 
-    if (d.povertypct >= .70) { povShade = "gray5"; }
-    else if (d.povertypct >= .50) { povShade = "gray4"; }
-    else if (d.povertypct >= .40) { povShade = "gray3"; }
-    else if (d.povertypct >= .20) { povShade = "gray2"; }
-    else if (d.povertypct >= 0) { povShade = "gray1"; }
+    // if (d.povertypct >= .70) { povShade = "gray5"; }
+    // else if (d.povertypct >= .50) { povShade = "gray4"; }
+    // else if (d.povertypct >= .40) { povShade = "gray3"; }
+    // else if (d.povertypct >= .20) { povShade = "gray2"; }
+    // else if (d.povertypct >= 0) { povShade = "gray1"; }
 
-    if (d.category == "About as expected") { gradeShade = "expected"; }
-    if (d.category == "Falling short") { gradeShade = "worse"; }
-    if (d.category == "Better than expected") { gradeShade = "better"; }
-    if (d.category == "Not enough students tested") { gradeShade = "nan"; }
+    // if (d.category == "About as expected") { gradeShade = "expected"; }
+    // if (d.category == "Falling short") { gradeShade = "worse"; }
+    // if (d.category == "Better than expected") { gradeShade = "better"; }
+    // if (d.category == "Not enough students tested") { gradeShade = "nan"; }
 
-    $("#schoolname").html(d.school);
-    $("#district").html(d.district);
-    $("#enrolled").html(d3.format(",")(d.enrollment));
-    $("#type").html(d.type);
-    $("#location").html(" (" + d.location + ")");
-    $("#category").html(d.category);
-    $("#freelunch").html(d3.format("%")(freelunchPCT));
-    $("#poverty").html(d3.format("%")(d.povertypct));
-    // $("#povertycat").html(d.povertycat);
-    $("#minority").html(d3.format("%")(d.minoritypct));
+    // $("#schoolname").html(d.school);
+    // $("#district").html(d.district);
+    // $("#enrolled").html(d3.format(",")(d.enrollment));
+    // $("#type").html(d.type);
+    // $("#location").html(" (" + d.location + ")");
+    // $("#category").html(d.category);
+    // $("#freelunch").html(d3.format("%")(freelunchPCT));
+    // $("#poverty").html(d3.format("%")(d.povertypct));
+    // // $("#povertycat").html(d.povertycat);
+    // $("#minority").html(d3.format("%")(d.minoritypct));
 
-    $("#freelunch").addClass(lunchShade);
-    // $("#minority").addClass(raceShade);
-    $("#poverty").addClass(povShade);
-    $("#categoryR").addClass(gradeShade);
-    $("#categoryM").addClass(gradeShade2);
+    // $("#freelunch").addClass(lunchShade);
+    // // $("#minority").addClass(raceShade);
+    // $("#poverty").addClass(povShade);
+    // $("#categoryR").addClass(gradeShade);
+    // $("#categoryM").addClass(gradeShade2);
 
   })
   .html(function(d){ 
@@ -173,7 +155,26 @@ d3.select("#listedSchools").selectAll(".district")
       currentDistrict = d.district;
       // $("#listedSchools").append("<li class='district'>" + currentDistrict + "</li>");
     }
-    return d.school + "<span class='hideme'>(" + currentDistrict + ")</span>";
+
+    var colorCode = "";
+
+    var category;
+        for (var k=0; k < data.length; k++){
+      if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
+        category = data[k].category;
+      }
+    }
+
+    if ((category == "Better than expected") && (d.category == "Better than expected")) {
+      colorCode = "both";
+    }
+    else if (d.category == "Better than expected") {
+      colorCode = "reading";
+    } else {
+      colorCode = "math";
+    }
+
+    return "<div class='schoolName " + colorCode + "''>" + d.school + "</div><div class='districtName'>" + currentDistrict + " (" + d.county + ")</div><div class='bigPCT'>READING</div><div class='bigPCT'>MATH</div><div class='category' id='categoryR'>" + d.category + "</div><div class='category' id='categoryM'>" + category + "</div><div class='bigPCT' id='rPCT'>" + d3.format("%")(switchChart(d.school,d.district)[1][1]) + " proficiency</div><div class='bigPCT' id='mPCT'>" + d3.format("%")(switchChart(d.school,d.district)[2][1]) + " proficiency</div><div class='bigPCT' id='rPCTP'>" + d3.format("%")(switchChart(d.school,d.district)[0][1]) + " predicted</div><div class='bigPCT' id='mPCTP'>"  + d3.format("%")(switchChart(d.school,d.district)[3][1]) +  " predicted</div>";
   });
 
   function crunchStatsP(district,all){
@@ -336,92 +337,92 @@ d3.select("#listedSchools").selectAll(".district")
        });
     });
 
-    $(".switch").click(function()  { 
-       $(".switch").removeClass("selected");
-       $(this).addClass("selected");
-       $("#instructions").hide();
-       $("#infobox,#chart,#chartLabel").show();
-       // map.flyTo({ center: [$(this).attr("longitude"),$(this).attr("latitude")], zoom: 9 });
-    });
+    // $(".switch").click(function()  { 
+    //    $(".switch").removeClass("selected");
+    //    $(this).addClass("selected");
+    //    $("#instructions").hide();
+    //    $("#infobox,#chart,#chartLabel").show();
+    //    // map.flyTo({ center: [$(this).attr("longitude"),$(this).attr("latitude")], zoom: 9 });
+    // });
 
-    $("#infobox,#chart,#chartLabel").hide();
-    $("#instructions").show();
-    $("#schoolname").html(data[4].school);
-    $("#district").html(data[4].district);
-    $("#enrolled").html(data[4].enrollment);
-    $("#freelunch").html(d3.format("%")(data[4].freelunch / data[4].enrollment));
-    $("#type").html(data[4].type);
-    $("#location").html(" (" + data[4].location + ")");
-    $("#categoryR").html(data[4].category);
-    $("#categoryM").html(data[5].category);
-    $("#poverty").html(d3.format("%")(data[4].povertypct));
-    $("#povertycat").html(data[4].povertycat);
-    $("#minority").html(d3.format("%")(data[4].minoritypct));
-    // $("#minority").addClass("gray1");
-    $("#poverty").addClass("gray3");
-    $("#freelunch").addClass("gray3");
-    $("#categoryR,#categoryM").addClass("better");
-    $("#mPCT").html(d3.format("%")(data[4].profpct) + " proficiency");
-    $("#rPCT").html(d3.format("%")(data[5].profpct) + " proficiency");
-    $("#mPCTP").html(d3.format("%")(data[4].predicted) + " predicted");
-    $("#rPCTP").html(d3.format("%")(data[5].predicted) + " predicted");
-    crunchStatsP("",true);
-    crunchStatsM("",true);
-    crunchStatsR("",true);
+    // $("#infobox,#chart,#chartLabel").hide();
+    // $("#instructions").show();
+    // $("#schoolname").html(data[4].school);
+    // $("#district").html(data[4].district);
+    // $("#enrolled").html(data[4].enrollment);
+    // $("#freelunch").html(d3.format("%")(data[4].freelunch / data[4].enrollment));
+    // $("#type").html(data[4].type);
+    // $("#location").html(" (" + data[4].location + ")");
+    // $("#categoryR").html(data[4].category);
+    // $("#categoryM").html(data[5].category);
+    // $("#poverty").html(d3.format("%")(data[4].povertypct));
+    // $("#povertycat").html(data[4].povertycat);
+    // $("#minority").html(d3.format("%")(data[4].minoritypct));
+    // // $("#minority").addClass("gray1");
+    // $("#poverty").addClass("gray3");
+    // $("#freelunch").addClass("gray3");
+    // $("#categoryR,#categoryM").addClass("better");
+    // $("#mPCT").html(d3.format("%")(data[4].profpct) + " proficiency");
+    // $("#rPCT").html(d3.format("%")(data[5].profpct) + " proficiency");
+    // $("#mPCTP").html(d3.format("%")(data[4].predicted) + " predicted");
+    // $("#rPCTP").html(d3.format("%")(data[5].predicted) + " predicted");
+    // crunchStatsP("",true);
+    // crunchStatsM("",true);
+    // crunchStatsR("",true);
 
-    $(".zoom").on("click keyup search", function() {
-        thisDistrict = "All Districts"
-        $("#infobox,#chart,#chartLabel").hide();
-        $("#instructions").show();
-        $(".switch, li.district").removeClass("selected");
-        $(".switch").show();
-        $("li.district").show();
-        $("#listedSchools").hide();
-        $("#thisDistrict").html("All Districts");
-        $('#schoolsList').animate({scrollTop : 0},800);
-        $('#listedSchools').animate({scrollTop : 0},800);
-        $("#filter input, #filter2 input").val("");
-        $("#enrolled").html(data[4].enrollment);
-        // $("#minority").removeClass('gray5');
-        // $("#minority").removeClass('gray4');
-        // $("#minority").removeClass('gray3');
-        // $("#minority").removeClass('gray2');
-        // $("#minority").removeClass('gray1');
-        $("#poverty,#freelunch").removeClass('gray5');
-        $("#poverty,#freelunch").removeClass('gray4');
-        $("#poverty,#freelunch").removeClass('gray3');
-        $("#poverty,#freelunch").removeClass('gray2');
-        $("#poverty,#freelunch").removeClass('gray1');
-        $("#categoryR,#categoryM").removeClass('better');
-        $("#categoryR,#categoryM").removeClass('worse');
-        $("#categoryR,#categoryM").removeClass('expected');
-        $("#categoryR,#categoryM").removeClass('nan');
-        $("#mPCT").html("75% math proficiency");
-        $("#rPCT").html("65% reading proficiency");
-        $("#mPCTP").html("57% predicted");
-        $("#rPCTP").html("54% predicted");
-        $("#categoryR").html(data[4].category);
-        $("#categoryM").html(data[5].category);
-        $("#schoolname").html(data[4].school);
-        $("#district").html(data[4].district);
-        $("#type").html(data[4].type);
-        $("#location").html(" (" + data[0].location + ")");
-        $("#category").html(data[4].category);
-        $("#poverty").html(d3.format("%")(data[4].povertypct));
-        $("#povertycat").html(data[4].povertycat);
-        $("#minority").html(d3.format("%")(data[4].minoritypct));
-        // $("#minority").addClass("gray1");
-        $("#freelunch").addClass("gray3");
-        $("#poverty").addClass("gray3");
-        crunchStatsP("",true);
-        crunchStatsM("",true);
-        crunchStatsR("",true);
-        $("#categoryR,#categoryM").addClass("better");
-        $(".cell").removeClass("selected2");
-        switchChart("A.C.G.C. SECONDARY");
-        // $(".switch:first").addClass("selected");
-    return false;
-    });
+    // $(".zoom").on("click keyup search", function() {
+    //     thisDistrict = "All Districts"
+    //     $("#infobox,#chart,#chartLabel").hide();
+    //     $("#instructions").show();
+    //     $(".switch, li.district").removeClass("selected");
+    //     $(".switch").show();
+    //     $("li.district").show();
+    //     $("#listedSchools").hide();
+    //     $("#thisDistrict").html("All Districts");
+    //     $('#schoolsList').animate({scrollTop : 0},800);
+    //     $('#listedSchools').animate({scrollTop : 0},800);
+    //     $("#filter input, #filter2 input").val("");
+    //     $("#enrolled").html(data[4].enrollment);
+    //     // $("#minority").removeClass('gray5');
+    //     // $("#minority").removeClass('gray4');
+    //     // $("#minority").removeClass('gray3');
+    //     // $("#minority").removeClass('gray2');
+    //     // $("#minority").removeClass('gray1');
+    //     $("#poverty,#freelunch").removeClass('gray5');
+    //     $("#poverty,#freelunch").removeClass('gray4');
+    //     $("#poverty,#freelunch").removeClass('gray3');
+    //     $("#poverty,#freelunch").removeClass('gray2');
+    //     $("#poverty,#freelunch").removeClass('gray1');
+    //     $("#categoryR,#categoryM").removeClass('better');
+    //     $("#categoryR,#categoryM").removeClass('worse');
+    //     $("#categoryR,#categoryM").removeClass('expected');
+    //     $("#categoryR,#categoryM").removeClass('nan');
+    //     $("#mPCT").html("75% math proficiency");
+    //     $("#rPCT").html("65% reading proficiency");
+    //     $("#mPCTP").html("57% predicted");
+    //     $("#rPCTP").html("54% predicted");
+    //     $("#categoryR").html(data[4].category);
+    //     $("#categoryM").html(data[5].category);
+    //     $("#schoolname").html(data[4].school);
+    //     $("#district").html(data[4].district);
+    //     $("#type").html(data[4].type);
+    //     $("#location").html(" (" + data[0].location + ")");
+    //     $("#category").html(data[4].category);
+    //     $("#poverty").html(d3.format("%")(data[4].povertypct));
+    //     $("#povertycat").html(data[4].povertycat);
+    //     $("#minority").html(d3.format("%")(data[4].minoritypct));
+    //     // $("#minority").addClass("gray1");
+    //     $("#freelunch").addClass("gray3");
+    //     $("#poverty").addClass("gray3");
+    //     crunchStatsP("",true);
+    //     crunchStatsM("",true);
+    //     crunchStatsR("",true);
+    //     $("#categoryR,#categoryM").addClass("better");
+    //     $(".cell").removeClass("selected2");
+    //     // switchChart("A.C.G.C. SECONDARY");
+    //     // $(".switch:first").addClass("selected");
+    // return false;
+    // });
 
 
 
@@ -468,7 +469,7 @@ for (var i=0; i < data.length; i++){
 }
 
 rProf[1] = dataR[dataR.length-1]
-rPred[2] = dataRP;
+rPred[1] = dataRP;
 
 indexYear = 1;
 
@@ -486,135 +487,138 @@ for (var i=0; i < data.length; i++){
   }
 }
 
-mProf[3] = dataM[dataM.length-1]
-mPred[4] = dataMP;
+mProf[1] = dataM[dataM.length-1]
+mPred[1] = dataMP;
 
 if (dataR.length > dataM.length) { dataM[dataM.length] = 0; }
 else if (dataR.length < dataM.length) { dataR[dataR.length] = 0; }
 
-if (found == true){
+// if (found == true){
 
-var  padding = {
-        top: 20,
-        right: 60,
-        bottom: 20,
-        left: 70,
-    };
+// var  padding = {
+//         top: 20,
+//         right: 60,
+//         bottom: 20,
+//         left: 70,
+//     };
 
-var share = "#B0BEC5";
+// var share = "#B0BEC5";
 
-var chart = c3.generate({
-        bindto: '#chart',
-        padding: padding,
-    data: {
-        x: 'x',
-        columns: [
-            shortAxis,
-            rProf,
-            rPred,
-            mProf,
-            mPred
-        ],
-        line: {
-         connectNull: true,
-        },
-        groups:[
-          ['M Score', 'M Predicted', 'R Score', 'R Predicted']
-        ],
-        type: 'bar',
-        labels: {
-            format: {
-              'M Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) + "%"; } },
-              'M Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
-              'R Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
-              'R Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  }
-             }
-          }
-    },
-    legend: {
-        show: false
-    },
-    point: {
-        // show: false
-        size: 4
-    },
-    tooltip: {
-        show: false
-    },
-    order: null,
-    transition: {
-        duration: 1300
-    },
-    color:  { pattern: ["#4C4C39","#858565","#BF603C","#E3B5A4"] },
-    axis: {
-      y: {
-            max: 1,
-            min: 0,
-            padding: {bottom: 0, top:0},
-            tick: {
-             count: 5,
-             format: d3.format('%'),
-             values: [0,0.25,0.50,0.75,1]
-            }
-        },
-        x: {
-            type: "category",
-            // categories: ["'12 to '13", "'13 to '14", "'14 to '15", "'15 to '16"],
-            // categories: ["'00 to '01","'01 to '02","'02 to '03","'03 to '04","'04 to '05","'05 to '06","'06 to '07","'07 to '08","'08 to '09","'09 to '10","'10 to '11","'11 to '12","'12 to '13", "'13 to '14", "'14 to '15", "'15 to '16"],
-            tick: {
-                // count: 4,
-                // rotate: -75,
-                multiline: true
-            },
-            // height: 30
-          }
-        },
-    grid: {
-        y: {
-             lines: [
-            //     {value: rProf, text: ' ', position: 'start', class:'read'},
-            //     {value: rPred, text: ' ', position: 'start', class:'read'},
-            //     {value: mProf, text: ' ', position: 'start', class:'read'},
-            //     {value: mPred, text: ' ', position: 'start', class:'math'}
-            ]
-        }
-    }
+// var chart = c3.generate({
+//         bindto: '#chart',
+//         padding: padding,
+//     data: {
+//         x: 'x',
+//         columns: [
+//             shortAxis,
+//             rProf,
+//             rPred,
+//             mProf,
+//             mPred
+//         ],
+//         line: {
+//          connectNull: true,
+//         },
+//         groups:[
+//           ['M Score', 'M Predicted', 'R Score', 'R Predicted']
+//         ],
+//         type: 'bar',
+//         labels: {
+//             format: {
+//               'M Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) + "%"; } },
+//               'M Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
+//               'R Score': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  },
+//               'R Predicted': function (v, id, i, j) { if (v != null) { return Math.round(v * 100) +  "%"; }  }
+//              }
+//           }
+//     },
+//     legend: {
+//         show: false
+//     },
+//     point: {
+//         // show: false
+//         size: 4
+//     },
+//     tooltip: {
+//         show: false
+//     },
+//     order: null,
+//     transition: {
+//         duration: 1300
+//     },
+//     color:  { pattern: ["#4C4C39","#858565","#BF603C","#E3B5A4"] },
+//     axis: {
+//       y: {
+//             max: 1,
+//             min: 0,
+//             padding: {bottom: 0, top:0},
+//             tick: {
+//              count: 5,
+//              format: d3.format('%'),
+//              values: [0,0.25,0.50,0.75,1]
+//             }
+//         },
+//         x: {
+//             type: "category",
+//             // categories: ["'12 to '13", "'13 to '14", "'14 to '15", "'15 to '16"],
+//             // categories: ["'00 to '01","'01 to '02","'02 to '03","'03 to '04","'04 to '05","'05 to '06","'06 to '07","'07 to '08","'08 to '09","'09 to '10","'10 to '11","'11 to '12","'12 to '13", "'13 to '14", "'14 to '15", "'15 to '16"],
+//             tick: {
+//                 // count: 4,
+//                 // rotate: -75,
+//                 multiline: true
+//             },
+//             // height: 30
+//           }
+//         },
+//     grid: {
+//         y: {
+//              lines: [
+//             //     {value: rProf, text: ' ', position: 'start', class:'read'},
+//             //     {value: rPred, text: ' ', position: 'start', class:'read'},
+//             //     {value: mProf, text: ' ', position: 'start', class:'read'},
+//             //     {value: mPred, text: ' ', position: 'start', class:'math'}
+//             ]
+//         }
+//     }
 
-  });
+//   });
 
-d3.select("#chart svg").append("text")
-    .attr("x", 170 )
-    .attr("y", 20)
-    .attr("class","mobilekill")
-    .style("text-anchor", "right")
-    .text("Proficiency to predicted comparison");
-}
+// d3.select("#chart svg").append("text")
+//     .attr("x", 170 )
+//     .attr("y", 20)
+//     .attr("class","mobilekill")
+//     .style("text-anchor", "right")
+//     .text("Proficiency to predicted comparison");
+// }
 
-      chart.load({
-                columns: [
-                    ["R Score",null,null,null,null],
-                    ["R Predicted",null,null,null,null],
-                    ["M Score",null,null,null,null],
-                    ["M Predicted",null,null,null,null]
-                    ]
+//       chart.load({
+//                 columns: [
+//                     ["R Score",null,null,null,null],
+//                     ["R Predicted",null,null,null,null],
+//                     ["M Score",null,null,null,null],
+//                     ["M Predicted",null,null,null,null]
+//                     ]
                 
-      });
+//       });
 
-      chart.load({
-                columns: [
-                    shortAxis,
-                    shortAxis,
-                    rProf,
-                    rPred,
-                    mProf,
-                    mPred
-                ]
-      });
+//       chart.load({
+//                 columns: [
+//                     shortAxis,
+//                     rProf,
+//                     rPred,
+//                     mProf,
+//                     mPred
+//                 ]
+//       });
+
+      var resultsArray = [rProf, rPred, mProf, mPred];
+
+      return resultsArray;
 
 }
 
-switchChart("A.C.G.C. SECONDARY");
-$('.switch').first().addClass("selected");
+// switchChart("A.C.G.C. SECONDARY");
+// $('.switch').first().addClass("selected");
 
 });
       
