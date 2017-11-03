@@ -36,7 +36,25 @@ d3.select("#listedSchools").selectAll(".district")
   .data(data.filter(function(d) { return d.year == "16 to 17" && d.subject == "R"; })).enter().append("div")
   .attr("class",function(d) { 
 
-    return "switch district"; 
+    var colorCode = "";
+
+    var category;
+        for (var k=0; k < data.length; k++){
+      if (data[k].school == d.school && data[k].district == d.district && data[k].subject == "M" && data[k].year == "16 to 17"){
+        category = data[k].category;
+      }
+    }
+
+    if ((category == "Better than expected") && (d.category == "Better than expected")) {
+      colorCode = "bothScores";
+    }
+    else if (d.category == "Better than expected") {
+      colorCode = "readingScores";
+    } else {
+      colorCode = "mathScores";
+    }
+
+    return "switch district " + colorCode; 
 
   })
   .attr("categoryr",function(d) { 
@@ -370,59 +388,18 @@ d3.select("#listedSchools").selectAll(".district")
     // crunchStatsM("",true);
     // crunchStatsR("",true);
 
-    // $(".zoom").on("click keyup search", function() {
-    //     thisDistrict = "All Districts"
-    //     $("#infobox,#chart,#chartLabel").hide();
-    //     $("#instructions").show();
-    //     $(".switch, li.district").removeClass("selected");
-    //     $(".switch").show();
-    //     $("li.district").show();
-    //     $("#listedSchools").hide();
-    //     $("#thisDistrict").html("All Districts");
-    //     $('#schoolsList').animate({scrollTop : 0},800);
-    //     $('#listedSchools').animate({scrollTop : 0},800);
-    //     $("#filter input, #filter2 input").val("");
-    //     $("#enrolled").html(data[4].enrollment);
-    //     // $("#minority").removeClass('gray5');
-    //     // $("#minority").removeClass('gray4');
-    //     // $("#minority").removeClass('gray3');
-    //     // $("#minority").removeClass('gray2');
-    //     // $("#minority").removeClass('gray1');
-    //     $("#poverty,#freelunch").removeClass('gray5');
-    //     $("#poverty,#freelunch").removeClass('gray4');
-    //     $("#poverty,#freelunch").removeClass('gray3');
-    //     $("#poverty,#freelunch").removeClass('gray2');
-    //     $("#poverty,#freelunch").removeClass('gray1');
-    //     $("#categoryR,#categoryM").removeClass('better');
-    //     $("#categoryR,#categoryM").removeClass('worse');
-    //     $("#categoryR,#categoryM").removeClass('expected');
-    //     $("#categoryR,#categoryM").removeClass('nan');
-    //     $("#mPCT").html("75% math proficiency");
-    //     $("#rPCT").html("65% reading proficiency");
-    //     $("#mPCTP").html("57% predicted");
-    //     $("#rPCTP").html("54% predicted");
-    //     $("#categoryR").html(data[4].category);
-    //     $("#categoryM").html(data[5].category);
-    //     $("#schoolname").html(data[4].school);
-    //     $("#district").html(data[4].district);
-    //     $("#type").html(data[4].type);
-    //     $("#location").html(" (" + data[0].location + ")");
-    //     $("#category").html(data[4].category);
-    //     $("#poverty").html(d3.format("%")(data[4].povertypct));
-    //     $("#povertycat").html(data[4].povertycat);
-    //     $("#minority").html(d3.format("%")(data[4].minoritypct));
-    //     // $("#minority").addClass("gray1");
-    //     $("#freelunch").addClass("gray3");
-    //     $("#poverty").addClass("gray3");
-    //     crunchStatsP("",true);
-    //     crunchStatsM("",true);
-    //     crunchStatsR("",true);
-    //     $("#categoryR,#categoryM").addClass("better");
-    //     $(".cell").removeClass("selected2");
-    //     // switchChart("A.C.G.C. SECONDARY");
-    //     // $(".switch:first").addClass("selected");
-    // return false;
-    // });
+    $(".zoom").on("click keyup search", function() {
+        $(".switch").show();
+        $("li.district").show();
+        $('#listedSchools').animate({scrollTop : 0},800);
+    return false;
+    });
+
+    $(".legendary").on("click", function() {
+        $(".switch").hide();
+        $("li.district").hide();
+        $("." + $(this).attr("data")).show();
+    });
 
 
 
