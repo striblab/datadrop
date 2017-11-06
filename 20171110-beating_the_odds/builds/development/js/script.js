@@ -192,7 +192,7 @@ d3.select("#listedSchools").selectAll(".district")
       colorCode = "math";
     }
 
-    return "<div class='schoolName " + colorCode + "''>" + d.school + "</div><div class='districtName'>" + currentDistrict + " (" + d.county + ")</div><div class='bigPCT'>READING</div><div class='bigPCT'>MATH</div><div class='category' id='categoryR'>" + d.category + "</div><div class='category' id='categoryM'>" + category + "</div><div class='bigPCT' id='rPCT'>" + d3.format("%")(switchChart(d.school,d.district)[1][1]) + " proficiency</div><div class='bigPCT' id='mPCT'>" + d3.format("%")(switchChart(d.school,d.district)[2][1]) + " proficiency</div><div class='bigPCT' id='rPCTP'>" + d3.format("%")(switchChart(d.school,d.district)[0][1]) + " predicted</div><div class='bigPCT' id='mPCTP'>"  + d3.format("%")(switchChart(d.school,d.district)[3][1]) +  " predicted</div>";
+    return "<div class='schoolName " + colorCode + "''>" + d.school + "</div><div class='districtName'>" + currentDistrict + " (" + d.county + ")</div><div class='bigPCT titles'>Reading <span id='categoryR'>" + d.category + "</span></div><div class='bigPCT titles'>Math <span id='categoryM'>" + category + "</span></div><div class='bigPCT' id='rPCT'>" + d3.format("%")(switchChart(d.school,d.district)[1][1]) + " proficiency</div><div class='bigPCT' id='mPCT'>" + d3.format("%")(switchChart(d.school,d.district)[2][1]) + " proficiency</div><div class='bigPCT' id='rPCTP'>" + d3.format("%")(switchChart(d.school,d.district)[0][1]) + " predicted</div><div class='bigPCT' id='mPCTP'>"  + d3.format("%")(switchChart(d.school,d.district)[3][1]) +  " predicted</div>";
   });
 
   function crunchStatsP(district,all){
