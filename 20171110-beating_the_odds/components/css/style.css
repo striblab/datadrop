@@ -1909,17 +1909,33 @@ p {
   font-weight: bold;
 }
 
-.math {
+.mathScores {
   background-color: #BF603C !important;
   color: #ffffff !important;
 }
 
-.reading {
+.reading.legendary {
+  background-color: #4C4C39 !important;
+}
+
+.math.legendary {
+  background-color: #BF603C !important;
+}
+
+.both.legendary {
+  background-color: #59A897 !important;
+}
+
+.math, .reading, .both {
+  background-color: inherit !important;
+}
+
+.readingScores {
   background-color: #4C4C39 !important;
   color: #ffffff !important;
 }
 
-.both {
+.bothScores {
   background-color: #59A897 !important;
   color: #ffffff !important;
 }
@@ -2133,16 +2149,6 @@ li.district {
   font-size: .8em;
 }
 
-.switch:hover,
-.selected,
-.step:hover {
-  opacity: 1;
-  color: #000000 !important;
-  background-color: #ffffff !important;
-  margin: 0 !important;
-  cursor: default !important;
-}
-
 .cell {
   display: inline-block;
   width: 32.5%;
@@ -2177,11 +2183,6 @@ li.district {
 
 #mobileBreak {
   display: none;
-}
-
-.category {
-  background-color: #ffffff !important;
-  color: #000000 !important;
 }
 
 @media (max-width: 800px) {
@@ -2241,4 +2242,58 @@ li.district {
     padding: 0;
     margin-top: 30px;
   }
+}
+/*Rahul's Edits */
+.switch {
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px !important;
+}
+
+.schoolName {
+  font-size: 16px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.districtName {
+  margin-bottom: 5px;
+  margin-top: -10px;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.bigPCT {
+  font-size: 14px;
+  margin-bottom: 2px;
+  letter-spacing: 0.75px;
+}
+
+.bigPCT, .category {
+  width: 50%;
+}
+
+div#rPCT, div#mPCT {
+  margin-bottom: 0px;
+}
+
+.category {
+  font-weight: 100;
+}
+
+#rPCT, #mPCT, #rPCTP, #mPCTP {
+  font-weight: 100;
+  font-size: 13px;
+  letter-spacing: 0px;
+}
+
+span#categoryM, span#categoryR {
+  margin-left: 0px;
+  font-weight: 100;
+  font-size: 13px;
+  letter-spacing: 0px;
+}
+
+ul#listedSchools {
+  border: 2px solid #EEE;
 }
