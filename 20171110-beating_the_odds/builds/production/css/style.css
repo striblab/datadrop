@@ -834,13 +834,6 @@ text {
   margin-top: 4px;
 }
 
-.switch:hover, .selected {
-  background-color: #333 !important;
-  color: #fff !important;
-  cursor: pointer;
-  margin-bottom: 4px;
-}
-
 /*SECONDARY TOGGLE BUTTONS*/
 .myButton_ {
   background-color: #8B2219;
