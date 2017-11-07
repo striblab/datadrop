@@ -27,6 +27,10 @@
   width:100%;
 }
 
+#counter {
+  text-align:center;
+}
+
 .right {
   float:right;
   font-weight:900;
@@ -52,6 +56,9 @@ svg text {
   font-size:0.5em !important;
   stroke: #000000 !important;
   fill: #ffffff !important;
+  pointer-events:none !important;
+  opacity:0.5;
+  font-weight:normal !important;
 }
 
 #year {
