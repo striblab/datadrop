@@ -25,7 +25,7 @@ var data = dataLoad.cohorts;
 var year = 2016;
 
 //responsive svg
-var aspect = 500 / 500, chart2 = $("#vennSVG"); //, chart2 = $(".carto svg")
+var aspect = 600 / 500, chart2 = $("#vennSVG"); //, chart2 = $(".carto svg")
   var targetWidth = $("#venn").width();
   chart2.attr("width", targetWidth);
   chart2.attr("height", targetWidth / aspect);
@@ -89,8 +89,6 @@ function makeSets(year){
       ww2 = data[i].WWII_Total;
       ww2PCT = (data[i].WWII_Total / total) * 100;
 
-      console.log(ww2 + " " + ww2PCT)
-
       kw = data[i].Korean_Total;
       kwPCT = (data[i].Korean_Total / total) * 100;
 
@@ -122,7 +120,8 @@ function makeSets(year){
       pw2kPCT = (data[i].OL_WWII_KC / total) * 100;
 
       w2pkv = data[i].OL_WWII_KC_Viet;
-      w2pkvPCT = (data[i].OL_WWII_KC_Viet / total) * 100;
+      w2pkvPCT = ((data[i].OL_WWII_KC_Viet / total) * 100);
+
 
       kwvw = data[i].OL_WWII_KC_Viet;
       kwvwPCT = (data[i].OL_WWII_KC_Viet / total) * 100;
@@ -135,26 +134,30 @@ function makeSets(year){
 
       gw911 = data[i].OL_GulfPre_GulfPost;
       gw911PCT = (data[i].OL_GulfPre_GulfPost / total) * 100;
+
+      console.log(gwp911PCT + " " + w2pkvPCT)
     }
+
+    $("#count").html(d3.format(",")(total));
   }
 
   var sets = [
-   {sets:["World War II"], figure: ww2, label: "World War II", size: ww2PCT, type:"war"},
-   {sets:["Korean War"], figure: kw, label: "Korean War", size: kwPCT, type:"war"},
-   {sets:["Vietnam War"], figure: vw, label: "Vietnam War", size: vwPCT, type:"war"},
-   {sets:["Gulf War"], figure: gw, label: "Gulf War", size: gwPCT, type:"war"},
-   {sets:["Post 9/11 Wars"], figure: p911, label: "Post 9/11 Wars", size: p911PCT, type:"war"},
-   {sets:["World War II","Korean War"], figure: pw2k, label: "World War II and Korean War", size: pw2kPCT, type:"war"},
-   {sets:["World War II","Korean War","Vietnam War"], figure: w2pkv, label: "World War II, Korean War and Vietnam War", size: w2pkvPCT, type:"war"},
-   {sets:["Korean War","Vietnam War"], figure: kwvw, label: "Korean War and Vietnam War", size: kwvwPCT, type:"war"},
-   {sets:["Vietnam War", "Gulf War"], figure: vwgw, label: "Vietnam-Gulf Peace and Gulf War", size: vwgwPCT, type:"war"},
-   {sets:["Vietnam War", "Gulf War", "Post 9/11 Wars"], figure: vwgw911, label: "Vietnam War, Gulf War and Post 9/11 Wars", size: vwgw911PCT, type:"war"},
-   {sets:["Gulf War", "Post 9/11 Wars"], figure: gw911, label: "Gulf War and Post 9/11 Wars", size: gw911PCT, type:"war"},
    {sets:["Pre-WWII Peace"], figure: pww2, label: "Pre-WWII Peace", size: pww2PCT, type:"peace"},
+   {sets:["WWII"], figure: ww2, label: "World War II", size: ww2PCT, type:"war"},
    {sets:["WWII-Korea Peace"], figure: ww2kwP, label: "WWII-Korea Peace", size: ww2kwPPCT, type:"peace"},
+   {sets:["WWII","Korea"], figure: pw2k, label: "World War II and Korean War", size: pw2kPCT, type:"war"},
+   {sets:["WWII","Vietnam"], figure: w2pkv, label: "World War II, Korean War and Vietnam War", size: w2pkvPCT, type:"war"},
+   {sets:["Korea"], figure: kw, label: "Korean War", size: kwPCT, type:"war"},
    {sets:["Korea-Vietnam Peace"], figure: kwvwP, label: "Korea-Vietnam Peace", size: kwvwPPCT, type:"peace"},
+   {sets:["Vietnam"], figure: vw, label: "Vietnam War", size: vwPCT, type:"war"},
    {sets:["Vietnam-Gulf Peace"], figure: vwgwP, label: "Vietnam-Gulf Peace", size: vwgwPPCT, type:"peace"},
-   {sets:["Gulf-9/11 Peace"], figure: gwp911P, label: "Gulf-9/11 Peace", size: gwp911PCT, type:"peace"},
+   {sets:["Gulf"], figure: gw, label: "Gulf War", size: gwPCT, type:"war"},
+   {sets:["Post-9/11"], figure: p911, label: "Post 9/11 Wars", size: p911PCT, type:"war"},
+   {sets:["Korea","Vietnam"], figure: kwvw, label: "Korean War and Vietnam War", size: kwvwPCT, type:"war"},
+   {sets:["Vietnam", "Gulf"], figure: vwgw, label: "Vietnam-Gulf Peace and Gulf War", size: vwgwPCT, type:"war"},
+   {sets:["Vietnam", "Post-9/11"], figure: vwgw911, label: "Vietnam War, Gulf War and Post 9/11 Wars", size: vwgw911PCT, type:"war"},
+   {sets:["Gulf", "Post-9/11"], figure: gw911, label: "Gulf War and Post 9/11 Wars", size: gw911PCT, type:"war"},
+   {sets:["Post-9/11 Peace"], figure: gwp911P, label: "Post-9/11 Peace", size: gwp911PCT, type:"peace"},
    ];
 
   return sets;
@@ -167,7 +170,7 @@ function vennChange(year){
 
  var chart = venn.VennDiagram()
      .width(500)
-     .height(550)
+     .height(400)
 
  var div = d3.select("#venn svg").datum(makeSets(2016)).call(chart);
      div.selectAll("text").style("fill", "white");
@@ -194,7 +197,7 @@ function vennChange(year){
   var selection = d3.select(this).transition("tooltip").duration(1000);
   selection.select("path")
       .style("stroke-width", 3)
-      .style("fill-opacity", d.sets.length == 1 ? .8 : 0)
+      .style("fill-opacity", 1)
       .style("stroke-opacity", 1);
      })
 
@@ -205,7 +208,7 @@ function vennChange(year){
 
      .on("mouseout", function(d, i) {
   tooltip.transition().duration(2000).style("opacity", 0);
-  var selection = d3.select(this).transition("tooltip").duration(400);
+  var selection = d3.select(this).transition("tooltip").duration(1000);
   selection.select("path")
       .style("stroke-width", 3)
       .style("fill-opacity", d.sets.length == 1 ? .8 : 0)
