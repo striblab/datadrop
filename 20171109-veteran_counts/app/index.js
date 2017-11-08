@@ -143,16 +143,16 @@ function makeSets(year){
 
   var sets = [
    {sets:["Pre-WWII Peace"], figure: pww2, label: "Pre-WWII Peace", size: pww2PCT, type:"peace"},
-   {sets:["WWII"], figure: ww2, label: "World War II", size: ww2PCT, type:"war"},
+   {sets:["WWII"], figure: ww2, label: "World War II", size: ww2PCT, type:"blue4"},
    {sets:["WWII-Korea Peace"], figure: ww2kwP, label: "WWII-Korea Peace", size: ww2kwPPCT, type:"peace"},
    {sets:["WWII","Korea"], figure: pw2k, label: "World War II and Korean War", size: pw2kPCT, type:"war"},
    {sets:["WWII","Vietnam"], figure: w2pkv, label: "World War II, Korean War and Vietnam War", size: w2pkvPCT, type:"war"},
-   {sets:["Korea"], figure: kw, label: "Korean War", size: kwPCT, type:"war"},
+   {sets:["Korea"], figure: kw, label: "Korean War", size: kwPCT, type:"green3"},
    {sets:["Korea-Vietnam Peace"], figure: kwvwP, label: "Korea-Vietnam Peace", size: kwvwPPCT, type:"peace"},
-   {sets:["Vietnam"], figure: vw, label: "Vietnam War", size: vwPCT, type:"war"},
+   {sets:["Vietnam"], figure: vw, label: "Vietnam War", size: vwPCT, type:"red4"},
    {sets:["Vietnam-Gulf Peace"], figure: vwgwP, label: "Vietnam-Gulf Peace", size: vwgwPPCT, type:"peace"},
-   {sets:["Gulf"], figure: gw, label: "Gulf War", size: gwPCT, type:"war"},
-   {sets:["Post-9/11"], figure: p911, label: "Post 9/11 Wars", size: p911PCT, type:"war"},
+   {sets:["Gulf"], figure: gw, label: "Gulf War", size: gwPCT, type:"orange3"},
+   {sets:["Post-9/11"], figure: p911, label: "Post 9/11 Wars", size: p911PCT, type:"purple3"},
    {sets:["Korea","Vietnam"], figure: kwvw, label: "Korean War and Vietnam War", size: kwvwPCT, type:"war"},
    {sets:["Vietnam", "Gulf"], figure: vwgw, label: "Vietnam-Gulf Peace and Gulf War", size: vwgwPCT, type:"war"},
    {sets:["Vietnam", "Post-9/11"], figure: vwgw911, label: "Vietnam War, Gulf War and Post 9/11 Wars", size: vwgw911PCT, type:"war"},
@@ -175,7 +175,7 @@ function vennChange(year){
  var div = d3.select("#venn svg").datum(makeSets(2016)).call(chart);
      div.selectAll("text").style("fill", "white");
      div.selectAll(".venn-circle path")
-      .attr("class",function(d){ if (d.type == "peace") { return "peace"; } else { return "war"; }})
+      .attr("class",function(d){ if (d.type == "peace") { return "peace"; } else { return d.type; }})
       .style("fill-opacity", .8)
       .style("stroke-width", 1)
       .style("stroke-opacity", 1)

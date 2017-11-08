@@ -2,6 +2,10 @@
  * Project specific styling.
  */
 
+.site-view {
+  display:none !important;
+}
+
 .venntooltip {
      font-size : 0.7em;
      position: absolute;
@@ -65,13 +69,15 @@ svg text {
 }
 
 .war {
-  fill: #888888 !important;
+ // fill: #888888 !important;
 }
 
 .peace {
   fill: #ffffff !important;
   stroke: #888888 !important;
   stroke-width: 5px !important;
+  border: 2px solid #888888;
+  color: #000000 !important;
 }
 
 .byline a {
@@ -1092,241 +1098,241 @@ questions: http://www.webtype.com
 
 /*CATEGORICAL CHARTS*/
 .leaf {
-  fill: #66AF50;
+  fill: #66AF50 !important;
   background-color: #66AF50;
 }
 
 .clay {
-  fill: #BF603C;
+  fill: #BF603C !important;
   background-color: #BF603C;
 }
 
 .swedish {
-  fill: #59A897;
+  fill: #59A897 !important;
   background-color: #59A897;
 }
 
 .bark {
-  fill: #4C4C39;
+  fill: #4C4C39 !important;
   background-color: #4C4C39;
 }
 
 /*RED SHADED RAMP*/
 .red1 {
-  fill: #F2AC93;
+  fill: #F2AC93 !important;
   background-color: #F2AC93;
 }
 
 .red2 {
-  fill: #F28670;
+  fill: #F28670 !important;
   background-color: #F28670;
 }
 
 .red3 {
-  fill: #F2614C;
+  fill: #F2614C !important;
   background-color: #F2614C;
 }
 
 .red4 {
-  fill: #C22A22;
+  fill: #C22A22 !important;
   background-color: #C22A22;
 }
 
 .red5 {
-  fill: #9C0004;
+  fill: #9C0004 !important;
   background-color: #9C0004;
 }
 
 /*ORANGE SHADED RAMP*/
 .orange1 {
-  fill: #F2D2A4;
+  fill: #F2D2A4 !important;
   background-color: #F2D2A4;
 }
 
 .orange2 {
-  fill: #F2AF80;
+  fill: #F2AF80 !important;
   background-color: #F2AF80;
 }
 
 .orange3 {
-  fill: #E07242;
+  fill: #E07242 !important;
   background-color: #E07242;
 }
 
 .orange4 {
-  fill: #C2421F;
+  fill: #C2421F !important;
   background-color: #C2421F;
 }
 
 .orange5 {
-  fill: #822010;
+  fill: #822010 !important;
   background-color: #822010;
 }
 
 /*BLUE SHADED RAMP*/
 .blue1 {
-  fill: #D1E6E1;
+  fill: #D1E6E1 !important;
   background-color: #D1E6E1;
 }
 
 .blue2 {
-  fill: #A7E6E3;
+  fill: #A7E6E3 !important;
   background-color: #A7E6E3;
 }
 
 .blue3 {
-  fill: #67B4C2;
+  fill: #67B4C2 !important;
   background-color: #67B4C2;
 }
 
 .blue4 {
-  fill: #3580A3;
+  fill: #3580A3 !important;
   background-color: #3580A3;
 }
 
 .blue5 {
-  fill: #0D4673;
+  fill: #0D4673 !important;
   background-color: #0D4673;
 }
 
 /*GREEN SHADED RAMP*/
 .green1 {
-  fill: #C7E5B5;
+  fill: #C7E5B5 !important;
   background-color: #C7E5B5;
 }
 
 .green2 {
-  fill: #9EE384;
+  fill: #9EE384 !important;
   background-color: #9EE384;
 }
 
 .green3 {
-  fill: #5BBF48;
+  fill: #5BBF48 !important;
   background-color: #5BBF48;
 }
 
 .green4 {
-  fill: #299E3D;
+  fill: #299E3D !important;
   background-color: #299E3D;
 }
 
 .green5 {
-  fill: #118241;
+  fill: #118241 !important;
   background-color: #118241;
 }
 
 /*GREY SHADED RAMP*/
 .gray1 {
-  fill: #ddd;
+  fill: #ddd !important;
   background-color: #ddd;
 }
 
 .gray2 {
-  fill: #CCC;
+  fill: #CCC !important;
   background-color: #CCC;
 }
 
 .gray3 {
-  fill: #969696;
+  fill: #969696 !important;
   background-color: #969696;
 }
 
 .gray4 {
-  fill: #636363;
+  fill: #636363 !important;
   background-color: #636363;
   color: #fff;
 }
 
 .gray5 {
-  fill: #252525;
+  fill: #252525 !important;
   background-color: #252525;
   color: #fff;
 }
 
 /*BLUE-GREY SHADED RAMP*/
 .grayblue1 {
-  fill: #DAE1E7;
+  fill: #DAE1E7 !important;
   background-color: #DAE1E7;
 }
 
 .grayblue2 {
-  fill: #C6D1D9;
+  fill: #C6D1D9 !important;
   background-color: #C6D1D9;
 }
 
 .grayblue3 {
-  fill: #A8B9C5;
+  fill: #A8B9C5 !important;
   background-color: #A8B9C5;
 }
 
 .grayblue4 {
-  fill: #7F98AA;
+  fill: #7F98AA !important;
   background-color: #7F98AA;
 }
 
 .grayblue5 {
-  fill: #556E7F;
+  fill: #556E7F !important;
   background-color: #556E7F;
 }
 
 .grayblue6 {
-  fill: #2C3942;
+  fill: #2C3942 !important;
   background-color: #2C3942;
 }
 
 /*PURPLE SHADED RAMP*/
 .purple5 {
-  fill: #4c1926;
+  fill: #4c1926 !important;
   background-color: #4c1926;
   color: #ffffff;
 }
 
 .purple4 {
-  fill: #693c46;
+  fill: #693c46 !important;
   background-color: #693c46;
   color: #ffffff;
 }
 
 .purple3 {
-  fill: #865f67;
+  fill: #865f67 !important;
   background-color: #865f67;
   color: #ffffff;
 }
 
 .purple2 {
-  fill: #a3858b;
+  fill: #a3858b !important;
   background-color: #a3858b;
   color: #ffffff;
 }
 
 .purple1 {
-  fill: #C1ACB1;
+  fill: #C1ACB1 !important;
   background-color: #C1ACB1;
 }
 
 /*POLITICAL SHADED RAMP*/
 .gopDark {
-  fill: #9C0004;
+  fill: #9C0004 !important;
   background-color: #9C0004;
 }
 
 .gopLight {
-  fill: #F2614C;
+  fill: #F2614C !important;
   background-color: #F2614C;
 }
 
 .neutral {
-  fill: #F7F7F7;
+  fill: #F7F7F7 !important;
   background-color: #F7F7F7;
 }
 
 .dflLight {
-  fill: #67B4C2;
+  fill: #67B4C2 !important;
   background-color: #67B4C2;
 }
 
 .dflDark {
-  fill: #0D4673;
+  fill: #0D4673 !important;
   background-color: #0D4673;
 }
 
