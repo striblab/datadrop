@@ -2,7 +2,7 @@
 
 <div class="slide" id="populations">
 <div class="chartTitle">Minnesota's changing veteran population</div>
-<div class="chatter">Displays Minnesota veteran population broken down by which cohorts they belong to, stretching from 2016 to 2045 projections. Move the slider to change displayed year. Projections are based on wars that have already occured.</div>
+<div class="chatter">The U.S. Department of Veterans Affairs publishes data estimating how many veterans they expect will be living in each state in coming years, broken down by when they served. These projections for Minnesota, which go out to 2045, show  how the largest cohort – Vietnam veterans – will decline, and post 9/11 Gulf War veterans will take over as the largest group. Of course, these projections assume the U.S. doesn’t enter another war in coming years and that military enlistment trends don’t change.</div>
 
 <div class="left" id="minus">-</div><div class="right" id="plus">+</div><div id="slideCount" class="chatter">Year: <span id="year">2016</span></div>
 
@@ -10,9 +10,33 @@
 
 <div id="counter"><span id="count">337,362</span> MN veterans</div>
 
-<div id="venn" class="chart"><svg id="vennSVG" width="500" height="400" viewBox="0 0 500 400" preserveAspectRatio="xMidYMid"></svg></div>
+<div id="bars">
+	<div id="preww2" class="barred peace" title="Pre-World War II Peace"><span class="noclick">Pre-World War II Peace <span class="counted"></span></span></div>
 
-<span class="legendary blue4">World War II</span> <span class="legendary green3">Korean War</span> <span class="legendary red4">Vietnam War</span> <span class="legendary orange3">Gulf War</span> <span class="legendary purple3">Post-9/11 Wars</span> <span class="legendary peace">Peacetime Eras</span>
+	<div id="ww2" class="barred blue3" title="World War II"><span class="noclick">World War II <span class="counted"></span></span></div>
+
+	<div id="peaceww2" class="barred peace" title="World War II-Korea Peace"><span class="noclick">World War II-Korea Peace <span class="counted"></span></span></div>
+
+	<div id="korea" class="barred green3" title="Korean War"><span class="noclick">Korean War <span class="counted"></span></span></div>
+
+	<div id="korea_peace" class="barred peace" title="Korea-Vietnam Peace"><span class="noclick">Korea-Vietnam Peace <span class="counted"></span></span></div>
+
+	<div id="vietnam" class="barred red3" title="Vietnam War"><span class="noclick">Vietnam War <span class="counted"></span></span></div>
+
+	<div id="vietnam_peace" class="barred peace" title="Vietnam-Gulf Peace"><span class="noclick">Vietnam-Gulf Peace <span class="counted"></span></span></div>
+
+	<div id="gulf" class="barred orange3" title="Gulf War"><span class="noclick">Gulf War <span class="counted"></span></span></div>
+
+	<div id="post911" class="barred purple2" title="Post-911 Wars"><span class="noclick">Post-911 Wars <span class="counted"></span></span></div>
+
+	<div id="post911_peace" class="barred peace" title="Post-9/11 Peace"><span class="noclick">Post-9/11 Peace <span class="counted"></span></span></div>
+</div>
+
+<div class="chatter" id="notes">&nbsp;&nbsp;</div>
+
+<!-- <span class="legendary blue4">World War II</span> <span class="legendary green3">Korean War</span> <span class="legendary red4">Vietnam War</span> <span class="legendary orange3">Gulf War</span> <span class="legendary purple3">Post-9/11 Wars</span> <span class="legendary peace">Peacetime Eras</span> -->
+
+<div class="byline">Note: veterans with both wartime and peacetime service are only counted in wartime.</div>
 
 <div class="byline">Source: U.S. Department of Veterans Affairs, U.S. Census Bureau | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
 </div>
