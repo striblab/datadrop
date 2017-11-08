@@ -22,6 +22,10 @@ d3.json('./data/cohorts.json', function(error, dataLoad) {
 
 var data = dataLoad.cohorts;
 
+// $( function() {
+//     $( document ).tooltip();
+//   } );
+
 var year = 2016;
 
 //responsive svg
@@ -62,6 +66,39 @@ $('#minus').on('click', function(){
     }
 });
 
+//make notes
+var notes = [];
+notes[2016] = "&nbsp;&nbsp;";
+notes[2017] = "&nbsp;&nbsp;";
+notes[2018] = "&nbsp;&nbsp;";
+notes[2019] = "&nbsp;&nbsp;";
+notes[2020] = "&nbsp;&nbsp;";
+notes[2021] = "&nbsp;&nbsp;";
+notes[2022] = "&nbsp;&nbsp;";
+notes[2023] = "&nbsp;&nbsp;";
+notes[2024] = "&nbsp;&nbsp;";
+notes[2025] = "&nbsp;&nbsp;";
+notes[2026] = "&nbsp;&nbsp;";
+notes[2027] = "&nbsp;&nbsp;";
+notes[2028] = "&nbsp;&nbsp;";
+notes[2029] = "&nbsp;&nbsp;";
+notes[2030] = "&nbsp;&nbsp;";
+notes[2031] = "&nbsp;&nbsp;";
+notes[2032] = "&nbsp;&nbsp;";
+notes[2033] = "&nbsp;&nbsp;";
+notes[2034] = "&nbsp;&nbsp;";
+notes[2035] = "&nbsp;&nbsp;";
+notes[2036] = "&nbsp;&nbsp;";
+notes[2037] = "&nbsp;&nbsp;";
+notes[2038] = "&nbsp;&nbsp;";
+notes[2039] = "&nbsp;&nbsp;";
+notes[2040] = "&nbsp;&nbsp;";
+notes[2041] = "&nbsp;&nbsp;";
+notes[2042] = "&nbsp;&nbsp;";
+notes[2043] = "&nbsp;&nbsp;";
+notes[2044] = "&nbsp;&nbsp;";
+notes[2045] = "&nbsp;&nbsp;";
+
 function makeSets(year){
 
   var total;
@@ -93,7 +130,7 @@ function makeSets(year){
       kwPCT = (data[i].Korean_Total / total) * 100;
 
       vw = data[i].Vietnam_Total;
-      vwPCT = (data[i].Vietnam_Total / total) * 100;
+      vwPCT = Math.round((data[i].Vietnam_Total / total) * 100);
 
       gw = data[i].GulfPre_Total;
       gwPCT = (data[i].GulfPre_Total / total) * 100;
@@ -120,8 +157,7 @@ function makeSets(year){
       pw2kPCT = (data[i].OL_WWII_KC / total) * 100;
 
       w2pkv = data[i].OL_WWII_KC_Viet;
-      w2pkvPCT = ((data[i].OL_WWII_KC_Viet / total) * 100);
-
+      w2pkvPCT = (data[i].OL_WWII_KC_Viet / total) * 100;
 
       kwvw = data[i].OL_WWII_KC_Viet;
       kwvwPCT = (data[i].OL_WWII_KC_Viet / total) * 100;
@@ -135,10 +171,10 @@ function makeSets(year){
       gw911 = data[i].OL_GulfPre_GulfPost;
       gw911PCT = (data[i].OL_GulfPre_GulfPost / total) * 100;
 
-      console.log(gwp911PCT + " " + w2pkvPCT)
+      console.log(vwPCT)
     }
 
-    $("#count").html(d3.format(",")(total));
+    $("#count").html(d3.format(",")(Math.round(total / 10) * 10));
   }
 
   var sets = [
@@ -160,59 +196,38 @@ function makeSets(year){
    {sets:["Post-9/11 Peace"], figure: gwp911P, label: "Post-9/11 Peace", size: gwp911PCT, type:"peace"},
    ];
 
-  return sets;
+  // return sets;
+
+  $("#preww2").css("width",pww2PCT + "%");
+  $("#ww2").css("width",ww2PCT + "%");
+  $("#peaceww2").css("width",ww2kwPPCT + "%");
+  $("#korea").css("width",kwPCT + "%");
+  $("#korea_peace").css("width",kwvwPPCT + "%");
+  $("#vietnam").css("width",vwPCT + "%");
+  $("#vietnam_peace").css("width",vwgwPPCT + "%");
+  $("#gulf").css("width",gwPCT + "%");
+  $("#post911").css("width",p911PCT + "%");
+  $("#post911_peace").css("width",gwp911PCT + "%");
+
+  $("#preww2 .counted").html(" - " + d3.format(".0f")(pww2PCT) + "%");
+  $("#ww2 .counted").html(" - " + d3.format(".0f")(ww2PCT) + "%");
+  $("#peaceww2 .counted").html(" - " + d3.format(".0f")(ww2kwPPCT) + "%");
+  $("#korea .counted").html(" - " + d3.format(".0f")(kwPCT) + "%");
+  $("#korea_peace .counted").html(" - " + d3.format(".0f")(kwvwPPCT) + "%");
+  $("#vietnam .counted").html(" - " + d3.format(".0f")(vwPCT) + "%");
+  $("#vietnam_peace .counted").html(" - " + d3.format(".0f")(vwgwPPCT) + "%");
+  $("#gulf .counted").html(" - " + d3.format(".0f")(gwPCT) + "%");
+  $("#post911 .counted").html(" - " + d3.format(".0f")(p911PCT) + "%");
+  $("#post911_peace .counted").html(" - " + d3.format(".0f")(gwp911PCT) + "%");
+
 }
 
 function vennChange(year){
-  console.log(year);
-  div.datum(makeSets(year)).call(chart);
+  makeSets(year);
+  $("#notes").html(notes[year]);
 }
 
- var chart = venn.VennDiagram()
-     .width(500)
-     .height(400)
+vennChange(year);
 
- var div = d3.select("#venn svg").datum(makeSets(2016)).call(chart);
-     div.selectAll("text").style("fill", "white");
-     div.selectAll(".venn-circle path")
-      .attr("class",function(d){ if (d.type == "peace") { return "peace"; } else { return d.type; }})
-      .style("fill-opacity", .8)
-      .style("stroke-width", 1)
-      .style("stroke-opacity", 1)
-      .style("stroke", "fff");
-
- var tooltip = d3.select("#venn").append("div")
-     .attr("class", "venntooltip");
-
- div.selectAll("g")
-     .on("mouseover", function(d, i) {
-  // sort all the areas relative to the current item
-  venn.sortAreas(div, d);
-
-  // Display a tooltip with the current size
-  tooltip.transition().duration(40).style("opacity", 1);
-  tooltip.html("<div>" + d.label + "</div><div>" + d3.format(",.0f")(d.figure) + " living MN veterans</div>");
-
-  // highlight the current path
-  var selection = d3.select(this).transition("tooltip").duration(1000);
-  selection.select("path")
-      .style("stroke-width", 3)
-      .style("fill-opacity", 1)
-      .style("stroke-opacity", 1);
-     })
-
-     .on("mousemove", function() {
-  tooltip.style("left", (d3.event.pageX) + "px")
-  .style("top", (d3.event.pageY - 28) + "px");
-     })
-
-     .on("mouseout", function(d, i) {
-  tooltip.transition().duration(2000).style("opacity", 0);
-  var selection = d3.select(this).transition("tooltip").duration(1000);
-  selection.select("path")
-      .style("stroke-width", 3)
-      .style("fill-opacity", d.sets.length == 1 ? .8 : 0)
-      .style("stroke-opacity", 1);
-     });
 
 });
