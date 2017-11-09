@@ -390,9 +390,15 @@ d3.select("#listedSchools").selectAll(".district")
 
     $(".zoom").on("click keyup search", function() {
         $(".switch").show();
+        $(".switcher").show();
+        $("#aboutThis").hide();
         $("li.district").show();
         $('#listedSchools').animate({scrollTop : 0},800);
     return false;
+    });
+
+    $("#about").on("click", function() {
+        $(".switcher").toggle();
     });
 
     $(".legendary").on("click", function() {
@@ -588,7 +594,7 @@ else if (dataR.length < dataM.length) { dataR[dataR.length] = 0; }
 //                 ]
 //       });
 
-      var resultsArray = [rProf, rPred, mProf, mPred];
+      var resultsArray = [rPred, rProf, mProf, mPred];
 
       return resultsArray;
 
