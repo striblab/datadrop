@@ -20,89 +20,25 @@
 
 <div class="chartTitle">Beating the odds</div>
 
-<div class="chatter">Displays which high-poverty schools beat their expected MCA proficiency rates for either <span class="math legendary" data="mathScores">math</span>, <span class="reading legendary" data="readingScores">reading</span> or <span class="both legendary" data="bothScores">both subjects</span>. <span class="zoom">Reset</span></div>
+<div class="chatter">These 75 high-poverty schools across Minnesota had proficiency rates in the 2017 Minnesota Comprehensive Assessments for <span class="math legendary" data="mathScores">math</span>, <span class="reading legendary" data="readingScores">reading</span> or <span class="both legendary" data="bothScores">both</span> that exceeded what would be expected based on their level of poverty, according to a Star Tribune analysis. Displayed here are each school’s math and reading proficiency scores (all grades combined), plus the predicted scores calculated in our analysis. You can find more data, including results from previous years and test scores for all schools in the state, in <a href="http://www.startribune.com/find-your-minnesota-school-s-math-and-reading-test-scores/388290262/" target="new_">our school test score database</a>. Either <span class="gray3 zoom">see all schools</span> or read <span class="gray2 zoom" id="about">about this analysis</span>.
+</div>
 
+<div id="mainList" class="switcher">
 <div id="filter2"><input type="search" id="filter_box2" placeholder="Search by school or district name" /></div>
 <ul id="listedSchools" class="dropdown months" tabindex="1">
 </ul>
-
-<div id="bigstats" class="hideme">
-<div class="chartTitle">Reading</div>
-  <div class="cell worse" data="Falling short" type="R">
-    <div class="bigNum" id="failR">0%</div>
-    <div class="label">falling short</div>
-  </div>
-  <div class="cell expected" data="About as expected" type="R">
-    <div class="bigNum" id="metR">0%</div>
-    <div class="label">as expected</div>
-  </div>
-  <div class="cell better" data="Better than expected" type="R">
-    <div class="bigNum" id="betterR">0%</div>
-    <div class="label">better</div>
-  </div>
-<div class="chartTitle">Math</div>
-  <div class="cell worse" data="Falling short" type="M">
-    <div class="bigNum" id="failM">0%</div>
-    <div class="label">falling short</div>
-  </div>
-  <div class="cell expected" data="About as expected" type="M">
-    <div class="bigNum" id="metM">0%</div>
-    <div class="label">as expected</div>
-  </div>
-  <div class="cell better" data="Better than expected" type="M">
-    <div class="bigNum" id="betterM">0%</div>
-    <div class="label">better</div>
-  </div>
-<div class="chartTitle mobilekill">Poverty</div>
-  <div class="cell gray5 povCell mobilekill" data="High" type="P">
-<!--     <div class="bigNum" id="failP">0%</div> -->
-    <div class="label">high</div>
-  </div>
-  <div class="cell gray3 povCell mobilekill" data="Medium" type="P">
-<!--     <div class="bigNum" id="metP">0%</div> -->
-    <div class="label">medium</div>
-  </div>
-  <div class="cell gray1 povCell mobilekill" data="Low" type="P">
-<!--     <div class="bigNum" id="betterP">0%</div> -->
-    <div class="label">low</div>
-  </div>
 </div>
 
-<div class="zoom hideme">Reset View</div>
+<div class="switcher" id="aboutThis">
+<div class="chatter"><h3>About this analysis</h3> The Star Tribune used a linear regression analysis to compare each school’s proficiency rate to an expected proficiency rate based on the school’s percentage of students on free or reduced-price lunch (a common proxy for estimating a school’s poverty rate).</div>
 
-<div id="leftSide" class="hideme">
-    <div id="filter"><input type="search" id="filter_box" placeholder="Search by school name" /></div>
-    <div id="schoolsList"></div>
+<div class="chatter">Only schools that tested at least 25 students, across all grades, were included in the analysis; alternative learning and special education schools were not included. Schools were identified as “falling short” if the actual proficiency rate was 10 percentage points or more lower than the expected rate. Schools were classified as “better than expected” if their rate was 10 percentage points or more greater than the expected rate. All schools between those marks were categorized “as expected.”</div>
+
+<div class="chatter">High poverty is defined as 50 percent or more of students on free- or reduced-price lunch.</div>
 </div>
-
-<div id="rightSide" class="hideme">
-    <div id="instructions"><p>&larr; Click on the name of the school to display proficient rates for math and reading (all grades combined).</p></div>
-
-    <div id="infobox" style="display:none;">
-      <div id="schoolname">school name</div>
-      <div class='where'><span id="district"></span> DISTRICT <span id="location"></span></div>
-      <div id="type" class='where'></div>
-      <div class="chatter description mobilekill hideme">Among the <span id="enrolled"></span> students enrolled at this school, <span id="minority"></span> are minorities and <span id="poverty"></span> are in poverty.</div>
-      
-      <div class="bigPCT reading">READING</div>
-      <div class="bigPCT math">MATH</div>
-      <div class="category" id="categoryR"></div>
-      <div class="category" id="categoryM"></div>
-      <div class="bigPCT" id="rPCT"></div>
-      <div class="bigPCT" id="mPCT"></div>
-      <div class="bigPCT" id="rPCTP"></div>
-      <div class="bigPCT" id="mPCTP"></div>
-    </div>
-
-    <div class="breaker" id="mobileBreak"></div>
-
-  <!--  <h4 id="chartLabel" style="display:none;">Proficiency change over time</h4> -->
-    <div id="chart"></div>
-</div>
-
-<!-- <div class="breaker"></div> -->
 
 <div class="byline">Source: Minnesota Department of Education | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+
 </div>
 
 <script src="//code.jquery.com/jquery-latest.js"></script>

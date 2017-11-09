@@ -2077,6 +2077,11 @@ p {
   color: #fff;
 }
 
+.chatter a {
+  color: steelblue !important;
+  text-decoration: underline !important;
+}
+
 .nan {
   background-color: #fff;
   color: #000;
@@ -2095,9 +2100,22 @@ p {
 
 #listedSchools {
   display: block;
-  height: 360px;
+  height: 450px;
   overflow-y: auto;
   z-index: 90;
+}
+
+#aboutThis {
+  display: none;
+  height: 450px;
+  overflow-y: hidden;
+  z-index: 90;
+}
+
+h3 {
+  font-weight: 900;
+  font-size: 1.3em;
+  line-height: 160%;
 }
 
 li.district {
@@ -2114,7 +2132,23 @@ li.district {
 .zoom {
   float: none !important;
   text-align: center;
-  padding: 15px;
+  padding: 4px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0 7px;
+  display: inline-block;
+  margin-bottom: 3px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.zoom a {
+  font-weight: bold !important;
+}
+
+.zoom:hover {
+  opacity: 0.5;
 }
 
 .gray3 {
