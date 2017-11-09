@@ -171,7 +171,6 @@ function makeSets(year){
       gw911 = data[i].OL_GulfPre_GulfPost;
       gw911PCT = (data[i].OL_GulfPre_GulfPost / total) * 100;
 
-      console.log(vwPCT)
     }
 
     $("#count").html(d3.format(",")(Math.round(total / 10) * 10));
@@ -208,6 +207,14 @@ function makeSets(year){
   $("#gulf").css("width",gwPCT + "%");
   $("#post911").css("width",p911PCT + "%");
   $("#post911_peace").css("width",gwp911PCT + "%");
+
+  console.log(pww2PCT)
+
+  if (pww2PCT > 0) { pww2PCT = 1; }
+  if (ww2PCT > 0 && ww2PCT < 1) { ww2PCT = 1; }
+  if (ww2kwPPCT > 0 && ww2kwPPCT < 1) { ww2kwPPCT = 1; }
+  if (kwPCT > 0 && kwPCT < 1) { kwPCT = 1; }
+  if (kwvwPPCT > 0 && kwvwPPCT < 1) { kwvwPPCT = 1; }
 
   $("#preww2 .counted").html(" - " + d3.format(".0f")(pww2PCT) + "%");
   $("#ww2 .counted").html(" - " + d3.format(".0f")(ww2PCT) + "%");
