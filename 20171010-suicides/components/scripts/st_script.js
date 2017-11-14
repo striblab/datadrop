@@ -244,9 +244,9 @@ $("#" + selected).show();
                 }
             }
             },
-            // legend: {
-            //     show: false
-            // },
+            legend: {
+                show: false
+            },
                 color: {
                   pattern: ['#d9d9d9','#cccccc','#969696','#a50f15','#252525']
                 },
