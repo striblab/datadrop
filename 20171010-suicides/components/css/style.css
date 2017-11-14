@@ -2175,6 +2175,10 @@ header[role="banner"] {
   margin-right: auto;
 }
 
+.slide {
+  display: none;
+}
+
 .byline a {
   color: #888;
 }
