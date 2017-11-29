@@ -11,6 +11,10 @@ $(".slide").hide();
 $("#" + selected).show();
 }
 
+if (selected == "all"){
+$(".slide").show();
+}
+
 //trend chart
   function chartTrend(){
 
@@ -248,7 +252,7 @@ $("#" + selected).show();
                 show: false
             },
                 color: {
-                  pattern: ['#d9d9d9','#cccccc','#969696','#a50f15','#252525']
+                  pattern: ['#d9d9d9','#3580A3','#299E3D','#a50f15','#252525']
                 },
             axis: {
                   // rotated: true,
