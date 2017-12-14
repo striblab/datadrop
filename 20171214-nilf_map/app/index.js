@@ -47,7 +47,7 @@ function mapTips(d, subject, dataCompare){
       var points = dataCompare[i].Bucket;
       var pct = dataCompare[i].PctNILF;
       var color_scale = d3.scale.linear().domain([4,3,2,1]).range(['#D1E6E1','#67B4C2','#3580A3','#0D4673']);
-      return "<div class='countyName'>" + dataCompare[i].Geography + "</div><div class='number'><span class='legendary' style='background-color:" + color_scale(points) + ";'>" + d3.format("%")(pct) + "</span> of middle-aged not in labor force</div>"
+      return "<div class='countyName'>" + dataCompare[i].Geography + "</div><div class='number'><span class='legendary' style='background-color:" + color_scale(points) + ";'>" + d3.format("%")(pct) + "</span> of middle-aged men not in labor force</div>"
     }
   }
 }
