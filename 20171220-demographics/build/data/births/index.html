@@ -150,7 +150,7 @@
 	</style>
 </head>
 <body>
-<div id="graphic" style="text-align:left;"></div>
+<div id="chart"></div>
 
 <div id="buttonRow" style="text-align:center;">
 <button type="button" id="showMe" class="btn">check answer</button>
@@ -167,8 +167,6 @@
 
  function drawGraphic(data){
 
-	d3.select("#fallback").remove();
-
 	var format = d3.f,  //
 		parseMyTime = d3.timeParse(chartData.essential.dateFormat), // date is in whole yr format
 		formatMyTime = d3.timeFormat(chartData.essential.dateFormat); // date is in whole yr format
@@ -176,15 +174,15 @@
 	var threshold_sm = chartData.optional.mobileBreakpoint[0],
 		threshold_md = chartData.optional.mobileBreakpoint[1];
 
-		var selection = d3.select('#graphic');
+		var selection = d3.select('#chart');
 
-		if (parseInt(d3.select('#graphic').style("width")) <= threshold_sm) {
+		if (parseInt(d3.select('#chart').style("width")) <= threshold_sm) {
 		 margin = {		top:+chartData.optional.margin_sm[0],
 						right:+chartData.optional.margin_sm[1],
 						bottom:+chartData.optional.margin_sm[2],
 						left: +chartData.optional.margin_sm[3]
 					};
-		} else if (parseInt(d3.select('#graphic').style("width")) <= threshold_md){
+		} else if (parseInt(d3.select('#chart').style("width")) <= threshold_md){
 		  margin = {	top:+chartData.optional.margin_md[0],
 						right:+chartData.optional.margin_md[1],
 						bottom:+chartData.optional.margin_md[2],
@@ -199,7 +197,7 @@
 		}
 		// Let's begin building
 
-		chart_width = parseInt(d3.select('#graphic').style("width")) - margin.left - margin.right;
+		chart_width = parseInt(d3.select('#chart').style("width")) - margin.left - margin.right;
 		if(chart_width + margin.left + margin.right > 600) chart_width = 600 - margin.left - margin.right;
 
 		x = d3.scaleTime()
@@ -211,13 +209,13 @@
 		yAxis = d3.axisLeft(y).tickSize(-chart_width);
 
 		//specify number or ticks on y axis
-			if (parseInt(d3.select('#graphic').style("width")) <= threshold_sm+100) { //console.log("Mobile");
+			if (parseInt(d3.select('#chart').style("width")) <= threshold_sm+100) { //console.log("Mobile");
 				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[0]);//.tickFormat(d3.timeFormat(chartData.optional.xAxisTextFormat_sm_md_lg[0]));
 				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[0]);
 
 				var height = 300;
 				rad = 5;
-			 } else /*if (parseInt(d3.select('#graphic').style("width")) <= threshold_md)*/{ //console.log("Tablet");
+			 } else /*if (parseInt(d3.select('#chart').style("width")) <= threshold_md)*/{ //console.log("Tablet");
 				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[1]);
 				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[1]);
 
@@ -232,10 +230,10 @@
 //				rad = 6;
 //			 }
 				//console.log(margin.top,margin.right,margin.bottom,margin.left);
-				//console.log("w"+parseInt(d3.select('#graphic').style("width")),chart_width+" h "+height);
+				//console.log("w"+parseInt(d3.select('#chart').style("width")),chart_width+" h "+height);
 
 
-		var svg = d3.select('#graphic').append('svg')
+		var svg = d3.select('#chart').append('svg')
 				.attr("width", chart_width + margin.left + margin.right)
 				.attr("height", height + margin.top + margin.bottom + 25) // for x-axis drop + Safari won't draw outside svg container
 				.append("g")
@@ -411,7 +409,7 @@
 					.attr("height", bbox.height + (padding*2))
 					.style("fill", "rgba(255,255,255,0.9)");
 
-		if ( parseInt(d3.select('#graphic').style("width") ) < threshold_sm) { //console.log("block me");
+		if ( parseInt(d3.select('#chart').style("width") ) < threshold_sm) { //console.log("block me");
 
 		   var blocker = svg.append("rect")
 							.attr("id", "mobBlock")
@@ -543,7 +541,7 @@
 	function showMe(){
 		 	var fmat = d3.format(",.0f");
 
-			d3.select('#graphic').style("pointer-events", "none");
+			d3.select('#chart').style("pointer-events", "none");
 			d3.select(".animatedCircles").remove();
 			d3.select("#showMe").remove();
 
@@ -622,7 +620,7 @@
 												if(formatMyTime(d.year) === formatMyTime(cutOff))  myY = d.debt;
 											});
 
-					if( parseInt(d3.select('#graphic').style("width")) > threshold_sm){
+					if( parseInt(d3.select('#chart').style("width")) > threshold_sm){
 					svg.append("text")
 							.attr("id", "startNum")
 							.attr("x", x(parseMyTime(chartData.essential.dateCutOff)) + 14)
@@ -689,7 +687,7 @@
 								.attr('y',y(chartData.essential.annotationXY/*[i]*/[1]))
 								.attr('x',x(parseMyTime(chartData.essential.annotationXY/*[i]*/[0])) )
 								.style("font-weight", 600)
-								.text(function(){ if( parseInt(d3.select('#graphic').style("width")) < threshold_sm){
+								.text(function(){ if( parseInt(d3.select('#chart').style("width")) < threshold_sm){
 
 																return chartData.essential.annotationChart/*[i]*/[1];
 																} else
