@@ -135,11 +135,11 @@
 		    /* background-color:#0b5d30 ;*/
 		}
 
-		#textResponse {
+		#answer {
 		    max-width: 600px;
 		}
 
-		#textResponse p {
+		#answer p {
 		    -webkit-margin-before: 0px;
 		    -webkit-margin-after: 20px;
 		}
@@ -156,7 +156,7 @@
 <button type="button" id="showMe" class="btn">check answer</button>
 </div>
 
-<div id="textResponse" style="text-align:left;"><p></p></div>
+<div id="answer" style="text-align:left;"><p></p></div>
 
 <script src="./js/d3v4.js"></script>
 <script src="./js/modernizr.js"></script>
@@ -166,8 +166,6 @@
 
 
  function drawGraphic(data){
-
-	d3.select("#fallback").remove();
 
 	var format = d3.f,  //
 		parseMyTime = d3.timeParse(chartData.essential.dateFormat), // date is in whole yr format
@@ -541,25 +539,24 @@
 
 
 	function showMe(){
-		 	var fmat = d3.format(",.0f");
+	  var fmat = d3.format(",.0f");
 
-			d3.select('#chart').style("pointer-events", "none");
-			d3.select(".animatedCircles").remove();
-			d3.select("#showMe").remove();
+	  d3.select('#chart').style("pointer-events", "none");
+	  d3.select(".animatedCircles").remove();
+	  d3.select("#showMe").remove();
+	  d3.select("#currYValG").remove();
+			
+	  if(document.getElementById('mobBlock') ) {	
+	    d3.select("#mobBlock").remove();
+		d3.select("#mobBlockT").remove();
+	  }
 
-			d3.select("#currYValG").remove();
-			if(document.getElementById('mobBlock') ) {	d3.select("#mobBlock").remove();
-																		d3.select("#mobBlockT").remove();
-																	}
-			clipRect.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
+	  clipRect.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
 
-			//d3.select(".btn").attr("opacity", 1);
-			var myResult = yourData[0].debt,
-				result = data[0].debt;
-				diff = (Math.abs(myResult - result)/result) * 100;
-
-			console.log(yourData);
-			console.log(data);
+	  var myResult = yourData[0].debt, result = data[0].debt; 
+	  diff = (Math.abs(myResult - result)/result) * 100;
+			// console.log(yourData);
+			// console.log(data);
 
 	  var slopeCorrect = 0;
 	  var slope = false;
@@ -569,33 +566,33 @@
 	  }
 
 	  if (yourData[0].defined == true && slopeCorrect >= 12) {
-	  	d3.select("#textResponse").append("p").text("The trendline you drew is pretty close to accurate.");
+	  	d3.select("#answer").append("p").text("The trendline you drew is pretty close to accurate.");
 	  	slope = true;
 	  } else if (yourData[0].defined == true) {
-	  	d3.select("#textResponse").append("p").text("The trendline you drew isn't close enough.");
+	  	d3.select("#answer").append("p").text("The trendline you drew isn't close enough.");
 	  }
 
       if (yourData[0].defined === true && slope == true){ 
                 pymChild.sendMessage('tracking', 'button-clicked-after-interaction');
 		  		if(myResult <= 150000){
-            		d3.select("#textResponse").append("p").text(chartData.essential.feedback[2]);
-                    d3.select("#textResponse").append("p").text(chartData.essential.feedback[7]);
+            		d3.select("#answer").append("p").text(chartData.essential.feedback[2]);
+                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
 
             			}else if(myResult < 181000 && myResult > 160000){
-                    d3.select("#textResponse").select("p").text(chartData.essential.feedback[0] +  chartData.essential.feedback[1]);
-                    d3.select("#textResponse").append("p").text(chartData.essential.feedback[7]);
+                    d3.select("#answer").select("p").text(chartData.essential.feedback[0] +  chartData.essential.feedback[1]);
+                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
 
                 	}else if(myResult >= 181000){
-                    d3.select("#textResponse").select("p").text(chartData.essential.feedback[3] + fmat(myResult) + chartData.essential.feedback[4]);
-                    d3.select("#textResponse").append("p").text(chartData.essential.feedback[7]);
+                    d3.select("#answer").select("p").text(chartData.essential.feedback[3] + fmat(myResult) + chartData.essential.feedback[4]);
+                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
 
                   }
 			}else{
 				pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
-				d3.select("#textResponse").select("p").text(chartData.essential.feedback[7]);
+				d3.select("#answer").select("p").text(chartData.essential.feedback[7]);
 			}
 
-			//d3.select("#textResponse").select("p").text(chartData.essential.appendText);
+			//d3.select("#answer").select("p").text(chartData.essential.appendText);
 
 				//use pym to calculate chart dimensions with appended text
 				if (pymChild) { pymChild.sendHeight(); }
