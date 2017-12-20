@@ -168,8 +168,8 @@
  function drawGraphic(data){
 
 	var format = d3.f,  //
-		parseMyTime = d3.timeParse(chartData.essential.dateFormat), // date is in whole yr format
-		formatMyTime = d3.timeFormat(chartData.essential.dateFormat); // date is in whole yr format
+		parseMyTime = d3.timeParse(chartData.essential.dateFormat),
+		formatMyTime = d3.timeFormat(chartData.essential.dateFormat);
 
 	var threshold_sm = chartData.optional.mobileBreakpoint[0],
 		threshold_md = chartData.optional.mobileBreakpoint[1];
@@ -195,7 +195,6 @@
 						left: +chartData.optional.margin_lg[3]
 					};
 		}
-		// Let's begin building
 
 		chart_width = parseInt(d3.select('#chart').style("width")) - margin.left - margin.right;
 		if(chart_width + margin.left + margin.right > 600) chart_width = 600 - margin.left - margin.right;
@@ -208,39 +207,28 @@
 		xAxis = d3.axisBottom(x).tickSize(7);
 		yAxis = d3.axisLeft(y).tickSize(-chart_width);
 
-		//specify number or ticks on y axis
-			if (parseInt(d3.select('#chart').style("width")) <= threshold_sm+100) { //console.log("Mobile");
-				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[0]);//.tickFormat(d3.timeFormat(chartData.optional.xAxisTextFormat_sm_md_lg[0]));
+			if (parseInt(d3.select('#chart').style("width")) <= threshold_sm+100) { 
+				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[0]);
 				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[0]);
 
 				var height = 300;
 				rad = 5;
-			 } else /*if (parseInt(d3.select('#chart').style("width")) <= threshold_md)*/{ //console.log("Tablet");
+			 } else { 
 				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[1]);
 				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[1]);
 
 				var height = 300;
 				rad = 5;
 			 }
-//			 else { //console.log("Desktop");
-//				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[2]);
-//				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[2]);
-//
-//				var height = 300;
-//				rad = 6;
-//			 }
-				//console.log(margin.top,margin.right,margin.bottom,margin.left);
-				//console.log("w"+parseInt(d3.select('#chart').style("width")),chart_width+" h "+height);
 
 
 		var svg = d3.select('#chart').append('svg')
 				.attr("width", chart_width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom + 25) // for x-axis drop + Safari won't draw outside svg container
+				.attr("height", height + margin.top + margin.bottom + 25)
 				.append("g")
 				.attr("cursor", "pointer")
 				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-		// This is used for the d3.drag to operate within - without it daint work
 	 	svg.append('rect')
 				.attr("width", chart_width )
 				.attr("height", height )
@@ -253,13 +241,11 @@
 
 		y.range([height, 0]).domain([chartData.essential.domMin, chartData.essential.domMax]);
 
-		// ticks back to Q1 if using Quarters
 		xAxis.tickFormat(function(d,i) {
             if (chartData.essential.period === "quarter") {
                 var fmt = d3.timeFormat('%y');
 
 				cond = formatMyTime(d).slice(5,8);
-					//if(cond === "Jan") d = formatMyTime(d).replace("Jan", "Q1");
 					if(cond === "Jan") d = "Q1 " + '\u2019' + fmt(d);
 					if(cond === "Apr") d = "Q2 " + '\u2019' + fmt(d);
 					if(cond === "Jul") d = "Q3 " + '\u2019' + fmt(d);
@@ -267,10 +253,9 @@
                 return d;
             } else if (chartData.essential.period === "month") {
                  var fmt = d3.timeFormat('%y');
-				cond = formatMyTime(d).slice(0,3); // !these may change
+				cond = formatMyTime(d).slice(0,3);
 				cond2 = formatMyTime(d).slice(0,1);
 
-					//if(cond === "Jan") d = formatMyTime(d).replace("Jan", "Q1");
 					if(cond === "Jan") d = cond + ' \u2019' + fmt(d);
 					if(cond === "Apr") d = cond + ' \u2019' + fmt(d);
 					if(cond === "Jul") d = cond + ' \u2019' + fmt(d);
@@ -284,7 +269,6 @@
         });
 
 
-			//create x axis, if y axis doesn't start at 0 drop x axis accordingly
 					svg.append('g')
 				        .attr('class', 'x axis')
 				        .attr('transform', function(d){
@@ -306,12 +290,9 @@
 
 				svg.append("text")
 					 .attr('class', 'unit')
-					 .attr('transform',"translate(" + (-margin.left) + ", -15)") //+margin.left
+					 .attr('transform',"translate(" + (-margin.left) + ", -15)")
 					 .text(function(d,i) { return chartData.essential.yAxisLabel});
 
-		// gridlines
-			//var x_axis_grid = function() { console.log(xAxis); return xAxis; }
-			//var x_axis_grid = svg.append("g").append("line").attr("id","gridline");
 			var gridLines = svg.append("g");
 			data.forEach(function(d,i) { if(i%5 == 3 || i == 0 || i == data.length-1 ){
 				gridLines.append("line")
@@ -320,24 +301,19 @@
 			 			.style("stroke", "#ccc")
 						.attr('y1',y(y.domain()[0]) )
 						.attr('y2',y(y.domain()[1]) )
-						.attr('x1', function() { // console.log(d.year);
+						.attr('x1', function() {
 										return x(d.year );
 						})
 						.attr('x2',function() {
 										return x(d.year);
 						});
-					} // ends if
+					}
 				});
-				// Delete first gridline to leave yaxis
-				//d3.select("#gridline0").remove();
 
 
 		var area = d3.area()
-					 //.x(format('year', x))  // format = d3.f;
 					 .x(function(d){ return  x(d.year)})
-					 //.y0(format('debt', y))
 					 .y0(function(d){ return  y(d.debt)})
-					 //.y1(height);
 					 .y1(function(d){ return  y(0)});
 
 		var line = d3.line()
@@ -352,10 +328,9 @@
 
 									var clipRect = svg.append('clipPath#clip')
 													  .append('rect')
-													  .attr('width', clipWidth) //x(cutOff)  end date - start date = area shown  === formatMyTime(cutOff)
+													  .attr('width', clipWidth)
 													  .attr('height', height)
 													  .attr('transform',"translate(" + (x(cutOff)) + ", 0)");
-													 // .attr('transform', 'translate(300,0)' );
 
 									var correctSel = svg.append('g')
 														.attr('clip-path', 'url(#clip)');
@@ -365,8 +340,7 @@
 
 									yourDataSel = svg.append('path.your-line');
 
-		//create centre line if required
-			if (chartData.optional.centre_line == true){ //console.log("centreline");
+			if (chartData.optional.centre_line == true){
 				svg.append("line")
 					.attr("id","centreline")
 					.attr('y1',y(chartData.optional.centre_line_value))
@@ -383,7 +357,6 @@
 			};
 
 
-		// historicalVals();
 		firstMarker();
 		writeAnnotation();
 		d3.select('#showMe').on('click', (function (e) {  $("#annotext").hide(); showMe(); }) );
@@ -409,7 +382,7 @@
 					.attr("height", bbox.height + (padding*2))
 					.style("fill", "rgba(255,255,255,0.9)");
 
-		if ( parseInt(d3.select('#chart').style("width") ) < threshold_sm) { //console.log("block me");
+		if ( parseInt(d3.select('#chart').style("width") ) < threshold_sm) { 
 
 		   var blocker = svg.append("rect")
 							.attr("id", "mobBlock")
@@ -421,7 +394,7 @@
 							.style("opacity", 0.5)
 							.on("click", function(){
 										d3.select("#mobBlock").remove();
-										d3.select("#mobBlockT")/*.attr("visibility", "hidden"); */.remove();
+										d3.select("#mobBlockT").remove();
 										dragNet();
 										});
 
@@ -430,17 +403,16 @@
 							.attr("y", height/2)
 							.attr("x", chart_width/2)
 							.attr('text-anchor', "middle")
-							//.attr("cursor", "default")
 							.text("Tap here to start drawing")
-							.on("click", function(){ //console.log("removed?");
+							.on("click", function(){ 
 										d3.select("#mobBlock").remove();
-										d3.select("#mobBlockT")/*.attr("visibility", "hidden"); */.remove();
+										d3.select("#mobBlockT").remove();
 										dragNet();
 										});
 
 					} else {
 						dragNet();
-					}// ends if
+					}
 
 
 	function dragNet(){
@@ -451,7 +423,7 @@
 					   				.filter(function(d){
 										if (formatMyTime(d.year) === formatMyTime(cutOff) ) d.defined = true;
 
-												return d.year <= cutOff; // so return the years that are <s>more</s> LESS than where you start to draw
+												return d.year <= cutOff;
 											  })
 
 		start = parseMyTime(chartData.essential.clampStart);
@@ -464,12 +436,11 @@
 
 					if(document.getElementsByClassName('animatedCircles') ) d3.select(".animatedCircles").remove();
 
-					var pos = d3.mouse(this) //console.log("mouse pos:"+pos);
+					var pos = d3.mouse(this)
 
-					var year = clampX(start, end, x.invert(pos[0])); // inverts, so pixel to domain - that's linear
+					var year = clampX(start, end, x.invert(pos[0]));
 
 					var debt = clampY(chartData.essential.domMin, chartData.essential.domMax, y.invert(pos[1]));
-					//console.log("year:" + year + "  debt:" + debt, pos[0], pos[1]);
 
 					var fomat = d3.format(",.0f");
 					d3.select("#currYValG").transition()
@@ -505,12 +476,11 @@
 							}
 
 								yourData.forEach(function(d){
-										  //if (Math.abs(formatMyTime(d.year) - year) < 0.5){
-										  if (formatMyTime(d.year) === year){// < 0.5){
+										  if (formatMyTime(d.year) === year){
 														d.debt = debt;
-														d.defined = true; // console.log("d.defined = true");
+														d.defined = true;
 													  }
-											})  // end yourData
+											})
 
 
 						toDraw = [];
@@ -520,15 +490,15 @@
 													}
 												})
 
-					yourDataSel.attr("d", function() {  //console.log(toDraw);
-														return line(toDraw); // was yourData
-													}); // this shows it all
+					yourDataSel.attr("d", function() { 
+														return line(toDraw);
+													}); 
 
-		}) // ends on drag
+		}) 
 
 		svg.call(drag);
 
-	} // ends dragNet
+	} 
 
 
 	function showMe(){
