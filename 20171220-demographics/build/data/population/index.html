@@ -132,7 +132,7 @@
 
 		.btn:hover,
 		.btn:focus {
-		    /* background-color:#0b5d30 ;*/
+		    outline: none;
 		}
 
 		#answer {
@@ -505,7 +505,6 @@
 							}
 
 								yourData.forEach(function(d){
-										  //if (Math.abs(formatMyTime(d.year) - year) < 0.5){
 										  if (formatMyTime(d.year) === year){// < 0.5){
 														d.debt = debt;
 														d.defined = true; // console.log("d.defined = true");
@@ -523,13 +522,6 @@
 					yourDataSel.attr("d", function() {  //console.log(toDraw);
 														return line(toDraw); // was yourData
 													}); // this shows it all
-
-					//if (!completed && d3.mean(yourData, format('defined')) == 1)
-										  // if all under format are true then mean will = 1;
-					if (yourData[0].defined === true ) // just the last for complete
-						{
-							//console.log("completed");
-						} //ends if completed
 
 		}) // ends on drag
 
