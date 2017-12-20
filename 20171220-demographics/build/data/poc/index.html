@@ -132,7 +132,7 @@
 
 		.btn:hover,
 		.btn:focus {
-		    /* background-color:#0b5d30 ;*/
+		    outline: none;
 		}
 
 		#answer {
@@ -462,7 +462,6 @@
 					var year = clampX(start, end, x.invert(pos[0])); // inverts, so pixel to domain - that's linear
 
 					var debt = clampY(chartData.essential.domMin, chartData.essential.domMax, y.invert(pos[1]));
-					//console.log("year:" + year + "  debt:" + debt, pos[0], pos[1]);
 
 					var fomat = d3.format(".0%");
 					d3.select("#currYValG").transition()
@@ -516,13 +515,6 @@
 					yourDataSel.attr("d", function() {  //console.log(toDraw);
 														return line(toDraw); // was yourData
 													}); // this shows it all
-
-					//if (!completed && d3.mean(yourData, format('defined')) == 1)
-										  // if all under format are true then mean will = 1;
-					if (yourData[0].defined === true ) // just the last for complete
-						{
-							//console.log("completed");
-						} //ends if completed
 
 		}) // ends on drag
 
