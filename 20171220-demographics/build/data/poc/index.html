@@ -142,6 +142,7 @@
 		#answer p {
 		    -webkit-margin-before: 0px;
 		    -webkit-margin-after: 20px;
+		    line-height:160%;
 		}
 
 		#buttonRow {
@@ -533,10 +534,10 @@
 	  }
 
 	  if (yourData[0].defined == true && slopeCorrect >= 4) {
-	  	d3.select("#answer").append("p").text("The trendline you drew is pretty close to accurate.");
+	  	//d3.select("#answer").append("p").text("The trendline you drew is pretty close to accurate.");
 	  	slope = true;
 	  } else if (yourData[0].defined == true) {
-	  	d3.select("#answer").append("p").text("The trendline you drew isn't close enough.");
+	  	//d3.select("#answer").append("p").text("The trendline you drew isn't close enough.");
 	  }
 
       if (yourData[0].defined === true && slope == true){ 
