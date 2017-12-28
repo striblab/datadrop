@@ -29,7 +29,7 @@ To perform data processing steps, run the following.  Drake will tell you what s
 This project is best used as a full, standalone page, or an embed.  The best way to embed the piece is with the following code:
 
 ```html
-<div data-pym-src="http://static.startribune.com/projects/labor-map">Loading...</div>
+<div data-pym-src="http://static.startribune.com/projects/20171214-nilf_map">Loading...</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pym/1.1.2/pym.v1.min.js" type="text/javascript"></script>
 ```
 
@@ -205,13 +205,13 @@ Publishing is configured in the `config.json` file.  The `publish` property can 
   "publish": {
     "default": {
       "bucket": "static.startribune.com",
-      "path": "news/projects-staging/all/labor-map/",
-      "url": "http://static.startribune.com/news/projects-staging/all/labor-map/"
+      "path": "news/projects-staging/all/20171214-nilf_map/",
+      "url": "http://static.startribune.com/news/projects-staging/all/20171214-nilf_map/"
     },
     "production": {
       "bucket": "static.startribune.com",
-      "path": "news/projects/all/labor-map/",
-      "url": "http://static.startribune.com/news/projects/all/labor-map/"
+      "path": "news/projects/all/20171214-nilf_map/",
+      "url": "http://static.startribune.com/news/projects/all/20171214-nilf_map/"
     }
   }
 }

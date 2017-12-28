@@ -47,7 +47,7 @@
 
             "feedback": ["Good job! ", 
                          "Your guess was close to Minnesota's actual number of births for 1990, which was about 68,000.", 
-                         "Minnesota's non-white population was low in 1960, but not that low. The 1960 Census reported about 22,270 minority residents in Minnesota.", 
+                         "Minnesota had about 68,000 births in 1960.", 
                          "Your guess of ", 
                          " people is too high. Minnesota's minority population in 1960 was about 22,270.", 
                          "", 
