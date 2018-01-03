@@ -1,5 +1,5 @@
 {
-    "essential" : {
+    "required" : {
 
             "dataURL": "immigration.csv",
 
@@ -11,7 +11,7 @@
 
             "dateStart": ["1920"],
 
-            "dateCutOff": ["2016"],
+            "dateCutOff": ["1920"],
 
             "dateBegin": ["2016"],
 
@@ -27,11 +27,11 @@
             "sourceText":["U.S. Census Bureau"],
             "sourceURL":["https://www.census.gov/"],
 
-            "annotationChart": ["grab and drag", "drag" ],
+            "annotationChart": ["drag >", "drag" ],
 
             "annotationBullet": [ ],
 
-            "annotationXY":["2010", 0.075],
+            "annotationXY":["1940", 0.18],
 
             "annotationAlign":["end"],
 
@@ -46,10 +46,10 @@
             "yAxisBreak_sm_md_lg": [65,65,65],
 
             "feedback": ["Awesome! ", 
-                         "Your guess was close to the percentage of Minnesota's immigrant population in 1920: 21 percent.", 
-                         "About 21 percent of Minnesota's population in 1920 was immigrants.", 
+                         "Your guess was close to the percentage of Minnesota's immigrant population in 2016: 8 percent.", 
+                         "About 8 percent of Minnesota's population in 2016 were immigrants.", 
                          "Your guess of ", 
-                         " is too high. Minnesota's immigrant population was about 21 percent in 1920.", 
+                         " is too high. Minnesota's immigrant population was about 8 percent in 2016.", 
                          "", 
                          "", 
                          "The percentage of the foreign-born in Minnesota's population gradually declined from the 1920s, but then started increasing again in the 1990s with an influx of immigrants and refugees from Mexico, Laos and Somalia."]

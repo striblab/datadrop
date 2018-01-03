@@ -1,5 +1,5 @@
 {
-    "essential" : {
+    "required" : {
 
             "dataURL": "births.csv",
 
@@ -27,7 +27,7 @@
             "sourceText":["U.S. Census Bureau"],
             "sourceURL":["https://www.census.gov/"],
 
-            "annotationChart": ["grab and drag", "drag" ],
+            "annotationChart": ["< drag", "drag" ],
 
             "annotationBullet": [ ],
 

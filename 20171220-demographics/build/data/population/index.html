@@ -89,7 +89,7 @@
 		    stroke-width: 6px;
 		}
 
-		#centreline {
+		#centerline {
 		    stroke: #666;
 		    fill: none;
 		    stroke-width: 1.5px;
@@ -165,567 +165,588 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
-function drawIt(){
+function drawIt() {
 
- function drawGraphic(data){
+    function drawGraphic(data) {
 
-	var format = d3.f,  //
-		parseMyTime = d3.timeParse(chartData.essential.dateFormat),
-		formatMyTime = d3.timeFormat(chartData.essential.dateFormat);
+        var format = d3.f, //
+            parseMyTime = d3.timeParse(chartData.required.dateFormat),
+            formatMyTime = d3.timeFormat(chartData.required.dateFormat);
 
-	var threshold_sm = chartData.optional.mobileBreakpoint[0],
-		threshold_md = chartData.optional.mobileBreakpoint[1];
+        var threshold_sm = chartData.optional.mobileBreakpoint[0],
+            threshold_md = chartData.optional.mobileBreakpoint[1];
 
-		var selection = d3.select('#chart');
+        var selection = d3.select('#chart');
 
-		if (parseInt(d3.select('#chart').style("width")) <= threshold_sm) {
-		 margin = {		top:+chartData.optional.margin_sm[0],
-						right:+chartData.optional.margin_sm[1],
-						bottom:+chartData.optional.margin_sm[2],
-						left: +chartData.optional.margin_sm[3]
-					};
-		} else if (parseInt(d3.select('#chart').style("width")) <= threshold_md){
-		  margin = {	top:+chartData.optional.margin_md[0],
-						right:+chartData.optional.margin_md[1],
-						bottom:+chartData.optional.margin_md[2],
-						left: +chartData.optional.margin_md[3]
-					};
-		} else {
-		  margin = {	top:+chartData.optional.margin_lg[0],
-						right:+chartData.optional.margin_lg[1],
-						bottom:+chartData.optional.margin_lg[2],
-						left: +chartData.optional.margin_lg[3]
-					};
-		}
+        if (parseInt(d3.select('#chart').style("width")) <= threshold_sm) {
+            margin = {
+                top: +chartData.optional.margin_sm[0],
+                right: +chartData.optional.margin_sm[1],
+                bottom: +chartData.optional.margin_sm[2],
+                left: +chartData.optional.margin_sm[3]
+            };
+        } else if (parseInt(d3.select('#chart').style("width")) <= threshold_md) {
+            margin = {
+                top: +chartData.optional.margin_md[0],
+                right: +chartData.optional.margin_md[1],
+                bottom: +chartData.optional.margin_md[2],
+                left: +chartData.optional.margin_md[3]
+            };
+        } else {
+            margin = {
+                top: +chartData.optional.margin_lg[0],
+                right: +chartData.optional.margin_lg[1],
+                bottom: +chartData.optional.margin_lg[2],
+                left: +chartData.optional.margin_lg[3]
+            };
+        }
 
-		chart_width = parseInt(d3.select('#chart').style("width")) - margin.left - margin.right;
-		if(chart_width + margin.left + margin.right > 600) chart_width = 600 - margin.left - margin.right;
+        chart_width = parseInt(d3.select('#chart').style("width")) - margin.left - margin.right;
+        if (chart_width + margin.left + margin.right > 600) chart_width = 600 - margin.left - margin.right;
 
-		x = d3.scaleTime()
-			.range([0, chart_width]);
+        x = d3.scaleTime()
+            .range([0, chart_width]);
 
-		y = d3.scaleLinear();
+        y = d3.scaleLinear();
 
-		xAxis = d3.axisBottom(x).tickSize(7);
-		yAxis = d3.axisLeft(y).tickSize(-chart_width);
+        xAxis = d3.axisBottom(x).tickSize(7);
+        yAxis = d3.axisLeft(y).tickSize(-chart_width);
 
-			if (parseInt(d3.select('#chart').style("width")) <= threshold_sm+100) { 
-				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[0]);
-				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[0]);
+        if (parseInt(d3.select('#chart').style("width")) <= threshold_sm + 100) {
+            xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[0]);
+            yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[0]);
 
-				var height = 300;
-				rad = 5;
-			 } else {
-				xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[1]);
-				yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[1]);
+            var height = 300;
+            rad = 5;
+        } else {
+            xAxis.ticks(chartData.optional.x_num_ticks_sm_md_lg[1]);
+            yAxis.ticks(chartData.optional.y_num_ticks_sm_md_lg[1]);
 
-				var height = 300;
-				rad = 5;
-			 }
+            var height = 300;
+            rad = 5;
+        }
 
 
-		var svg = d3.select('#chart').append('svg')
-				.attr("width", chart_width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom + 25)
-				.append("g")
-				.attr("cursor", "pointer")
-				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        var svg = d3.select('#chart').append('svg')
+            .attr("width", chart_width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom + 25)
+            .append("g")
+            .attr("cursor", "pointer")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-	 	svg.append('rect')
-				.attr("width", chart_width )
-				.attr("height", height )
-				.attr("opacity",0)
+        svg.append('rect')
+            .attr("width", chart_width)
+            .attr("height", height)
+            .attr("opacity", 0)
 
-		x.domain(d3.extent(data, function(d) { return d.year; }) );
+        x.domain(d3.extent(data, function(d) {
+            return d.year;
+        }));
 
-		var myMax = Math.ceil(mx),
-			myMin = Math.floor(mn);
+        var myMax = Math.ceil(mx),
+            myMin = Math.floor(mn);
 
-		y.range([height, 0]).domain([chartData.essential.domMin, chartData.essential.domMax]);
+        y.range([height, 0]).domain([chartData.required.domMin, chartData.required.domMax]);
 
-		xAxis.tickFormat(function(d,i) {
-            if (chartData.essential.period === "quarter") {
+        xAxis.tickFormat(function(d, i) {
+            if (chartData.required.period === "quarter") {
                 var fmt = d3.timeFormat('%y');
 
-				cond = formatMyTime(d).slice(5,8);
-					if(cond === "Jan") d = "Q1 " + '\u2019' + fmt(d);
-					if(cond === "Apr") d = "Q2 " + '\u2019' + fmt(d);
-					if(cond === "Jul") d = "Q3 " + '\u2019' + fmt(d);
-					if(cond === "Oct") d = "Q4 " + '\u2019' + fmt(d);
+                cond = formatMyTime(d).slice(5, 8);
                 return d;
-            } else if (chartData.essential.period === "month") {
-                 var fmt = d3.timeFormat('%y');
-				cond = formatMyTime(d).slice(0,3);
-				cond2 = formatMyTime(d).slice(0,1);
-
-					if(cond === "Jan") d = cond + ' \u2019' + fmt(d);
-					if(cond === "Apr") d = cond + ' \u2019' + fmt(d);
-					if(cond === "Jul") d = cond + ' \u2019' + fmt(d);
-					if(cond === "Oct") d = cond + ' \u2019' + fmt(d);
+            } else if (chartData.required.period === "month") {
+                var fmt = d3.timeFormat('%y');
+                cond = formatMyTime(d).slice(0, 3);
+                cond2 = formatMyTime(d).slice(0, 1);
                 return d;
             } else {
-				var fmt = d3.timeFormat(chartData.essential.dateFormat);
-				d = fmt(d);
-				return d;
-			}
+                var fmt = d3.timeFormat(chartData.required.dateFormat);
+                d = fmt(d);
+                return d;
+            }
         });
 
 
-					svg.append('g')
-				        .attr('class', 'x axis')
-				        .attr('transform', function(d){
-				        			if(y.domain()[0] != 0){
-										return 'translate(0,' + (height + 25) + ')'
-									} else {
-										return 'translate(0,' + height  + ')'
-									}
-							})
-				        .call(xAxis);
+        svg.append('g')
+            .attr('class', 'x axis')
+            .attr('transform', function(d) {
+                if (y.domain()[0] != 0) {
+                    return 'translate(0,' + (height + 25) + ')'
+                } else {
+                    return 'translate(0,' + height + ')'
+                }
+            })
+            .call(xAxis);
 
-				svg.append("g")
-					  	.attr("class", "y axis")
-						.attr('transform', 'translate(-10, 0 )' )
-					  	.call(yAxis);
+        svg.append("g")
+            .attr("class", "y axis")
+            .attr('transform', 'translate(-10, 0 )')
+            .call(yAxis);
 
-				d3.select('g.y.axis').select('path.domain').remove();
-				d3.select('.y.axis').selectAll('line').attr('transform', 'translate(10, 0)' );
+        d3.select('g.y.axis').select('path.domain').remove();
+        d3.select('.y.axis').selectAll('line').attr('transform', 'translate(10, 0)');
 
-				svg.append("text")
-					 .attr('class', 'unit')
-					 .attr('transform',"translate(" + (-margin.left) + ", -15)")
-					 .text(function(d,i) { return chartData.essential.yAxisLabel});
+        svg.append("text")
+            .attr('class', 'unit')
+            .attr('transform', "translate(" + (-margin.left) + ", -15)")
+            .text(function(d, i) {
+                return chartData.required.yAxisLabel
+            });
 
-			var gridLines = svg.append("g");
-			data.forEach(function(d,i) { if(i%5 == 3 || i == 0 || i == data.length-1 ){
-				gridLines.append("line")
-					.attr("class", "gridDash")
-					.attr("id", function(){ return "gridline"+i} )
-			 			.style("stroke", "#ccc")
-						.attr('y1',y(y.domain()[0]) )
-						.attr('y2',y(y.domain()[1]) )
-						.attr('x1', function() { 
-										return x(d.year );
-						})
-						.attr('x2',function() {
-										return x(d.year);
-						});
-					}
-				});
-
-
-		var area = d3.area()
-					 .x(function(d){ return  x(d.year)})
-					 .y0(function(d){ return  y(d.debt)})
-					 .y1(function(d){ return  y(0)});
-
-		var line = d3.line()
-					 .x(format('year', x))
-					 .y(format('debt', y));
-
-									var cutOff = parseMyTime(chartData.essential.dateCutOff),
-										beginChart = parseMyTime(chartData.essential.dateBegin),
-										endChart = parseMyTime(chartData.essential.dateCutOff),
-										firstChart = parseMyTime(chartData.essential.dateStart),
-										clipWidth = x(beginChart) - x(endChart);
-
-									var clipRect = svg.append('clipPath#clip')
-													  .append('rect')
-													  .attr('width', clipWidth)
-													  .attr('height', height)
-													  .attr('transform',"translate(" + (x(cutOff)) + ", 0)");
-
-									var correctSel = svg.append('g')
-														.attr('clip-path', 'url(#clip)');
-
-									correctSel.append('path.area').attr('d', function(){ return area(data); });
-									correctSel.append('path.line').attr('d', function(){ return line(data); });
-
-									yourDataSel = svg.append('path.your-line');
-
-			if (chartData.optional.centre_line == true){ 
-				svg.append("line")
-					.attr("id","centreline")
-					.attr('y1',y(chartData.optional.centre_line_value))
-					.attr('y2',y(chartData.optional.centre_line_value))
-					.attr('x1',0)
-					.attr('x2',x.range()[1]);
-			} else if(y.domain()[0] < 0) {
-				svg.append("line")
-					.attr("id","centreline")
-					.attr('y1',y(0))
-					.attr('y2',y(0))
-					.attr('x1',0)
-					.attr('x2',x.range()[1]);
-			};
+        var gridLines = svg.append("g");
+        data.forEach(function(d, i) {
+            if (i % 5 == 3 || i == 0 || i == data.length - 1) {
+                gridLines.append("line")
+                    .attr("class", "gridDash")
+                    .attr("id", function() {
+                        return "gridline" + i
+                    })
+                    .style("stroke", "#ccc")
+                    .attr('y1', y(y.domain()[0]))
+                    .attr('y2', y(y.domain()[1]))
+                    .attr('x1', function() {
+                        return x(d.year);
+                    })
+                    .attr('x2', function() {
+                        return x(d.year);
+                    });
+            }
+        });
 
 
-		firstMarker();
-		writeAnnotation();
-		d3.select('#showMe').on('click', (function (e) {  $("#annotext").hide(); showMe(); }) );
+        var area = d3.area()
+            .x(function(d) {
+                return x(d.year)
+            })
+            .y0(function(d) {
+                return y(d.population)
+            })
+            .y1(function(d) {
+                return y(0)
+            });
 
-		svg.append("g").attr("id", "currYValG")
-			.attr("opacity",0)
-			.append("text").attr("id", "currYVal")
-			.attr("y", -margin.top + 34)
-			.attr("x", -13)
-			.text("200,000")
+        var line = d3.line()
+            .x(format('year', x))
+            .y(format('population', y));
 
+        var cutOff = parseMyTime(chartData.required.dateCutOff),
+            beginChart = parseMyTime(chartData.required.dateBegin),
+            endChart = parseMyTime(chartData.required.dateCutOff),
+            firstChart = parseMyTime(chartData.required.dateStart),
+            clipWidth = x(beginChart) - x(endChart);
 
+        var clipRect = svg.append('clipPath#clip')
+            .append('rect')
+            .attr('width', clipWidth)
+            .attr('height', height)
+            .attr('transform', "translate(" + (x(cutOff)) + ", 0)");
 
-		var text = d3.select("#currYVal");
-		var bbox = text.node().getBBox();
-		var padding = 2;
+        var correctSel = svg.append('g')
+            .attr('clip-path', 'url(#clip)');
 
-				svg.select("#currYValG").insert("rect","#currYVal")
-					.attr("id","backgroundrect")
-					.attr("x", bbox.x - padding)
-					.attr("y", bbox.y - padding)
-					.attr("width", bbox.width + (padding*2))
-					.attr("height", bbox.height + (padding*2))
-					.style("fill", "rgba(255,255,255,0.9)");
+        correctSel.append('path.area').attr('d', function() {
+            return area(data);
+        });
+        correctSel.append('path.line').attr('d', function() {
+            return line(data);
+        });
 
-		if ( parseInt(d3.select('#chart').style("width") ) < threshold_sm) { 
+        yourDataSel = svg.append('path.your-line');
 
-		   var blocker = svg.append("rect")
-							.attr("id", "mobBlock")
-							.attr("x", 0 )
-							.attr("y", 0 )
-							.attr("height", height )
-							.attr("width", chart_width)
-							.style("fill", "#003C57")
-							.style("opacity", 0.5)
-							.on("click", function(){
-										d3.select("#mobBlock").remove();
-										d3.select("#mobBlockT").remove();
-										dragNet();
-										});
-
-			var blockerT = svg.append("text")
-							.attr("id", "mobBlockT")
-							.attr("y", height/2)
-							.attr("x", chart_width/2)
-							.attr('text-anchor', "middle")
-							.text("Tap here to start drawing")
-							.on("click", function(){ 
-										d3.select("#mobBlock").remove();
-										d3.select("#mobBlockT").remove();
-										dragNet();
-										});
-
-					} else {
-						dragNet();
-					}
+        if (chartData.optional.centre_line == true) {
+            svg.append("line")
+                .attr("id", "centerline")
+                .attr('y1', y(chartData.optional.centre_line_value))
+                .attr('y2', y(chartData.optional.centre_line_value))
+                .attr('x1', 0)
+                .attr('x2', x.range()[1]);
+        } else if (y.domain()[0] < 0) {
+            svg.append("line")
+                .attr("id", "centerline")
+                .attr('y1', y(0))
+                .attr('y2', y(0))
+                .attr('x1', 0)
+                .attr('x2', x.range()[1]);
+        };
 
 
-	function dragNet(){
+        firstMarker();
+        writeAnnotation();
+        d3.select('#showMe').on('click', (function(e) {
+            $("#annotext").hide();
+            showMe();
+        }));
 
-		yourData = data.map(function(d){
-									return {year: d.year, debt: d.debt, defined: 0};
-									})
-					   				.filter(function(d){
-										if (formatMyTime(d.year) === formatMyTime(cutOff) ) d.defined = true;
-
-												return d.year <= cutOff;
-											  })
-
-		start = parseMyTime(chartData.essential.clampStart);
-		end = parseMyTime(chartData.essential.clampEnd);
-
-
-		 var drag = d3.drag()
-				  .on('drag', function(){
-					pymChild.sendMessage('tracking', 'chart-interacted');
-
-					if(document.getElementsByClassName('animatedCircles') ) d3.select(".animatedCircles").remove();
-
-					var pos = d3.mouse(this)
-
-					var year = clampX(start, end, x.invert(pos[0]));
-
-					var debt = clampY(chartData.essential.domMin, chartData.essential.domMax, y.invert(pos[1]));
-
-					var fomat = d3.format(",.0f");
-					d3.select("#currYValG").transition()
-											.duration(100)
-											.attr('transform',"translate(0, " + y(debt) + ")")
-											.attr("opacity",1);
-
-					d3.select("#currYVal").text(fomat(debt));
-
-          if(pos[0] - margin.right/2 > 100){
-					d3.select("#annotext").attr("display", "auto")
-										  .style("pointer-events", "none")
-										  .style("font-weight", 400)
-										  .transition()
-										  .duration(100)
-										  .attr('transform',"translate(" + (x(parseMyTime(year)) - margin.right/2 - x(parseMyTime(chartData.essential.annotationXY[0])) ) + ", " + (y(debt) - margin.top/2 - y(chartData.essential.annotationXY[1]) ) + ") ")
-										  .text("Keep going");
-
-													if(formatMyTime(x.invert(pos[0]) ) > chartData.essential.dateBegin[0] ){ d3.select("#annotext").attr("display", "none");}
-					}
-
-          else if(pos[0] > 0){
-          d3.select("#annotext").attr("display", "auto")
-                      .style("pointer-events", "none")
-                      .transition()
-                      .duration(100)
-                      .attr('transform',"translate(" + (x(parseMyTime(year)) + 50+margin.right - x(parseMyTime(chartData.essential.annotationXY[0])) ) + ", " + (y(debt) - margin.top/2 - y(chartData.essential.annotationXY[1]) ) + ") ")
-                      .text("Keep going");
-
-                          if(formatMyTime(x.invert(pos[0]) ) > chartData.essential.dateBegin[0] ){ d3.select("#annotext").attr("display", "none");}
-          } else {
-							d3.select("#annotext").attr("display", "none");
-							}
-
-								yourData.forEach(function(d){
-										  if (formatMyTime(d.year) === year){
-														d.debt = debt;
-														d.defined = true;
-													  }
-											})
+        svg.append("g").attr("id", "currYValG")
+            .attr("opacity", 0)
+            .append("text").attr("id", "currYVal")
+            .attr("y", -margin.top + 34)
+            .attr("x", -13)
+            .text("200,000")
 
 
-						toDraw = [];
-						 yourData.forEach(function(d){
-													if (d.defined==true){
-														toDraw.push(d)
-													}
-												})
 
-					yourDataSel.attr("d", function() {  
-														return line(toDraw);
-													});
+        var text = d3.select("#currYVal");
+        var bbox = text.node().getBBox();
+        var padding = 2;
 
-		})
+        svg.select("#currYValG").insert("rect", "#currYVal")
+            .attr("id", "backgroundrect")
+            .attr("x", bbox.x - padding)
+            .attr("y", bbox.y - padding)
+            .attr("width", bbox.width + (padding * 2))
+            .attr("height", bbox.height + (padding * 2))
+            .style("fill", "rgba(255,255,255,0.9)");
 
-		svg.call(drag);
+        if (parseInt(d3.select('#chart').style("width")) < threshold_sm) {
 
-	}
+            var blocker = svg.append("rect")
+                .attr("id", "mobBlock")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("height", height)
+                .attr("width", chart_width)
+                .style("fill", "#003C57")
+                .style("opacity", 0.5)
+                .on("click", function() {
+                    d3.select("#mobBlock").remove();
+                    d3.select("#mobBlockT").remove();
+                    dragNet();
+                });
+
+            var blockerT = svg.append("text")
+                .attr("id", "mobBlockT")
+                .attr("y", height / 2)
+                .attr("x", chart_width / 2)
+                .attr('text-anchor', "middle")
+                .text("Tap here to start drawing")
+                .on("click", function() {
+                    d3.select("#mobBlock").remove();
+                    d3.select("#mobBlockT").remove();
+                    dragNet();
+                });
+
+        } else {
+            dragNet();
+        }
 
 
-	function showMe(){
-	  var fmat = d3.format(",.0f");
+        function dragNet() {
 
-	  d3.select('#chart').style("pointer-events", "none");
-	  d3.select(".animatedCircles").remove();
-	  d3.select("#showMe").remove();
-	  d3.select("#currYValG").remove();
-			
-	  if(document.getElementById('mobBlock') ) {	
-	    d3.select("#mobBlock").remove();
-		d3.select("#mobBlockT").remove();
-	  }
+            yourData = data.map(function(d) {
+                    return {
+                        year: d.year,
+                        population: d.population,
+                        defined: 0
+                    };
+                })
+                .filter(function(d) {
+                    if (formatMyTime(d.year) === formatMyTime(cutOff)) d.defined = true;
 
-	  clipRect.transition().duration(1000).attr('transform',"translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart) );
+                    return d.year <= cutOff;
+                })
 
-	  var myResult = yourData[0].debt, result = data[0].debt; 
-	  diff = (Math.abs(myResult - result)/result) * 100;
+            start = parseMyTime(chartData.required.clampStart);
+            end = parseMyTime(chartData.required.clampEnd);
 
-	  var slopeCorrect = 0;
-	  var slope = false;
 
-	  for (var i=0; i < yourData.length; i++){
-	  	if (yourData[i].debt >= (Number(data[i].debt) - 20000) && yourData[i].debt <= (Number(data[i].debt) + 20000)) { slopeCorrect++; }
-	  }
+            var drag = d3.drag()
+                .on('drag', function() {
+                    pymChild.sendMessage('tracking', 'chart-interacted');
 
-	  if (yourData[0].defined == true && slopeCorrect >= 12) {
-	  	//d3.select("#answer").append("p").text("The trendline you drew is pretty close to accurate.");
-	  	slope = true;
-	  } else if (yourData[0].defined == true) {
-	  	//d3.select("#answer").append("p").text("The trendline you drew isn't close enough.");
-	  }
+                    if (document.getElementsByClassName('animatedCircles')) d3.select(".animatedCircles").remove();
 
-      if (yourData[0].defined === true && slope == true){ 
+                    var pos = d3.mouse(this)
+
+                    var year = clampX(start, end, x.invert(pos[0]));
+
+                    var population = clampY(chartData.required.domMin, chartData.required.domMax, y.invert(pos[1]));
+
+                    var fomat = d3.format(",.0f");
+                    d3.select("#currYValG").transition()
+                        .duration(100)
+                        .attr('transform', "translate(0, " + y(population) + ")")
+                        .attr("opacity", 1);
+
+                    d3.select("#currYVal").text(fomat(population));
+
+                    if (pos[0] - margin.right / 2 > 100) {
+                        d3.select("#annotext").attr("display", "auto")
+                            .style("pointer-events", "none")
+                            .style("font-weight", 400)
+                            .transition()
+                            .duration(100)
+                            .attr('transform', "translate(" + (x(parseMyTime(year)) - margin.right / 2 - x(parseMyTime(chartData.required.annotationXY[0]))) + ", " + (y(population) - margin.top / 2 - y(chartData.required.annotationXY[1])) + ") ")
+                            .text("Keep going");
+
+                        if (formatMyTime(x.invert(pos[0])) > chartData.required.dateBegin[0]) {
+                            d3.select("#annotext").attr("display", "none");
+                        }
+                    } else if (pos[0] > 0) {
+                        d3.select("#annotext").attr("display", "auto")
+                            .style("pointer-events", "none")
+                            .transition()
+                            .duration(100)
+                            .attr('transform', "translate(" + (x(parseMyTime(year)) + 50 + margin.right - x(parseMyTime(chartData.required.annotationXY[0]))) + ", " + (y(population) - margin.top / 2 - y(chartData.required.annotationXY[1])) + ") ")
+                            .text("Keep going");
+
+                        if (formatMyTime(x.invert(pos[0])) > chartData.required.dateBegin[0]) {
+                            d3.select("#annotext").attr("display", "none");
+                        }
+                    } else {
+                        d3.select("#annotext").attr("display", "none");
+                    }
+
+                    yourData.forEach(function(d) {
+                        if (formatMyTime(d.year) === year) {
+                            d.population = population;
+                            d.defined = true;
+                        }
+                    })
+
+
+                    toDraw = [];
+                    yourData.forEach(function(d) {
+                        if (d.defined == true) {
+                            toDraw.push(d)
+                        }
+                    })
+
+                    yourDataSel.attr("d", function() {
+                        return line(toDraw);
+                    });
+
+                })
+
+            svg.call(drag);
+
+        }
+
+
+        function showMe() {
+            var fmat = d3.format(",.0f");
+
+            d3.select('#chart').style("pointer-events", "none");
+            d3.select(".animatedCircles").remove();
+            d3.select("#showMe").remove();
+            d3.select("#currYValG").remove();
+
+            if (document.getElementById('mobBlock')) {
+                d3.select("#mobBlock").remove();
+                d3.select("#mobBlockT").remove();
+            }
+
+            clipRect.transition().duration(1000).attr('transform', "translate(" + x(firstChart) + ", 0)").attr('width', x(beginChart));
+
+            var myResult = yourData[0].population,
+                result = data[0].population;
+            diff = (Math.abs(myResult - result) / result) * 100;
+
+            var slopeCorrect = 0;
+            var slope = false;
+
+            for (var i = 0; i < yourData.length; i++) {
+                if (yourData[i].population >= (Number(data[i].population) - 20000) && yourData[i].population <= (Number(data[i].population) + 20000)) {
+                    slopeCorrect++;
+                }
+            }
+
+            if (yourData[0].defined == true && slopeCorrect >= 12) {
+                //d3.select("#answer").append("p").text("The trendline you drew is pretty close to accurate.");
+                slope = true;
+            } else if (yourData[0].defined == true) {
+                //d3.select("#answer").append("p").text("The trendline you drew isn't close enough.");
+            }
+
+            if (yourData[0].defined === true && slope == true) {
                 pymChild.sendMessage('tracking', 'button-clicked-after-interaction');
-		  		if(myResult <= 150000){
-            		d3.select("#answer").append("p").text(chartData.essential.feedback[2]);
-                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
+                if (myResult <= 150000) {
+                    d3.select("#answer").append("p").text(chartData.required.feedback[2]);
+                    d3.select("#answer").append("p").text(chartData.required.feedback[7]);
 
-            			}else if(myResult < 181000 && myResult > 160000){
-                    d3.select("#answer").select("p").text(chartData.essential.feedback[0] +  chartData.essential.feedback[1]);
-                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
+                } else if (myResult < 181000 && myResult > 160000) {
+                    d3.select("#answer").select("p").text(chartData.required.feedback[0] + chartData.required.feedback[1]);
+                    d3.select("#answer").append("p").text(chartData.required.feedback[7]);
 
-                	}else if(myResult >= 181000){
-                    d3.select("#answer").select("p").text(chartData.essential.feedback[3] + fmat(myResult) + chartData.essential.feedback[4]);
-                    d3.select("#answer").append("p").text(chartData.essential.feedback[7]);
+                } else if (myResult >= 181000) {
+                    d3.select("#answer").select("p").text(chartData.required.feedback[3] + fmat(myResult) + chartData.required.feedback[4]);
+                    d3.select("#answer").append("p").text(chartData.required.feedback[7]);
 
-                  }
-			}else{
-				pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
-				d3.select("#answer").select("p").text(chartData.essential.feedback[7]);
-			}
+                }
+            } else {
+                pymChild.sendMessage('tracking', 'button-clicked-before-interaction');
+                d3.select("#answer").select("p").text(chartData.required.feedback[7]);
+            }
 
-				if (pymChild) { pymChild.sendHeight(); }
+            if (pymChild) {
+                pymChild.sendHeight();
+            }
 
-	}
-
-
-	function clampY(a, b, c){
-		return Math.max(a, Math.min(b, c))
-	}
-
-	function clampX(a, b, c){
-		return formatMyTime(Math.max(a, Math.min(b, c)) )
-	}
+        }
 
 
-	function firstMarker(){
+        function clampY(a, b, c) {
+            return Math.max(a, Math.min(b, c))
+        }
 
-				var fmt2 = d3.format(",.0f");
+        function clampX(a, b, c) {
+            return formatMyTime(Math.max(a, Math.min(b, c)))
+        }
 
-				var drawMark = svg.append("g").attr("id", "drawMark");
 
-					data.forEach(function(d) {
-												if(formatMyTime(d.year) === formatMyTime(cutOff))  myY = d.debt;
-											});
+        function firstMarker() {
 
-					if( parseInt(d3.select('#chart').style("width")) > threshold_sm){
-					svg.append("text")
-							.attr("id", "startNum")
-							.attr("x", x(parseMyTime(chartData.essential.dateCutOff)) + 14)
-							.attr("y", y(myY) + 5)
-							.style("font-size", 14+"px")
-							.style("font-weight", 400)
-							.style("opacity", 0.5)
-							.attr("text-anchor", "start")
-							.style("cursor", "none")
-							.text(fmt2(myY) );
-				}
+            var fmt2 = d3.format(",.0f");
 
-					drawMark.append("circle")
-							.attr("cx", x(parseMyTime(chartData.essential.dateCutOff)) )
-							.attr("cy", y(myY))
-							.attr("r", 8)
-							.attr("fill", "#333333");
+            var drawMark = svg.append("g").attr("id", "drawMark");
 
-				pulse();
+            data.forEach(function(d) {
+                if (formatMyTime(d.year) === formatMyTime(cutOff)) myY = d.population;
+            });
 
-	}
+            if (parseInt(d3.select('#chart').style("width")) > threshold_sm) {
+                svg.append("text")
+                    .attr("id", "startNum")
+                    .attr("x", x(parseMyTime(chartData.required.dateCutOff)) + 14)
+                    .attr("y", y(myY) + 5)
+                    .style("font-size", 14 + "px")
+                    .style("font-weight", 400)
+                    .style("opacity", 0.5)
+                    .attr("text-anchor", "start")
+                    .style("cursor", "none")
+                    .text(fmt2(myY));
+            }
 
-  function pulse(){
-              svg.append("g")
-                  .attr("class", "animatedCircles")
-                  .style('pointer-events', 'none')
-                  .append("circle")
-                  .attr("class", "marker")
-                  .attr("r", 20)
-                  .attr("cx", x(parseMyTime(chartData.essential.dateCutOff)) )
-                  .attr("cy", y(myY) )
-                  .attr("stroke-width", 1)
-                  .attr("fill", "#333333")
-                  .attr("opacity", 0)
+            drawMark.append("circle")
+                .attr("cx", x(parseMyTime(chartData.required.dateCutOff)))
+                .attr("cy", y(myY))
+                .attr("r", 8)
+                .attr("fill", "#333333");
+
+            pulse();
+
+        }
+
+        function pulse() {
+            svg.append("g")
+                .attr("class", "animatedCircles")
+                .style('pointer-events', 'none')
+                .append("circle")
+                .attr("class", "marker")
+                .attr("r", 20)
+                .attr("cx", x(parseMyTime(chartData.required.dateCutOff)))
+                .attr("cy", y(myY))
+                .attr("stroke-width", 1)
+                .attr("fill", "#333333")
+                .attr("opacity", 0)
                 .transition()
-                  .duration(500)
-                  .each(slide);
-  }
+                .duration(500)
+                .each(slide);
+        }
 
-			function slide() {
-						  var circle = d3.select(this);
+        function slide() {
+            var circle = d3.select(this);
 
-						  (function repeat() {
+            (function repeat() {
 
-							circle = circle.transition()
-								.duration(1000)
-								.attr("r", 12)
-								.attr("opacity", 0)
-								.transition()
-								.duration(1000)
-								.attr("r", 12)
-								.attr("opacity", 1)
-								.on("end", repeat);
-						  })();
-				}
+                circle = circle.transition()
+                    .duration(1000)
+                    .attr("r", 12)
+                    .attr("opacity", 0)
+                    .transition()
+                    .duration(1000)
+                    .attr("r", 12)
+                    .attr("opacity", 1)
+                    .on("end", repeat);
+            })();
+        }
 
 
-	function writeAnnotation(){
-							svg.append("text")
-								.attr("id","annotext"/* + i*/)
-								.attr("text-anchor", chartData.essential.annotationAlign)
-								.attr('y',y(chartData.essential.annotationXY[1]))
-								.attr('x',x(parseMyTime(chartData.essential.annotationXY[0])) )
-								.style("font-weight", 600)
-								.text(function(){ if( parseInt(d3.select('#chart').style("width")) < threshold_sm){
+        function writeAnnotation() {
+            svg.append("text")
+                .attr("id", "annotext" /* + i*/ )
+                .attr("text-anchor", chartData.required.annotationAlign)
+                .attr('y', y(chartData.required.annotationXY[1]))
+                .attr('x', x(parseMyTime(chartData.required.annotationXY[0])))
+                .style("font-weight", 600)
+                .text(function() {
+                    if (parseInt(d3.select('#chart').style("width")) < threshold_sm) {
 
-																return chartData.essential.annotationChart[1];
-																} else
-																{ return chartData.essential.annotationChart[0];
-																}
-								})
+                        return chartData.required.annotationChart[1];
+                    } else {
+                        return chartData.required.annotationChart[0];
+                    }
+                })
 
-								.attr("cursor", "default");
+                .attr("cursor", "default");
 
-				return;
+            return;
 
-	  }
+        }
 
-  }
+    }
 
-			if (Modernizr)
-			{
+    if (Modernizr) {
 
-				d3.json("config.json", function(error, json)
-				{
-					chartData = json;
-						readData();
-				})
+        d3.json("config.json", function(error, json) {
+            chartData = json;
+            readData();
+        })
 
-			}
-			else
-			{
+    } else {
 
-					 pymChild = new pym.Child();
-					if (pymChild) {
-						pymChild.sendHeight();
-					}
-			}
+        pymChild = new pym.Child();
+        if (pymChild) {
+            pymChild.sendHeight();
+        }
+    }
 
 
 
-	function readData(){
+    function readData() {
 
-					graphic_data_url = chartData.essential.dataURL;
-					var parseMyTime = d3.timeParse(chartData.essential.dateFormat);
+        graphic_data_url = chartData.required.dataURL;
+        var parseMyTime = d3.timeParse(chartData.required.dateFormat);
 
-					d3.csv(graphic_data_url, function(error, data) {
+        d3.csv(graphic_data_url, function(error, data) {
 
-							data.forEach(function(d) {
-										if (chartData.essential.period == "quarter"){
-												cond = d.year.slice(5,7);
-													if(cond === "Q1") d.year = d.year.replace("Q1", "Jan");
-													if(cond === "Q2") d.year = d.year.replace("Q2", "Apr");
-													if(cond === "Q3") d.year = d.year.replace("Q3", "Jul");
-													if(cond === "Q4") d.year = d.year.replace("Q4", "Oct");
+            data.forEach(function(d) {
+                if (chartData.required.period == "quarter") {
+                    cond = d.year.slice(5, 7);
+                    d.year = parseMyTime(d.year);
+                } else if (chartData.required.period == "month") {
+                    d.year = d.year.toLowerCase();
+                    d.year = d.year.replace(/\ [a-z]/g, function(x) {
+                        return " " + x[1].toUpperCase();
+                    });
+                    d.year = parseMyTime(d.year);
 
-													if(cond === "Q1") d.year = d.year.replace("Q1", "Jan");
-													if(cond === "Q2") d.year = d.year.replace("Q2", "Apr");
-													if(cond === "Q3") d.year = d.year.replace("Q3", "Jul");
-													if(cond === "Q4") d.year = d.year.replace("Q4", "Oct");
-													d.year = parseMyTime(d.year);
-										}
+                } else {
+                    d.year = parseMyTime(d.year);
+                }
+            });
 
-										else if (chartData.essential.period == "month"){
-											d.year = d.year.toLowerCase();
-											d.year = d.year.replace(/\ [a-z]/g, function(x){return " "+x[1].toUpperCase();} );
-											d.year = parseMyTime(d.year);
+            chartData_data08 = data.filter(function(d) {
+                return d.year >= parseMyTime(chartData.required.dateMxMn);
+            })
 
-										} else {
-												d.year = parseMyTime(d.year);
-										}
-									}); 
+            mx = d3.max(chartData_data08, function(d) {
+                return d.population;
+            });
+            mn = d3.min(chartData_data08, function(d) {
+                return d.population;
+            });
 
-						chartData_data08 = data.filter(function(d){
-						return d.year >= parseMyTime(chartData.essential.dateMxMn); })
+            chartData_data = data.filter(function(d) {
+                return d.year >= parseMyTime(chartData.required.dateStart);
+            })
 
-						mx = d3.max(chartData_data08, function(d) { return d.debt; });
-						mn = d3.min(chartData_data08, function(d) { return d.debt; });
+            pymChild = new pym.Child({
+                renderCallback: drawGraphic(chartData_data)
+            });
+        })
 
-						chartData_data = data.filter(function(d){
-										return d.year >= parseMyTime(chartData.essential.dateStart); })
-
-												pymChild = new pym.Child({renderCallback: drawGraphic(chartData_data)});
-								})
-
-	}
+    }
 }
 
 drawIt();
