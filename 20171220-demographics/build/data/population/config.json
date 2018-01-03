@@ -1,5 +1,5 @@
 {
-    "essential" : {
+    "required" : {
 
             "dataURL": "population.csv",
 
@@ -27,7 +27,7 @@
             "sourceText":["U.S. Census Bureau"],
             "sourceURL":["https://www.census.gov/"],
 
-            "annotationChart": ["grab and drag", "drag" ],
+            "annotationChart": ["< drag", "drag" ],
 
             "annotationBullet": [ ],
 
@@ -66,7 +66,7 @@
 
             "mobileBreakpoint" : [400,600],
             "xAxisTextFormat_sm_md_lg" :["%y", "%Y", "%Y"],
-            "x_num_ticks_sm_md_lg" : [4,10,10],
+            "x_num_ticks_sm_md_lg" : [4,9,9],
             "y_num_ticks_sm_md_lg" : [6,6,6],
             "centre_line" : false,
             "centre_line_value" :75000
