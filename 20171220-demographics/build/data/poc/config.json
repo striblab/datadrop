@@ -1,5 +1,5 @@
 {
-    "essential" : {
+    "required" : {
 
             "dataURL": "poc.csv",
 
@@ -11,7 +11,7 @@
 
             "dateStart": ["1960"],
 
-            "dateCutOff": ["2010"],
+            "dateCutOff": ["1960"],
 
             "dateBegin": ["2010"],
 
@@ -27,11 +27,11 @@
             "sourceText":["U.S. Census Bureau"],
             "sourceURL":["https://www.census.gov/"],
 
-            "annotationChart": ["grab and drag", "drag" ],
+            "annotationChart": ["drag >", "drag" ],
 
             "annotationBullet": [ ],
 
-            "annotationXY":["2010", 0.2],
+            "annotationXY":["1970", 0.01],
 
             "annotationAlign":["end"],
 
@@ -46,10 +46,10 @@
             "yAxisBreak_sm_md_lg": [65,65,65],
 
             "feedback": ["Awesome! ", 
-                         "Your guess was close to the percentage of Minnesota's population in 1960 who were people of color: about 1 percent.", 
-                         "People of color made up about 1 percent of Minnesota's population in 1960.", 
+                         "Your guess was close to the percentage of Minnesota's population in 2010 who were people of color: about 17 percent.", 
+                         "People of color made up about 17 percent of Minnesota's population in 2010.", 
                          "Your guess of ", 
-                         " percent is too high. About 1 percent of Minnesota's population were people of color in 1960.", 
+                         " percent is too high. About 17 percent of Minnesota's population were people of color in 2010.", 
                          "", 
                          "", 
                          "The percentage of people of color among Minnesota's population has increased gradually from about 1 percent in 1960 to 17 percent in 2010. Minnesota is less diverse than the national population, which is 36 percent people of color."]
