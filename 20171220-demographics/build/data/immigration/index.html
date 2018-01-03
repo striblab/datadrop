@@ -442,7 +442,7 @@ function drawIt() {
                 .attr("y", 0)
                 .attr("height", height)
                 .attr("width", chart_width)
-                .style("fill", "#003C57")
+                .style("fill", "#dddddd")
                 .style("opacity", 0.5)
                 .on("click", function() {
                     d3.select("#mobBlock").remove();
@@ -455,7 +455,7 @@ function drawIt() {
                 .attr("y", height / 2)
                 .attr("x", chart_width / 2)
                 .attr('text-anchor', "middle")
-                .text("Tap here to start drawing")
+                .text("Tap to start drawing")
                 .on("click", function() {
                     d3.select("#mobBlock").remove();
                     d3.select("#mobBlockT").remove();
