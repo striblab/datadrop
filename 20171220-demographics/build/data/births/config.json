@@ -47,9 +47,9 @@
 
             "feedback": ["Good job! ", 
                          "Your guess was close to Minnesota's actual number of births for 1990, which was about 68,000.", 
-                         "Minnesota had about 68,000 births in 1960.", 
+                         "Minnesota had about 68,000 births in 1990.", 
                          "Your guess of ", 
-                         " people is too high. Minnesota's minority population in 1960 was about 22,270.", 
+                         " people is too high. Minnesota had about 68,000 births in 1990.", 
                          "", 
                          "", 
                          "Minnesota's number of annual births has fluctuated over the past two decades, but in 2016 returned to about the same levels as in 1990, which is a pretty flat trendline."]
