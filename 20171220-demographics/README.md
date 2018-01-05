@@ -1,6 +1,6 @@
-# 20171220 Demographicst
+# Try your hand at drawing trend lines for Minnesota's population
 
-An interactive quiz about how Minnesota has changed.
+An interactive quiz about how Minnesota has changed. Solution forked from [ONS Visual](https://github.com/ONSvisual/ONSvisual.github.io/tree/master/todaycharts).
 
 
 ## Data
