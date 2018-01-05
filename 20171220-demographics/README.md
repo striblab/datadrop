@@ -1,6 +1,6 @@
 # Try your hand at drawing trend lines for Minnesota's population
 
-An interactive quiz about how Minnesota has changed. Solution forked from [ONS Visual](https://github.com/ONSvisual/ONSvisual.github.io/tree/master/todaycharts).
+An interactive quiz about how Minnesota has changed. Solution forked from [ONS Visual](https://github.com/ONSvisual/ONSvisual.github.io/tree/master/todaycharts). Built using Mike Bostock's [D3](https://github.com/mbostock/d3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data
