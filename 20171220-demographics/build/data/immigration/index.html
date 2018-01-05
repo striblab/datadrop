@@ -89,12 +89,6 @@
 		    stroke-width: 6px;
 		}
 
-		#centerline {
-		    stroke: #666;
-		    fill: none;
-		    stroke-width: 1.5px;
-		}
-
 		.area {
 		    /*fill: #dee5ef;*/
 		    fill: #aaaaaa;
@@ -197,9 +191,9 @@
 
 function drawIt() {
 
-    function drawGraphic(data) {
+    function buildChart(data) {
 
-        var format = d3.f, //
+        var format = d3.f,
             parseMyTime = d3.timeParse(chartData.required.dateFormat),
             formatMyTime = d3.timeFormat(chartData.required.dateFormat);
 
@@ -447,7 +441,7 @@ function drawIt() {
                 .on("click", function() {
                     d3.select("#mobBlock").remove();
                     d3.select("#mobBlockT").remove();
-                    dragNet();
+                    dragMe();
                 });
 
             var blockerT = svg.append("text")
@@ -459,15 +453,15 @@ function drawIt() {
                 .on("click", function() {
                     d3.select("#mobBlock").remove();
                     d3.select("#mobBlockT").remove();
-                    dragNet();
+                    dragMe();
                 });
 
         } else {
-            dragNet();
+            dragMe();
         }
 
 
-        function dragNet() {
+        function dragMe() {
 
             yourData = data.map(function(d) {
                     return {
@@ -763,14 +757,14 @@ function drawIt() {
                 }
             });
 
-            chartData_data08 = data.filter(function(d) {
+            chartData_datax = data.filter(function(d) {
                 return d.year >= parseMyTime(chartData.required.dateMxMn);
             })
 
-            mx = d3.max(chartData_data08, function(d) {
+            mx = d3.max(chartData_datax, function(d) {
                 return d.pct;
             });
-            mn = d3.min(chartData_data08, function(d) {
+            mn = d3.min(chartData_datax, function(d) {
                 return d.pct;
             });
 
@@ -779,7 +773,7 @@ function drawIt() {
             })
 
             pymChild = new pym.Child({
-                renderCallback: drawGraphic(chartData_data)
+                renderCallback: buildChart(chartData_data)
             });
         })
 
