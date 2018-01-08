@@ -1,0 +1,722 @@
+<div id="wrapper">
+
+<div id="expectations" class="slide">
+	<div class="chartTitle">Expect the unexpected</div>
+	<div class="chatter"><span class="legendary win">unexpected win</span>  <span class="legendary loss">unexpected loss</span> <span class="legendary gray2">expected outcome</span> <span class="legendary gray3">too close</span></div>
+
+	<div class="selection" id="teams"></div>
+
+	<div class="chart" id="chartExpect">
+	
+		<div>Postseason</div>
+
+		<div class="boxes note">
+			<div class="year note1960">
+				<div class="subyear note n1960"></div>
+				<div class="subyear note n1961"></div>
+				<div class="subyear note n1962"></div>
+				<div class="subyear note n1963"></div>
+				<div class="subyear note n1964"></div>
+				<div class="subyear note n1965"></div>
+				<div class="subyear note n1966"></div>
+				<div class="subyear note n1967"></div>
+				<div class="subyear note n1968"></div>
+				<div class="subyear note n1969">1969 Super Bowl</div>
+			</div>
+			<div class="year note1970">
+				<div class="subyear note n1970"></div>
+				<div class="subyear note n1971"></div>
+				<div class="subyear note n1972"></div>
+				<div class="subyear note n1973"></div>
+				<div class="subyear note n1974"></div>
+				<div class="subyear note n1975"></div>
+				<div class="subyear note n1976">1976 Super Bowl</div>
+				<div class="subyear note n1977"></div>
+				<div class="subyear note n1978"></div>
+				<div class="subyear note n1979"></div>
+			</div>
+			<div class="year note1980">
+				<div class="subyear note n1980"></div>
+				<div class="subyear note n1981"></div>
+				<div class="subyear note n1982"></div>
+				<div class="subyear note n1983"></div>
+				<div class="subyear note n1984"></div>
+				<div class="subyear note n1985"></div>
+				<div class="subyear note n1986"></div>
+				<div class="subyear note n1987"></div>
+				<div class="subyear note n1988"></div>
+				<div class="subyear note n1989"></div>
+			</div>
+			<div class="year note1990">
+				<div class="subyear note n1990"></div>
+				<div class="subyear note n1991"></div>
+				<div class="subyear note n1992"></div>
+				<div class="subyear note n1993"></div>
+				<div class="subyear note n1994"></div>
+				<div class="subyear note n1995"></div>
+				<div class="subyear note n1996"></div>
+				<div class="subyear note n1997"></div>
+				<div class="subyear note n1998">1998 NFC Championship</div>
+				<div class="subyear note n1999"></div>
+			</div>
+			<div class="year note2000">
+				<div class="subyear note n2000"></div>
+				<div class="subyear note n2001"></div>
+				<div class="subyear note n2002"></div>
+				<div class="subyear note n2003"></div>
+				<div class="subyear note n2004"></div>
+				<div class="subyear note n2005"></div>
+				<div class="subyear note n2006"></div>
+				<div class="subyear note n2007"></div>
+				<div class="subyear note n2008"></div>
+				<div class="subyear note n2009">2009 NFC Championship</div>
+			</div>
+			<div class="year note2010">
+				<div class="subyear note n2010"></div>
+				<div class="subyear note n2011"></div>
+				<div class="subyear note n2012"></div>
+				<div class="subyear note n2013"></div>
+				<div class="subyear note n2014"></div>
+				<div class="subyear note n2015"></div>
+				<div class="subyear note n2016"></div>
+				<div class="subyear note n2017"></div>
+				<div class="subyear note n2018"></div>
+				<div class="subyear note n2019"></div>
+			</div>
+		</div>
+
+		<div class="boxes" id="post">
+			<div class="year" id="post1960">
+				<div class="subyear" id="p1960"></div>
+				<div class="subyear" id="p1961"></div>
+				<div class="subyear" id="p1962"></div>
+				<div class="subyear" id="p1963"></div>
+				<div class="subyear" id="p1964"></div>
+				<div class="subyear" id="p1965"></div>
+				<div class="subyear" id="p1966"></div>
+				<div class="subyear" id="p1967"></div>
+				<div class="subyear" id="p1968"></div>
+				<div class="subyear" id="p1969"></div>
+			</div>
+			<div class="year" id="post1970">
+				<div class="subyear" id="p1970"></div>
+				<div class="subyear" id="p1971"></div>
+				<div class="subyear" id="p1972"></div>
+				<div class="subyear" id="p1973"></div>
+				<div class="subyear" id="p1974"></div>
+				<div class="subyear" id="p1975"></div>
+				<div class="subyear" id="p1976"></div>
+				<div class="subyear" id="p1977"></div>
+				<div class="subyear" id="p1978"></div>
+				<div class="subyear" id="p1979"></div>
+			</div>
+			<div class="year" id="post1980">
+				<div class="subyear" id="p1980"></div>
+				<div class="subyear" id="p1981"></div>
+				<div class="subyear" id="p1982"></div>
+				<div class="subyear" id="p1983"></div>
+				<div class="subyear" id="p1984"></div>
+				<div class="subyear" id="p1985"></div>
+				<div class="subyear" id="p1986"></div>
+				<div class="subyear" id="p1987"></div>
+				<div class="subyear" id="p1988"></div>
+				<div class="subyear" id="p1989"></div>
+			</div>
+			<div class="year" id="post1990">
+				<div class="subyear" id="p1990"></div>
+				<div class="subyear" id="p1991"></div>
+				<div class="subyear" id="p1992"></div>
+				<div class="subyear" id="p1993"></div>
+				<div class="subyear" id="p1994"></div>
+				<div class="subyear" id="p1995"></div>
+				<div class="subyear" id="p1996"></div>
+				<div class="subyear" id="p1997"></div>
+				<div class="subyear" id="p1998"></div>
+				<div class="subyear" id="p1999"></div>
+			</div>
+			<div class="year" id="post2000">
+				<div class="subyear" id="p2000"></div>
+				<div class="subyear" id="p2001"></div>
+				<div class="subyear" id="p2002"></div>
+				<div class="subyear" id="p2003"></div>
+				<div class="subyear" id="p2004"></div>
+				<div class="subyear" id="p2005"></div>
+				<div class="subyear" id="p2006"></div>
+				<div class="subyear" id="p2007"></div>
+				<div class="subyear" id="p2008"></div>
+				<div class="subyear" id="p2009"></div>
+			</div>
+			<div class="year" id="post2010">
+				<div class="subyear" id="p2010"></div>
+				<div class="subyear" id="p2011"></div>
+				<div class="subyear" id="p2012"></div>
+				<div class="subyear" id="p2013"></div>
+				<div class="subyear" id="p2014"></div>
+				<div class="subyear" id="p2015"></div>
+				<div class="subyear" id="p2016"></div>
+				<div class="subyear" id="p2017"></div>
+				<div class="subyear" id="p2018"></div>
+				<div class="subyear" id="p2019"></div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+        <div>Regular Season</div>
+
+		<div class="boxes" id="main">
+			<div class="year" id="reg1960">
+				<div class="subyear" id="r1960"></div>
+				<div class="subyear" id="r1961"></div>
+				<div class="subyear" id="r1962"></div>
+				<div class="subyear" id="r1963"></div>
+				<div class="subyear" id="r1964"></div>
+				<div class="subyear" id="r1965"></div>
+				<div class="subyear" id="r1966"></div>
+				<div class="subyear" id="r1967"></div>
+				<div class="subyear" id="r1968"></div>
+				<div class="subyear" id="r1969"></div>
+			</div>
+			<div class="year" id="reg1970">
+				<div class="subyear" id="r1970"></div>
+				<div class="subyear" id="r1971"></div>
+				<div class="subyear" id="r1972"></div>
+				<div class="subyear" id="r1973"></div>
+				<div class="subyear" id="r1974"></div>
+				<div class="subyear" id="r1975"></div>
+				<div class="subyear" id="r1976"></div>
+				<div class="subyear" id="r1977"></div>
+				<div class="subyear" id="r1978"></div>
+				<div class="subyear" id="r1979"></div>
+			</div>
+			<div class="year" id="reg1980">
+				<div class="subyear" id="r1980"></div>
+				<div class="subyear" id="r1981"></div>
+				<div class="subyear" id="r1982"></div>
+				<div class="subyear" id="r1983"></div>
+				<div class="subyear" id="r1984"></div>
+				<div class="subyear" id="r1985"></div>
+				<div class="subyear" id="r1986"></div>
+				<div class="subyear" id="r1987"></div>
+				<div class="subyear" id="r1988"></div>
+				<div class="subyear" id="r1989"></div>
+			</div>
+			<div class="year" id="reg1990">
+				<div class="subyear" id="r1990"></div>
+				<div class="subyear" id="r1991"></div>
+				<div class="subyear" id="r1992"></div>
+				<div class="subyear" id="r1993"></div>
+				<div class="subyear" id="r1994"></div>
+				<div class="subyear" id="r1995"></div>
+				<div class="subyear" id="r1996"></div>
+				<div class="subyear" id="r1997"></div>
+				<div class="subyear" id="r1998"></div>
+				<div class="subyear" id="r1999"></div>
+			</div>
+			<div class="year" id="reg2000">
+				<div class="subyear" id="r2000"></div>
+				<div class="subyear" id="r2001"></div>
+				<div class="subyear" id="r2002"></div>
+				<div class="subyear" id="r2003"></div>
+				<div class="subyear" id="r2004"></div>
+				<div class="subyear" id="r2005"></div>
+				<div class="subyear" id="r2006"></div>
+				<div class="subyear" id="r2007"></div>
+				<div class="subyear" id="r2008"></div>
+				<div class="subyear" id="r2009"></div>
+			</div>
+			<div class="year" id="reg2010">
+				<div class="subyear" id="r2010"></div>
+				<div class="subyear" id="r2011"></div>
+				<div class="subyear" id="r2012"></div>
+				<div class="subyear" id="r2013"></div>
+				<div class="subyear" id="r2014"></div>
+				<div class="subyear" id="r2015"></div>
+				<div class="subyear" id="r2016"></div>
+				<div class="subyear" id="r2017"></div>
+				<div class="subyear" id="r2018"></div>
+				<div class="subyear" id="r2019"></div>
+			</div>
+		</div>
+
+
+		<div class="xaxis" id="x">
+<!-- 			<div class="year" id="y1920">1920</div>
+			<div class="year" id="y1930">1930</div>
+			<div class="year" id="y1940">1940</div>
+			<div class="year" id="y1950">1950</div> -->
+			<div class="year" id="y1960">1960</div>
+			<div class="year" id="y1970">1970</div>
+			<div class="year" id="y1980">1980</div>
+			<div class="year" id="y1990">1990</div>
+			<div class="year" id="y2000">2000</div>
+			<div class="year" id="y2010">2010</div>
+		</div>
+	<div class="byline">Source: National Football League, Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="wins" class="slide">
+	<div class="chartTitle">Pleasant surprises</div>
+	<div class="chatter"><span class="legendary win">unexpected win</span></div>
+
+	<div class="selection" id="teams"></div>
+
+	<div class="chart" id="chartExpect">
+
+		<div>Postseason</div>
+
+		<div class="boxes note">
+			<div class="year note1960">
+				<div class="subyear note n1960"></div>
+				<div class="subyear note n1961"></div>
+				<div class="subyear note n1962"></div>
+				<div class="subyear note n1963"></div>
+				<div class="subyear note n1964"></div>
+				<div class="subyear note n1965"></div>
+				<div class="subyear note n1966"></div>
+				<div class="subyear note n1967"></div>
+				<div class="subyear note n1968"></div>
+				<div class="subyear note n1969">1969 Super Bowl</div>
+			</div>
+			<div class="year note1970">
+				<div class="subyear note n1970"></div>
+				<div class="subyear note n1971"></div>
+				<div class="subyear note n1972"></div>
+				<div class="subyear note n1973"></div>
+				<div class="subyear note n1974"></div>
+				<div class="subyear note n1975"></div>
+				<div class="subyear note n1976">1976 Super Bowl</div>
+				<div class="subyear note n1977"></div>
+				<div class="subyear note n1978"></div>
+				<div class="subyear note n1979"></div>
+			</div>
+			<div class="year note1980">
+				<div class="subyear note n1980"></div>
+				<div class="subyear note n1981"></div>
+				<div class="subyear note n1982"></div>
+				<div class="subyear note n1983"></div>
+				<div class="subyear note n1984"></div>
+				<div class="subyear note n1985"></div>
+				<div class="subyear note n1986"></div>
+				<div class="subyear note n1987"></div>
+				<div class="subyear note n1988"></div>
+				<div class="subyear note n1989"></div>
+			</div>
+			<div class="year note1990">
+				<div class="subyear note n1990"></div>
+				<div class="subyear note n1991"></div>
+				<div class="subyear note n1992"></div>
+				<div class="subyear note n1993"></div>
+				<div class="subyear note n1994"></div>
+				<div class="subyear note n1995"></div>
+				<div class="subyear note n1996"></div>
+				<div class="subyear note n1997"></div>
+				<div class="subyear note n1998">1998 NFC Championship</div>
+				<div class="subyear note n1999"></div>
+			</div>
+			<div class="year note2000">
+				<div class="subyear note n2000"></div>
+				<div class="subyear note n2001"></div>
+				<div class="subyear note n2002"></div>
+				<div class="subyear note n2003"></div>
+				<div class="subyear note n2004"></div>
+				<div class="subyear note n2005"></div>
+				<div class="subyear note n2006"></div>
+				<div class="subyear note n2007"></div>
+				<div class="subyear note n2008"></div>
+				<div class="subyear note n2009">2009 NFC Championship</div>
+			</div>
+			<div class="year note2010">
+				<div class="subyear note n2010"></div>
+				<div class="subyear note n2011"></div>
+				<div class="subyear note n2012"></div>
+				<div class="subyear note n2013"></div>
+				<div class="subyear note n2014"></div>
+				<div class="subyear note n2015"></div>
+				<div class="subyear note n2016"></div>
+				<div class="subyear note n2017"></div>
+				<div class="subyear note n2018"></div>
+				<div class="subyear note n2019"></div>
+			</div>
+		</div>
+		<div class="boxes" id="post">
+			<div class="year" id="post1960">
+				<div class="subyear" id="pw1960"></div>
+				<div class="subyear" id="pw1961"></div>
+				<div class="subyear" id="pw1962"></div>
+				<div class="subyear" id="pw1963"></div>
+				<div class="subyear" id="pw1964"></div>
+				<div class="subyear" id="pw1965"></div>
+				<div class="subyear" id="pw1966"></div>
+				<div class="subyear" id="pw1967"></div>
+				<div class="subyear" id="pw1968"></div>
+				<div class="subyear" id="pw1969"></div>
+			</div>
+			<div class="year" id="post1970">
+				<div class="subyear" id="pw1970"></div>
+				<div class="subyear" id="pw1971"></div>
+				<div class="subyear" id="pw1972"></div>
+				<div class="subyear" id="pw1973"></div>
+				<div class="subyear" id="pw1974"></div>
+				<div class="subyear" id="pw1975"></div>
+				<div class="subyear" id="pw1976"></div>
+				<div class="subyear" id="pw1977"></div>
+				<div class="subyear" id="pw1978"></div>
+				<div class="subyear" id="pw1979"></div>
+			</div>
+			<div class="year" id="post1980">
+				<div class="subyear" id="pw1980"></div>
+				<div class="subyear" id="pw1981"></div>
+				<div class="subyear" id="pw1982"></div>
+				<div class="subyear" id="pw1983"></div>
+				<div class="subyear" id="pw1984"></div>
+				<div class="subyear" id="pw1985"></div>
+				<div class="subyear" id="pw1986"></div>
+				<div class="subyear" id="pw1987"></div>
+				<div class="subyear" id="pw1988"></div>
+				<div class="subyear" id="pw1989"></div>
+			</div>
+			<div class="year" id="post1990">
+				<div class="subyear" id="pw1990"></div>
+				<div class="subyear" id="pw1991"></div>
+				<div class="subyear" id="pw1992"></div>
+				<div class="subyear" id="pw1993"></div>
+				<div class="subyear" id="pw1994"></div>
+				<div class="subyear" id="pw1995"></div>
+				<div class="subyear" id="pw1996"></div>
+				<div class="subyear" id="pw1997"></div>
+				<div class="subyear" id="pw1998"></div>
+				<div class="subyear" id="pw1999"></div>
+			</div>
+			<div class="year" id="post2000">
+				<div class="subyear" id="pw2000"></div>
+				<div class="subyear" id="pw2001"></div>
+				<div class="subyear" id="pw2002"></div>
+				<div class="subyear" id="pw2003"></div>
+				<div class="subyear" id="pw2004"></div>
+				<div class="subyear" id="pw2005"></div>
+				<div class="subyear" id="pw2006"></div>
+				<div class="subyear" id="pw2007"></div>
+				<div class="subyear" id="pw2008"></div>
+				<div class="subyear" id="pw2009"></div>
+			</div>
+			<div class="year" id="post2010">
+				<div class="subyear" id="pw2010"></div>
+				<div class="subyear" id="pw2011"></div>
+				<div class="subyear" id="pw2012"></div>
+				<div class="subyear" id="pw2013"></div>
+				<div class="subyear" id="pw2014"></div>
+				<div class="subyear" id="pw2015"></div>
+				<div class="subyear" id="pw2016"></div>
+				<div class="subyear" id="pw2017"></div>
+				<div class="subyear" id="pw2018"></div>
+				<div class="subyear" id="pw2019"></div>
+			</div>
+		</div>
+
+		<div class="breaker"></div>
+
+        <div>Regular Season</div>
+		<div class="boxes" id="main">
+			<div class="year" id="reg1960">
+				<div class="subyear" id="rw1960"></div>
+				<div class="subyear" id="rw1961"></div>
+				<div class="subyear" id="rw1962"></div>
+				<div class="subyear" id="rw1963"></div>
+				<div class="subyear" id="rw1964"></div>
+				<div class="subyear" id="rw1965"></div>
+				<div class="subyear" id="rw1966"></div>
+				<div class="subyear" id="rw1967"></div>
+				<div class="subyear" id="rw1968"></div>
+				<div class="subyear" id="rw1969"></div>
+			</div>
+			<div class="year" id="reg1970">
+				<div class="subyear" id="rw1970"></div>
+				<div class="subyear" id="rw1971"></div>
+				<div class="subyear" id="rw1972"></div>
+				<div class="subyear" id="rw1973"></div>
+				<div class="subyear" id="rw1974"></div>
+				<div class="subyear" id="rw1975"></div>
+				<div class="subyear" id="rw1976"></div>
+				<div class="subyear" id="rw1977"></div>
+				<div class="subyear" id="rw1978"></div>
+				<div class="subyear" id="rw1979"></div>
+			</div>
+			<div class="year" id="reg1980">
+				<div class="subyear" id="rw1980"></div>
+				<div class="subyear" id="rw1981"></div>
+				<div class="subyear" id="rw1982"></div>
+				<div class="subyear" id="rw1983"></div>
+				<div class="subyear" id="rw1984"></div>
+				<div class="subyear" id="rw1985"></div>
+				<div class="subyear" id="rw1986"></div>
+				<div class="subyear" id="rw1987"></div>
+				<div class="subyear" id="rw1988"></div>
+				<div class="subyear" id="rw1989"></div>
+			</div>
+			<div class="year" id="reg1990">
+				<div class="subyear" id="rw1990"></div>
+				<div class="subyear" id="rw1991"></div>
+				<div class="subyear" id="rw1992"></div>
+				<div class="subyear" id="rw1993"></div>
+				<div class="subyear" id="rw1994"></div>
+				<div class="subyear" id="rw1995"></div>
+				<div class="subyear" id="rw1996"></div>
+				<div class="subyear" id="rw1997"></div>
+				<div class="subyear" id="rw1998"></div>
+				<div class="subyear" id="rw1999"></div>
+			</div>
+			<div class="year" id="reg2000">
+				<div class="subyear" id="rw2000"></div>
+				<div class="subyear" id="rw2001"></div>
+				<div class="subyear" id="rw2002"></div>
+				<div class="subyear" id="rw2003"></div>
+				<div class="subyear" id="rw2004"></div>
+				<div class="subyear" id="rw2005"></div>
+				<div class="subyear" id="rw2006"></div>
+				<div class="subyear" id="rw2007"></div>
+				<div class="subyear" id="rw2008"></div>
+				<div class="subyear" id="rw2009"></div>
+			</div>
+			<div class="year" id="reg2010">
+				<div class="subyear" id="rw2010"></div>
+				<div class="subyear" id="rw2011"></div>
+				<div class="subyear" id="rw2012"></div>
+				<div class="subyear" id="rw2013"></div>
+				<div class="subyear" id="rw2014"></div>
+				<div class="subyear" id="rw2015"></div>
+				<div class="subyear" id="rw2016"></div>
+				<div class="subyear" id="rw2017"></div>
+				<div class="subyear" id="rw2018"></div>
+				<div class="subyear" id="rw2019"></div>
+			</div>
+		</div>
+
+
+		<div class="xaxis" id="x">
+<!-- 			<div class="year" id="y1920">1920</div>
+			<div class="year" id="y1930">1930</div>
+			<div class="year" id="y1940">1940</div>
+			<div class="year" id="y1950">1950</div> -->
+			<div class="year" id="y1960">1960</div>
+			<div class="year" id="y1970">1970</div>
+			<div class="year" id="y1980">1980</div>
+			<div class="year" id="y1990">1990</div>
+			<div class="year" id="y2000">2000</div>
+			<div class="year" id="y2010">2010</div>
+		</div>
+	<div class="byline">Source: National Football League, Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="playoffs" class="slide">
+	<div class="chartTitle">A history of postseason losses</div>
+	<div class="chatter"><span class="legendary ewin">expected win</span> <span class="legendary win">unexpected win</span>  <span class="legendary eloss">expected loss</span> <span class="legendary loss">unexpected loss</span>
+
+	<div class="selection" id="teams"></div>
+
+	<div>Postseason</div>
+
+	<div class="chart" id="chartPlayoffs">
+
+		<div class="boxes note">
+			<div class="year note1960">
+				<div class="subyear note n1960"></div>
+				<div class="subyear note n1961"></div>
+				<div class="subyear note n1962"></div>
+				<div class="subyear note n1963"></div>
+				<div class="subyear note n1964"></div>
+				<div class="subyear note n1965"></div>
+				<div class="subyear note n1966"></div>
+				<div class="subyear note n1967"></div>
+				<div class="subyear note n1968"></div>
+				<div class="subyear note n1969">1969 Super Bowl</div>
+			</div>
+			<div class="year note1970">
+				<div class="subyear note n1970"></div>
+				<div class="subyear note n1971"></div>
+				<div class="subyear note n1972"></div>
+				<div class="subyear note n1973"></div>
+				<div class="subyear note n1974"></div>
+				<div class="subyear note n1975"></div>
+				<div class="subyear note n1976">1976 Super Bowl</div>
+				<div class="subyear note n1977"></div>
+				<div class="subyear note n1978"></div>
+				<div class="subyear note n1979"></div>
+			</div>
+			<div class="year note1980">
+				<div class="subyear note n1980"></div>
+				<div class="subyear note n1981"></div>
+				<div class="subyear note n1982"></div>
+				<div class="subyear note n1983"></div>
+				<div class="subyear note n1984"></div>
+				<div class="subyear note n1985"></div>
+				<div class="subyear note n1986"></div>
+				<div class="subyear note n1987"></div>
+				<div class="subyear note n1988"></div>
+				<div class="subyear note n1989"></div>
+			</div>
+			<div class="year note1990">
+				<div class="subyear note n1990"></div>
+				<div class="subyear note n1991"></div>
+				<div class="subyear note n1992"></div>
+				<div class="subyear note n1993"></div>
+				<div class="subyear note n1994"></div>
+				<div class="subyear note n1995"></div>
+				<div class="subyear note n1996"></div>
+				<div class="subyear note n1997"></div>
+				<div class="subyear note n1998">1998 NFC Championship</div>
+				<div class="subyear note n1999"></div>
+			</div>
+			<div class="year note2000">
+				<div class="subyear note n2000"></div>
+				<div class="subyear note n2001"></div>
+				<div class="subyear note n2002"></div>
+				<div class="subyear note n2003"></div>
+				<div class="subyear note n2004"></div>
+				<div class="subyear note n2005"></div>
+				<div class="subyear note n2006"></div>
+				<div class="subyear note n2007"></div>
+				<div class="subyear note n2008"></div>
+				<div class="subyear note n2009">2009 NFC Championship</div>
+			</div>
+			<div class="year note2010">
+				<div class="subyear note n2010"></div>
+				<div class="subyear note n2011"></div>
+				<div class="subyear note n2012"></div>
+				<div class="subyear note n2013"></div>
+				<div class="subyear note n2014"></div>
+				<div class="subyear note n2015"></div>
+				<div class="subyear note n2016"></div>
+				<div class="subyear note n2017"></div>
+				<div class="subyear note n2018"></div>
+				<div class="subyear note n2019"></div>
+			</div>
+		</div>
+		<div class="boxes" id="post">
+			<div class="year" id="post1960">
+				<div class="subyear" id="po1960"></div>
+				<div class="subyear" id="po1961"></div>
+				<div class="subyear" id="po1962"></div>
+				<div class="subyear" id="po1963"></div>
+				<div class="subyear" id="po1964"></div>
+				<div class="subyear" id="po1965"></div>
+				<div class="subyear" id="po1966"></div>
+				<div class="subyear" id="po1967"></div>
+				<div class="subyear" id="po1968"></div>
+				<div class="subyear" id="po1969"></div>
+			</div>
+			<div class="year" id="post1970">
+				<div class="subyear" id="po1970"></div>
+				<div class="subyear" id="po1971"></div>
+				<div class="subyear" id="po1972"></div>
+				<div class="subyear" id="po1973"></div>
+				<div class="subyear" id="po1974"></div>
+				<div class="subyear" id="po1975"></div>
+				<div class="subyear" id="po1976"></div>
+				<div class="subyear" id="po1977"></div>
+				<div class="subyear" id="po1978"></div>
+				<div class="subyear" id="po1979"></div>
+			</div>
+			<div class="year" id="post1980">
+				<div class="subyear" id="po1980"></div>
+				<div class="subyear" id="po1981"></div>
+				<div class="subyear" id="po1982"></div>
+				<div class="subyear" id="po1983"></div>
+				<div class="subyear" id="po1984"></div>
+				<div class="subyear" id="po1985"></div>
+				<div class="subyear" id="po1986"></div>
+				<div class="subyear" id="po1987"></div>
+				<div class="subyear" id="po1988"></div>
+				<div class="subyear" id="po1989"></div>
+			</div>
+			<div class="year" id="post1990">
+				<div class="subyear" id="po1990"></div>
+				<div class="subyear" id="po1991"></div>
+				<div class="subyear" id="po1992"></div>
+				<div class="subyear" id="po1993"></div>
+				<div class="subyear" id="po1994"></div>
+				<div class="subyear" id="po1995"></div>
+				<div class="subyear" id="po1996"></div>
+				<div class="subyear" id="po1997"></div>
+				<div class="subyear" id="po1998"></div>
+				<div class="subyear" id="po1999"></div>
+			</div>
+			<div class="year" id="post2000">
+				<div class="subyear" id="po2000"></div>
+				<div class="subyear" id="po2001"></div>
+				<div class="subyear" id="po2002"></div>
+				<div class="subyear" id="po2003"></div>
+				<div class="subyear" id="po2004"></div>
+				<div class="subyear" id="po2005"></div>
+				<div class="subyear" id="po2006"></div>
+				<div class="subyear" id="po2007"></div>
+				<div class="subyear" id="po2008"></div>
+				<div class="subyear" id="po2009"></div>
+			</div>
+			<div class="year" id="post2010">
+				<div class="subyear" id="po2010"></div>
+				<div class="subyear" id="po2011"></div>
+				<div class="subyear" id="po2012"></div>
+				<div class="subyear" id="po2013"></div>
+				<div class="subyear" id="po2014"></div>
+				<div class="subyear" id="po2015"></div>
+				<div class="subyear" id="po2016"></div>
+				<div class="subyear" id="po2017"></div>
+				<div class="subyear" id="po2018"></div>
+				<div class="subyear" id="po2019"></div>
+			</div>
+		</div>
+
+		<div class="xaxis" id="x">
+			<div class="year" id="y1960">1960</div>
+			<div class="year" id="y1970">1970</div>
+			<div class="year" id="y1980">1980</div>
+			<div class="year" id="y1990">1990</div>
+			<div class="year" id="y2000">2000</div>
+			<div class="year" id="y2010">2010</div>
+		</div>
+	<div class="byline">Source: National Football League, Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="losers" class="slide">
+	<div class="chartTitle">Teams with the most unexpected postseason losses</div>
+	<div class="chatter">The <span style="color:#4F2683;">Minnesota Vikings</span> aren't the most tragic postseason team, but they're close. This chart ranks 30 NFL teams by percentage of postseason games -- both playoffs and Super Bowls -- that ended in <span class="legendary gray2">unexpected losses</span> in their franchise history.</div>
+
+	<div class="barchart" id="losersChart">
+	</div>
+
+	<div class="byline">Source: Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="current" class="slide">
+	<div class="chartTitle">How expectations stacked for the 2017 postseason</div>
+	<div class="chatter">The <span style="color:#4F2683;">Minnesota Vikings</span> are tied for second among the 12 NFL teams that made the 2017 playoffs by percentage of postseason games -- both playoffs and Super Bowls -- that ended in <span class="legendary gray2">unexpected losses</span>  in their franchise history.</div>
+
+	<div class="barchart" id="currentChart">
+	</div>
+
+	<div class="byline">Source: Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="decade" class="slide">
+	<div class="chartTitle">Unexpected playoff losses by decade</div>
+	<div class="chatter"><span class="legendary gray2">Unexpected losses</span> in the postseason for the <span style="color:#064C53;">Philadelphia Eagles</span> haven't been as common since the turn of the century.</div>
+
+	<div class="barchart" id="decadeChart">
+	</div>
+
+	<div class="byline">Source: Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+
+<div id="coaches" class="slide">
+	<div class="chartTitle">Unexpected playoff losses by coach</div>
+	<div class="chatter">Shows percentage of <span class="legendary gray2">unexpected postseason losses</span>  -- including playoff games and Super Bowls -- by <span style="color:#4F2683;">Minnesota Vikings coach</span>.</div>
+
+	<div class="barchart" id="coachChart">
+
+	</div>
+
+
+	<div class="byline">Source: Star Tribune analysis | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+</div>
+</div>
