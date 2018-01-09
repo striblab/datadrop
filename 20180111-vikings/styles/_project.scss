@@ -22,20 +22,53 @@
 }
 
 .note {
-  font-size: 0.84em;
+  font-size: 0.86em;
   white-space: nowrap;
 }
 
-.n1969, .n1976 {
+.notetop {
+  font-size: 0.86em;
+  max-height: 25px;
+}
+
+#ps0 .n1969, #ps0 .n1976, #psw .n1969, #psw .n1976, #ps3 .n1969, #ps3 .n1976 {
   margin-left:5px !important;
   padding-left:2px !important;
   border-left:1px solid black;
+  border-top:1px solid black;
+  height:22px;
 }
 
-.n1998, .n2009 {
+#ps0 .n1998, #ps0 .n2009, #psw .n1998, #psw .n2009, #ps3 .n1998, #ps3 .n2009  {
   margin-left:6px !important;
   padding-left:2px !important;
   border-left:1px solid black;
+  border-top:1px solid black;
+  height:35px;
+}
+
+#ps1 .n2009 {
+  margin-left:6px !important;
+  padding-left:2px !important;
+  border-left:1px solid black;
+  border-top:1px solid black;
+  height:35px;
+}
+
+#ps2 .n2008 {
+  margin-left:3px !important;
+  padding-left:2px !important;
+  border-left:1px solid black;
+  border-top:1px solid black;
+  height:47px;
+}
+
+#ps2 .n2000 {
+  margin-left:3px !important;
+  padding-left:2px !important;
+  border-left:1px solid black;
+  border-top:1px solid black;
+  height:35px;
 }
 
 .regular {
@@ -99,7 +132,7 @@ footer {
 }
 
 .chatter {
-    line-height:160%;
+    line-height:150%;
 }
 
 .chartTitle {
@@ -168,6 +201,9 @@ footer {
 @media (max-width:520px) {
     .tooltip {
       display:none !important;
+    }
+    .notetop {
+      display:none;
     }
 }
 
