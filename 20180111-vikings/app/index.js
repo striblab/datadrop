@@ -95,12 +95,13 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 			  	if (d.outcome == "unexpected loss") { color = "loss"; }
 		    } else if (scope == "post1") {
 			  	if (d.outcome == "tie") { color = "gray2"; }
-			  	if (d.outcome == "win as expected") { color = "ewin"; }
+			  	// if (d.outcome == "win as expected") { color = "ewin"; }
 			  	if (d.outcome == "lost as expected") { color = "eloss"; }
 			  	if (d.outcome == "too close" && d.winner != "MIN") { color = "eloss"; }
-			  	if (d.outcome == "unexpected win") { color = "win"; }
+			  	// if (d.outcome == "unexpected win") { color = "win"; }
 			  	if (d.outcome == "unexpected loss") { color = "loss"; }	
-			  	if (d.outcome == "too close" && d.winner == "MIN") { color = "ewin"; }	
+			  	// if (d.outcome == "too close" && d.winner == "MIN") { color = "ewin"; }
+			  	else { color = "gray2 fademe"; }	
 		    } else if (scope == "wins") {
 		    	if (d.outcome == "unexpected win") { color = "win"; }
 		    	else { color = "gray2 fademe"; }
