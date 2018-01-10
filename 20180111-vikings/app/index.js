@@ -93,18 +93,27 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 			  	if (d.outcome == "too close") { color = "gray3"; }
 			  	if (d.outcome == "unexpected win") { color = "win"; }
 			  	if (d.outcome == "unexpected loss") { color = "loss"; }
-		    } else if (scope == "post" || scope == "post1") {
+		    } else if (scope == "post1") {
 			  	if (d.outcome == "tie") { color = "gray2"; }
 			  	if (d.outcome == "win as expected") { color = "ewin"; }
 			  	if (d.outcome == "lost as expected") { color = "eloss"; }
 			  	if (d.outcome == "too close" && d.winner != "MIN") { color = "eloss"; }
 			  	if (d.outcome == "unexpected win") { color = "win"; }
 			  	if (d.outcome == "unexpected loss") { color = "loss"; }	
-			  	if (d.outcome == "too close" && d.winner == "MIN") { color = "ewin"; }	    	
+			  	if (d.outcome == "too close" && d.winner == "MIN") { color = "ewin"; }	
 		    } else if (scope == "wins") {
 		    	if (d.outcome == "unexpected win") { color = "win"; }
-		    	else { color = "gray2"; }
+		    	else { color = "gray2 fademe"; }
 		    }
+		    else if (scope == "post2") {
+			  	if (year == 2009 && d.playoff == "c") { color = "eloss"; }
+			  	else { color = "gray2 fademe"; } 
+			}
+		    else if (scope == "post3") {
+			  	if (year == 2008 && d.playoff == "w") { color = "eloss"; }
+			  	else if (year == 2000 && d.playoff == "c") { color = "eloss"; }
+			  	else { color = "gray2 fademe"; } 
+			}
 
 		  	if (d.playoff != null) { postseason = "postseason"; }
 
@@ -181,9 +190,9 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 
 		for (var i=first; i<last; i++){
 			dataFiltered = data.sort(function(a,b) { return d3.descending(a.week, b.week); }).filter(function(d) { return d.season == i && d.playoff != null; });
-			spillWeeks(dataFiltered, "#po" + i, i, "post");
-			spillWeeks(dataFiltered, "#pos" + i, i, "post");
 			spillWeeks(dataFiltered, "#pm" + i, i, "post1");
+			spillWeeks(dataFiltered, "#po" + i, i, "post2");
+			spillWeeks(dataFiltered, "#pos" + i, i, "post3");
 		}
 
 		for (var i=first; i<last; i++){
@@ -198,11 +207,11 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 	var xpData = [{"team":"CHIEFS","pct":0.67,"color":"#C8102E"},
 	{"team":"LIONS","pct":0.67,"color":"#0069B1"},
 	{"team":"CHARGERS","pct":0.6,"color":"#0072CE"},
-	{"team":"VIKINGS **","pct":0.48,"color":"#4F2683"},
+	{"team":"VIKINGS","pct":0.48,"color":"#4F2683"},
 	{"team":"RAMS","pct":0.46,"color":"#866D4B"},
-	{"team":"TITANS **","pct":0.45,"color":"#4B92DB"},
-	{"team":"SAINTS **","pct":0.44,"color":"#D3BC8D"},
-	{"team":"EAGLES **","pct":0.44,"color":"#064C53"},
+	{"team":"TITANS","pct":0.45,"color":"#4B92DB"},
+	{"team":"SAINTS","pct":0.44,"color":"#D3BC8D"},
+	{"team":"EAGLES","pct":0.44,"color":"#064C53"},
 	{"team":"BENGALS","pct":0.43,"color":"#FC4C02"},
 	{"team":"JETS","pct":0.39,"color":"#2A433A"},
 	{"team":"BEARS","pct":0.39,"color":"#DC4405"},
@@ -212,17 +221,17 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 	{"team":"GIANTS","pct":0.3,"color":"#001E62"},
 	{"team":"DOLPHINS","pct":0.29,"color":"#008E97"},
 	{"team":"COWBOYS","pct":0.29,"color":"#041E42"},
-	{"team":"FALCONS **","pct":0.29,"color":"#A6192E"},
+	{"team":"FALCONS","pct":0.29,"color":"#A6192E"},
 	{"team":"49ERS","pct":0.27,"color":"#AA0000"},
 	{"team":"BUCANNEERS","pct":0.25,"color":"#C8102E"},
-	{"team":"JAGUARS **","pct":0.25,"color":"#006073"},
+	{"team":"JAGUARS","pct":0.25,"color":"#006073"},
 	{"team":"PANTHERS","pct":0.25,"color":"#0085CA"},
 	{"team":"BRONCOS","pct":0.22,"color":"#FC4C02"},
 	{"team":"SEAHAWKS","pct":0.21,"color":"#001433"},
-	{"team":"PATRIOTS **","pct":0.21,"color":"#0C2340"},
+	{"team":"PATRIOTS","pct":0.21,"color":"#0C2340"},
 	{"team":"PACKERS","pct":0.2,"color":"#175E33"},
 	{"team":"BILLS","pct":0.2,"color":"#00338D"},
-	{"team":"STEELERS **","pct":0.18,"color":"#000000"},
+	{"team":"STEELERS","pct":0.18,"color":"#000000"},
 	{"team":"RAVENS","pct":0.14,"color":"#241773"},
 	{"team":"REDSKINS","pct":0.12,"color":"#862633"}];
 
@@ -253,7 +262,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 
 	function buildCharts(dataBuild,container){
 		for (var i=0; i < dataBuild.length; i++){
-			$("#" + container).append('<div class="fullbar" style="width:' + d3.format("%")(dataBuild[i].pct + 0.12) + ';" data="team"><div class="label" style="color:' + dataBuild[i].color  +';">' + dataBuild[i].team + '</div><div class="pct">' + d3.format("%")(dataBuild[i].pct) + '</div></div>');
+			$("#" + container).append('<div class="fullbar ' + dataBuild[i].team + '" style="width:' + d3.format("%")(dataBuild[i].pct + 0.12) + ';" data="team"><div class="label" style="color:' + dataBuild[i].color  +';">' + dataBuild[i].team + '</div><div class="pct">' + d3.format("%")(dataBuild[i].pct) + '</div></div>');
 	    }
 	}
 

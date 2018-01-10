@@ -34,7 +34,7 @@
   max-height: 25px;
 }
 
-#ps0 .n1969, #ps0 .n1976, #psw .n1969, #psw .n1976, #ps3 .n1969, #ps3 .n1976 {
+#ps0 .n1969, #ps0 .n1976, #ps3 .n1969, #ps3 .n1976 {
   margin-left:5px !important;
   padding-left:2px !important;
   border-left:1px solid black;
@@ -42,12 +42,30 @@
   height:22px;
 }
 
-#ps0 .n1998, #ps0 .n2009, #psw .n1998, #psw .n2009, #ps3 .n1998, #ps3 .n2009  {
+#ps0 .n1998, #ps0 .n2009, #ps3 .n1998, #ps3 .n2009  {
   margin-left:6px !important;
   padding-left:2px !important;
   border-left:1px solid black;
   border-top:1px solid black;
   height:35px;
+}
+
+#psw .n1987 {
+  margin-left:6px !important;
+  padding-left:2px !important;
+  border-left:1px solid black;
+  border-top:1px solid black;
+  height:37px;
+  z-index:999;
+}
+
+#psw .n2004 {
+  margin-left:6px !important;
+  padding-left:2px !important;
+  border-left:1px solid black;
+  border-top:1px solid black;
+  height:50px;
+  z-index:999;
 }
 
 #ps1 .n2009 {
@@ -55,7 +73,7 @@
   padding-left:2px !important;
   border-left:1px solid black;
   border-top:1px solid black;
-  height:35px;
+  height:30px;
 }
 
 #ps2 .n2008 {
@@ -63,7 +81,7 @@
   padding-left:2px !important;
   border-left:1px solid black;
   border-top:1px solid black;
-  height:47px;
+  height:49px;
 }
 
 #ps2 .n2000 {
@@ -71,7 +89,7 @@
   padding-left:2px !important;
   border-left:1px solid black;
   border-top:1px solid black;
-  height:35px;
+  height:36px;
 }
 
 .regular {
@@ -106,7 +124,7 @@ footer {
     line-height:140%;
     font-family: "Benton Sans", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    font-size:0.6em;
+    font-size:0.6em !important;
     color: #888888;
     padding-top:10px;
     padding-bottom:10px;
@@ -198,12 +216,27 @@ footer {
   display:none !important;
 }
 
+.VIKINGS, .SAINTS, .TITANS, .EAGLES, .FALCONS, .JAGUARS, .PATRIOTS, .STEELERS {
+  background-color:#969696 !important;
+}
+
+.post1960 .subyear, .note1960 .subyear, .reg1960 .subyear, .y1960 .subyear {
+  width:20%;
+}
+
+.fademe {
+  opacity:0.5;
+}
+
 @media (max-width:800px) {
     #wrapper {
         width:100%;
     }
     .subyear {
         width:6%;
+    }
+    .notetop {
+      font-size:0.7em;
     }
 }
 @media (max-width:520px) {
@@ -218,6 +251,11 @@ footer {
     }
     .subyear {
         width:5%;
+    }
+}
+@media (max-width:400px) {
+    .subyear {
+        width:4.5%;
     }
 }
 
