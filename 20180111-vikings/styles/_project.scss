@@ -10,6 +10,10 @@
   display:none;
 }
 
+.project-header {
+  display:none !important;
+}
+
 #wrapper {
     width:800px;
     margin-left:auto;
@@ -212,7 +216,7 @@ footer {
   clear:right;
 }
 
-.post.tooltip {
+.post2.tooltip, .post3.tooltip  {
   display:none !important;
 }
 
