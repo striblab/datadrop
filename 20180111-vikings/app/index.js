@@ -49,7 +49,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
     		            // Clean up lost tooltips
     		            d3.select('body').selectAll('div.tooltip').remove();
     		            // Append tooltip
-    		            tooltipDiv = d3.select('body').append('div').attr('class', 'tooltip');
+    		            tooltipDiv = d3.select('body').append('div').attr('class', scope + ' tooltip');
     		            var absoluteMousePos = d3.mouse(bodyNode);
     		            tooltipDiv.style('left', (absoluteMousePos[0] + 10)+'px')
     		                .style('top', (absoluteMousePos[1] - 15)+'px')
@@ -93,7 +93,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 			  	if (d.outcome == "too close") { color = "gray3"; }
 			  	if (d.outcome == "unexpected win") { color = "win"; }
 			  	if (d.outcome == "unexpected loss") { color = "loss"; }
-		    } else if (scope == "post") {
+		    } else if (scope == "post" || scope == "post1") {
 			  	if (d.outcome == "tie") { color = "gray2"; }
 			  	if (d.outcome == "win as expected") { color = "ewin"; }
 			  	if (d.outcome == "lost as expected") { color = "eloss"; }
@@ -183,7 +183,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 			dataFiltered = data.sort(function(a,b) { return d3.descending(a.week, b.week); }).filter(function(d) { return d.season == i && d.playoff != null; });
 			spillWeeks(dataFiltered, "#po" + i, i, "post");
 			spillWeeks(dataFiltered, "#pos" + i, i, "post");
-			spillWeeks(dataFiltered, "#pm" + i, i, "post");
+			spillWeeks(dataFiltered, "#pm" + i, i, "post1");
 		}
 
 		for (var i=first; i<last; i++){
@@ -253,7 +253,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 
 	function buildCharts(dataBuild,container){
 		for (var i=0; i < dataBuild.length; i++){
-			$("#" + container).append('<div class="fullbar" style="width:' + d3.format("%")(dataBuild[i].pct + 0.08) + ';" data="team"><div class="label" style="color:' + dataBuild[i].color  +';">' + dataBuild[i].team + '</div><div class="pct">' + d3.format("%")(dataBuild[i].pct) + '</div></div>');
+			$("#" + container).append('<div class="fullbar" style="width:' + d3.format("%")(dataBuild[i].pct + 0.12) + ';" data="team"><div class="label" style="color:' + dataBuild[i].color  +';">' + dataBuild[i].team + '</div><div class="pct">' + d3.format("%")(dataBuild[i].pct) + '</div></div>');
 	    }
 	}
 
