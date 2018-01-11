@@ -231,7 +231,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 	{"team":"COWBOYS","pct":0.29,"color":"#041E42"},
 	{"team":"FALCONS","pct":0.29,"color":"#A6192E"},
 	{"team":"49ERS","pct":0.27,"color":"#AA0000"},
-	{"team":"BUCANNEERS","pct":0.25,"color":"#C8102E"},
+	{"team":"BUCCANEERS","pct":0.25,"color":"#C8102E"},
 	{"team":"JAGUARS","pct":0.25,"color":"#006073"},
 	{"team":"PANTHERS","pct":0.25,"color":"#0085CA"},
 	{"team":"BRONCOS","pct":0.22,"color":"#FC4C02"},
