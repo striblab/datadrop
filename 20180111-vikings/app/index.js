@@ -141,6 +141,13 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 		  	var week = "Week " + (dataMain.length - i);
 		  	var opponent = visitor;
 
+			if (d.outcome == "expected") { outcome = "gray2"; }
+			if (d.outcome == "too close") { outcome = "hard to predict"; }
+			if (d.outcome == "unexpected win") { outcome = "unexpected win"; }
+			if (d.outcome == "unexpected loss") { outcome = "unexpected loss"; }
+			if (d.outcome == "win as expected") { outcome = "expected win"; }
+			if (d.outcome == "lost as expected") { outcome = "expected loss"; }
+
 		  	if (d.winner != "MIN") {
 		  		symbol = "L";
 		  	}
@@ -156,7 +163,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 		  	if (playoff == "c") { week = "Conference Championship"; } 
 		  	if (playoff == "s") { week = "Super Bowl"; }  
 
-            return "<div>" + week + " | " + year + "</div><div>" + symbol + " " + where + " " + opponent + "</div><div>" + score1 + "-" + score2 + "</div><div>" + outcome + "</div>";
+            return "<div>" + week + " | " + year + "</div><div>" + symbol + " " + where + " " + opponent + " (" + score1 + "-" + score2 + ")</div><div>" + outcome + "</div>";
           }));
 
 	}
@@ -250,15 +257,15 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 	{"team":1990,"pct":1,"color":"#064C53"},
 	{"team":2000,"pct":0.33,"color":"#064C53"}];
 
-	var coachData = [{"team":"Van Brocklin (84)","pct":0.75,"color":"#4F2683"},
-	{"team":"Grant (259)","pct":0.3,"color":"#4F2683"},
-	{"team":"Steckel (16)","pct":0.5,"color":"#4F2683"},
-	{"team":"Burns (95)","pct":0.33,"color":"#4F2683"},
-	{"team":"Green (159)","pct":0.34,"color":"#4F2683"},
-	{"team":"Tice (65)","pct":0.34,"color":"#4F2683"},
-	{"team":"Childress (74)","pct":0.29,"color":"#4F2683"},
-	{"team":"Frazier (53)","pct":0.5,"color":"#4F2683"},
-	{"team":"Zimmer (64+)","pct":0.22,"color":"#4F2683"}];
+	var coachData = [{"team":"Van Brocklin (1966*)","pct":0.75,"color":"#4F2683"},
+	{"team":"Grant (1967-1983,1985)","pct":0.3,"color":"#4F2683"},
+	{"team":"Steckel (1984)","pct":0.5,"color":"#4F2683"},
+	{"team":"Burns (1986-1991)","pct":0.33,"color":"#4F2683"},
+	{"team":"Green (1992-2001)","pct":0.34,"color":"#4F2683"},
+	{"team":"Tice (2001-2005)","pct":0.34,"color":"#4F2683"},
+	{"team":"Childress (2006-2010)","pct":0.29,"color":"#4F2683"},
+	{"team":"Frazier (2010-2013)","pct":0.5,"color":"#4F2683"},
+	{"team":"Zimmer (2014-now)","pct":0.22,"color":"#4F2683"}];
 
 
 	function buildCharts(dataBuild,container){
