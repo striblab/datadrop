@@ -97,7 +97,7 @@ d3.json('./data/weeks.json', function(error, dataLoad) {
 			  	if (d.outcome == "tie") { color = "gray2"; }
 			  	// else if (d.outcome == "win as expected") { color = "ewin"; }
 			  	else if (d.outcome == "lost as expected") { color = "eloss"; }
-			  	else if (d.outcome == "too close" && d.winner != "MIN") { color = "eloss"; }
+			  	else if (d.outcome == "too close" && d.winner != "MIN") { color = "gray3"; }
 			  	// else if (d.outcome == "unexpected win") { color = "win"; }
 			  	else if (d.outcome == "unexpected loss") { color = "loss"; }	
 			  	// else if (d.outcome == "too close" && d.winner == "MIN") { color = "ewin"; }	
