@@ -12,6 +12,23 @@
     margin-right:auto;
 }
 
+#years div {
+  display:inline-block;
+  width:48%;
+}
+
+#chartTrend {
+  height:350px;
+}
+
+.right {
+  text-align:right;
+}
+
+.left {
+  text-align:left;
+}
+
 .byline a {
     color: #888 !important;
 }
@@ -54,6 +71,7 @@
     border-radius: 5px;
     padding: 0 7px;
     margin-bottom: 3px;
+    display:inline-block;
 }
 
 .chatter {
