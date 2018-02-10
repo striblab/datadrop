@@ -29,6 +29,8 @@ var selected = $.urlParam('chart');
 if (selected != null){
 $(".slide").hide();
 $("#" + selected).show();
+} else if (selected == "all"){
+  $(".slide").show();
 }
 
 function chartTrend(){
@@ -275,7 +277,7 @@ function chartAge(){
               columns:
               [
                   ['x', "Age 0-4","Age 5-24","Age 25-49","Age 50-64","Age 65+"],
-                  ['Flu Hospitalizations', 29.8,13.1,19.6,48,274.9]
+                  ['Flu Hospitalizations', 31.2,13.2,21.6,53.5,307.2]
               ],
               type: 'bar',
             labels: {
@@ -297,12 +299,12 @@ function chartAge(){
           axis: {
               // rotated: true,
                 y: {
-                      max: 300,
+                      max: 320,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
                          count: 4,
-                         values: [0,100,200,300],
+                         values: [0,100,200,320],
                          format: d3.format('.0f')
                         }
                     },
