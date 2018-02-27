@@ -49,7 +49,7 @@ function chartTrend(){
               // xFormat: '%Y-%m-%d %H:%M:%S',
                 columns: [
                   ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
-                  ['Rate',103.1941489,95.55590701,82.43206341,82.3711653,76.88278072,56.64578469,68.66938307,59.36970782,65.97655383,52.97230575,68.26347305],
+                  ['Rate',53.47361369,48.26822711,42.3274039,41.96809275,37.99457661,28.77787857,32.67560325,28.5864448,32.67135897,26.26291807,43.11377246],
                 ],
             type: 'line',
             labels: {
@@ -70,12 +70,12 @@ function chartTrend(){
             axis: {
                   // rotated: true,
                   y: {
-                        max: 125,
+                        max: 75,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
-                         count: 6,
-                         values: [0,25,50,75,100,125],
+                         count: 4,
+                         values: [0,25,50,75],
                          format: d3.format(',.1f')
                         }
                     },
@@ -195,7 +195,7 @@ function mapTips(d, subject, dataCompare){
     }
   }
 
-        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate) + "</span> per 10,000 police incidents</div>";
+        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate / 2) + "</span> per 10,000 police incidents</div>";
 
 }
 
