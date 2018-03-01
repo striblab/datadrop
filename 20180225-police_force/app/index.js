@@ -49,7 +49,7 @@ function chartTrend(){
               // xFormat: '%Y-%m-%d %H:%M:%S',
                 columns: [
                   ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
-                  ['Rate',53.47361369,48.26822711,42.3274039,41.96809275,37.99457661,28.77787857,32.67560325,28.5864448,32.67135897,26.26291807,43.11377246],
+                  ['Rate',48.85205427,43.83994939,38.99328731,38.29508616,34.54332553,26.98637032,29.97606976,26.61208917,29.90552964,24.52956548,42.15568862],
                 ],
             type: 'line',
             labels: {
@@ -93,6 +93,66 @@ function chartTrend(){
 }
 
 chartTrend();
+
+
+function chartMonths(){
+   var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 60,
+        };
+
+    var chartMonths = c3.generate({
+          bindto: "#chartMonths",
+          padding: padding,
+          data: {
+              x: 'x',
+              // xFormat: '%Y-%m-%d %H:%M:%S',
+                columns: [
+                  ["x","2008-01-01","2008-02-01","2008-03-01","2008-04-01","2008-05-01","2008-06-01","2008-07-01","2008-08-01","2008-09-01","2008-10-01","2008-11-01","2008-12-01","2009-01-01","2009-02-01","2009-03-01","2009-04-01","2009-05-01","2009-06-01","2009-07-01","2009-08-01","2009-09-01","2009-10-01","2009-11-01","2009-12-01","2010-01-01","2010-02-01","2010-03-01","2010-04-01","2010-05-01","2010-06-01","2010-07-01","2010-08-01","2010-09-01","2010-10-01","2010-11-01","2010-12-01","2011-01-01","2011-02-01","2011-03-01","2011-04-01","2011-05-01","2011-06-01","2011-07-01","2011-08-01","2011-09-01","2011-10-01","2011-11-01","2011-12-01","2012-01-01","2012-02-01","2012-03-01","2012-04-01","2012-05-01","2012-06-01","2012-07-01","2012-08-01","2012-09-01","2012-10-01","2012-11-01","2012-12-01","2013-01-01","2013-02-01","2013-03-01","2013-04-01","2013-05-01","2013-06-01","2013-07-01","2013-08-01","2013-09-01","2013-10-01","2013-11-01","2013-12-01","2014-01-01","2014-02-01","2014-03-01","2014-04-01","2014-05-01","2014-06-01","2014-07-01","2014-08-01","2014-09-01","2014-10-01","2014-11-01","2014-12-01","2015-01-01","2015-02-01","2015-03-01","2015-04-01","2015-05-01","2015-06-01","2015-07-01","2015-08-01","2015-09-01","2015-10-01","2015-11-01","2015-12-01","2016-01-01","2016-02-01","2016-03-01","2016-04-01","2016-05-01","2016-06-01","2016-07-01","2016-08-01","2016-09-01","2016-10-01","2016-11-01","2016-12-01","2017-01-01","2017-02-01","2017-03-01","2017-04-01","2017-05-01","2017-06-01","2017-07-01","2017-08-01","2017-09-01","2017-10-01","2017-11-01","2017-12-01"],
+                  ["Incidents",177,106,116,114,121,135,157,156,125,155,114,99,195,84,105,133,145,117,155,114,99,76,89,74,158,67,99,90,91,101,132,137,112,99,85,57,163,92,97,101,106,100,111,106,83,97,71,72,148,62,96,94,90,102,127,88,82,86,72,74,153,61,72,72,82,86,91,75,69,72,58,58,145,39,70,69,96,107,99,110,95,116,58,62,138,59,67,69,64,93,91,100,73,73,66,64,167,60,68,77,98,96,93,91,74,79,77,58,152,65,72,88,90,82,73,74,59,64,56,59],
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: true
+            },
+                color: {
+                  pattern: ['#3580A3']
+                },
+            axis: {
+                  // rotated: true,
+                  y: {
+                        max: 300,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 4,
+                         values: [0,100,200,300],
+                         format: d3.format(',.1f')
+                        }
+                    },
+                x: {
+                    type: 'timeseries',
+                    padding: {right: 0, left: 0},
+                    tick: {
+                      format: '%Y-%m'
+                   }
+                }
+            }
+    });
+}
+
+chartMonths();
 
   function chartType(){
 
@@ -172,10 +232,10 @@ function mapColor(d, subject, dataCompare){
 
   for (var i=0; i<dataCompare.length; i++){
     if (d.properties.Name == dataCompare[i].neighborhood) {
-      if (dataCompare[i].rate >= 100) { return "#0D4673"; }
-      else if (dataCompare[i].rate >= 75) { return "#3580A3"; }
-      else if (dataCompare[i].rate >= 50) { return "#67B4C2"; }
-      else if (dataCompare[i].rate >= 25) { return "#A7E6E3"; }
+      if (dataCompare[i].rate >= 50) { return "#0D4673"; }
+      else if (dataCompare[i].rate >= 40) { return "#3580A3"; }
+      else if (dataCompare[i].rate >= 30) { return "#67B4C2"; }
+      else if (dataCompare[i].rate >= 20) { return "#A7E6E3"; }
       else if (dataCompare[i].rate >= 0) { return "#D1E6E1"; }
     }
   }
@@ -187,15 +247,15 @@ function mapTips(d, subject, dataCompare){
 
   for (var i=0; i<dataCompare.length; i++){
     if (d.properties.Name == dataCompare[i].neighborhood) {
-      if (dataCompare[i].rate >= 100) { color = "blue5"; rate = dataCompare[i].rate; }
-      else if (dataCompare[i].rate >= 75) { color = "blue4"; rate = dataCompare[i].rate; }
-      else if (dataCompare[i].rate >= 50) { color = "blue3"; rate = dataCompare[i].rate; }
-      else if (dataCompare[i].rate >= 25) { color = "blue2"; rate = dataCompare[i].rate; }
+      if (dataCompare[i].rate >= 50) { color = "blue5"; rate = dataCompare[i].rate; }
+      else if (dataCompare[i].rate >= 40) { color = "blue4"; rate = dataCompare[i].rate; }
+      else if (dataCompare[i].rate >= 30) { color = "blue3"; rate = dataCompare[i].rate; }
+      else if (dataCompare[i].rate >= 20) { color = "blue2"; rate = dataCompare[i].rate; }
       else if (dataCompare[i].rate >= 0) { color = "blue1"; rate = dataCompare[i].rate; }
     }
   }
 
-        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate / 2) + "</span> per 10,000 police incidents</div>";
+        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate) + "</span> per 10,000 police incidents</div>";
 
 }
 
