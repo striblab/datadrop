@@ -173,7 +173,7 @@ chartMonths();
               columns:
               [
                   ['x', "Bodily Force","Chemical Irritant","Taser","Gun Point Display","Improvised Weapon","Police K9 Bite","Baton","Firearm","Less Lethal Projectile"],
-                  ['value', 0.6829,0.1425,0.0927,0.0168,0.0123,0.0103,0.0022,0.0017,0.0006]
+                  ['value', 0.710,0.149,0.096,0.017,0.013,0.011,0.002,0.002,0.001]
               ],
               type: 'bar',
             labels: {
