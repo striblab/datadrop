@@ -232,9 +232,9 @@ function mapColor(d, subject, dataCompare){
 
   for (var i=0; i<dataCompare.length; i++){
     if (d.properties.Name == dataCompare[i].neighborhood) {
-      if (dataCompare[i].rate >= 50) { return "#0D4673"; }
-      else if (dataCompare[i].rate >= 40) { return "#3580A3"; }
-      else if (dataCompare[i].rate >= 30) { return "#67B4C2"; }
+      if (dataCompare[i].rate >= 100) { return "#0D4673"; }
+      else if (dataCompare[i].rate >= 80) { return "#3580A3"; }
+      else if (dataCompare[i].rate >= 40) { return "#67B4C2"; }
       else if (dataCompare[i].rate >= 20) { return "#A7E6E3"; }
       else if (dataCompare[i].rate >= 0) { return "#D1E6E1"; }
     }
@@ -247,9 +247,9 @@ function mapTips(d, subject, dataCompare){
 
   for (var i=0; i<dataCompare.length; i++){
     if (d.properties.Name == dataCompare[i].neighborhood) {
-      if (dataCompare[i].rate >= 50) { color = "blue5"; rate = dataCompare[i].rate; }
-      else if (dataCompare[i].rate >= 40) { color = "blue4"; rate = dataCompare[i].rate; }
-      else if (dataCompare[i].rate >= 30) { color = "blue3"; rate = dataCompare[i].rate; }
+      if (dataCompare[i].rate >= 100) { color = "blue5"; rate = dataCompare[i].rate; }
+      else if (dataCompare[i].rate >= 80) { color = "blue4"; rate = dataCompare[i].rate; }
+      else if (dataCompare[i].rate >= 40) { color = "blue3"; rate = dataCompare[i].rate; }
       else if (dataCompare[i].rate >= 20) { color = "blue2"; rate = dataCompare[i].rate; }
       else if (dataCompare[i].rate >= 0) { color = "blue1"; rate = dataCompare[i].rate; }
     }
