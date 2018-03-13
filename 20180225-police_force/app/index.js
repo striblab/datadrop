@@ -96,6 +96,132 @@ function chartTrend(){
 chartTrend();
 
 
+function chartArrests(){
+   var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 60,
+        };
+
+    var chartArrests = c3.generate({
+          bindto: "#chartArrests",
+          padding: padding,
+          data: {
+              x: 'x',
+              // xFormat: '%Y-%m-%d %H:%M:%S',
+                columns: [
+                  ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
+                  // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
+                  ['Rate',46.15355984,41.0880911,36.23073357,35.51637682,31.86244299,24.51238273,27.52961754,24.19280834,27.39899681,22.24469161],
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: true
+            },
+                color: {
+                  pattern: ['#3580A3']
+                },
+            axis: {
+                  // rotated: true,
+                  y: {
+                        max: 50,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 6,
+                         values: [0,25,50],
+                         format: d3.format(',.1f')
+                        }
+                    },
+                x: {
+                    // type: 'timeseries',
+                    padding: {right: 0, left: 0},
+                    tick: {
+                        count: 4,
+                        values: [2008,2011,2014,2017],
+                        multiline: false,
+                    }
+                }
+            }
+    });
+}
+
+chartArrests();
+
+
+function chartInjuries(){
+   var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 60,
+        };
+
+    var chartInjuries = c3.generate({
+          bindto: "#chartInjuries",
+          padding: padding,
+          data: {
+              x: 'x',
+              // xFormat: '%Y-%m-%d %H:%M:%S',
+                columns: [
+                  ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
+                  // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
+                  ['Rate',0.29260843,0.259207783,0.272873194,0.250203749,0.332460733,0.338378378,0.305116279,0.281615303,0.243553009,0.238773275,0.215053763],
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: true
+            },
+                color: {
+                  pattern: ['#3580A3']
+                },
+            axis: {
+                  // rotated: true,
+                  y: {
+                        max: 1,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 5,
+                         values: [0,0.25,0.50,0.75,1],
+                         format: d3.format('%.0f')
+                        }
+                    },
+                x: {
+                    // type: 'timeseries',
+                    padding: {right: 0, left: 0},
+                    tick: {
+                        count: 4,
+                        values: [2008,2011,2014,2017],
+                        multiline: false,
+                    }
+                }
+            }
+    });
+}
+
+chartInjuries();
+
+
 function chartCrime(){
    var  padding = {
             top: 20,

@@ -27,11 +27,12 @@ $.urlParam = function(name){
 var selected = $.urlParam('chart');
 
 if (selected != null){
-$(".slide").hide();
-$("#" + selected).show();
-} else if (selected == "all"){
-  $(".slide").show();
+  $(".slide").hide();
+  $("#" + selected).show();
 }
+if (selected == "all"){
+  $(".slide").show();
+} 
 
 function chartTrend(){
 var  padding = {

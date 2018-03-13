@@ -1682,11 +1682,20 @@ p {
 }
 
 .chatter {
-  line-height: 160%;
+  line-height: 140%;
 }
 
 .legendary {
-  padding: 1.7px;
+  border-radius: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
+  display: inline-block;
+  margin-bottom: 3px;
+  color: #ffffff !important;
+}
+
+.slide {
+  display: none;
 }
 
 .districtName {
