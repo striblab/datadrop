@@ -9,9 +9,12 @@ $.urlParam = function(name){
 var selected = $.urlParam('chart');
 
 if (selected != null){
-$(".slide").hide();
-$("#" + selected).show();
+  $(".slide").hide();
+  $("#" + selected).show();
 }
+if (selected == "all"){
+  $(".slide").show();
+} 
 
 d3.json("./shapefiles/minneapolis_nb.json", function(error, nb) {
 d3.json("./data/shootings.json", function(error, shootings) {

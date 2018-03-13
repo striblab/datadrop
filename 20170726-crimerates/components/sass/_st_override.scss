@@ -38,11 +38,16 @@ body {
 }
 
 .chatter {
-    line-height:160%;
+    line-height:140%;
 }
 
 .legendary {
-    padding:1px;
+    border-radius: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    display: inline-block;
+    margin-bottom: 3px;
+    color:#ffffff !important;
 }
 
 .row {
@@ -141,7 +146,7 @@ body {
     font-weight: 400 !important;
     font-size:0.6em !important;
     color: #888 !important;
-    line-height:140%;
+    line-height:160% !important;
     padding-top:10px !important;
     padding-bottom:10px !important;
     text-align:left !important;
