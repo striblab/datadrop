@@ -8,9 +8,12 @@ $.urlParam = function(name){
 var selected = $.urlParam('chart');
 
 if (selected != null){
-$(".slide").hide();
-$("#" + selected).show();
+  $(".slide").hide();
+  $("#" + selected).show();
 }
+if (selected == "all"){
+  $(".slide").show();
+} 
 
 d3.json('./data/index.json', function(error, dataLoad) {
 
