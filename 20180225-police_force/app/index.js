@@ -113,7 +113,7 @@ function chartArrests(){
                 columns: [
                   ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
                   // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
-                  ['Rate',0,0,0,0,0,0,0,0,0,0],
+                  ['Rate',24213,21123,21342,23050,21866,23118,23544,20179,21484,0],
                 ],
             type: 'line',
             labels: {
@@ -134,7 +134,7 @@ function chartArrests(){
             axis: {
                   // rotated: true,
                   y: {
-                        max: 50,
+                        max: 30000,
                         min: 0,
                         padding: {bottom: 0, top: 0},
                         tick: {
@@ -157,6 +157,69 @@ function chartArrests(){
 }
 
 chartArrests();
+
+
+function chartCalls(){
+   var  padding = {
+            top: 20,
+            right: 60,
+            bottom: 20,
+            left: 60,
+        };
+
+    var chartCalls = c3.generate({
+          bindto: "#chartCalls",
+          padding: padding,
+          data: {
+              x: 'x',
+              // xFormat: '%Y-%m-%d %H:%M:%S',
+                columns: [
+                  ['x',2008,2009,2010,2011,2012,2013,2014,2015,2016,2017],
+                  // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
+                  ['Rate',322402,316150,314926,313095,324520,351659,355617,359611,347093,380765],
+                ],
+            type: 'line',
+            labels: {
+                format: {
+                    // 'Rate': d3.format(',.1f')
+                }
+            }
+            },
+            legend: {
+                show: false
+            },
+            point: {
+                show: true
+            },
+                color: {
+                  pattern: ['#3580A3']
+                },
+            axis: {
+                  // rotated: true,
+                  y: {
+                        max: 400000,
+                        min: 0,
+                        padding: {bottom: 0, top: 0},
+                        tick: {
+                         count: 5,
+                         values: [0,100000,200000,300000,400000],
+                         format: d3.format(',.0f')
+                        }
+                    },
+                x: {
+                    // type: 'timeseries',
+                    padding: {right: 0, left: 0},
+                    tick: {
+                        count: 4,
+                        values: [2008,2011,2014,2017],
+                        multiline: false,
+                    }
+                }
+            }
+    });
+}
+
+chartCalls();
 
 
 function chartInjuries(){
@@ -446,7 +509,7 @@ function mapTips(d, subject, dataCompare){
     }
   }
 
-        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate) + "</span> per 10,000 police incidents</div>";
+        return "<div>" + d.properties.Name + "</div><div><span class='" + color + " legendary'>" + d3.format(",.1f")(rate) + "</span> per 10,000 police calls</div>";
 
 }
 
