@@ -109,7 +109,7 @@ d3.json("./shapefiles/oneday.geojson", function(error, oneday) {
         center: [-93.270831, 44.971611],
         zoom: 13,
         minZoom: 2,
-        interactive: false
+        interactive: true
     });
 
     // map.addControl(new mapboxgl.NavigationControl());
