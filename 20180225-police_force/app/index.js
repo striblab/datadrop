@@ -50,9 +50,9 @@ function chartTrend() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
                 // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
-                ['Rate', 46.15355984, 41.0880911, 36.23073357, 35.51637682, 31.86244299, 24.51238273, 27.52961754, 24.19280834, 27.39899681, 22.24469161],
+                ['Rate', 46.15355984, 41.0880911, 36.23073357, 35.51637682, 31.86244299, 24.51238273, 27.52961754, 24.19280834, 27.39899681, 22.24469161, null],
             ],
             type: 'line',
             labels: {
@@ -65,7 +65,8 @@ function chartTrend() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -93,11 +94,24 @@ function chartTrend() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2017],
+                    values: [2008, 2011, 2014, 2018],
                     multiline: false,
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -119,9 +133,9 @@ function chartArrests() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
                 // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
-                ['Rate', 24213, 21123, 21342, 23050, 21866, 23118, 23544, 20179, 21484, 0],
+                ['Rate', 24213, 21123, 21342, 23050, 21866, 23118, 23544, 20179, 21484, 0, null],
             ],
             type: 'line',
             labels: {
@@ -134,7 +148,8 @@ function chartArrests() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -162,11 +177,24 @@ function chartArrests() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2017],
+                    values: [2008, 2011, 2014, 2018],
                     multiline: false,
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -188,9 +216,9 @@ function chartCalls() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
                 // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
-                ['Rate', 322402, 316150, 314926, 313095, 324520, 351659, 355617, 359611, 347093, 380765],
+                ['Rate', 322402, 316150, 314926, 313095, 324520, 351659, 355617, 359611, 347093, 380765, null],
             ],
             type: 'line',
             labels: {
@@ -203,7 +231,8 @@ function chartCalls() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -231,11 +260,24 @@ function chartCalls() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2017],
+                    values: [2008, 2011, 2014, 2018],
                     multiline: false,
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -257,9 +299,9 @@ function chartInjuries() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017],
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
                 // ['Rate',100.4956545,92.80404871,79.66950966,79.59245596,74.20189819,54.17179711,66.22293085,56.95042699,63.470021,50.68743188],
-                ['Rate', 0.31, 0.29, 0.29, 0.28, 0.35, 0.34, 0.32, 0.29, 0.24, 0.26],
+                ['Rate', 0.31, 0.29, 0.29, 0.28, 0.35, 0.34, 0.32, 0.29, 0.24, 0.26, null],
             ],
             type: 'line',
             labels: {
@@ -272,7 +314,8 @@ function chartInjuries() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -300,11 +343,24 @@ function chartInjuries() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2017],
+                    values: [2008, 2011, 2014, 2018],
                     multiline: false,
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -326,9 +382,9 @@ function chartCrime() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014],
-                ['Violent Crime', 1268.5, 1108.7, 1062.3, 965.4, 992.2, 1019.2, 1012],
-                ['Property Crime', 5514.8, 4667.6, 4783.1, 4977.6, 4960.8, 4885.8, 4728]
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2018],
+                ['Violent Crime', 1268.5, 1108.7, 1062.3, 965.4, 992.2, 1019.2, 1012, null],
+                ['Property Crime', 5514.8, 4667.6, 4783.1, 4977.6, 4960.8, 4885.8, 4728, null]
                 // ['Rate',46.15355984,41.0880911,36.23073357,35.51637682,31.86244299,24.51238273,27.52961754,24.19280834,27.39899681,22.24469161],
             ],
             type: 'line',
@@ -342,7 +398,8 @@ function chartCrime() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2014) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3', '#A7E6E3']
@@ -370,11 +427,24 @@ function chartCrime() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2017],
+                    values: [2008, 2011, 2014, 2018],
                     multiline: false,
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -410,7 +480,8 @@ function chartMonths() {
             show: false
         },
         point: {
-            show: true
+            show: true,
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -440,7 +511,20 @@ function chartMonths() {
                     format: '%Y-%m'
                 }
             }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          },
+      tooltip: {
+        contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
+          return '<div class="chart-tooltip">' +
+            '<span class="tooltip-label">' + d[0].x + ':</span>' +
+            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
+            '</div>';
         }
+      }
     });
 }
 
@@ -501,7 +585,12 @@ function chartType() {
                     multiline: false
                 }
             }
-        }
+        },
+        grid: {
+            focus:{
+                show:false
+              },
+          }
     });
 }
 
