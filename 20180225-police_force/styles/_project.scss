@@ -10,11 +10,13 @@
     width:520px;
     margin-left:auto;
     margin-right:auto;
+    font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
 }
 
 #chartTrend .c3-line {
     opacity:1 !important;
 }
+
 
 .label {
   font-weight:bold;
@@ -29,11 +31,24 @@
   display:inline-block;
   height:35px;
   color:#ffffff;
-  font-size:0.8em;
+  font-size:0.7em;
   font-weight:bold;
   text-align:right;
   padding:2px;
 }
+
+    .chart-tooltip {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #FFFFFF;
+      font-size: 0.85em;
+      padding: 0.5em 1em;
+
+      .tooltip-label {
+        font-weight: 900;
+        display: inline-block;
+        padding-right: 0.5em;
+      }
+    }
 
 .mainbar div {
   display:block !important;
@@ -94,6 +109,7 @@
 .chartTitle {
 	font-size:1.5em;
 	font-weight:900;
+  font-family: "Benton Sans", Helvetica, Arial, sans-serif;
 }
 
 .map {
