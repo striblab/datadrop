@@ -31,8 +31,7 @@ var selected = $.urlParam('chart');
 if (selected != null) {
     $(".slide").hide();
     $("#" + selected).show();
-}
-if (selected == "all") {
+} else {
     $(".slide").show();
 }
 
