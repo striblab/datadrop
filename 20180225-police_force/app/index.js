@@ -66,7 +66,7 @@ function chartTrend() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -94,7 +94,7 @@ function chartTrend() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2018],
+                    values: [2008, 2011, 2015, 2018],
                     multiline: false,
                 }
             }
@@ -106,7 +106,7 @@ function chartTrend() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
@@ -149,7 +149,7 @@ function chartArrests() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -177,7 +177,7 @@ function chartArrests() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2018],
+                    values: [2008, 2011, 2015, 2018],
                     multiline: false,
                 }
             }
@@ -189,7 +189,7 @@ function chartArrests() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
@@ -232,7 +232,7 @@ function chartCalls() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -260,7 +260,7 @@ function chartCalls() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2018],
+                    values: [2008, 2011, 2015, 2018],
                     multiline: false,
                 }
             }
@@ -272,7 +272,7 @@ function chartCalls() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
@@ -315,7 +315,7 @@ function chartInjuries() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -343,7 +343,7 @@ function chartInjuries() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2018],
+                    values: [2008, 2011, 2015, 2018],
                     multiline: false,
                 }
             }
@@ -355,7 +355,7 @@ function chartInjuries() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
@@ -382,9 +382,9 @@ function chartCrime() {
             x: 'x',
             // xFormat: '%Y-%m-%d %H:%M:%S',
             columns: [
-                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2018],
-                ['Violent Crime', 1268.5, 1108.7, 1062.3, 965.4, 992.2, 1019.2, 1012, null],
-                ['Property Crime', 5514.8, 4667.6, 4783.1, 4977.6, 4960.8, 4885.8, 4728, null]
+                ['x', 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+                ['Violent Crime', 1253.168807,1116.653866,1063.051195,945.6703612,1036.365731,1021.105508,1008.81896,1084.803778,1104.650055,null,null]
+                // ['Property Crime', 5514.8, 4667.6, 4783.1, 4977.6, 4960.8, 4885.8, 4728, null]
                 // ['Rate',46.15355984,41.0880911,36.23073357,35.51637682,31.86244299,24.51238273,27.52961754,24.19280834,27.39899681,22.24469161],
             ],
             type: 'line',
@@ -399,7 +399,7 @@ function chartCrime() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2014) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2016) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3', '#A7E6E3']
@@ -407,7 +407,7 @@ function chartCrime() {
         axis: {
             // rotated: true,
             y: {
-                max: 6000,
+                max: 2000,
                 min: 0,
                 padding: {
                     bottom: 0,
@@ -415,7 +415,7 @@ function chartCrime() {
                 },
                 tick: {
                     count: 7,
-                    values: [0, 1000, 2000, 3000, 4000, 5000, 6000],
+                    values: [0, 500, 1000, 1500, 2000],
                     format: d3.format(',.1f')
                 }
             },
@@ -427,7 +427,7 @@ function chartCrime() {
                 },
                 tick: {
                     count: 4,
-                    values: [2008, 2011, 2014, 2018],
+                    values: [2008, 2011, 2015, 2018],
                     multiline: false,
                 }
             }
@@ -439,7 +439,7 @@ function chartCrime() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
@@ -481,7 +481,7 @@ function chartMonths() {
         },
         point: {
             show: true,
-            r: function(d) { if (d.x == 2017) { return 6;} else { return 1; } }
+            r: function(d) { if (d.x == 2017) { return 6;} else { return 2.5; } }
         },
         color: {
             pattern: ['#3580A3']
@@ -519,7 +519,7 @@ function chartMonths() {
           },
       tooltip: {
         contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-          return '<div class="chart-tooltip">' +
+          return '<div class="chart-tooltip blue4">' +
             '<span class="tooltip-label">' + d[0].x + ':</span>' +
             '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
             '</div>';
