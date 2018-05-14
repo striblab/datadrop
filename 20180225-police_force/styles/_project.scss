@@ -13,10 +13,13 @@
     font-family: "Benton Sans", Helvetica, Arial, sans-serif !important;
 }
 
+.slide {
+  display:none;
+}
+
 #chartTrend .c3-line {
     opacity:1 !important;
 }
-
 
 .label {
   font-weight:bold;
@@ -31,10 +34,10 @@
   display:inline-block;
   height:35px;
   color:#ffffff;
-  font-size:0.7em;
+  font-size:0.9em;
   font-weight:bold;
   text-align:right;
-  padding:2px;
+  padding-right:2px;
 }
 
     .chart-tooltip {
@@ -119,6 +122,9 @@
 @media (max-width:520px) {
     #wrapper {
         width:100%;
+    }
+    .bar div {
+      font-size:0.8em;
     }
 }
 
