@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%% let thisPage = 'index'; %>
+    <% if (answers.projectType === 'cms') { %>@@include('./_cms-assets.ejs.html')<% } %>
+    @@include('./_head.ejs.html')
+  </head>
+
+  <body class="">
+    <div class="<% if (answers.projectType === 'cms') { %>strib strib-styles strib-styles-specifically<% } %>">
+      @@include('./_cms-nav.ejs.html')
+    </div>
+
+    @@include('./_index-content.ejs.html')`
+
+    <div class="<% if (answers.projectType === 'cms') { %>strib strib-styles strib-styles-specifically<% } %>">
+      @@include('./_cms-footer.ejs.html')
+    </div>
+
+    <!-- Global/external scripts -->
+    <%% if (config.js && config.js.globals) { config.js.globals.forEach(function(s) { %>
+      <script src="<%%= s %>"></script>
+    <%% }); } %>
+
+    <!-- Scripts -->
+    <script src="./app.bundle.js"></script>
+  </body>
+</html>
