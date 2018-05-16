@@ -1,8 +1,6 @@
 {
   "about this file": "This document defines configuration for this project that is not content or copy.",
   "projectIdentifier": "20180518-babynames",
-
-
   "social": {
     "image": "assets/images/strib/strib-logo-name-social-card.png"
   },
@@ -21,12 +19,8 @@
       "js/c3.min.js"
     ]
   },
-
-  "content": {
-
-  },
+  "content": {},
   "publish": {
-
     "default": {
       "bucket": "static.startribune.com",
       "path": "news/projects-staging/all/20180518-babynames",
@@ -39,12 +33,12 @@
       "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/20180518-babynames/",
       "cacheSeconds": 30
     },
-
     "production": {
       "bucket": "static.startribune.com",
       "path": "news/projects/all/20180518-babynames",
       "url": "http://static.startribune.com/news/projects/all/20180518-babynames/",
       "cacheSeconds": 600
     }
-  }
+  },
+  "publishToken": "56669c5197273940fa17ade28a56c30f"
 }
