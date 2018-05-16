@@ -35,10 +35,16 @@ var dataStreamM = [];
 var dataStreamF = [];
 axis[0] = 'x';
 var indexYear = 1;
+var year = 0;
+var rate = 0;
+var rate2 = 0;
+var birthNum = 0;
+var birthNum2 = 0;
 
 for (var j=1910; j<2017; j++){
   axis[indexYear] = j;
   dataStreamM[indexYear] = 0;
+  dataStreamF[indexYear] = 0;
   indexYear++;
 }
 
@@ -56,8 +62,9 @@ function switchChart(name,gender,colors){
         if (data[index].name != name){ break; }
         if (axis[k] == data[index].year) { 
           dataStreamM[k] = data[index].rate; 
-          $("#rate").html(data[index].rate);
-          $("#year").html(data[index].year);
+          rate = data[index].rate;
+          year = data[index].year;
+          birthNum = data[index].births;
           index++; 
         }
       }
@@ -75,8 +82,9 @@ index = 0;
         if (data[index].name != name){ break; }
         if (axis[k] == data[index].year) { 
           dataStreamF[k] = data[index].rate; 
-          $("#rate").html(data[index].rate);
-          $("#year").html(data[index].year);
+          rate2 = data[index].rate;
+          year = data[index].year;
+          birthNum2 = data[index].births;
           index++; 
         }
       }
@@ -84,7 +92,22 @@ index = 0;
   }
 }
 
-console.log(dataStreamF);
+
+$("#infobox").html('<div class="chart-tooltip">' +
+  '<div class="tooltip-label">' + year + '</div></div>' +
+  '<div class="chart-tooltip"><div class="tooltip-label">Rate</div>' + 
+  '<div class="tooltip-value" style="color:#E07242;font-weight:900;">' + rate + '</div></div>' +
+  '<div class="chart-tooltip"><div class="tooltip-label">Total Births</div>' +
+  '<div class="tooltip-value">' + birthNum + '</div>' +
+  '</div>');
+
+$("#infobox2").html('<div class="chart-tooltip ">' +
+    '<div class="tooltip-label">' + year + '</div></div>' +
+    '<div class="chart-tooltip"><div class="tooltip-label">Rate</div>' + 
+    '<div class="tooltip-value" style="color:#857AAA;font-weight:900;">' + rate2 + '</div></div>' +
+    '<div class="chart-tooltip"><div class="tooltip-label">Total Births</div>' +
+    '<div class="tooltip-value">' + birthNum2 + '</div>' +
+    '</div>');
 
 dataStreamM[dataStreamM.length] = null;
 dataStreamM[dataStreamM.length] = null;
@@ -202,22 +225,31 @@ var chart = c3.generate({
 
         for (var k=0; k < rows.length; k++){
           if (rows[k].name == name && rows[k].year == d[0].x && rows[k].gender == "F"){
-            birthNum = rows[k].births;
+            birthNum2 = rows[k].births;
             break;
           }
         }
           $("#infobox").html('<div class="chart-tooltip">' +
-            '<span class="tooltip-label">' + d[0].x + ':</span></div>' +
-            '<div class="chart-tooltip"><span class="tooltip-label">Rate:</span>' + 
-            '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span></div>' +
-            '<div class="chart-tooltip"><span class="tooltip-label">Total Births:</span>' +
-            '<span class="tooltip-value">' + birthNum + '</span>' +
+            '<div class="tooltip-label">' + d[0].x + '</div></div>' +
+            '<div class="chart-tooltip"><div class="tooltip-label">Rate</div>' + 
+            '<div class="tooltip-value" style="color:#E07242;font-weight:900;">' + defaultValueFormat(d[0].value) + '</div></div>' +
+            '<div class="chart-tooltip"><div class="tooltip-label">Total Births</div>' +
+            '<div class="tooltip-value">' + birthNum + '</div>' +
             '</div>');
+
+          $("#infobox2").html('<div class="chart-tooltip ">' +
+            '<div class="tooltip-label">' + d[1].x + '</div></div>' +
+            '<div class="chart-tooltip"><div class="tooltip-label">Rate</div>' + 
+            '<div class="tooltip-value" style="color:#857AAA;font-weight:900;">' + defaultValueFormat(d[1].value) + '</div></div>' +
+            '<div class="chart-tooltip"><div class="tooltip-label">Total Births</div>' +
+            '<div class="tooltip-value">' + birthNum2 + '</div>' +
+            '</div>');
+
         }
       }
 });
 }
-else { $("#current").html("Name not found"); }
+else { $("#current").html("<div id='notfound'>Name not found</div>"); }
 
 }
 
@@ -242,7 +274,7 @@ if ($.urlParam('name') != 0 ) {
   $("#named, #named2").html(name);
   // $("#gender").html(sex);
   // $(".sex").html(genderfull);
-  $("#named, #rate, #named2, .sex").css("color",colorMe);
+  // $("#named, #rate, #named2, .sex").css("color",colorMe);
   switchChart(name,gender,colorMe);
 } 
 

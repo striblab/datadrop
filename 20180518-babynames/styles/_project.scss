@@ -47,22 +47,42 @@ h3 {
     text-align: left;
 }
 
+#named {
+  font-weight:900;
+}
+
+#notfound {
+  font-size:1.5em;
+  height:320px;
+}
+
 .selected {
     margin:0 !important;
 }
 
-    .chart-tooltip {
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #FFFFFF;
-      font-size: 0.85em;
-      padding: 0.5em 1em;
+.chart-tooltip {
+  text-align:left;
+  
+}
 
-      .tooltip-label {
-        font-weight: 900;
-        display: inline-block;
-        padding-right: 0.5em;
-      }
-    }
+.tooltip-label {
+   width:48%;
+   display:inline-block;
+}
+
+.tooltip-value {
+  width:48%;
+  display:inline-block;
+  text-align:right;
+}
+
+.chartBox {
+  height:75px;
+}
+
+.breaker {
+  margin:17px;
+}
 
 .byline {
     font-family: "Benton Sans", Helvetica, Arial, sans-serif;
@@ -83,6 +103,7 @@ h3 {
 }
 
 .source {
+    text-align:left !important;
     font-size: 0.8em;
     color: #888888;
 }
