@@ -1,0 +1,54 @@
+
+
+
+<!-- Screen reader announcements -->
+<div aria-live="polite" id="announcer" class="sr-only"></div>
+
+<!-- Skip to main content -->
+<a href="#main-content" class="to-main-content">Skip to main content</a>
+
+<!-- Header -->
+<header class="project-header" role="banner">
+  @@include('./_header.ejs.html')
+</header>
+
+<!-- Main content here -->
+<main id="main-content" class="content" role="main">
+  <div class="container-lg">
+      <div id="wrapper">
+<!-- 			<h3>1.) Select gender:</h3>
+			<div id="viewSwitch">
+			<li class="switch" id="M" data="M">Male</li>
+			<li class="switch" id="F" data="F">Female</li>
+			</div> -->
+
+<!-- 			<h3>Enter name:</h3> -->
+			<div id="filter"><input type="search" id="filter_box" placeholder="Type name and press enter" /></div>
+
+			<div class="chartTitle">How popular is the name <span id="named"></span> in Minnesota?</div>
+			<div class="chatter">Rate per 10,000 <span class="stat sex"></span> births by year</div>
+
+			<div id="chart"></div>
+
+			<div class="infobox legendary orange3">Male</div>
+			<div class="infobox legendary purple2">Female</div>
+
+			<div class="infobox" id="infobox"></div>
+			<div class="infobox" id="infobox2"></div>
+
+			<div id="current" class="chatter"><span class="stat" id="rate"></span> <span id="gender"></span> babies per 10,000 <!-- <span class="stat sex"></span> --> births in <span class="stat" id="year"></span> were named <span class="stat" id="named2"></span></div>
+
+			<small class="source">Result reflects the last year when the name's rate reached above zero.</small>
+			<div></div>
+			<small class="source">Data includes years when five babies received a certain name, so no births on the chart could mean between 0 and 4.</small>
+
+			<div class="byline">Source: U.S. Census Bureau | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+			</div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer role="contentinfo">
+  @@include('./_footer.ejs.html')
+</footer>
+
