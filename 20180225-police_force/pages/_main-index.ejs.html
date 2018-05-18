@@ -15,7 +15,7 @@
 	<div class="byline">Source: Minneapolis Police Department | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
 </div> -->
 
-<div id="arrests" class="slide" style="display:none;">
+<!-- <div id="arrests" class="slide" style="display:none;">
 	<div class="chartTitle">Declining Minneapolis arrest rates</div>
 	<div class="chatter">Minneapolis <span class='blue4 legendary'>arrest rates</span> are down by 9 percent and the lowest since 2000.</div>
 	<div class="chart" id="chartArrests"></div>
@@ -57,7 +57,7 @@
 	<div class="chatter">Bodily force represents the highest percentage of <span class='blue4 legendary'>police use-of-force incidents</span> by type from 2008 through 2017.</div>
 	<div class="chart" id="chartType"></div>
 	<div class="byline">Source: Minneapolis Police Department | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
-</div>
+</div> -->
 
 <div id="when" class="slide">
 	<div class="chartTitle">When police most often use force</div>
@@ -65,70 +65,53 @@
 	<div class="chart" id="chartCommon">
 		<div class="label">Community of incident</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:34%"><div>Central<br />35%</div></div>
-			<div class='blue4 mainbar' style="width:18%"><div>Near North<br />19%</div></div>
-			<div class='blue3 mainbar' style="width:12%"><div>Camden<br />9%</div></div>
-			<div class='blue2 mainbar' style="width:33%"><div>Other<br />36%</div></div>
+			<div class='blue5 mainbar' style="width:34%"><div>Central<br />35%</div></div><div class='blue4 mainbar' style="width:19%"><div>Near North<br />19%</div></div><div class='blue3 mainbar' style="width:12%"><div>Camden<br />9%</div></div><div class='blue2 mainbar' style="width:35%"><div>Other<br />36%</div></div>
 	    </div>
 	    
 		<div class="label">Race of suspect</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:58%"><div>Black<br />63%</div></div>
-			<div class='blue4 mainbar' style="width:21%"><div>White<br />23%</div></div>
-			<div class='blue3 mainbar' style="width:19%"><div>Other<br />14%</div></div>
+			<div class='blue5 mainbar' style="width:60%"><div>Black<br />63%</div></div><div class='blue4 mainbar' style="width:21%"><div>White<br />23%</div></div><div class='blue3 mainbar' style="width:19%"><div>Other<br />14%</div></div>
 	    </div>
 
 		<div class="label">Gender of suspect</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:82%"><div>Male<br />84%</div></div>
-			<div class='blue4 mainbar' style="width:14%"><div>Female<br />14%</div></div>
-			<div class='blue3 mainbar' style="width:1%"><div>&nbsp;<br />&nbsp;</div></div>
+			<div class='blue5 mainbar' style="width:84%"><div>Male<br />84%</div></div><div class='blue4 mainbar' style="width:14%"><div>Female<br />14%</div></div><div class='blue3 mainbar' style="width:2%"><div>&nbsp;<br />&nbsp;</div></div>
 	    </div>
 
 		<div class="label">What officers responded to</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:21%"><div>Suspicious Prsn<br />20%</div></div>
-			<div class='blue4 mainbar' style="width:12%"><div>Fight<br />12%</div></div>
-			<div class='blue3 mainbar' style="width:13%"><div>Disturb<br />8%</div></div>
-			<div class='blue2 mainbar' style="width:51%"><div>Other<br />59%</div></div>
+			<div class='blue5 mainbar' style="width:21%"><div>Suspicious Prsn<br />20%</div></div><div class='blue4 mainbar' style="width:12%"><div>Fight<br />12%</div></div><div class='blue3 mainbar' style="width:13%"><div>Disturb<br />8%</div></div><div class='blue2 mainbar' style="width:54%"><div>Other<br />59%</div></div>
 	    </div>
 
 		<div class="label">Was 911 involved?</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:60%"><div>No<br />60%</div></div>
-			<div class='blue4 mainbar' style="width:39%"><div>Yes<br />40%</div></div>
+			<div class='blue5 mainbar' style="width:60%"><div>No<br />60%</div></div><div class='blue4 mainbar' style="width:40%"><div>Yes<br />40%</div></div>
 	    </div>
 
 		<div class="label">How suspects resisted</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:25%"><div>Tensed<br />27%</div></div>
-			<div class='blue4 mainbar' style="width:20%"><div>Commit Crime<br />25%</div></div>
-			<div class='blue3 mainbar' style="width:14%"><div>Fled<br />15%</div></div>
-			<div class='blue2 mainbar' style="width:38%"><div>Other<br />33%</div></div>
+			<div class='blue5 mainbar' style="width:25%"><div>Tensed<br />27%</div></div><div class='blue4 mainbar' style="width:24%"><div>Committed Crime<br />25%</div></div><div class='blue3 mainbar' style="width:13%"><div>Fled<br />15%</div></div><div class='blue2 mainbar' style="width:38%"><div>Other<br />33%</div></div>
 	    </div>
 
 		<div class="label">Type of force used by officer</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:68%"><div>Bodily Force<br />71%</div></div>
-			<div class='blue4 mainbar' style="width:17%"><div>Chemical<br />15%</div></div>
-			<div class='blue3 mainbar' style="width:13%"><div>Other<br />14%</div></div>
+			<div class='blue5 mainbar' style="width:68%"><div>Bodily Force<br />71%</div></div><div class='blue4 mainbar' style="width:18%"><div>Chemical<br />15%</div></div><div class='blue3 mainbar' style="width:14%"><div>Other<br />14%</div></div>
 	    </div>
 
 		<div class="label">Was the suspect injured?</div>
 		<div class="bar">
-			<div class='blue5 mainbar' style="width:70%"><div>No<br />70%</div></div>
-			<div class='blue4 mainbar' style="width:29%"><div>Yes<br />30%</div></div>
+			<div class='blue5 mainbar' style="width:70%"><div>No<br />70%</div></div><div class='blue4 mainbar' style="width:30%"><div>Yes<br />30%</div></div>
 	    </div>
 	</div>
-	<div class="byline">Source: Minneapolis Police Department | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
+	<div class="byline"><div>Not all totals add to 100 due to rounding.</div>Source: Minneapolis Police Department | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
 </div>
 
-<div id="city" class="slide">
+<!-- <div id="city" class="slide">
 	<div class="chartTitle">Police use-of-force rates by neighborhood</div>
 	<div class="chatter">Shows use-of-force rates per 10,000 police calls, shaded from <span class='blue1 legendary'>lower</span> to <span class='blue5 legendary'>higher</span>, by Minneapolis neighborhood from 2008 through 2017, which were concentrated heavily in North and Central areas.</div>
 	<div id="map" class="map"><svg width="400" height="300" viewBox="0 0 400 350" preserveAspectRatio="xMidYMid"></svg></div>
 	<div class="byline">Source: Minneapolis Police Department | Graphic by <a href="http://www.startribune.com/jeff-hargarten/274254381/" target="new_">Jeff Hargarten, Star Tribune</a> | <a href="./data/maindata.xlsx" target="new_">Download Data</a></div>
-</div>
+</div> -->
 
 
 </div>
