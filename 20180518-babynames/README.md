@@ -1,10 +1,6 @@
 # 20180518 Babynames
 
-Analysis of U.S. Census Bureau name popularity data.
-
-
-
-
+Analysis of U.S. Census Bureau name popularity data. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Embed
