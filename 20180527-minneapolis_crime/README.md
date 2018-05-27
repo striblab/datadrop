@@ -1,6 +1,6 @@
 # Police Force
 
-An analysis of when Minneapolis police use force on 911 calls.
+An analysis of when Minneapolis police use force on 911 calls. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data

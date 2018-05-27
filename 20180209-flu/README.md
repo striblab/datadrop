@@ -1,6 +1,6 @@
 # Flu
 
-An analysis of the 2017-2018 flu outbreak.
+An analysis of the 2017-2018 flu outbreak. Built using [C3](https://github.com/masayuki0812/c3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data
