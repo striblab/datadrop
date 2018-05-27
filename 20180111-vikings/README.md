@@ -1,6 +1,6 @@
 # 20180121 Vikings
 
-An analysis of expectation versus reality for the Minnesota Vikings over time.
+An analysis of expectation versus reality for the Minnesota Vikings over time. Built using Mike Bostock's [D3](https://github.com/d3/d3) and [jQuery](https://github.com/jquery/jquery).
 
 
 ## Data
