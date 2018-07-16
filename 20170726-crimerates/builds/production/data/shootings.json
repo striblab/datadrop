@@ -522,6 +522,24 @@
     "AgeYears":40,
     "Race":"WHITE"
     }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -93.290159,45.040298 ]
+    },
+    "properties": {
+    "LastName":"Blevins",
+    "FirstName":"Thurman",
+    "MiddleName":"",
+    "BirthDate":"",
+    "DeathDate":"6/23/2018",
+    "year":2018,
+    "WeaponCategory":"GUN",
+    "AgeYears":31,
+    "Race":"BLACK"
+    }
   }
 ]
 }
