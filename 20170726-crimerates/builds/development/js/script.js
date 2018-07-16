@@ -248,11 +248,17 @@ function raceChart(){
       data: {
         // x: 'x',
         columns: [
-          ["Deaths",0.172,0.62,0.068,0.068,0.068],
+          ["Deaths",0.166,0.63,0.060,0.068,0.068],
           // ["Minneapolis 2000",0.65,0.179,0.613,0.0219,0.0763],
           ["Minneapolis",0.603,0.186,0.056,0.02,0.105]
         ],
-        type: 'bar'
+        type: 'bar',
+            labels: {
+                format: {
+                    'Deaths': d3.format('%'),
+                    'Minneapolis': d3.format('%')
+                }
+            }
       },
       legend: {
         show: false
@@ -291,16 +297,18 @@ function raceChart(){
       },
          regions: [
         {axis: 'x', start: 2007, end: 2009, class: 'hottest'},
-    ]
-      // tooltip: {
-      //   contents: function(d, defaultTitleFormat, defaultValueFormat, color) {
-      //     return '<div class="chart-tooltip">' +
-      //       '<span class="tooltip-label">' + d[0].x + ':</span>' +
-      //       '<span class="tooltip-value">' + defaultValueFormat(d[0].value) + '</span>' +
-      //       '</div>';
-      //   }
-      // }
+    ],
+      tooltip: {
+        show: false
+      }
     });
+
+
+
+      d3.selectAll(".c3-target-Minneapolis")
+          .selectAll(".c3-bar, .c3-texts")
+          .attr("transform", "translate(5, 0)");
+
 }
 
 raceChart();
